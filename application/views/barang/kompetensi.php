@@ -12,12 +12,6 @@
                 &nbsp;
                 <h1 class="h2 mb-0 text-gray-800">Tabel Pengajuan</h1>
             </div>
-            <a href="<?= base_url() ?>kompetensi/selanjutnya" class="btn btn-primary btn-md btn-icon-split" onsubmit=getData()>
-                <span class="text text-white">Selanjutnya</span>
-                <span class="icon text-white-50">
-                    <i class="fas fa-arrow-right"></i>
-                </span>
-            </a>
 
         </div>
 

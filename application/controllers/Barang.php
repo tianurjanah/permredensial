@@ -33,7 +33,8 @@ class Barang extends CI_Controller {
 		$data['ktg'] = $this->kategori_model->data()->num_rows();
 
 		$this->load->view('templates/header', $data);
-		$this->load->view('barang/form_tambah');
+		// $this->load->view('barang/form_tambah');
+		$this->load->view('barang/formulir');
 		$this->load->view('templates/footer');
     }
     

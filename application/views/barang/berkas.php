@@ -10,18 +10,14 @@
                     <i class="fas fa-arrow-left"></i>
                 </a>
                 &nbsp;
-                <h1 class="h2 mb-0 text-gray-800">Pengajuan Kredensial</h1>
+                <h3 class="h3 mb-0 text-gray-800">Formulir Pengajuan Kredensial</h3>
             </div>
-
-
-            
-            
-            <button type="submit" class="btn btn-primary btn-md btn-icon-split" onsubmit=getData()>
+            <a href="<?= base_url() ?>kompetensi/selanjutnya" class="btn btn-primary btn-md btn-icon-split" onsubmit=getData()>
                 <span class="text text-white">Selanjutnya</span>
                 <span class="icon text-white-50">
                     <i class="fas fa-arrow-right"></i>
                 </span>
-            </button>
+            </a>
 
         </div>
 

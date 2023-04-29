@@ -21,7 +21,7 @@ class Kompetensi extends CI_Controller {
 		 $data['kategori'] = $this->kategori_model->data()->result();
 		
 		$this->load->view('templates/header', $data);
-		$this->load->view('kompetensi/form_tambah');
+		$this->load->view('barang/formulir');
 		$this->load->view('templates/footer');
     }
 
@@ -61,7 +61,7 @@ class Kompetensi extends CI_Controller {
 		$data['bagian12'] = $this->kompetensi_model->bagian12()->result();
 
 		$this->load->view('templates/header', $data);
-		$this->load->view('kompetensi/index');
+		$this->load->view('barang/kompetensi');
 		$this->load->view('templates/footer');
     }
 }
