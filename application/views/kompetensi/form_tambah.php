@@ -1,7 +1,7 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
-    <form action="<?= base_url() ?>pengajuan/pengajuan" name="myForm" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+    <form action="<?= base_url() ?>kompetensi/selanjutnya" name="myForm" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">

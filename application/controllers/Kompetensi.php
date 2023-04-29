@@ -16,6 +16,18 @@ class Kompetensi extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = 'Kompetensi';
+		 //data untuk select
+		 $data['ktg'] = $this->kategori_model->data()->num_rows();
+		 $data['kategori'] = $this->kategori_model->data()->result();
+		
+		$this->load->view('templates/header', $data);
+		$this->load->view('kompetensi/form_tambah');
+		$this->load->view('templates/footer');
+    }
+
+	public function selanjutnya()
+	{
+        $data['title'] = 'Kompetensi';
 		$data['bagian1'] = $this->kompetensi_model->bagian1()->result();
 		$data['bagian2'] = $this->kompetensi_model->bagian2()->result();
 		$data['bagian3'] = $this->kompetensi_model->bagian3()->result();
@@ -50,18 +62,6 @@ class Kompetensi extends CI_Controller {
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('kompetensi/index');
-		$this->load->view('templates/footer');
-    }
-
-	public function selanjutnya()
-	{
-        $data['title'] = 'Kompetensi';
-		 //data untuk select
-		 $data['ktg'] = $this->kategori_model->data()->num_rows();
-		 $data['kategori'] = $this->kategori_model->data()->result();
-		
-		$this->load->view('templates/header', $data);
-		$this->load->view('kompetensi/form_tambah');
 		$this->load->view('templates/footer');
     }
 }

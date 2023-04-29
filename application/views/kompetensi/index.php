@@ -48,8 +48,7 @@
                                                     <th width="1%">No</th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>Kompetensi</th>
-                                                    <th>Diminta</th>
-                                                    <th>Status</th>
+                                                    <th class="text-center">Diminta</th>
                                                 </tr>
                                              </thead>
                                             <tbody style="cursor:pointer;" id="tbody"> 
@@ -60,11 +59,6 @@
                                                     <td>
                                                         <center>
                                                             <input type="checkbox">
-                                                        </center>
-                                                    </td>
-                                                    <td>
-                                                        <center>
-                                                            -
                                                         </center>
                                                     </td>
                                                 </tr>
@@ -93,8 +87,8 @@
                                                     <th width="1%">No</th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>Kompetensi</th>
-                                                    <th>Diminta</th>
-                                                    <th>Status</th>
+                                                    <th class="text-center">Diminta</th>
+                    
                                                 </tr>
                                              </thead>
                                             <tbody style="cursor:pointer;" id="tbody"> 
@@ -105,11 +99,6 @@
                                                     <td>
                                                         <center>
                                                             <input type="checkbox">
-                                                        </center>
-                                                    </td>
-                                                    <td>
-                                                        <center>
-                                                            -
                                                         </center>
                                                     </td>
                                                 </tr>
@@ -138,8 +127,7 @@
                                                     <th width="1%">No</th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>Kompetensi</th>
-                                                    <th>Diminta</th>
-                                                    <th>Status</th>
+                                                    <th class="text-center">Diminta</th>
                                                 </tr>
                                              </thead>
                                             <tbody style="cursor:pointer;" id="tbody"> 
@@ -150,11 +138,6 @@
                                                     <td>
                                                         <center>
                                                             <input type="checkbox">
-                                                        </center>
-                                                    </td>
-                                                    <td>
-                                                        <center>
-                                                            -
                                                         </center>
                                                     </td>
                                                 </tr>
@@ -182,8 +165,7 @@
                                                     <th width="1%">No</th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>Kompetensi</th>
-                                                    <th>Diminta</th>
-                                                    <th>Status</th>
+                                                    <th class="text-center">Diminta</th>
                                                 </tr>
                                              </thead>
                                             <tbody style="cursor:pointer;" id="tbody"> 
@@ -194,11 +176,6 @@
                                                     <td>
                                                         <center>
                                                             <input type="checkbox">
-                                                        </center>
-                                                    </td>
-                                                    <td>
-                                                        <center>
-                                                            -
                                                         </center>
                                                     </td>
                                                 </tr>
@@ -225,8 +202,7 @@
                                                     <th width="1%">No</th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>Kompetensi</th>
-                                                    <th>Diminta</th>
-                                                    <th>Status</th>
+                                                    <th class="text-center">Diminta</th>
                                                 </tr>
                                              </thead>
                                             <tbody style="cursor:pointer;" id="tbody"> 
@@ -237,11 +213,6 @@
                                                     <td>
                                                         <center>
                                                             <input type="checkbox">
-                                                        </center>
-                                                    </td>
-                                                    <td>
-                                                        <center>
-                                                            -
                                                         </center>
                                                     </td>
                                                 </tr>
@@ -268,8 +239,7 @@
                                                     <th width="1%">No</th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>Kompetensi</th>
-                                                    <th>Diminta</th>
-                                                    <th>Status</th>
+                                                    <th class="text-center">Diminta</th>
                                                 </tr>
                                              </thead>
                                             <tbody style="cursor:pointer;" id="tbody"> 
@@ -280,11 +250,6 @@
                                                     <td>
                                                         <center>
                                                             <input type="checkbox">
-                                                        </center>
-                                                    </td>
-                                                    <td>
-                                                        <center>
-                                                            -
                                                         </center>
                                                     </td>
                                                 </tr>
@@ -311,8 +276,7 @@
                                                     <th width="1%">No</th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>Kompetensi</th>
-                                                    <th>Diminta</th>
-                                                    <th>Status</th>
+                                                    <th class="text-center">Diminta</th>
                                                 </tr>
                                              </thead>
                                             <tbody style="cursor:pointer;" id="tbody"> 
@@ -323,11 +287,6 @@
                                                     <td>
                                                         <center>
                                                             <input type="checkbox">
-                                                        </center>
-                                                    </td>
-                                                    <td>
-                                                        <center>
-                                                            -
                                                         </center>
                                                     </td>
                                                 </tr>
@@ -354,8 +313,7 @@
                                                     <th width="1%">No</th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>Kompetensi</th>
-                                                    <th>Diminta</th>
-                                                    <th>Status</th>
+                                                    <th class="text-center">Diminta</th>
                                                 </tr>
                                              </thead>
                                             <tbody style="cursor:pointer;" id="tbody"> 
@@ -366,11 +324,6 @@
                                                     <td>
                                                         <center>
                                                             <input type="checkbox">
-                                                        </center>
-                                                    </td>
-                                                    <td>
-                                                        <center>
-                                                            -
                                                         </center>
                                                     </td>
                                                 </tr>
@@ -397,8 +350,7 @@
                                                     <th width="1%">No</th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>Kompetensi</th>
-                                                    <th>Diminta</th>
-                                                    <th>Status</th>
+                                                    <th class="text-center">Diminta</th>
                                                 </tr>
                                              </thead>
                                             <tbody style="cursor:pointer;" id="tbody"> 
@@ -411,11 +363,6 @@
                                                             <input type="checkbox">
                                                         </center>
                                                     </td>
-                                                    <td>
-                                                        <center>
-                                                            -
-                                                        </center>
-                                                    </td>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
@@ -424,7 +371,6 @@
                                                     <th width="1%"></th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>A. Melakukan Pemeriksaan Inivio</th>
-                                                    <th></th>
                                                     <th></th>
                                                 </tr>
                                              </thead>
@@ -438,11 +384,6 @@
                                                             <input type="checkbox">
                                                         </center>
                                                     </td>
-                                                    <td>
-                                                        <center>
-                                                            -
-                                                        </center>
-                                                    </td>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
@@ -451,7 +392,6 @@
                                                     <th width="1%"></th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>B. Kardiovasculer</th>
-                                                    <th></th>
                                                     <th></th>
                                                 </tr>
                                              </thead>
@@ -465,11 +405,6 @@
                                                             <input type="checkbox">
                                                         </center>
                                                     </td>
-                                                    <td>
-                                                        <center>
-                                                            -
-                                                        </center>
-                                                    </td>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
@@ -478,7 +413,6 @@
                                                     <th width="1%"></th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>C. Paru-paru</th>
-                                                    <th></th>
                                                     <th></th>
                                                 </tr>
                                              </thead>
@@ -492,11 +426,6 @@
                                                             <input type="checkbox">
                                                         </center>
                                                     </td>
-                                                    <td>
-                                                        <center>
-                                                            -
-                                                        </center>
-                                                    </td>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
@@ -505,7 +434,6 @@
                                                     <th width="1%"></th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>D. Saluran Pencernaan</th>
-                                                    <th></th>
                                                     <th></th>
                                                 </tr>
                                              </thead>
@@ -519,11 +447,6 @@
                                                             <input type="checkbox">
                                                         </center>
                                                     </td>
-                                                    <td>
-                                                        <center>
-                                                            -
-                                                        </center>
-                                                    </td>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
@@ -532,7 +455,6 @@
                                                     <th width="1%"></th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>E. Hati dan Kandung Empedu</th>
-                                                    <th></th>
                                                     <th></th>
                                                 </tr>
                                              </thead>
@@ -546,11 +468,6 @@
                                                             <input type="checkbox">
                                                         </center>
                                                     </td>
-                                                    <td>
-                                                        <center>
-                                                            -
-                                                        </center>
-                                                    </td>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
@@ -559,7 +476,6 @@
                                                     <th width="1%"></th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>F. Onkologi dan Ortopedi</th>
-                                                    <th></th>
                                                     <th></th>
                                                 </tr>
                                              </thead>
@@ -573,11 +489,6 @@
                                                             <input type="checkbox">
                                                         </center>
                                                     </td>
-                                                    <td>
-                                                        <center>
-                                                            -
-                                                        </center>
-                                                    </td>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
@@ -586,7 +497,6 @@
                                                     <th width="1%"></th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>G. Lokalisasi dan Deteksi Infeksi</th>
-                                                    <th></th>
                                                     <th></th>
                                                 </tr>
                                              </thead>
@@ -600,11 +510,6 @@
                                                             <input type="checkbox">
                                                         </center>
                                                     </td>
-                                                    <td>
-                                                        <center>
-                                                            -
-                                                        </center>
-                                                    </td>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
@@ -613,7 +518,6 @@
                                                     <th width="1%"></th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>H. Ginjal dan Kandung Kemih</th>
-                                                    <th></th>
                                                     <th></th>
                                                 </tr>
                                              </thead>
@@ -627,11 +531,6 @@
                                                             <input type="checkbox">
                                                         </center>
                                                     </td>
-                                                    <td>
-                                                        <center>
-                                                            -
-                                                        </center>
-                                                    </td>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
@@ -640,7 +539,6 @@
                                                     <th width="1%"></th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>I. PET</th>
-                                                    <th></th>
                                                     <th></th>
                                                 </tr>
                                              </thead>
@@ -654,11 +552,6 @@
                                                             <input type="checkbox">
                                                         </center>
                                                     </td>
-                                                    <td>
-                                                        <center>
-                                                            -
-                                                        </center>
-                                                    </td>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
@@ -667,7 +560,6 @@
                                                     <th width="1%"></th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>J. Lain-lain</th>
-                                                    <th></th>
                                                     <th></th>
                                                 </tr>
                                              </thead>
@@ -679,11 +571,6 @@
                                                     <td>
                                                         <center>
                                                             <input type="checkbox">
-                                                        </center>
-                                                    </td>
-                                                    <td>
-                                                        <center>
-                                                            -
                                                         </center>
                                                     </td>
                                                 </tr>
@@ -711,8 +598,7 @@
                                                     <th width="1%">No</th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>Kegiatan Mould Room</th>
-                                                    <th>Diminta</th>
-                                                    <th>Status</th>
+                                                    <th class="text-center">Diminta</th>
                                                 </tr>
                                              </thead>
                                             <tbody style="cursor:pointer;" id="tbody"> 
@@ -725,11 +611,6 @@
                                                             <input type="checkbox">
                                                         </center>
                                                     </td>
-                                                    <td>
-                                                        <center>
-                                                            -
-                                                        </center>
-                                                    </td>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
@@ -738,7 +619,6 @@
                                                     <th width="1%">No</th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>Simulator</th>
-                                                    <th></th>
                                                     <th></th>
                                                 </tr>
                                              </thead>
@@ -752,11 +632,6 @@
                                                             <input type="checkbox">
                                                         </center>
                                                     </td>
-                                                    <td>
-                                                        <center>
-                                                            -
-                                                        </center>
-                                                    </td>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
@@ -765,7 +640,6 @@
                                                     <th width="1%">No</th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>CT Simulator</th>
-                                                    <th></th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
@@ -779,11 +653,6 @@
                                                             <input type="checkbox">
                                                         </center>
                                                     </td>
-                                                    <td>
-                                                        <center>
-                                                            -
-                                                        </center>
-                                                    </td>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
@@ -792,7 +661,6 @@
                                                     <th width="1%">No</th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>Radiasi Eksterna (Telecobalt/Linear  Acceselator)</th>
-                                                    <th></th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
@@ -806,11 +674,6 @@
                                                             <input type="checkbox">
                                                         </center>
                                                     </td>
-                                                    <td>
-                                                        <center>
-                                                            -
-                                                        </center>
-                                                    </td>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
@@ -819,7 +682,6 @@
                                                     <th width="1%">No</th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>Melakukan Verifikasi Radiasi Eksternal</th>
-                                                    <th></th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
@@ -833,11 +695,6 @@
                                                             <input type="checkbox">
                                                         </center>
                                                     </td>
-                                                    <td>
-                                                        <center>
-                                                            -
-                                                        </center>
-                                                    </td>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
@@ -846,7 +703,6 @@
                                                     <th width="1%">No</th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>Brakiterapi</th>
-                                                    <th></th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
@@ -860,11 +716,6 @@
                                                             <input type="checkbox">
                                                         </center>
                                                     </td>
-                                                    <td>
-                                                        <center>
-                                                            -
-                                                        </center>
-                                                    </td>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
@@ -873,7 +724,6 @@
                                                     <th width="1%">No</th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>Treatment Planning System 2D</th>
-                                                    <th></th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
@@ -887,11 +737,6 @@
                                                             <input type="checkbox">
                                                         </center>
                                                     </td>
-                                                    <td>
-                                                        <center>
-                                                            -
-                                                        </center>
-                                                    </td>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
@@ -900,7 +745,6 @@
                                                     <th width="1%">No</th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>Cek Rutin Harian</th>
-                                                    <th></th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
@@ -914,11 +758,6 @@
                                                             <input type="checkbox">
                                                         </center>
                                                     </td>
-                                                    <td>
-                                                        <center>
-                                                            -
-                                                        </center>
-                                                    </td>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
@@ -927,8 +766,7 @@
                                                     <th width="1%">No</th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>Implementasi Keamanan dan Keselamatan Kerja</th>
-                                                    <th></th>
-                                                    <th></th>
+                                                    <th class="text-center"></th>
                                                 </tr>
                                             </thead>
                                             <tbody style="cursor:pointer;" id="tbody"> 
@@ -941,11 +779,6 @@
                                                             <input type="checkbox">
                                                         </center>
                                                     </td>
-                                                    <td>
-                                                        <center>
-                                                            -
-                                                        </center>
-                                                    </td>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
@@ -954,8 +787,7 @@
                                                     <th width="1%">No</th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>Manajerial</th>
-                                                    <th></th>
-                                                    <th></th>
+                                                    <th class="text-center"></th>
                                                 </tr>
                                             </thead>
                                             <tbody style="cursor:pointer;" id="tbody"> 
@@ -966,11 +798,6 @@
                                                     <td>
                                                         <center>
                                                             <input type="checkbox">
-                                                        </center>
-                                                    </td>
-                                                    <td>
-                                                        <center>
-                                                            -
                                                         </center>
                                                     </td>
                                                 </tr>
@@ -997,8 +824,7 @@
                                                     <th width="1%">No</th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>Kompetensi</th>
-                                                    <th>Diminta</th>
-                                                    <th>Status</th>
+                                                    <th class="text-center">Diminta</th>
                                                 </tr>
                                              </thead>
                                             <tbody style="cursor:pointer;" id="tbody"> 
@@ -1009,11 +835,6 @@
                                                     <td>
                                                         <center>
                                                             <input type="checkbox">
-                                                        </center>
-                                                    </td>
-                                                    <td>
-                                                        <center>
-                                                            -
                                                         </center>
                                                     </td>
                                                 </tr>
@@ -1040,8 +861,7 @@
                                                     <th width="1%">No</th>
                                                     <!-- <th>Foto</th> -->
                                                     <th>Kompetensi</th>
-                                                    <th>Diminta</th>
-                                                    <th>Status</th>
+                                                    <th class="text-center">Diminta</th>
                                                 </tr>
                                              </thead>
                                             <tbody style="cursor:pointer;" id="tbody"> 
@@ -1052,11 +872,6 @@
                                                     <td>
                                                         <center>
                                                             <input type="checkbox">
-                                                        </center>
-                                                    </td>
-                                                    <td>
-                                                        <center>
-                                                            -
                                                         </center>
                                                     </td>
                                                 </tr>
