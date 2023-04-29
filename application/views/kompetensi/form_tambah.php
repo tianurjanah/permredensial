@@ -12,6 +12,8 @@
                 &nbsp;
                 <h1 class="h2 mb-0 text-gray-800">Pengajuan Kredensial</h1>
             </div>
+
+            
             <button type="submit" class="btn btn-primary btn-md btn-icon-split" onsubmit=getData()>
                 <span class="text text-white">Selanjutnya</span>
                 <span class="icon text-white-50">
