@@ -182,7 +182,7 @@ if (!$this->session->has_userdata('login_session')){
             <?php if($this->session->userdata('login_session')['level'] == 'Admin'): ?>
             
             <div class="sidebar-heading">
-                Data User
+                Pengajuan
             </div>
             <?php if($title == 'User'): ?>
             <li class="nav-item active">
@@ -193,9 +193,9 @@ if (!$this->session->has_userdata('login_session')){
                     <i class="fas fa-fw fa-user-friends"></i>
                     <span>Data User</span>
                 </a>
-                <a class="nav-link" href="<?= base_url() ?>kompetensi">
+                <a class="nav-link" href="<?= base_url() ?>mitrabestari">
                     <i class="fas fa-list"></i>
-                    <span>Kompetensi</span>
+                    <span>Approve Pengajuan</span>
                 </a>
             </li>
 
