@@ -51,12 +51,6 @@
                                                 </div>
                                             </div>
                                             <br>
-                                            <center>
-                                                <div id="img">
-                                                    <img src="<?= base_url() ?>assets/upload/barang/nakes.png" id="outputImg" width="150" maxheight="250">
-                                                </div>
-                                            </center>
-                                            <br>
                                             <!-- foto -->
                                             <div class="form-group">
                                                 <div class="custom-file">
