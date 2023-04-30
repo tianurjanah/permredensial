@@ -71,7 +71,7 @@ class Barang extends CI_Controller {
 	{
 
         $config['upload_path']   = './assets/upload/barang/';
-		$config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF||tiff|TIFF|PDF';
+		$config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF||tiff|TIFF|PDF|pdf';
 	
 		$namaFile = $_FILES['photo']['name'];
 		$error = $_FILES['photo']['error'];
@@ -125,7 +125,7 @@ class Barang extends CI_Controller {
 	public function proses_ubah()
 	{
         $config['upload_path']   = './assets/upload/barang/';
-		$config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF||tiff|TIFF';
+		$config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF||tiff|TIFF|PDF|pdf';
 	
 		$namaFile = $_FILES['photo']['name'];
 		$error = $_FILES['photo']['error'];

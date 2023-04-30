@@ -21,7 +21,6 @@ function fileIsValid(fileName) {
         case 'tiff':
         case 'gif':
         case 'tif':
-        case 'pdf':
 
             break;
         default:
@@ -37,11 +36,11 @@ function VerifyFileNameAndFileSize() {
 
     if (file != null) {
         var fileName = file.name;
-        // if (fileIsValid(fileName) == false) {
-        //     validasi('Format bukan gambar!', 'warning');
-        //     document.getElementById('GetFile').value = null;
-        //     return false;
-        // }
+        if (fileIsValid(fileName) == false) {
+            validasi('Format bukan gambar!', 'warning');
+            document.getElementById('GetFile').value = null;
+            return false;
+        }
         var content;
         var size = file.size;
         if ((size != null) && ((size / (1024 * 1024)) > 3)) {
