@@ -19,7 +19,7 @@
                                 <th>Nama Tenaga Kesehatan</th>
                                 <th>Nama Mitra Bestari</th>
                                 <th>Tanggal Pengajuan</th>
-                                <th width="1%">Aksi</th>
+                                <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody style="cursor:pointer;" id="tbody"> 
@@ -31,13 +31,9 @@
                                 <td onclick="#"><?= $p->tanggal_pengajuan ?></td>
                                 <td>
                                     <center>
-                                        <a href="#"
-                                            class="btn btn-circle btn-success btn-sm">
-                                            <i class="fas fa-pen"></i>
-                                        </a>
-                                        <a href="#" onclick="#"
-                                            class="btn btn-circle btn-danger btn-sm">
-                                            <i class="fas fa-trash"></i>
+                                        <a href="<?= base_url() ?>barang/ubah/<?= $p->id ?>"
+                                            class=" btn-success btn-sm">
+                                            Atur Jadwal
                                         </a>
                                     </center>
                                 </td>

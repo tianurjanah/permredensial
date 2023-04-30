@@ -6,7 +6,7 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <div class="d-sm-flex">
-                <a href="<?= base_url() ?>barang" class="btn btn-md btn-circle btn-dark">
+                <a href="<?= base_url() ?>barang" class="btn btn-md btn-circle btn-info">
                     <i class="fas fa-arrow-left"></i>
                 </a>
                 &nbsp;
@@ -28,15 +28,15 @@
         <div class="d-sm-flex  justify-content-between mb-0">
             <div class="col-lg-12 mb-4">
                 <!-- Illustrations -->
-                <div class="card border-bottom-dark shadow mb-4">
-                    <div class="card-header py-3 bg-dark">
+                <div class="card border-bottom-info shadow mb-4">
+                    <div class="card-header py-3 bg-info">
                         <h6 class="m-0 font-weight-bold text-white">Form Pengajuan</h6>
                     </div>
 
                     <div class="card-body">
                         <div class="col-lg-12">
                         <p>
-                            <button class="btn btn-primary col-lg-12 btn-dark" type="button" data-toggle="collapse" data-target="#Bagian1" aria-expanded="false" aria-controls="Bagian1">
+                            <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian1" aria-expanded="false" aria-controls="Bagian1">
                                 BIODATA
                             </button>
                         </p> <br>
@@ -64,7 +64,7 @@
                             </div>
                         
                         <p>
-                            <button class="btn btn-primary col-lg-12 btn-dark" type="button" data-toggle="collapse" data-target="#Bagian2" aria-expanded="false" aria-controls="Bagian2">
+                            <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian2" aria-expanded="false" aria-controls="Bagian2">
                                 IJAZAH
                             </button>
                         </p> <br>
@@ -78,7 +78,7 @@
                             </div>
 
                         <p>
-                            <button class="btn btn-primary col-lg-12 btn-dark" type="button" data-toggle="collapse" data-target="#Bagian3" aria-expanded="false" aria-controls="Bagian3">
+                            <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian3" aria-expanded="false" aria-controls="Bagian3">
                                 TRANSKIP NILAI
                             </button>
                         </p><br>
@@ -92,7 +92,7 @@
                             </div>
 
                         <p>
-                            <button class="btn btn-primary col-lg-12 btn-dark" type="button" data-toggle="collapse" data-target="#Bagian4" aria-expanded="false" aria-controls="Bagian4">
+                            <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian4" aria-expanded="false" aria-controls="Bagian4">
                                 SURAT IJIN
                             </button>
                         </p><br>
@@ -104,7 +104,7 @@
                                 </div>
                             </div>
                         <p>
-                            <button class="btn btn-primary col-lg-12 btn-dark" type="button" data-toggle="collapse" data-target="#Bagian5" aria-expanded="false" aria-controls="Bagian5">
+                            <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian5" aria-expanded="false" aria-controls="Bagian5">
                                 SERTIFIKASI PELATIHAN KEAHLIAN
                             </button>
                         </p><br>
@@ -116,7 +116,7 @@
                                 </div>
                             </div>
                         <p>
-                            <button class="btn btn-primary col-lg-12 btn-dark" type="button" data-toggle="collapse" data-target="#Bagian6" aria-expanded="false" aria-controls="Bagian6">
+                            <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian6" aria-expanded="false" aria-controls="Bagian6">
                                 PENGALAMAN KERJA
                             </button>
                         </p><br>
@@ -128,7 +128,7 @@
                                 </div>
                             </div>
                         <p>
-                            <button class="btn btn-primary col-lg-12 btn-dark" type="button" data-toggle="collapse" data-target="#Bagian7" aria-expanded="false" aria-controls="Bagian7">
+                            <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian7" aria-expanded="false" aria-controls="Bagian7">
                                 VERIFIKASI SUMBER UTAMA <i>(PRIMARY SOURCE VERIFICATION)</i>
                             </button>
                         </p><br>
@@ -140,7 +140,7 @@
                                 </div>
                             </div>
                         <p>
-                            <button class="btn btn-primary col-lg-12 btn-dark" type="button" data-toggle="collapse" data-target="#Bagian8" aria-expanded="false" aria-controls="Bagian8">
+                            <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian8" aria-expanded="false" aria-controls="Bagian8">
                                 SURAT KETERANGAN SEHAT
                             </button>
                         </p><br>
@@ -152,7 +152,7 @@
                                 </div>
                             </div>
                         <p>
-                            <button class="btn btn-primary col-lg-12 btn-dark" type="button" data-toggle="collapse" data-target="#Bagian9" aria-expanded="false" aria-controls="Bagian9">
+                            <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian9" aria-expanded="false" aria-controls="Bagian9">
                                 FORMULIR PENGAJUAN KEWENANGAN KLINIS
                             </button>
                         </p><br>
@@ -170,8 +170,8 @@
             </div>
         </div>
                 <!-- Illustrations -->
-                <div class="card border-bottom-dark shadow mb-4">
-                    <div class="card-header py-3 bg-dark">
+                <div class="card border-bottom-info shadow mb-4">
+                    <div class="card-header py-3 bg-info">
                         <h6 class="m-0 font-weight-bold text-white">Form Pengajuan</h6>
                     </div>
                     <div class="card-body">
@@ -253,7 +253,7 @@
             <div class="col-lg-4 mb-4">
                 <!-- Illustrations -->
                 <div class="card border-bottom-secondary shadow mb-4">
-                    <div class="card-header py-3 bg-dark">
+                    <div class="card-header py-3 bg-info">
                         <h6 class="m-0 font-weight-bold text-white">Pas Foto</h6>
                     </div>
                     <div class="card-body">
@@ -281,7 +281,7 @@
                 </div>
 
                 <div class="card border-bottom-secondary shadow mb-4">
-                    <div class="card-header py-3 bg-dark">
+                    <div class="card-header py-3 bg-info">
                         <h6 class="m-0 font-weight-bold text-white">Pas Foto</h6>
                     </div>
                     <div class="card-body">
@@ -309,7 +309,7 @@
                 </div>
 
                 <div class="card border-bottom-secondary shadow mb-4">
-                    <div class="card-header py-3 bg-dark">
+                    <div class="card-header py-3 bg-info">
                         <h6 class="m-0 font-weight-bold text-white">Pas Foto</h6>
                     </div>
                     <div class="card-body">
@@ -337,7 +337,7 @@
                 </div>
 
                 <div class="card border-bottom-secondary shadow mb-4">
-                    <div class="card-header py-3 bg-dark">
+                    <div class="card-header py-3 bg-info">
                         <h6 class="m-0 font-weight-bold text-white">Pas Foto</h6>
                     </div>
                     <div class="card-body">
@@ -365,7 +365,7 @@
                 </div>
 
                 <div class="card border-bottom-secondary shadow mb-4">
-                    <div class="card-header py-3 bg-dark">
+                    <div class="card-header py-3 bg-info">
                         <h6 class="m-0 font-weight-bold text-white">Pas Foto</h6>
                     </div>
                     <div class="card-body">

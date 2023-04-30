@@ -41,22 +41,22 @@ class Mitrabestari extends CI_Controller {
 	// 	$this->load->view('templates/footer');
     // }
     
-    // public function ubah($id)
-	// {
-    //     $data['title'] = 'Barang';
+    public function ubah($id)
+	{
+        $data['title'] = 'Atur Jadwal';
 
-    //     //menampilkan data berdasarkan id
-	// 	$where = array('id_barang'=>$id);
-    //     $data['data'] = $this->barang_model->detail_data($where, 'barang')->result();
+        //menampilkan data berdasarkan id
+		$where = array('id_barang'=>$id);
+        $data['data'] = $this->barang_model->detail_data($where, 'barang')->result();
 
-	// 	$data['kategori'] = $this->kategori_model->data()->result();
+		$data['kategori'] = $this->kategori_model->data()->result();
 
-	// 	$data['ktg'] = $this->kategori_model->data()->num_rows();
+		$data['ktg'] = $this->kategori_model->data()->num_rows();
 
-	// 	$this->load->view('templates/header', $data);
-	// 	$this->load->view('barang/form_ubah');
-	// 	$this->load->view('templates/footer');
-	// }
+		$this->load->view('templates/header', $data);
+		$this->load->view('barang/form_ubah');
+		$this->load->view('templates/footer');
+	}
 
 	// public function detail($id)
 	// {
