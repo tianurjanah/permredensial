@@ -193,11 +193,22 @@ if (!$this->session->has_userdata('login_session')){
                     <i class="fas fa-fw fa-user-friends"></i>
                     <span>Data User</span>
                 </a>
-                <a class="nav-link" href="<?= base_url() ?>kompetensi">
+            </li>
+
+            <div class="sidebar-heading">
+                Pengajuan
+            </div>
+            <?php if($title == 'Approve Pengajuan'): ?>
+            <li class="nav-item active">
+                <?php else: ?>
+            <li class="nav-item">
+                <?php endif; ?>
+                <a class="nav-link" href="<?= base_url() ?>mitrabestari/index">
                     <i class="fas fa-list"></i>
-                    <span>Kompetensi</span>
+                    <span>Approve Pengajuan</span>
                 </a>
             </li>
+            
 
             <hr class="sidebar-divider d-none d-md-block">
 
