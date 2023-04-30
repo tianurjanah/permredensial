@@ -10,7 +10,7 @@
                     <i class="fas fa-arrow-left"></i>
                 </a>
                 &nbsp;
-                <h3 class="h3 mb-0 text-gray-800">Formulir Pengajuan Kredensial</h3>
+                <h3 class="h3 mb-0 text-gray-800">Berkas Pengajuan Kredensial</h3>
             </div>
             <a href="<?= base_url() ?>kompetensi/selanjutnya" class="btn btn-primary btn-md btn-icon-split" onsubmit=getData()>
                 <span class="text text-white">Selanjutnya</span>
@@ -23,6 +23,152 @@
 
         <div class="d-sm-flex  justify-content-between mb-0">
             <div class="col-lg-8 mb-4">
+                <!-- Page Heading -->
+
+        <div class="d-sm-flex  justify-content-between mb-0">
+            <div class="col-lg-12 mb-4">
+                <!-- Illustrations -->
+                <div class="card border-bottom-dark shadow mb-4">
+                    <div class="card-header py-3 bg-dark">
+                        <h6 class="m-0 font-weight-bold text-white">Form Pengajuan</h6>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="col-lg-12">
+                        <p>
+                            <button class="btn btn-primary col-lg-12 btn-dark" type="button" data-toggle="collapse" data-target="#Bagian1" aria-expanded="false" aria-controls="Bagian1">
+                                BIODATA
+                            </button>
+                        </p> <br>
+                            <div class="collapse mb-4" id="Bagian1">
+                                <div class="card card-body">
+                                    <div class="table-responsive">
+                                        <div class="card-body">
+                                            <div class="card bg-warning text-white shadow">
+                                                <div class="card-body">
+                                                    Format
+                                                    <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif</div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <!-- foto -->
+                                            <div class="form-group">
+                                                <div class="custom-file">
+                                                    <input class="custom-file-input" type="file" id="GetFile" name="photo" onchange="VerifyFileNameAndFileSize()" accept=".png,.gif,.jpeg,.tiff,.jpg">
+                                                    <label class="custom-file-label" for="customFile">Pilih File</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        <p>
+                            <button class="btn btn-primary col-lg-12 btn-dark" type="button" data-toggle="collapse" data-target="#Bagian2" aria-expanded="false" aria-controls="Bagian2">
+                                IJAZAH
+                            </button>
+                        </p> <br>
+
+                            <div class="collapse mb-4" id="Bagian2">
+                                <div class="card card-body">
+                                    <div class="table-responsive">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                        <p>
+                            <button class="btn btn-primary col-lg-12 btn-dark" type="button" data-toggle="collapse" data-target="#Bagian3" aria-expanded="false" aria-controls="Bagian3">
+                                TRANSKIP NILAI
+                            </button>
+                        </p><br>
+
+                            <div class="collapse mb-4" id="Bagian3">
+                                <div class="card card-body">
+                                    <div class="table-responsive">
+                                    
+                                    </div>                                
+                                </div>
+                            </div>
+
+                        <p>
+                            <button class="btn btn-primary col-lg-12 btn-dark" type="button" data-toggle="collapse" data-target="#Bagian4" aria-expanded="false" aria-controls="Bagian4">
+                                SURAT IJIN
+                            </button>
+                        </p><br>
+                            <div class="collapse mb-4" id="Bagian4">
+                                <div class="card card-body">
+                                    <div class="table-responsive">
+                                    
+                                    </div>                                
+                                </div>
+                            </div>
+                        <p>
+                            <button class="btn btn-primary col-lg-12 btn-dark" type="button" data-toggle="collapse" data-target="#Bagian5" aria-expanded="false" aria-controls="Bagian5">
+                                SERTIFIKASI PELATIHAN KEAHLIAN
+                            </button>
+                        </p><br>
+                            <div class="collapse mb-4" id="Bagian5">
+                                <div class="card card-body">
+                                    <div class="table-responsive">
+                                    
+                                    </div>                                
+                                </div>
+                            </div>
+                        <p>
+                            <button class="btn btn-primary col-lg-12 btn-dark" type="button" data-toggle="collapse" data-target="#Bagian6" aria-expanded="false" aria-controls="Bagian6">
+                                PENGALAMAN KERJA
+                            </button>
+                        </p><br>
+                            <div class="collapse mb-4" id="Bagian6">
+                                <div class="card card-body">
+                                    <div class="table-responsive">
+                                    
+                                    </div>                                
+                                </div>
+                            </div>
+                        <p>
+                            <button class="btn btn-primary col-lg-12 btn-dark" type="button" data-toggle="collapse" data-target="#Bagian7" aria-expanded="false" aria-controls="Bagian7">
+                                VERIFIKASI SUMBER UTAMA <i>(PRIMARY SOURCE VERIFICATION)</i>
+                            </button>
+                        </p><br>
+                            <div class="collapse mb-4" id="Bagian7">
+                                <div class="card card-body">
+                                    <div class="table-responsive">
+                                    
+                                    </div>                                
+                                </div>
+                            </div>
+                        <p>
+                            <button class="btn btn-primary col-lg-12 btn-dark" type="button" data-toggle="collapse" data-target="#Bagian8" aria-expanded="false" aria-controls="Bagian8">
+                                SURAT KETERANGAN SEHAT
+                            </button>
+                        </p><br>
+                            <div class="collapse mb-4" id="Bagian8">
+                                <div class="card card-body">
+                                    <div class="table-responsive">
+
+                                    </div>                                
+                                </div>
+                            </div>
+                        <p>
+                            <button class="btn btn-primary col-lg-12 btn-dark" type="button" data-toggle="collapse" data-target="#Bagian9" aria-expanded="false" aria-controls="Bagian9">
+                                FORMULIR PENGAJUAN KEWENANGAN KLINIS
+                            </button>
+                        </p><br>
+                            <div class="collapse" id="Bagian9">
+                                <div class="card card-body">
+                                    <div class="table-responsive">
+
+                                    </div>                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
                 <!-- Illustrations -->
                 <div class="card border-bottom-dark shadow mb-4">
                     <div class="card-header py-3 bg-dark">
