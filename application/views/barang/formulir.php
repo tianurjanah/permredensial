@@ -54,7 +54,7 @@
                                             <!-- foto -->
                                             <div class="form-group">
                                                 <div class="custom-file">
-                                                    <input class="custom-file-input" type="file" id="GetFile" name="photo" onchange="VerifyFileNameAndFileSize()" accept=".png,.gif,.jpeg,.tiff,.jpg">
+                                                    <input class="custom-file-input" type="file" id="GetFile" name="photo" onchange="VerifyFileNameAndFileSize()" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
                                                     <label class="custom-file-label" for="customFile">Pilih File</label>
                                                 </div>
                                             </div>
