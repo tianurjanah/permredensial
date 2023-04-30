@@ -21,8 +21,6 @@ class Mitrabestari extends CI_Controller {
         $nama = $this->session->userdata('login_session')['username'];
 		$data['pengajuan'] = $this->pengajuan_model->dataJoin($nama)->result();
         
-
-
 		$this->load->view('templates/header', $data);
 		$this->load->view('mitrabestari/index', '$data');
 		$this->load->view('templates/footer');
