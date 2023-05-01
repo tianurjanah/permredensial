@@ -10,7 +10,7 @@
                     <i class="fas fa-arrow-left"></i>
                 </a>
                 &nbsp;
-                <h3 class="h3 mb-0 text-gray-800">Berkas Pengajuan Kredensial</h3>
+                <h3 class="h3 mb-0 text-gray-800">Formulir Pengajuan Kredensial</h3>
             </div>
             <a href="<?= base_url() ?>kompetensi/selanjutnya" class="btn btn-primary btn-md btn-icon-split" onsubmit=getData()>
                 <span class="text text-white">Selanjutnya</span>
@@ -30,7 +30,7 @@
                 <!-- Illustrations -->
                 <div class="card border-bottom-info shadow mb-4">
                     <div class="card-header py-3 bg-info">
-                        <h6 class="m-0 font-weight-bold text-white">Form Pengajuan</h6>
+                        <h6 class="m-0 font-weight-bold text-white">Berkas   Pengajuan</h6>
                     </div>
 
                     <div class="card-body">
@@ -43,54 +43,73 @@
                             <div class="collapse mb-4" id="Bagian1">
                                 <div class="card card-body">
                                     <div class="table-responsive">
-                                        <div class="card-body">
-                                            <div class="card bg-warning text-white shadow">
-                                                <div class="card-body">
-                                                    Format
-                                                    <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif</div>
-                                                </div>
+                                        <div class="card bg-warning mb-4 text-white shadow">
+                                            <div class="card-body">
+                                                Format
+                                                <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif .pdf</div>
                                             </div>
-                                            <br>
-                                            <!-- foto -->
-                                            <div class="form-group">
-                                                <div class="custom-file">
-                                                    <input class="custom-file-input" type="file" id="GetFile" name="photo" onchange="VerifyFileNameAndFileSize()" accept=".png,.gif,.jpeg,.tiff,.jpg">
-                                                    <label class="custom-file-label" for="customFile">Pilih File</label>
-                                                </div>
+                                        </div>
+                                         <!-- suratlamaran -->
+                                        <div class="form-group"><label>Surat Lamaran</label>
+                                            <div class="custom-file">
+                                                <input class="custom-file-input" type="file" id="suratlamaran" name="suratlamaran" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
+                                                    <label class="custom-file-label" for="customFile" id="filelamaran">Pilih File</label>
+                                            </div>
+                                        </div>
+                                         <!-- cv -->
+                                        <div class="form-group"><label>Curriculum Vitae</label>
+                                            <div class="custom-file">
+                                                <input class="custom-file-input" type="file" id="currivitae" name="currivitae" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
+                                                    <label class="custom-file-label" for="customFile" id="filecv">Pilih File</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group"><label>Formulir Data Karyawan</label>
+                                            <div class="custom-file">
+                                                <input class="custom-file-input" type="file" id="datakaryawan" name="datakaryawan" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
+                                                    <label class="custom-file-label" for="customFile" id="filelamaran">Pilih File</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group"><label>Scan KTP</label>
+                                            <div class="custom-file">
+                                                <input class="custom-file-input" type="file" id="scanktp" name="scanktp" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
+                                                    <label class="custom-file-label" for="customFile" id="filelamaran">Pilih File</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                        </div>
                         
                         <p>
                             <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian2" aria-expanded="false" aria-controls="Bagian2">
                                 IJAZAH
                             </button>
-                        </p> <br>
-
+                        </p> 
+                        <br>
                             <div class="collapse mb-4" id="Bagian2">
                                 <div class="card card-body">
                                     <div class="table-responsive">
-                                        
+                                        <div class="card bg-warning mb-4 text-white shadow">
+                                            <div class="card-body">
+                                                Format
+                                                <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif .pdf</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <table class="table table-bordered" id="tableloop">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-align-center text-md-left">No</th>
+                                                        <th class="text-align-center text-md-left">Form Ijazah</th>
+                                                        <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Barisbaru"><i class="fa fa-plus"></i></button></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
-                        <p>
-                            <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian3" aria-expanded="false" aria-controls="Bagian3">
-                                TRANSKIP NILAI
-                            </button>
-                        </p><br>
-
-                            <div class="collapse mb-4" id="Bagian3">
-                                <div class="card card-body">
-                                    <div class="table-responsive">
-                                    
-                                    </div>                                
-                                </div>
-                            </div>
-
                         <p>
                             <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian4" aria-expanded="false" aria-controls="Bagian4">
                                 SURAT IJIN
@@ -99,7 +118,38 @@
                             <div class="collapse mb-4" id="Bagian4">
                                 <div class="card card-body">
                                     <div class="table-responsive">
-                                    
+                                    <div class="card bg-warning mb-4 text-white shadow">
+                                            <div class="card-body">
+                                                Format
+                                                <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif .pdf</div>
+                                            </div>
+                                        </div>
+                                         <!-- suratlamaran -->
+                                        <div class="form-group"><label>STR</label>
+                                            <div class="custom-file">
+                                                <input class="custom-file-input" type="file" id="surat_str" name="surat_str" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
+                                                    <label class="custom-file-label" for="customFile" id="filelamaran">Pilih File</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group"><label>SIP</label>
+                                            <div class="custom-file">
+                                                <input class="custom-file-input" type="file" id="surat_sip" name="surat_sip" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
+                                                    <label class="custom-file-label" for="customFile" id="filelamaran">Pilih File</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <table class="table table-bordered" id="suratijintableloop">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-align-center text-md-left">No</th>
+                                                        <th class="text-align-center text-md-left">Form Surat Ijin</th>
+                                                        <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Suratijinbarisbaru"><i class="fa fa-plus"></i></button></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>                                
                                 </div>
                             </div>
@@ -111,7 +161,19 @@
                             <div class="collapse mb-4" id="Bagian5">
                                 <div class="card card-body">
                                     <div class="table-responsive">
-                                    
+                                    <div class="form-group">
+                                            <table class="table table-bordered" id="tableloop">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-align-center text-md-left">No</th>
+                                                        <th class="text-align-center text-md-left">Form Ijazah</th>
+                                                        <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Barisbaru"><i class="fa fa-plus"></i></button></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>                                
                                 </div>
                             </div>
@@ -123,7 +185,19 @@
                             <div class="collapse mb-4" id="Bagian6">
                                 <div class="card card-body">
                                     <div class="table-responsive">
-                                    
+                                    <div class="form-group">
+                                            <table class="table table-bordered" id="tableloop">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-align-center text-md-left">No</th>
+                                                        <th class="text-align-center text-md-left">Form Ijazah</th>
+                                                        <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Barisbaru"><i class="fa fa-plus"></i></button></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>                                
                                 </div>
                             </div>
@@ -131,12 +205,84 @@
                             <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian7" aria-expanded="false" aria-controls="Bagian7">
                                 VERIFIKASI SUMBER UTAMA <i>(PRIMARY SOURCE VERIFICATION)</i>
                             </button>
-                        </p><br>
+                        </p>
+                        <br>
                             <div class="collapse mb-4" id="Bagian7">
                                 <div class="card card-body">
                                     <div class="table-responsive">
-                                    
-                                    </div>                                
+                                    <p>
+                                        <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Pendidikan" aria-expanded="false" aria-controls="Bagian7">
+                                            Pendidikan
+                                        </button>
+                                    </p><br>
+                                    <div class="collapse mb-4" id="Pendidikan">
+                                        <div class="card card-body">
+                                            <div class="table-responsive">
+                                                <div class="form-group">
+                                                    <table class="table table-bordered" id="tableloop">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="text-align-center text-md-left">No</th>
+                                                                <th class="text-align-center text-md-left">Form Ijazah</th>
+                                                                <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Barisbaru"><i class="fa fa-plus"></i></button></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>                                
+                                    </div>
+                                </div>
+                                    <p>
+                                        <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#SuratIjin" aria-expanded="false" aria-controls="Bagian7">
+                                            Surat Ijin
+                                        </button>
+                                    </p><br>
+                                    <div class="collapse mb-4" id="SuratIjin">
+                                        <div class="card card-body">
+                                            <div class="table-responsive">
+                                                <div class="form-group">
+                                                    <table class="table table-bordered" id="tableloop">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="text-align-center text-md-left">No</th>
+                                                                <th class="text-align-center text-md-left">Form Ijazah</th>
+                                                                <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Barisbaru"><i class="fa fa-plus"></i></button></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>     
+                                    </div>                           
+                                    <p>
+                                        <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#PengalamanKerja" aria-expanded="false" aria-controls="Bagian7">
+                                            Pengalaman Kerja
+                                        </button>
+                                    </p><br>
+                                    <div class="collapse mb-4" id="PengalamanKerja">
+                                        <div class="card card-body">
+                                            <div class="table-responsive">
+                                                <div class="form-group">
+                                                    <table class="table table-bordered" id="tableloop">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="text-align-center text-md-left">No</th>
+                                                                <th class="text-align-center text-md-left">Form Ijazah</th>
+                                                                <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Barisbaru"><i class="fa fa-plus"></i></button></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>     
+                                    </div>                           
                                 </div>
                             </div>
                         <p>
@@ -147,22 +293,23 @@
                             <div class="collapse mb-4" id="Bagian8">
                                 <div class="card card-body">
                                     <div class="table-responsive">
-
+                                    <div class="card bg-warning mb-4 text-white shadow">
+                                            <div class="card-body">
+                                                Format
+                                                <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif .pdf</div>
+                                            </div>
+                                        </div>
+                                         <!-- suratlamaran -->
+                                        <div class="form-group"><label>Surat Lamaran</label>
+                                            <div class="custom-file">
+                                                <input class="custom-file-input" type="file" id="suratlamaran" name="suratlamaran" onchange="VerifySuratLamaranNameAndSize()" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
+                                                    <label class="custom-file-label" for="customFile" id="filelamaran">Pilih File</label>
+                                            </div>
+                                        </div>
                                     </div>                                
                                 </div>
                             </div>
-                        <p>
-                            <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian9" aria-expanded="false" aria-controls="Bagian9">
-                                FORMULIR PENGAJUAN KEWENANGAN KLINIS
-                            </button>
-                        </p><br>
-                            <div class="collapse" id="Bagian9">
-                                <div class="card card-body">
-                                    <div class="table-responsive">
-
-                                    </div>                                
-                                </div>
-                            </div>
+                       
                         </div>
                     </div>
                 </div>
@@ -229,19 +376,7 @@
                                 <input class="form-control" value="<?= date('Y-m-d') ?>" name="tanggal_kerja" type="date" placeholder="">
                             </div>
                             
-                            <div class="form-group">
-                                <table class="table table-bordered" id="tableloop">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-align-center text-md-left">No</th>
-                                            <th class="text-align-center text-md-left">Form Ijazah</th>
-                                            <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Barisbaru"><i class="fa fa-plus"></i></button></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                            </div>
+                            
                         </div>
 
                         <br>
@@ -273,120 +408,8 @@
                         <!-- foto -->
                         <div class="form-group">
                             <div class="custom-file">
-                                <input class="custom-file-input" type="file" id="GetFile" name="photo" onchange="VerifyFileNameAndFileSize()" accept=".png,.gif,.jpeg,.tiff,.jpg">
-                                <label class="custom-file-label" for="customFile">Pilih File</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card border-bottom-secondary shadow mb-4">
-                    <div class="card-header py-3 bg-info">
-                        <h6 class="m-0 font-weight-bold text-white">Pas Foto</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="card bg-warning text-white shadow">
-                            <div class="card-body">
-                                Format
-                                <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif</div>
-                            </div>
-                        </div>
-                        <br>
-                        <center>
-                            <div id="img">
-                                <img src="<?= base_url() ?>assets/upload/barang/nakes.png" id="outputImg" width="150" maxheight="250">
-                            </div>
-                        </center>
-                        <br>
-                        <!-- foto -->
-                        <div class="form-group">
-                            <div class="custom-file">
-                                <input class="custom-file-input" type="file" id="GetFile" name="photo" onchange="VerifyFileNameAndFileSize()" accept=".png,.gif,.jpeg,.tiff,.jpg">
-                                <label class="custom-file-label" for="customFile">Pilih File</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card border-bottom-secondary shadow mb-4">
-                    <div class="card-header py-3 bg-info">
-                        <h6 class="m-0 font-weight-bold text-white">Pas Foto</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="card bg-warning text-white shadow">
-                            <div class="card-body">
-                                Format
-                                <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif</div>
-                            </div>
-                        </div>
-                        <br>
-                        <center>
-                            <div id="img">
-                                <img src="<?= base_url() ?>assets/upload/barang/nakes.png" id="outputImg" width="150" maxheight="250">
-                            </div>
-                        </center>
-                        <br>
-                        <!-- foto -->
-                        <div class="form-group">
-                            <div class="custom-file">
-                                <input class="custom-file-input" type="file" id="GetFile" name="photo" onchange="VerifyFileNameAndFileSize()" accept=".png,.gif,.jpeg,.tiff,.jpg">
-                                <label class="custom-file-label" for="customFile">Pilih File</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card border-bottom-secondary shadow mb-4">
-                    <div class="card-header py-3 bg-info">
-                        <h6 class="m-0 font-weight-bold text-white">Pas Foto</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="card bg-warning text-white shadow">
-                            <div class="card-body">
-                                Format
-                                <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif</div>
-                            </div>
-                        </div>
-                        <br>
-                        <center>
-                            <div id="img">
-                                <img src="<?= base_url() ?>assets/upload/barang/nakes.png" id="outputImg" width="150" maxheight="250">
-                            </div>
-                        </center>
-                        <br>
-                        <!-- foto -->
-                        <div class="form-group">
-                            <div class="custom-file">
-                                <input class="custom-file-input" type="file" id="GetFile" name="photo" onchange="VerifyFileNameAndFileSize()" accept=".png,.gif,.jpeg,.tiff,.jpg">
-                                <label class="custom-file-label" for="customFile">Pilih File</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card border-bottom-secondary shadow mb-4">
-                    <div class="card-header py-3 bg-info">
-                        <h6 class="m-0 font-weight-bold text-white">Pas Foto</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="card bg-warning text-white shadow">
-                            <div class="card-body">
-                                Format
-                                <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif</div>
-                            </div>
-                        </div>
-                        <br>
-                        <center>
-                            <div id="img">
-                                <img src="<?= base_url() ?>assets/upload/barang/nakes.png" id="outputImg" width="150" maxheight="250">
-                            </div>
-                        </center>
-                        <br>
-                        <!-- foto -->
-                        <div class="form-group">
-                            <div class="custom-file">
-                                <input class="custom-file-input" type="file" id="GetFile" name="photo" onchange="VerifyFileNameAndFileSize()" accept=".png,.gif,.jpeg,.tiff,.jpg">
-                                <label class="custom-file-label" for="customFile">Pilih File</label>
+                                <input class="custom-file-input" type="file" id="pasfoto" name="photo" onchange="VerifyPasFotoNameAndSize()" accept=".png,.gif,.jpeg,.tiff,.jpg">
+                                    <label class="custom-file-label" for="customFile" id="pasphoto">Pilih File</label>
                             </div>
                         </div>
                     </div>
@@ -409,7 +432,6 @@
 <script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
 <script src="<?= base_url(); ?>assets/js/barang.js"></script>
 <script src="<?= base_url(); ?>assets/js/loading.js"></script>
-<script src="<?= base_url(); ?>assets/js/validasi/formbarang.js"></script>
 <script src="<?= base_url(); ?>assets/plugin/chosen/chosen.jquery.min.js"></script>
 
 <script>
@@ -438,15 +460,19 @@
             }).then((result) => {
                 for(B=1;B<=1;B++){
                     BarisBaru();
+                    suratijinbarisbaru();
                 }
-                $('#Barisbaru').click(function(e){
-                    e.preventDefault();
-                    BarisBaru();
-                });
-            })
-            
+                    $('#Barisbaru').click(function(e){
+                        e.preventDefault();
+                        BarisBaru();
+                    });
+                    $('#Suratijinbarisbaru').click(function(e){
+                        e.preventDefault();
+                        suratijinbarisbaru();
+                    });
         });
-
+    });
+        
         function BarisBaru(){
         $(document).ready(function() {
             $("[data-toggle='tooltip'").tooltip();
@@ -455,14 +481,26 @@
         var Baris = '<tr>';
                 Baris += '<td class ="text-center">'+Nomor+'</td>';
                 Baris += '<td>';
-                    Baris += '<label>Nomor Ijazah</label>';
-                    Baris += '<input type="text" name="first_name[]" class="form-control mb-3" placeholder=" " required="">';
-                    Baris += '<label>Gelar</label>';
-                    Baris += '<input type="text" name="first_name[]" class="form-control mb-3" placeholder=" " required="">';
-                    Baris += '<label>Lampiran Ijazah</label>';
-                    Baris += '<input type="text" name="first_name[]" class="form-control mb-3" placeholder=" " required="">';
-                    Baris += '<label>Transkrip Nilai</label>';
-                    Baris += '<input type="text" name="first_name[]" class="form-control mb-3" placeholder=" " required="">';
+                    Baris += '<div class="form-group"><label>Nomor Ijazah</label>';
+                    Baris += '<input class="form-control" name="nomor_ijazah[]" type="text" required="">';
+                    Baris += '</div>';
+                    Baris += '<div class="form-group"><label>Gelar</label>';
+                    Baris += '<input class="form-control" name="gelar[]" type="text">';
+                    Baris += '</div>';
+                    Baris += '<div class="form-group"><label>Lampiran Ijazah</label>';
+                    Baris += '<br>';
+                    Baris += '<div class="custom-file">';
+                    Baris += '<input class="custom-file-input mb-3" type="file" id="lampiran_ijazah[] name="lampiran_ijazah[]" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">';
+                    Baris += '<label class="custom-file-label" for="customFile" id="file_ijazah[] name="file_ijazah[]"">Pilih File</label>';
+                    Baris += '</div>';
+                    Baris += '</div>';
+                    Baris += '<div class="form-group"><label>Transkrip Nilai</label>';
+                    Baris += '<br>';
+                    Baris += '<div class="custom-file">';
+                    Baris += '<input class="custom-file-input mb-3" type="file" id="transkrip_nilai[] name="lampiran_ijazah[]" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">';
+                    Baris += '<label class="custom-file-label" for="customFile" id="file_nilai[]">Pilih File</label>';
+                    Baris += '</div>';
+                    Baris += '</div>';
                 Baris +='</td>';
                 Baris += '<td class="text-center">';
                     Baris += '<a class="btn btn-sm btn-danger align-center col-lg-12 p-3" data-toggle="tooltip" title"Hapus Baris" id="hapusbaris"><i class="fas fa-times" ></i></a>';
@@ -479,6 +517,43 @@
             var Nomor = 1;
             $(this).parent().parent().remove();
             $('tableloop tbody tr').each(function(){
+                $(this).find('td:nth-child(1)').html(Nomor);
+                Nomor++;
+            });
+        });
+
+        function suratijinbarisbaru(){
+        $(document).ready(function() {
+            $("[data-toggle='tooltip'").tooltip();
+        });
+        var Nomor = $("#suratijintableloop tbody tr").length + 1;
+        var Baris = '<tr>';
+                Baris += '<td class ="text-center">'+Nomor+'</td>';
+                Baris += '<td>';
+                    Baris += '<div class="form-group"><label>Lampiran Surat Ijin</label>';
+                    Baris += '<br>';
+                    Baris += '<div class="custom-file">';
+                    Baris += '<input class="custom-file-input mb-3" type="file" id="surat_ijin[] name="surat_ijin[]" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">';
+                    Baris += '<label class="custom-file-label" for="customFile" id="file_surat_ijin[] name="file_surat_ijin[]"">Pilih File</label>';
+                    Baris += '</div>';
+                    Baris += '</div>';
+                    Baris += '</div>';
+                Baris +='</td>';
+                Baris += '<td class="text-center">';
+                    Baris += '<a class="btn btn-sm btn-danger align-center col-lg-12 p-3" data-toggle="tooltip" title"Hapus Baris" id="suratijinhapusbaris"><i class="fas fa-times" ></i></a>';
+                Baris +='</td>';
+            Baris += '</tr>';
+        console.log(Baris);
+
+        $("#suratijintableloop tbody").append(Baris);
+        $("#suratijintableloop tbody tr").each(function() {
+        });
+    }
+        $(document).on('click','#suratijinhapusbaris',function(e){
+            e.preventDefault();
+            var Nomor = 1;
+            $(this).parent().parent().remove();
+            $('suratijintableloop tbody tr').each(function(){
                 $(this).find('td:nth-child(1)').html(Nomor);
                 Nomor++;
             });
@@ -549,4 +624,109 @@
         document.getElementById("tanggal_kerja").innerHTML = localStorage.getItem("tanggal_kerja_value");
         return false;
     }
+</script>
+
+<!-- Javascript pas foto -->
+<script>
+    function fileIsValid(fileName) {
+    var ext = fileName.match(/\.([^\.]+)$/)[1];
+    ext = ext.toLowerCase();
+    var isValid = true;
+    switch (ext) {
+        case 'png':
+        case 'jpeg':
+        case 'jpg':
+        case 'tiff':
+        case 'gif':
+        case 'tif':
+
+            break;
+        default:
+            this.value = '';
+            isValid = false;
+    }
+    return isValid;
+}
+    function fileIsValidpdf(fileName) {
+    var ext = fileName.match(/\.([^\.]+)$/)[1];
+    ext = ext.toLowerCase();
+    var isValid = true;
+    switch (ext) {
+        case 'png':
+        case 'jpeg':
+        case 'jpg':
+        case 'tiff':
+        case 'gif':
+        case 'tif':
+        case 'pdf':
+
+            break;
+        default:
+            this.value = '';
+            isValid = false;
+    }
+    return isValid;
+}
+
+function VerifyPasFotoNameAndSize() {
+    var file = document.getElementById('pasfoto').files[0];
+    if (file != null) {
+        var fileName = file.name;
+        if (fileIsValid(fileName) == false) {
+            validasi('Format bukan gambar!', 'warning');
+            document.getElementById('pasfoto').value = null;
+            return false;
+        }
+        var content;
+        var size = file.size;
+        if ((size != null) && ((size / (1024 * 1024)) > 3)) {
+            validasi('Ukuran maximum 1024px', 'warning');
+            document.getElementById('pasfoto').value = null;
+            return false;
+        }
+
+        var ext = fileName.match(/\.([^\.]+)$/)[1];
+        ext = ext.toLowerCase();
+        $("#pasphoto").addClass("selected").html(file.name);
+        document.getElementById('outputImg').src = window.URL.createObjectURL(file);
+        return true;
+
+    } else
+        return false;
+}
+
+function VerifyLampiran(event) {
+    var file = event.target.files[0];
+    if (file != null) {
+        var fileName = file.name;
+        console.log(fileName);
+        if (fileIsValidpdf(fileName) == false) {
+            validasi('Format Salah!', 'warning');
+            // document.getElementById('').value = null;
+            return false;
+        }
+        var content;
+        var size = file.size;
+        if ((size != null) && ((size / (1024 * 1024)) > 3)) {
+            validasi('Ukuran maximum 1024px', 'warning');
+            // document.getElementById('suratlamaran').value = null;
+            return false;
+        }
+
+        var ext = fileName.match(/\.([^\.]+)$/)[1];
+        ext = ext.toLowerCase();
+        var fileLabel = event.target.nextElementSibling;
+        fileLabel.classList.add("selected");
+        fileLabel.innerHTML= file.name;
+        // document.getElementById('outputImg').src = window.URL.createObjectURL(file);
+        return true;
+
+    } else
+        return false;
+}
+function logFileUpload(event) {
+  var file = event.target.files[0];
+  console.log("Uploaded file:", file);
+
+}
 </script>
