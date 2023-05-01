@@ -25,6 +25,15 @@ class Mitrabestari extends CI_Controller {
 		$this->load->view('mitrabestari/index', '$data');
 		$this->load->view('templates/footer');
     }
+	
+	public function kredensial()
+	{
+		$data['title'] = 'Kredensial';
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('mitrabestari/kredensialing', '$data');
+		$this->load->view('templates/footer');
+    }
 
 
     // public function tambah()
@@ -46,15 +55,13 @@ class Mitrabestari extends CI_Controller {
         $data['title'] = 'Atur Jadwal';
 
         //menampilkan data berdasarkan id
-		$where = array('id_barang'=>$id);
-        $data['data'] = $this->barang_model->detail_data($where, 'barang')->result();
+		$where = array('id'=>$id);
+        $data['data'] = $this->pengajuan_model->detail_data($where, 'pengajuan_index')->result();
 
-		$data['kategori'] = $this->kategori_model->data()->result();
-
-		$data['ktg'] = $this->kategori_model->data()->num_rows();
+		$data['ktg'] = $this->pengajuan_model->data()->num_rows();
 
 		$this->load->view('templates/header', $data);
-		$this->load->view('barang/form_ubah');
+		$this->load->view('mitrabestari/aturjadwal');
 		$this->load->view('templates/footer');
 	}
 

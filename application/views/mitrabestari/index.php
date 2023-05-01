@@ -31,9 +31,8 @@
                                 <td onclick="#"><?= $p->tanggal_pengajuan ?></td>
                                 <td>
                                     <center>
-                                        <a href="<?= base_url() ?>barang/ubah/<?= $p->id ?>"
-                                            class=" btn-success btn-sm">
-                                            Atur Jadwal
+                                        <a href="<?= base_url() ?>mitrabestari/ubah/<?= $p->id ?>" class="btn btn-sm btn-success">
+                                            <span class="text text-white">Atur Jadwal</span>
                                         </a>
                                     </center>
                                 </td>

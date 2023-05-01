@@ -4,7 +4,7 @@ class pengajuan_model extends ci_model{
     
     function data()
     {
-        $this->db->order_by('id_barang','ASC');
+        $this->db->order_by('id_pengajuan','ASC');
         return $query = $this->db->get('pengajuan');
     }
     

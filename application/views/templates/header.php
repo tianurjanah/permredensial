@@ -112,6 +112,24 @@ if (!$this->session->has_userdata('login_session')){
             </li>
             <hr class="sidebar-divider d-none d-md-block">
             <?php endif; ?>
+
+            <?php if($this->session->userdata('login_session')['level'] == 'Admin'): ?>
+            
+            <div class="sidebar-heading">
+                Pengujian
+            </div>
+            <?php if($title == 'Proses Kredensialing'): ?>
+            <li class="nav-item active">
+                <?php else: ?>
+            <li class="nav-item">
+                <?php endif; ?>
+                <a class="nav-link" href="<?= base_url() ?>mitrabestari/kredensial">
+                    <i class="fas fa-fw fa-boxes"></i>
+                    <span>Kredensialing</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
+            <?php endif; ?>
             
             <?php if($this->session->userdata('login_session')['level'] == 'Pegawai'): ?>
 
