@@ -30,7 +30,7 @@
                 <!-- Illustrations -->
                 <div class="card border-bottom-info shadow mb-4">
                     <div class="card-header py-3 bg-info">
-                        <h6 class="m-0 font-weight-bold text-white">Berkas   Pengajuan</h6>
+                        <h6 class="m-0 font-weight-bold text-white">Berkas Pengajuan</h6>
                     </div>
 
                     <div class="card-body">
@@ -162,12 +162,12 @@
                                 <div class="card card-body">
                                     <div class="table-responsive">
                                     <div class="form-group">
-                                            <table class="table table-bordered" id="tableloop">
+                                            <table class="table table-bordered" id="spktableloop">
                                                 <thead>
                                                     <tr>
                                                         <th class="text-align-center text-md-left">No</th>
-                                                        <th class="text-align-center text-md-left">Form Ijazah</th>
-                                                        <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Barisbaru"><i class="fa fa-plus"></i></button></th>
+                                                        <th class="text-align-center text-md-left">Berkas Sertifikasi Pelatihan Keahlian</th>
+                                                        <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Spkbarisbaru"><i class="fa fa-plus"></i></button></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -530,6 +530,51 @@
         var Baris = '<tr>';
                 Baris += '<td class ="text-center">'+Nomor+'</td>';
                 Baris += '<td>';
+                    Baris += '<div class="form-group"><label>Yang Mengeluarkan</label>';
+                    Baris += '<input class="form-control" name="mengeluarkan[]" type="text" required="">';
+                    Baris += '</div>';
+                    Baris += '<div class="form-group"><label>Masa Berlaku</label>';
+                    Baris += '<<input class="form-control" value="<?= date('Y-m-d') ?>" name="masa_berlaku" type="date" placeholder="">';
+                    Baris += '</div>';
+                    Baris += '<div class="form-group"><label>Lampiran Surat Ijin</label>';
+                    Baris += '<br>';
+                    Baris += '<div class="custom-file">';
+                    Baris += '<input class="custom-file-input mb-3" type="file" id="surat_ijin[] name="surat_ijin[]" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">';
+                    Baris += '<label class="custom-file-label" for="customFile" id="file_surat_ijin[] name="file_surat_ijin[]"">Pilih File</label>';
+                    Baris += '</div>';
+                    Baris += '</div>';
+                    Baris += '</div>';
+                Baris +='</td>';
+                Baris += '<td class="text-center">';
+                    Baris += '<a class="btn btn-sm btn-danger align-center col-lg-12 p-3" data-toggle="tooltip" title"Hapus Baris" id="suratijinhapusbaris"><i class="fas fa-times" ></i></a>';
+                Baris +='</td>';
+            Baris += '</tr>';
+        console.log(Baris);
+
+        $("#suratijintableloop tbody").append(Baris);
+        $("#suratijintableloop tbody tr").each(function() {
+        });
+    }
+        $(document).on('click','#suratijinhapusbaris',function(e){
+            e.preventDefault();
+            var Nomor = 1;
+            $(this).parent().parent().remove();
+            $('suratijintableloop tbody tr').each(function(){
+                $(this).find('td:nth-child(1)').html(Nomor);
+                Nomor++;
+            });
+        });
+        function spkbarisbaru(){
+        $(document).ready(function() {
+            $("[data-toggle='tooltip'").tooltip();
+        });
+        var Nomor = $("#suratijintableloop tbody tr").length + 1;
+        var Baris = '<tr>';
+                Baris += '<td class ="text-center">'+Nomor+'</td>';
+                Baris += '<td>';
+                    Baris += '<div class="form-group"><label>Nomor Ijazah</label>';
+                    Baris += '<input class="form-control" name="nomor_ijazah[]" type="text" required="">';
+                    Baris += '</div>';
                     Baris += '<div class="form-group"><label>Lampiran Surat Ijin</label>';
                     Baris += '<br>';
                     Baris += '<div class="custom-file">';
