@@ -1,5 +1,8 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
+    
+
+<?php foreach ($user as $u) : ?>
 
     <form action="<?= base_url() ?>kompetensi/selanjutnya" name="myForm" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
 
@@ -23,6 +26,62 @@
 
         <div class="d-sm-flex  justify-content-between mb-0">
             <div class="col-lg-8 mb-4">
+
+        <div class="card border-bottom-info shadow mb-4">
+                    <div class="card-header py-3 bg-info">
+                        <h6 class="m-0 font-weight-bold text-white">Form Pengajuan</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="col-lg-12">
+                            <!-- Nama Lengkap -->
+                            <div class="form-group"><label>Nama Lengkap (Termasuk Gelar)</label>
+                                <input class="form-control" name="nama_lengkap" type="text" value="<?= $u->nama ?>" readonly>
+                            </div>
+                            <!-- NIP / NIK -->
+                            <div class="form-group"><label>NIP / NIK</label>
+                                <input class="form-control" name="nip" type="text" value="<?= $u->nip ?>" readonly>
+                            </div>
+                            <!-- Tempat Lahir -->
+                            <div class="form-group"><label>Tempat Lahir</label>
+                                <input class="form-control" name="tempat_lahir" type="text" value="<?= $u->tmptlahir ?>" readonly>
+                            </div>
+                            <!-- Tanggal Lahir -->
+                            <div class="form-group"><label>Tanggal Lahir</label>
+                                <input class="form-control" value="<?= $u->tgllahir ?>" readonly name="tanggal_lahir" type="date" placeholder="">
+                            </div>
+                            <!-- Tempat Lahir -->
+                            <div class="form-group"><label>Alamat</label>
+                                <input class="form-control" name="alamat" type="text" value="<?= $u->alamat ?>" readonly>
+                            </div>
+                            <!-- Telepon / HP -->
+                            <div class="form-group"><label>Telepon / HP</label>
+                                <input class="form-control" name="telepon" type="text" value="<?= $u->notelp ?>" readonly>
+                            </div>
+                            <!-- E-mail -->
+                            <div class="form-group"><label>E-mail</label>
+                                <input class="form-control" name="email" type="email" value="<?= $u->email ?>" readonly>
+                            </div>
+                            <!-- Nomor STR -->
+                            <div class="form-group"><label>Nomor STR</label>
+                                <input class="form-control" name="nomor_str" type="text" value="<?= $u->str ?>" readonly>
+                            </div>
+                            <!-- Nomor SIP -->
+                            <div class="form-group"><label>Nomor SIP</label>
+                                <input class="form-control" name="nomor_sip" type="text" value="<?= $u->sip ?>" readonly>
+                            </div>
+                            <!-- Tanggal Mulai Bekerja -->
+                            <div class="form-group"><label>Tanggal Mulai Bekerja</label>
+                                <input class="form-control" value="<?= $u->tglmbekerja ?>" readonly name="tanggal_kerja" type="date" placeholder="">
+                            </div>
+                            
+                            
+                        </div>
+                        <?php endforeach; ?>
+                        <br>
+                    </div>
+                </div>
+
+            
                 <!-- Page Heading -->
 
         <div class="d-sm-flex  justify-content-between mb-0">
@@ -30,10 +89,24 @@
                 <!-- Illustrations -->
                 <div class="card border-bottom-info shadow mb-4">
                     <div class="card-header py-3 bg-info">
-                        <h6 class="m-0 font-weight-bold text-white">Berkas   Pengajuan</h6>
+                        <h6 class="m-0 font-weight-bold text-white">Berkas Pengajuan</h6>
                     </div>
 
                     <div class="card-body">
+                    
+                            <!-- Kategori -->
+                            <?php if ($ktg > 0) : ?>
+                                <div class="form-group"><label>Kategori</label>
+                                    <select name="kategori" class="form-control chosen">
+                                        <option value="">--Pilih--</option>
+                                        <?php foreach ($kategori as $j) : ?>
+                                            <option value="<?= $j->id_kategori ?>.<?= $j->nama_kategori ?>"><?= $j->nama_kategori ?></option>
+                                        <?php endforeach ?>
+                                    </select>
+                                </div>
+                                <?php else : ?>
+                            <?php endif; ?>
+                            
                         <div class="col-lg-12">
                         <p>
                             <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian1" aria-expanded="false" aria-controls="Bagian1">
@@ -77,15 +150,45 @@
                                         </div>
                                     </div>
                                 </div>
-                        </div>
+                            </div>
                         
-                        <p>
-                            <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian2" aria-expanded="false" aria-controls="Bagian2">
-                                IJAZAH
-                            </button>
-                        </p> 
-                        <br>
-                            <div class="collapse mb-4" id="Bagian2">
+                            <p>
+                                <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian2" aria-expanded="false" aria-controls="Bagian2">
+                                    IJAZAH
+                                </button>
+                            </p> 
+                            <br>
+                                <div class="collapse mb-4" id="Bagian2">
+                                    <div class="card card-body">
+                                        <div class="table-responsive">
+                                            <div class="card bg-warning mb-4 text-white shadow">
+                                                <div class="card-body">
+                                                    Format
+                                                    <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif .pdf</div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <table class="table table-bordered" id="tableloop">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-align-center text-md-left">No</th>
+                                                            <th class="text-align-center text-md-left">Form Ijazah</th>
+                                                            <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Barisbaru"><i class="fa fa-plus"></i></button></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <p> 
+                                <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian4" aria-expanded="false" aria-controls="Bagian4">
+                                    SURAT IJIN
+                                </button>
+                            </p><br>
+                            <div class="collapse mb-4" id="Bagian4">
                                 <div class="card card-body">
                                     <div class="table-responsive">
                                         <div class="card bg-warning mb-4 text-white shadow">
@@ -94,47 +197,25 @@
                                                 <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif .pdf</div>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <table class="table table-bordered" id="tableloop">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="text-align-center text-md-left">No</th>
-                                                        <th class="text-align-center text-md-left">Form Ijazah</th>
-                                                        <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Barisbaru"><i class="fa fa-plus"></i></button></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <p>
-                            <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian4" aria-expanded="false" aria-controls="Bagian4">
-                                SURAT IJIN
-                            </button>
-                        </p><br>
-                            <div class="collapse mb-4" id="Bagian4">
-                                <div class="card card-body">
-                                    <div class="table-responsive">
-                                    <div class="card bg-warning mb-4 text-white shadow">
-                                            <div class="card-body">
-                                                Format
-                                                <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif .pdf</div>
-                                            </div>
-                                        </div>
                                          <!-- suratlamaran -->
                                         <div class="form-group"><label>STR</label>
                                             <div class="custom-file">
-                                                <input class="custom-file-input" type="file" id="surat_str" name="surat_str" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                                    <label class="custom-file-label" for="customFile" id="filelamaran">Pilih File</label>
+                                                <input class="form-control" name="tempat_lahir" type="text" placeholder="Yang Mengeluarkan">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-file">
+                                                <input class="form-control" name="tempat_lahir" type="text" placeholder="Masa Berlaku">
                                             </div>
                                         </div>
                                         <div class="form-group"><label>SIP</label>
                                             <div class="custom-file">
-                                                <input class="custom-file-input" type="file" id="surat_sip" name="surat_sip" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                                    <label class="custom-file-label" for="customFile" id="filelamaran">Pilih File</label>
+                                                <input class="form-control" name="tempat_lahir" type="text" placeholder="Yang Mengeluarkan">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-file">
+                                                <input class="form-control" name="tempat_lahir" type="text" placeholder="Masa Berlaku">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -201,12 +282,12 @@
                                     </div>                                
                                 </div>
                             </div>
-                        <p>
-                            <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian7" aria-expanded="false" aria-controls="Bagian7">
-                                VERIFIKASI SUMBER UTAMA <i>(PRIMARY SOURCE VERIFICATION)</i>
-                            </button>
-                        </p>
-                        <br>
+                            <p>
+                                <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian7" aria-expanded="false" aria-controls="Bagian7">
+                                    VERIFIKASI SUMBER UTAMA <i>(PRIMARY SOURCE VERIFICATION)</i>
+                                </button>
+                            </p>
+                            <br>
                             <div class="collapse mb-4" id="Bagian7">
                                 <div class="card card-body">
                                     <div class="table-responsive">
@@ -285,11 +366,11 @@
                                     </div>                           
                                 </div>
                             </div>
-                        <p>
+                            <p>
                             <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian8" aria-expanded="false" aria-controls="Bagian8">
                                 SURAT KETERANGAN SEHAT
                             </button>
-                        </p><br>
+                            </p><br>
                             <div class="collapse mb-4" id="Bagian8">
                                 <div class="card card-body">
                                     <div class="table-responsive">
@@ -313,77 +394,10 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-                <!-- Illustrations -->
-                <div class="card border-bottom-info shadow mb-4">
-                    <div class="card-header py-3 bg-info">
-                        <h6 class="m-0 font-weight-bold text-white">Form Pengajuan</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="col-lg-12">
-                            <!-- Kategori -->
-                            <?php if ($ktg > 0) : ?>
-                                <div class="form-group"><label>Kategori</label>
-                                    <select name="kategori" class="form-control chosen">
-                                        <option value="">--Pilih--</option>
-                                        <?php foreach ($kategori as $j) : ?>
-                                            <option value="<?= $j->id_kategori ?>.<?= $j->nama_kategori ?>"><?= $j->nama_kategori ?></option>
-                                        <?php endforeach ?>
-                                    </select>
-                                </div>
-                                <?php else : ?>
-                            <?php endif; ?>
-                            <!-- Nama Lengkap -->
-                            <div class="form-group"><label>Nama Lengkap (Termasuk Gelar)</label>
-                                <input class="form-control" name="nama_lengkap" type="text">
-                            </div>
-                            <!-- NIP / NIK -->
-                            <div class="form-group"><label>NIP / NIK</label>
-                                <input class="form-control" name="nip" type="text">
-                            </div>
-                            <!-- Tempat Lahir -->
-                            <div class="form-group"><label>Tempat Lahir</label>
-                                <input class="form-control" name="tempat_lahir" type="text">
-                            </div>
-                            <!-- Tanggal Lahir -->
-                            <div class="form-group"><label>Tanggal Lahir</label>
-                                <input class="form-control" value="<?= date('Y-m-d') ?>" name="tanggal_lahir" type="date" placeholder="">
-                            </div>
-                            <!-- Tempat Lahir -->
-                            <div class="form-group"><label>Alamat</label>
-                                <input class="form-control" name="alamat" type="text">
-                            </div>
-                            <!-- Telepon / HP -->
-                            <div class="form-group"><label>Telepon / HP</label>
-                                <input class="form-control" name="telepon" type="text">
-                            </div>
-                            <!-- E-mail -->
-                            <div class="form-group"><label>E-mail</label>
-                                <input class="form-control" name="email" type="text">
-                            </div>
-                            <!-- Nomor STR -->
-                            <div class="form-group"><label>Nomor STR</label>
-                                <input class="form-control" name="nomor_str" type="text">
-                            </div>
-                            <!-- Nomor SIP -->
-                            <div class="form-group"><label>Nomor SIP</label>
-                                <input class="form-control" name="nomor_sip" type="text">
-                            </div>
-                            <!-- Tanggal Mulai Bekerja -->
-                            <div class="form-group"><label>Tanggal Mulai Bekerja</label>
-                                <input class="form-control" value="<?= date('Y-m-d') ?>" name="tanggal_kerja" type="date" placeholder="">
-                            </div>
-                            
-                            
-                        </div>
 
-                        <br>
-                    </div>
-                </div>
-
-            </div>
+    </div>
 
             <div class="col-lg-4 mb-4">
                 <!-- Illustrations -->
@@ -401,17 +415,10 @@
                         <br>
                         <center>
                             <div id="img">
-                                <img src="<?= base_url() ?>assets/upload/barang/nakes.png" id="outputImg" width="150" maxheight="250">
+                                <img src="<?= base_url() ?>assets/upload/pengguna/<?= $u->foto ?>" id="outputImg" width="150" maxheight="250">
                             </div>
                         </center>
                         <br>
-                        <!-- foto -->
-                        <div class="form-group">
-                            <div class="custom-file">
-                                <input class="custom-file-input" type="file" id="pasfoto" name="photo" onchange="VerifyPasFotoNameAndSize()" accept=".png,.gif,.jpeg,.tiff,.jpg">
-                                    <label class="custom-file-label" for="customFile" id="pasphoto">Pilih File</label>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -530,12 +537,14 @@
         var Baris = '<tr>';
                 Baris += '<td class ="text-center">'+Nomor+'</td>';
                 Baris += '<td>';
-                    Baris += '<div class="form-group"><label>Lampiran Surat Ijin</label>';
-                    Baris += '<br>';
-                    Baris += '<div class="custom-file">';
-                    Baris += '<input class="custom-file-input mb-3" type="file" id="surat_ijin[] name="surat_ijin[]" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">';
-                    Baris += '<label class="custom-file-label" for="customFile" id="file_surat_ijin[] name="file_surat_ijin[]"">Pilih File</label>';
+                    Baris += '<div class="form-group"><label>Jenis Surat Ijin</label>';
+                    Baris += '<input class="form-control" name="jenissurat[]" type="text">';
                     Baris += '</div>';
+                    Baris += '<div class="form-group">';
+                    Baris += '<input class="form-control" name="jenissurat[]" type="text" placeholder="Yang Mengeluarkan">';
+                    Baris += '</div>';
+                    Baris += '<div class="form-group">';
+                    Baris += '<input class="form-control" name="jenissurat[]" type="text" placeholder="Masa Berlaku">';
                     Baris += '</div>';
                     Baris += '</div>';
                 Baris +='</td>';

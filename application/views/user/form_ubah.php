@@ -69,6 +69,14 @@
                                     <?php if($u->level == "Supervisor"): ?> Selected <?php endif; ?> >Supervisor</option>
                                     <option value="Pegawai" 
                                     <?php if($u->level == "Pegawai"): ?> Selected <?php endif; ?> >Pegawai</option>
+                                    <option value="SDM" 
+                                    <?php if($u->level == "SDM"): ?> Selected <?php endif; ?> >SDM</option>
+                                    <option value="Komite" 
+                                    <?php if($u->level == "Komite"): ?> Selected <?php endif; ?> >Komite</option>
+                                    <option value="Mitra Bestari" 
+                                    <?php if($u->level == "Mitra Bestari"): ?> Selected <?php endif; ?> >Mitra Bestari</option>
+                                    <option value="SDM" 
+                                    <?php if($u->level == "Direktur"): ?> Selected <?php endif; ?> >Direktur</option>
                                 </select>
                             </div>
 

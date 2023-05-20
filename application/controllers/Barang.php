@@ -12,11 +12,12 @@ class Barang extends CI_Controller {
 		$this->load->model('barang_model');
 		$this->load->model('perawatan_model');
 		$this->load->model('kategori_model');
+		$this->load->model('user_model');
   	}
 	
 	public function index()
 	{
-		$data['title'] = 'Barang';
+		$data['title'] = 'Pengajuan';
 		$data['barang'] = $this->barang_model->dataJoin()->result();
 
 		$this->load->view('templates/header', $data);
@@ -24,11 +25,13 @@ class Barang extends CI_Controller {
 		$this->load->view('templates/footer');
     }
 
-    public function tambah()
+    public function tambah($id)
 	{
-        $data['title'] = 'Barang';
+        $data['title'] = 'Pengajuan';
 		 //data untuk select
 		$data['kategori'] = $this->kategori_model->data()->result();
+		$where = array('id_user'=>$id);
+		$data['user'] = $this->user_model->detail_data($where, 'user')->result();
 
 		$data['ktg'] = $this->kategori_model->data()->num_rows();
 
@@ -40,7 +43,7 @@ class Barang extends CI_Controller {
     
     public function ubah($id)
 	{
-        $data['title'] = 'Barang';
+        $data['title'] = 'Pengajuan';
 
         //menampilkan data berdasarkan id
 		$where = array('id_barang'=>$id);
@@ -57,7 +60,7 @@ class Barang extends CI_Controller {
 
 	public function detail($id)
 	{
-		$data['title'] = 'Barang';
+		$data['title'] = 'Pengajuan';
 
         //menampilkan data berdasarkan id
         $data['data'] = $this->barang_model->detail_join($id, 'barang')->result();

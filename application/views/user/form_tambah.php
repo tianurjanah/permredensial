@@ -59,6 +59,10 @@
                                     <option value="Admin">Admin</option>
                                     <option value="Supervisor">Supervisor</option>
                                     <option value="Pegawai">Pegawai</option>
+                                    <option value="SDM">SDM</option>
+                                    <option value="Komite">Komite</option>
+                                    <option value="Mitra Bestari">Mitra Bestari</option>
+                                    <option value="Direktur">Direktur</option>
                                 </select>
                             </div>
 

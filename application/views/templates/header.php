@@ -95,10 +95,10 @@ if (!$this->session->has_userdata('login_session')){
             <?php endif; ?>
 
             
-            <?php if($this->session->userdata('login_session')['level'] == 'Admin'): ?>
+            <?php if($this->session->userdata('login_session')['level'] == 'Pegawai'): ?>
             
             <div class="sidebar-heading">
-                Inventaris
+                Proses Kredensial
             </div>
             <?php if($title == 'Barang'): ?>
             <li class="nav-item active">
@@ -107,7 +107,7 @@ if (!$this->session->has_userdata('login_session')){
                 <?php endif; ?>
                 <a class="nav-link" href="<?= base_url() ?>barang">
                     <i class="fas fa-fw fa-boxes"></i>
-                    <span>Data Barang Inventaris</span>
+                    <span>Pengajuan Kredensial</span>
                 </a>
             </li>
             <hr class="sidebar-divider d-none d-md-block">
@@ -131,7 +131,7 @@ if (!$this->session->has_userdata('login_session')){
             <hr class="sidebar-divider d-none d-md-block">
             <?php endif; ?>
             
-            <?php if($this->session->userdata('login_session')['level'] == 'Pegawai'): ?>
+            <?php if($this->session->userdata('login_session')['level'] == 'Admin'): ?>
 
             <!-- Heading -->
             <div class="sidebar-heading">

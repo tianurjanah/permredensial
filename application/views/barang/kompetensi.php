@@ -1,4 +1,5 @@
 <!-- Begin Page Content -->
+
 <div class="container-fluid">
 
     <form action="<?= base_url() ?>kompetensi/proses_tambah" name="myForm" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
