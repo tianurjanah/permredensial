@@ -243,12 +243,12 @@
                                 <div class="card card-body">
                                     <div class="table-responsive">
                                     <div class="form-group">
-                                            <table class="table table-bordered" id="tableloop">
+                                            <table class="table table-bordered" id="pelatihantableloop">
                                                 <thead>
                                                     <tr>
                                                         <th class="text-align-center text-md-left">No</th>
                                                         <th class="text-align-center text-md-left">Form Ijazah</th>
-                                                        <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Barisbaru"><i class="fa fa-plus"></i></button></th>
+                                                        <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Pelatihanbarisbaru"><i class="fa fa-plus"></i></button></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -267,12 +267,12 @@
                                 <div class="card card-body">
                                     <div class="table-responsive">
                                     <div class="form-group">
-                                            <table class="table table-bordered" id="tableloop">
+                                            <table class="table table-bordered" id="kerjatableloop">
                                                 <thead>
                                                     <tr>
                                                         <th class="text-align-center text-md-left">No</th>
                                                         <th class="text-align-center text-md-left">Form Ijazah</th>
-                                                        <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Barisbaru"><i class="fa fa-plus"></i></button></th>
+                                                        <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Kerjabarisbaru"><i class="fa fa-plus"></i></button></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -465,6 +465,8 @@
                     pendidikanbarisbaru();
                     verifikasisuratijinbarisbaru();
                     verifikasipengalamankerjabarisbaru();
+                    pelatihanbarisbaru();
+                    kerjabarisbaru();
                 }
                     $('#Barisbaru').click(function(e){
                         e.preventDefault();
@@ -478,6 +480,10 @@
                         e.preventDefault();
                         pendidikanbarisbaru();
                     });
+                        $('#Pelatihanbarisbaru').click(function(e){
+                        e.preventDefault();
+                        pelatihanbarisbaru();
+                    });
                     $('#Verifikasisuratijinbarisbaru').click(function(e){
                         e.preventDefault();
                         verifikasisuratijinbarisbaru();
@@ -485,6 +491,11 @@
                     $('#Verifikasipengalamankerjabarisbaru').click(function(e){
                         e.preventDefault();
                         verifikasipengalamankerjabarisbaru();
+                    });
+                    
+                    $('#Kerjabarisbaru').click(function(e){
+                        e.preventDefault();
+                        kerjabarisbaru();
                     });
         });
     });
@@ -572,6 +583,91 @@
             var Nomor = 1;
             $(this).parent().parent().remove();
             $('suratijintableloop tbody tr').each(function(){
+                $(this).find('td:nth-child(1)').html(Nomor);
+                Nomor++;
+            });
+        });
+
+        function pelatihanbarisbaru(){
+        $(document).ready(function() {
+            $("[data-toggle='tooltip'").tooltip();
+        });
+        var Nomor = $("#pelatihantableloop tbody tr").length + 1;
+        var Baris = '<tr>';
+                Baris += '<td class ="text-center">'+Nomor+'</td>';
+                Baris += '<td>';
+                    Baris += '<div class="form-group"><label>Nama Pelatihan</label>';
+                    Baris += '<input class="form-control" name="nama_pelatihan[]" type="text">';
+                    Baris += '</div>';
+                    Baris += '<div class="form-group">';
+                    Baris += '<input class="form-control" name="berlaku_sertifikat[]" type="text" placeholder="Masa Berlaku Sertifikat">';
+                    Baris += '</div>';
+                    Baris += '<div class="form-group">';
+                    Baris += '<input class="form-control" name="penyelenggara[]" type="text" placeholder="Institusi Penyelenggara">';
+                    Baris += '</div>';
+                    Baris += '</div>';
+                Baris +='</td>';
+                Baris += '<td class="text-center">';
+                    Baris += '<a class="btn btn-sm btn-danger align-center col-lg-12 p-3" data-toggle="tooltip" title"Hapus Baris" id="pelatihanhapusbaris"><i class="fas fa-times" ></i></a>';
+                Baris +='</td>';
+            Baris += '</tr>';
+        console.log(Baris);
+
+        $("#pelatihantableloop tbody").append(Baris);
+        $("#pelatihantableloop tbody tr").each(function() {
+        });
+    }
+        $(document).on('click','#pelatihanhapusbaris',function(e){
+            e.preventDefault();
+            var Nomor = 1;
+            $(this).parent().parent().remove();
+            $('pelatihantableloop tbody tr').each(function(){
+                $(this).find('td:nth-child(1)').html(Nomor);
+                Nomor++;
+            });
+        });
+
+        function kerjabarisbaru(){
+        $(document).ready(function() {
+            $("[data-toggle='tooltip'").tooltip();
+        });
+        var Nomor = $("#kerjatableloop tbody tr").length + 1;
+        var Baris = '<tr>';
+                Baris += '<td class ="text-center">'+Nomor+'</td>';
+                Baris += '<td>';
+                    Baris += '<div class="form-group"><label>Nama Perusahaan</label>';
+                    Baris += '<input class="form-control" name="nama_perusahaan[]" type="text">';
+                    Baris += '</div>';
+                    Baris += '<div class="form-group"><label>Masa Kerja Dari</label>';
+                    Baris += '<input class="form-control" name="kerja_dari[]" type="date">';
+                    Baris += '</div>';
+                    Baris += '<div class="form-group"><label>Masa Kerja Sampai</label>';
+                    Baris += '<input class="form-control" name="kerja_sampai[]" type="date">';
+                    Baris += '</div>';
+                    Baris += '<div class="form-group"><label>Surat Referensi</label>';
+                    Baris += '<br>';
+                    Baris += '<div class="custom-file">';
+                    Baris += '<input class="custom-file-input mb-3" type="file" id="lampiran_referensi[] name="lampiran_referensi[]" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">';
+                    Baris += '<label class="custom-file-label" for="customFile" id="file_referensi[] name="file_referensi[]"">Pilih File</label>';
+                    Baris += '</div>';
+                    Baris += '</div>';
+                    Baris += '</div>';
+                Baris +='</td>';
+                Baris += '<td class="text-center">';
+                    Baris += '<a class="btn btn-sm btn-danger align-center col-lg-12 p-3" data-toggle="tooltip" title"Hapus Baris" id="kerjahapusbaris"><i class="fas fa-times" ></i></a>';
+                Baris +='</td>';
+            Baris += '</tr>';
+        console.log(Baris);
+
+        $("#kerjatableloop tbody").append(Baris);
+        $("#kerjatableloop tbody tr").each(function() {
+        });
+        }
+        $(document).on('click','#kerjahapusbaris',function(e){
+            e.preventDefault();
+            var Nomor = 1;
+            $(this).parent().parent().remove();
+            $('kerjatableloop tbody tr').each(function(){
                 $(this).find('td:nth-child(1)').html(Nomor);
                 Nomor++;
             });
