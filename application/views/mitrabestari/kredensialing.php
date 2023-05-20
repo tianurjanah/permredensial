@@ -309,6 +309,7 @@
                                                 <tr>
                                                     <th width="1%">No</th>
                                                     <th>Jenis Surat</th>
+                                                    <th>File Surat</th>
                                                     <th>Yang Mengeluarkan</th>
                                                     <th>Masa Berlaku</th>
                                                     <th class="text-center" colspan="2">Aksi</th>
@@ -318,6 +319,7 @@
                                                 <tr>
                                                     <td>1</td>
                                                     <td>Foto</td>
+                                                    <td>Ini File</td>
                                                     <td>ini ceritanya nama barang</td>
                                                     <td>Cek posisi</td>
                                                     <td class="text-center">
