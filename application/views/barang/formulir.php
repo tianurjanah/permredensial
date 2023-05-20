@@ -100,7 +100,7 @@
                                     <select name="kategori" class="form-control chosen">
                                         <option value="">--Pilih--</option>
                                         <?php foreach ($kategori as $j) : ?>
-                                            <option value="<?= $j->id_kategori ?>.<?= $j->nama_kategori ?>"><?= $j->nama_kategori ?></option>
+                                            <option value="<?= $j->id_kategori ?>.<?= $j->nama_kategori ?>"><?= $j->ket ?></option>
                                         <?php endforeach ?>
                                     </select>
                                 </div>
@@ -300,12 +300,12 @@
                                         <div class="card card-body">
                                             <div class="table-responsive">
                                                 <div class="form-group">
-                                                    <table class="table table-bordered" id="tableloop">
+                                                    <table class="table table-bordered" id="pendidikantableloop">
                                                         <thead>
                                                             <tr>
                                                                 <th class="text-align-center text-md-left">No</th>
                                                                 <th class="text-align-center text-md-left">Form Ijazah</th>
-                                                                <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Barisbaru"><i class="fa fa-plus"></i></button></th>
+                                                                <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Pendidikanbarisbaru"><i class="fa fa-plus"></i></button></th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -325,12 +325,12 @@
                                         <div class="card card-body">
                                             <div class="table-responsive">
                                                 <div class="form-group">
-                                                    <table class="table table-bordered" id="tableloop">
+                                                    <table class="table table-bordered" id="verifikasisuratijintableloop">
                                                         <thead>
                                                             <tr>
                                                                 <th class="text-align-center text-md-left">No</th>
                                                                 <th class="text-align-center text-md-left">Form Ijazah</th>
-                                                                <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Barisbaru"><i class="fa fa-plus"></i></button></th>
+                                                                <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Verifikasisuratijinbarisbaru"><i class="fa fa-plus"></i></button></th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -349,12 +349,12 @@
                                         <div class="card card-body">
                                             <div class="table-responsive">
                                                 <div class="form-group">
-                                                    <table class="table table-bordered" id="tableloop">
+                                                    <table class="table table-bordered" id="verifikasipengalamankerjatableloop">
                                                         <thead>
                                                             <tr>
                                                                 <th class="text-align-center text-md-left">No</th>
                                                                 <th class="text-align-center text-md-left">Form Ijazah</th>
-                                                                <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Barisbaru"><i class="fa fa-plus"></i></button></th>
+                                                                <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Verifikasipengalamankerjabarisbaru"><i class="fa fa-plus"></i></button></th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -381,9 +381,9 @@
                                             </div>
                                         </div>
                                          <!-- suratlamaran -->
-                                        <div class="form-group"><label>Surat Lamaran</label>
+                                        <div class="form-group"><label>Surat Kesehatan</label>
                                             <div class="custom-file">
-                                                <input class="custom-file-input" type="file" id="suratlamaran" name="suratlamaran" onchange="VerifySuratLamaranNameAndSize()" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
+                                                <input class="custom-file-input" type="file" id="suratkesehatan" name="suratkesehatan" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
                                                     <label class="custom-file-label" for="customFile" id="filelamaran">Pilih File</label>
                                             </div>
                                         </div>
@@ -406,12 +406,6 @@
                         <h6 class="m-0 font-weight-bold text-white">Pas Foto</h6>
                     </div>
                     <div class="card-body">
-                        <div class="card bg-warning text-white shadow">
-                            <div class="card-body">
-                                Format
-                                <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif</div>
-                            </div>
-                        </div>
                         <br>
                         <center>
                             <div id="img">
@@ -468,6 +462,9 @@
                 for(B=1;B<=1;B++){
                     BarisBaru();
                     suratijinbarisbaru();
+                    pendidikanbarisbaru();
+                    verifikasisuratijinbarisbaru();
+                    verifikasipengalamankerjabarisbaru();
                 }
                     $('#Barisbaru').click(function(e){
                         e.preventDefault();
@@ -476,6 +473,18 @@
                     $('#Suratijinbarisbaru').click(function(e){
                         e.preventDefault();
                         suratijinbarisbaru();
+                    });
+                    $('#Pendidikanbarisbaru').click(function(e){
+                        e.preventDefault();
+                        pendidikanbarisbaru();
+                    });
+                    $('#Verifikasisuratijinbarisbaru').click(function(e){
+                        e.preventDefault();
+                        verifikasisuratijinbarisbaru();
+                    });
+                    $('#Verifikasipengalamankerjabarisbaru').click(function(e){
+                        e.preventDefault();
+                        verifikasipengalamankerjabarisbaru();
                     });
         });
     });
@@ -563,6 +572,132 @@
             var Nomor = 1;
             $(this).parent().parent().remove();
             $('suratijintableloop tbody tr').each(function(){
+                $(this).find('td:nth-child(1)').html(Nomor);
+                Nomor++;
+            });
+        });
+        function pendidikanbarisbaru(){
+        $(document).ready(function() {
+            $("[data-toggle='tooltip'").tooltip();
+        });
+        var Nomor = $("#pendidikantableloop tbody tr").length + 1;
+        var Baris = '<tr>';
+                Baris += '<td class ="text-center">'+Nomor+'</td>';
+                Baris += '<td>';
+                    Baris += '<div class="form-group"><label>Nama Institusi</label>';
+                    Baris += '<input class="form-control" name="namainstitusipendidikan[]" type="text">';
+                    Baris += '</div>';
+                    Baris += '<div class="form-group"><label>Tanggal Pengiriman</label>';
+                    Baris += '<input class="form-control" name="tanggalpengirimanpendidikan[]" type="date">';
+                    Baris += '</div>';
+                    Baris += '<div class="form-group"><label>Surat Balasan</label>';
+                    Baris += '<br>';
+                    Baris += '<div class="custom-file">';
+                    Baris += '<input class="custom-file-input mb-3" type="file" id="surat_balasan_pendidikan[] name="surat_balasan_pendidikan[]" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">';
+                    Baris += '<label class="custom-file-label" for="customFile" id="file_balasan_pendidikan[] name="file_balasan_pendidikan[]"">Pilih File</label>';
+                    Baris += '</div>';
+                    Baris += '</div>';
+                    Baris += '</div>';
+                Baris +='</td>';
+                Baris += '<td class="text-center">';
+                    Baris += '<a class="btn btn-sm btn-danger align-center col-lg-12 p-3" data-toggle="tooltip" title"Hapus Baris" id="pendidikanhapusbaris"><i class="fas fa-times" ></i></a>';
+                Baris +='</td>';
+            Baris += '</tr>';
+        console.log(Baris);
+
+        $("#pendidikantableloop tbody").append(Baris);
+        $("#pendidikantableloop tbody tr").each(function() {
+        });
+    }
+        $(document).on('click','#pendidikanhapusbaris',function(e){
+            e.preventDefault();
+            var Nomor = 1;
+            $(this).parent().parent().remove();
+            $('pendidikantableloop tbody tr').each(function(){
+                $(this).find('td:nth-child(1)').html(Nomor);
+                Nomor++;
+            });
+        });
+        function verifikasisuratijinbarisbaru(){
+        $(document).ready(function() {
+            $("[data-toggle='tooltip'").tooltip();
+        });
+        var Nomor = $("#verifikasisuratijintableloop tbody tr").length + 1;
+        var Baris = '<tr>';
+                Baris += '<td class ="text-center">'+Nomor+'</td>';
+                Baris += '<td>';
+                    Baris += '<div class="form-group"><label>Nama Institusi</label>';
+                    Baris += '<input class="form-control" name="namainstitusisuratijin[]" type="text">';
+                    Baris += '</div>';
+                    Baris += '<div class="form-group"><label>Tanggal Pengiriman</label>';
+                    Baris += '<input class="form-control" name="tanggalpengirimansuratijin[]" type="date">';
+                    Baris += '</div>';
+                    Baris += '<div class="form-group"><label>Surat Balasan</label>';
+                    Baris += '<br>';
+                    Baris += '<div class="custom-file">';
+                    Baris += '<input class="custom-file-input mb-3" type="file" id="surat_balasan_suratijin[] name="surat_balasan_suratijin[]" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">';
+                    Baris += '<label class="custom-file-label" for="customFile" id="file_balasan_suratijin[] name="file_balasan_suratijin[]"">Pilih File</label>';
+                    Baris += '</div>';
+                    Baris += '</div>';
+                    Baris += '</div>';
+                Baris +='</td>';
+                Baris += '<td class="text-center">';
+                    Baris += '<a class="btn btn-sm btn-danger align-center col-lg-12 p-3" data-toggle="tooltip" title"Hapus Baris" id="verifikasisuratijinhapusbaris"><i class="fas fa-times" ></i></a>';
+                Baris +='</td>';
+            Baris += '</tr>';
+        console.log(Baris);
+
+        $("#verifikasisuratijintableloop tbody").append(Baris);
+        $("#verifikasisuratijintableloop tbody tr").each(function() {
+        });
+    }
+        $(document).on('click','#verifikasisuratijinhapusbaris',function(e){
+            e.preventDefault();
+            var Nomor = 1;
+            $(this).parent().parent().remove();
+            $('verifikasisuratijintableloop tbody tr').each(function(){
+                $(this).find('td:nth-child(1)').html(Nomor);
+                Nomor++;
+            });
+        });
+        function verifikasipengalamankerjabarisbaru(){
+        $(document).ready(function() {
+            $("[data-toggle='tooltip'").tooltip();
+        });
+        var Nomor = $("#verifikasipengalamankerjatableloop tbody tr").length + 1;
+        var Baris = '<tr>';
+                Baris += '<td class ="text-center">'+Nomor+'</td>';
+                Baris += '<td>';
+                    Baris += '<div class="form-group"><label>Nama Institusi</label>';
+                    Baris += '<input class="form-control" name="namainstitusipengalamankerja[]" type="text">';
+                    Baris += '</div>';
+                    Baris += '<div class="form-group"><label>Tanggal Pengiriman</label>';
+                    Baris += '<input class="form-control" name="tanggalpengirimanpengalamankerja[]" type="date">';
+                    Baris += '</div>';
+                    Baris += '<div class="form-group"><label>Surat Balasan</label>';
+                    Baris += '<br>';
+                    Baris += '<div class="custom-file">';
+                    Baris += '<input class="custom-file-input mb-3" type="file" id="surat_balasan_pengalamankerja[] name="surat_balasan_pengalamankerja[]" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">';
+                    Baris += '<label class="custom-file-label" for="customFile" id="file_balasan_pengalamankerja[] name="file_balasan_pengalamankerja[]"">Pilih File</label>';
+                    Baris += '</div>';
+                    Baris += '</div>';
+                    Baris += '</div>';
+                Baris +='</td>';
+                Baris += '<td class="text-center">';
+                    Baris += '<a class="btn btn-sm btn-danger align-center col-lg-12 p-3" data-toggle="tooltip" title"Hapus Baris" id="verifikasipengalamankerjahapusbaris"><i class="fas fa-times" ></i></a>';
+                Baris +='</td>';
+            Baris += '</tr>';
+        console.log(Baris);
+
+        $("#verifikasipengalamankerjatableloop tbody").append(Baris);
+        $("#verifikasipengalamankerjatableloop tbody tr").each(function() {
+        });
+    }
+        $(document).on('click','#verifikasipengalamankerjahapusbaris',function(e){
+            e.preventDefault();
+            var Nomor = 1;
+            $(this).parent().parent().remove();
+            $('verifikasipengalamankerjatableloop tbody tr').each(function(){
                 $(this).find('td:nth-child(1)').html(Nomor);
                 Nomor++;
             });
