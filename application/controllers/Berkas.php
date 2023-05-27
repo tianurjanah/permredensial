@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Barang extends CI_Controller {
+class Berkas extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
@@ -17,11 +17,11 @@ class Barang extends CI_Controller {
 	
 	public function index()
 	{
-		$data['title'] = 'Pengajuan';
+		$data['title'] = 'BERKAS PENGAJUAN';
 		$data['barang'] = $this->barang_model->dataJoin()->result();
 
 		$this->load->view('templates/header', $data);
-		$this->load->view('barang/index', '$data');
+		$this->load->view('berkas/index', '$data');
 		$this->load->view('templates/footer');
     }
 
@@ -73,7 +73,7 @@ class Barang extends CI_Controller {
 	public function proses_tambah()
 	{
 
-        $config['upload_path']   = './assets/upload/barang/';
+        $config['upload_path']   = './assets/upload/berkas_biodata/';
 		$config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF||tiff|TIFF|PDF|pdf';
 	
 		$namaFile = $_FILES['photo']['name'];
@@ -90,7 +90,7 @@ class Barang extends CI_Controller {
         if ($namaFile == '') {
             $ganti = 'box.png';
         }else{
-          	if (! $this->upload->do_upload('photo')) {
+          	if (! $this->upload->do_upload('photo')&&('file')) {
 				$error = $this->upload->display_errors();
 				redirect('barang/tambah');
           	}
@@ -132,6 +132,10 @@ class Barang extends CI_Controller {
 	
 		$namaFile = $_FILES['photo']['name'];
 		$error = $_FILES['photo']['error'];
+		
+		$namaLamaran = $_FILES['suratlamaran']['name'];
+		$errorLamaran = $_FILES['suratlamaran']['error'];
+
 
         $this->load->library('upload', $config);
         
@@ -143,7 +147,7 @@ class Barang extends CI_Controller {
         
         $flama = $this->input->post('fotoLama');
 
-        if ($namaFile == '') {
+        if ($namaFile == '' ) {
             $ganti = $flama;
         }else{
           	if (! $this->upload->do_upload('photo')) {

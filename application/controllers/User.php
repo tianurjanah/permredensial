@@ -211,7 +211,7 @@ class User extends CI_Controller {
 
 		$where = array('id_user'=>$kode);
 	  
-		  $this->user_model->ubah_data($where, $data, 'user');
+		  $this->user_model->ubah_databio($where, $data, 'user');
 		  $this->session->set_flashdata('Pesan','
 			<script>
 			$(document).ready(function() {

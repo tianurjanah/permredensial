@@ -16,6 +16,7 @@ $route['barang'] = 'Barang/index';
 $route['perawatan'] = 'Perawatan/index';
 $route['perbaikan'] = 'Perbaikan/index';
 $route['kompetensi'] = 'kompetensi/index';
+$route['berkas'] = 'Berkas/index';
 
 //laporan
 $route['laporanbrg'] = 'laporanbrg';

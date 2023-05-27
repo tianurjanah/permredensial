@@ -4,23 +4,21 @@
 
 <?php foreach ($user as $u) : ?>
 
-    <form action="<?= base_url() ?>kompetensi/selanjutnya" name="myForm" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+    <form action="<?= base_url() ?>profile/proses_ubah_bio" name="myForm" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <div class="d-sm-flex">
-                <a href="<?= base_url() ?>barang" class="btn btn-md btn-circle btn-info">
-                    <i class="fas fa-arrow-left"></i>
-                </a>
                 &nbsp;
                 <h3 class="h3 mb-0 text-gray-800">Formulir Pengajuan Kredensial</h3>
             </div>
-            <a href="<?= base_url() ?>kompetensi/selanjutnya" class="btn btn-primary btn-md btn-icon-split" onsubmit=getData()>
-                <span class="text text-white">Selanjutnya</span>
+
+            <button type="submit" class="btn btn-success btn-md btn-icon-split">
+                <span class="text text-white">Simpan Perubahan</span>
                 <span class="icon text-white-50">
-                    <i class="fas fa-arrow-right"></i>
+                    <i class="fas fa-save"></i>
                 </span>
-            </a>
+            </button>
 
         </div>
 
@@ -35,367 +33,50 @@
                         <div class="col-lg-12">
                             <!-- Nama Lengkap -->
                             <div class="form-group"><label>Nama Lengkap (Termasuk Gelar)</label>
-                                <input class="form-control" name="nama_lengkap" type="text" value="<?= $u->nama ?>" readonly>
+                                <input class="form-control" name="namaL" type="text" value="<?= $u->nama ?>">
                             </div>
                             <!-- NIP / NIK -->
                             <div class="form-group"><label>NIP / NIK</label>
-                                <input class="form-control" name="nip" type="text" value="<?= $u->nip ?>" readonly>
+                                <input class="form-control" name="nip" type="text" value="<?= $u->nip ?>">
                             </div>
                             <!-- Tempat Lahir -->
                             <div class="form-group"><label>Tempat Lahir</label>
-                                <input class="form-control" name="tempat_lahir" type="text" value="<?= $u->tmptlahir ?>" readonly>
+                                <input class="form-control" name="tmptlahir" type="text" value="<?= $u->tmptlahir ?>">
                             </div>
                             <!-- Tanggal Lahir -->
                             <div class="form-group"><label>Tanggal Lahir</label>
-                                <input class="form-control" value="<?= $u->tgllahir ?>" readonly name="tanggal_lahir" type="date" placeholder="">
+                                <input class="form-control" value="<?= $u->tgllahir ?>" name="tgllahir" type="date">
                             </div>
                             <!-- Tempat Lahir -->
                             <div class="form-group"><label>Alamat</label>
-                                <input class="form-control" name="alamat" type="text" value="<?= $u->alamat ?>" readonly>
+                                <input class="form-control" name="alamat" type="text" value="<?= $u->alamat ?>">
                             </div>
                             <!-- Telepon / HP -->
                             <div class="form-group"><label>Telepon / HP</label>
-                                <input class="form-control" name="telepon" type="text" value="<?= $u->notelp ?>" readonly>
+                                <input class="form-control" name="notelp" type="text" value="<?= $u->notelp ?>" >
                             </div>
                             <!-- E-mail -->
                             <div class="form-group"><label>E-mail</label>
-                                <input class="form-control" name="email" type="email" value="<?= $u->email ?>" readonly>
+                                <input class="form-control" name="email" type="email" value="<?= $u->email ?>" >
                             </div>
                             <!-- Nomor STR -->
                             <div class="form-group"><label>Nomor STR</label>
-                                <input class="form-control" name="nomor_str" type="text" value="<?= $u->str ?>" readonly>
+                                <input class="form-control" name="str" type="text" value="<?= $u->str ?>" >
                             </div>
                             <!-- Nomor SIP -->
                             <div class="form-group"><label>Nomor SIP</label>
-                                <input class="form-control" name="nomor_sip" type="text" value="<?= $u->sip ?>" readonly>
+                                <input class="form-control" name="sip" type="text" value="<?= $u->sip ?>" >
                             </div>
                             <!-- Tanggal Mulai Bekerja -->
                             <div class="form-group"><label>Tanggal Mulai Bekerja</label>
-                                <input class="form-control" value="<?= $u->tglmbekerja ?>" readonly name="tanggal_kerja" type="date" placeholder="">
+                                <input class="form-control" value="<?= $u->tglmbekerja ?>"  name="tglmbekerja" type="date" placeholder="">
                             </div>
-                            
                             
                         </div>
                         <?php endforeach; ?>
                         <br>
                     </div>
                 </div>
-
-            
-                <!-- Page Heading -->
-
-        <div class="d-sm-flex  justify-content-between mb-0">
-            <div class="col-lg-12 mb-4">
-                <!-- Illustrations -->
-                <div class="card border-bottom-info shadow mb-4">
-                    <div class="card-header py-3 bg-info">
-                        <h6 class="m-0 font-weight-bold text-white">Berkas Pengajuan</h6>
-                    </div>
-
-                    <div class="card-body">
-                    
-                            <!-- Kategori -->
-                            <?php if ($ktg > 0) : ?>
-                                <div class="form-group"><label>Kategori</label>
-                                    <select name="kategori" class="form-control chosen">
-                                        <option value="">--Pilih--</option>
-                                        <?php foreach ($kategori as $j) : ?>
-                                            <option value="<?= $j->id_kategori ?>.<?= $j->nama_kategori ?>"><?= $j->ket ?></option>
-                                        <?php endforeach ?>
-                                    </select>
-                                </div>
-                                <?php else : ?>
-                            <?php endif; ?>
-                            
-                        <div class="col-lg-12">
-                        <p>
-                            <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian1" aria-expanded="false" aria-controls="Bagian1">
-                                BIODATA
-                            </button>
-                        </p> <br>
-                            <div class="collapse mb-4" id="Bagian1">
-                                <div class="card card-body">
-                                    <div class="table-responsive">
-                                        <div class="card bg-warning mb-4 text-white shadow">
-                                            <div class="card-body">
-                                                Format
-                                                <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif .pdf</div>
-                                            </div>
-                                        </div>
-                                         <!-- suratlamaran -->
-                                        <div class="form-group"><label>Surat Lamaran</label>
-                                            <div class="custom-file">
-                                                <input class="custom-file-input" type="file" id="suratlamaran" name="suratlamaran" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                                    <label class="custom-file-label" for="customFile" id="filelamaran">Pilih File</label>
-                                            </div>
-                                        </div>
-                                         <!-- cv -->
-                                        <div class="form-group"><label>Curriculum Vitae</label>
-                                            <div class="custom-file">
-                                                <input class="custom-file-input" type="file" id="currivitae" name="currivitae" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                                    <label class="custom-file-label" for="customFile" id="filecv">Pilih File</label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group"><label>Formulir Data Karyawan</label>
-                                            <div class="custom-file">
-                                                <input class="custom-file-input" type="file" id="datakaryawan" name="datakaryawan" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                                    <label class="custom-file-label" for="customFile" id="filelamaran">Pilih File</label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group"><label>Scan KTP</label>
-                                            <div class="custom-file">
-                                                <input class="custom-file-input" type="file" id="scanktp" name="scanktp" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                                    <label class="custom-file-label" for="customFile" id="filelamaran">Pilih File</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                            <p>
-                                <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian2" aria-expanded="false" aria-controls="Bagian2">
-                                    IJAZAH
-                                </button>
-                            </p> 
-                            <br>
-                                <div class="collapse mb-4" id="Bagian2">
-                                    <div class="card card-body">
-                                        <div class="table-responsive">
-                                            <div class="card bg-warning mb-4 text-white shadow">
-                                                <div class="card-body">
-                                                    Format
-                                                    <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif .pdf</div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <table class="table table-bordered" id="tableloop">
-                                                    <thead>
-                                                        <tr>
-                                                            <th class="text-align-center text-md-left">No</th>
-                                                            <th class="text-align-center text-md-left">Form Ijazah</th>
-                                                            <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Barisbaru"><i class="fa fa-plus"></i></button></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            <p> 
-                                <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian4" aria-expanded="false" aria-controls="Bagian4">
-                                    SURAT IJIN
-                                </button>
-                            </p><br>
-                            <div class="collapse mb-4" id="Bagian4">
-                                <div class="card card-body">
-                                    <div class="table-responsive">
-                                        <div class="card bg-warning mb-4 text-white shadow">
-                                            <div class="card-body">
-                                                Format
-                                                <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif .pdf</div>
-                                            </div>
-                                        </div>
-                                         <!-- suratlamaran -->
-                                        <div class="form-group"><label>STR</label>
-                                            <div class="custom-file">
-                                                <input class="form-control" name="tempat_lahir" type="text" placeholder="Yang Mengeluarkan">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="custom-file">
-                                                <input class="form-control" name="tempat_lahir" type="text" placeholder="Masa Berlaku">
-                                            </div>
-                                        </div>
-                                        <div class="form-group"><label>SIP</label>
-                                            <div class="custom-file">
-                                                <input class="form-control" name="tempat_lahir" type="text" placeholder="Yang Mengeluarkan">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="custom-file">
-                                                <input class="form-control" name="tempat_lahir" type="text" placeholder="Masa Berlaku">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <table class="table table-bordered" id="suratijintableloop">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="text-align-center text-md-left">No</th>
-                                                        <th class="text-align-center text-md-left">Form Surat Ijin</th>
-                                                        <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Suratijinbarisbaru"><i class="fa fa-plus"></i></button></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>                                
-                                </div>
-                            </div>
-                        <p>
-                            <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian5" aria-expanded="false" aria-controls="Bagian5">
-                                SERTIFIKASI PELATIHAN KEAHLIAN
-                            </button>
-                        </p><br>
-                            <div class="collapse mb-4" id="Bagian5">
-                                <div class="card card-body">
-                                    <div class="table-responsive">
-                                    <div class="form-group">
-                                            <table class="table table-bordered" id="pelatihantableloop">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="text-align-center text-md-left">No</th>
-                                                        <th class="text-align-center text-md-left">Form Ijazah</th>
-                                                        <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Pelatihanbarisbaru"><i class="fa fa-plus"></i></button></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>                                
-                                </div>
-                            </div>
-                        <p>
-                            <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian6" aria-expanded="false" aria-controls="Bagian6">
-                                PENGALAMAN KERJA
-                            </button>
-                        </p><br>
-                            <div class="collapse mb-4" id="Bagian6">
-                                <div class="card card-body">
-                                    <div class="table-responsive">
-                                    <div class="form-group">
-                                            <table class="table table-bordered" id="kerjatableloop">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="text-align-center text-md-left">No</th>
-                                                        <th class="text-align-center text-md-left">Form Ijazah</th>
-                                                        <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Kerjabarisbaru"><i class="fa fa-plus"></i></button></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>                                
-                                </div>
-                            </div>
-                            <p>
-                                <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian7" aria-expanded="false" aria-controls="Bagian7">
-                                    VERIFIKASI SUMBER UTAMA <i>(PRIMARY SOURCE VERIFICATION)</i>
-                                </button>
-                            </p>
-                            <br>
-                            <div class="collapse mb-4" id="Bagian7">
-                                <div class="card card-body">
-                                    <div class="table-responsive">
-                                    <p>
-                                        <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Pendidikan" aria-expanded="false" aria-controls="Bagian7">
-                                            Pendidikan
-                                        </button>
-                                    </p><br>
-                                    <div class="collapse mb-4" id="Pendidikan">
-                                        <div class="card card-body">
-                                            <div class="table-responsive">
-                                                <div class="form-group">
-                                                    <table class="table table-bordered" id="pendidikantableloop">
-                                                        <thead>
-                                                            <tr>
-                                                                <th class="text-align-center text-md-left">No</th>
-                                                                <th class="text-align-center text-md-left">Form Ijazah</th>
-                                                                <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Pendidikanbarisbaru"><i class="fa fa-plus"></i></button></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>                                
-                                    </div>
-                                </div>
-                                    <p>
-                                        <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#SuratIjin" aria-expanded="false" aria-controls="Bagian7">
-                                            Surat Ijin
-                                        </button>
-                                    </p><br>
-                                    <div class="collapse mb-4" id="SuratIjin">
-                                        <div class="card card-body">
-                                            <div class="table-responsive">
-                                                <div class="form-group">
-                                                    <table class="table table-bordered" id="verifikasisuratijintableloop">
-                                                        <thead>
-                                                            <tr>
-                                                                <th class="text-align-center text-md-left">No</th>
-                                                                <th class="text-align-center text-md-left">Form Ijazah</th>
-                                                                <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Verifikasisuratijinbarisbaru"><i class="fa fa-plus"></i></button></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>     
-                                    </div>                           
-                                    <p>
-                                        <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#PengalamanKerja" aria-expanded="false" aria-controls="Bagian7">
-                                            Pengalaman Kerja
-                                        </button>
-                                    </p><br>
-                                    <div class="collapse mb-4" id="PengalamanKerja">
-                                        <div class="card card-body">
-                                            <div class="table-responsive">
-                                                <div class="form-group">
-                                                    <table class="table table-bordered" id="verifikasipengalamankerjatableloop">
-                                                        <thead>
-                                                            <tr>
-                                                                <th class="text-align-center text-md-left">No</th>
-                                                                <th class="text-align-center text-md-left">Form Ijazah</th>
-                                                                <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Verifikasipengalamankerjabarisbaru"><i class="fa fa-plus"></i></button></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>     
-                                    </div>                           
-                                </div>
-                            </div>
-                            <p>
-                            <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian8" aria-expanded="false" aria-controls="Bagian8">
-                                SURAT KETERANGAN SEHAT
-                            </button>
-                            </p><br>
-                            <div class="collapse mb-4" id="Bagian8">
-                                <div class="card card-body">
-                                    <div class="table-responsive">
-                                    <div class="card bg-warning mb-4 text-white shadow">
-                                            <div class="card-body">
-                                                Format
-                                                <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif .pdf</div>
-                                            </div>
-                                        </div>
-                                         <!-- suratlamaran -->
-                                        <div class="form-group"><label>Surat Kesehatan</label>
-                                            <div class="custom-file">
-                                                <input class="custom-file-input" type="file" id="suratkesehatan" name="suratkesehatan" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                                    <label class="custom-file-label" for="customFile" id="filelamaran">Pilih File</label>
-                                            </div>
-                                        </div>
-                                    </div>                                
-                                </div>
-                            </div>
-                       
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </div>
 

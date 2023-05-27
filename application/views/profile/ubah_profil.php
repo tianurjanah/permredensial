@@ -3,7 +3,7 @@
 
     <?php foreach ($user as $u) : ?>
 
-        <form action="<?= base_url() ?>profile/proses_ubah" name="myForm" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+        <form action="<?= base_url() ?>profile/proses_ubah_profile" name="myForm" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
 
 
             <!-- Page Heading -->
@@ -39,48 +39,38 @@
                                     <input class="form-control" name="iduser" type="text" value="<?= $u->id_user ?>" readonly>
                                 </div>
 
-                                <!-- Nama Lengkap -->
-                                <div class="form-group"><label>Nama Lengkap</label>
-                                    <input class="form-control" name="namaL" type="text" value="<?= $u->nama ?>">
-                                </div>
-
                                 <!-- Username -->
                                 <div class="form-group"><label>Username</label>
                                     <input class="form-control" name="user" type="text" value="<?= $u->username ?>">
                                 </div>
 
-                                <!-- NO Telepon -->
-                                <div class="form-group"><label>Nomor Telepon</label>
-                                    <input class="form-control" name="notelp" type="number" value="<?= $u->notelp ?>">
-                                </div>
-
-                                <!-- Email -->
-                                <div class="form-group"><label>Email</label>
-                                    <input class="form-control" name="email" type="email" value="<?= $u->email ?>">
-                                </div>
-
                                 <!-- Level -->
                                 <div class="form-group"><label>Level</label>
-                                    <select name="level" class="form-control">
-                                        <option value="admin" <?php if ($u->level == "admin") : ?> Selected <?php endif; ?>>Admin</option>
-                                        <option value="manajer" <?php if ($u->level == "manajer") : ?> Selected <?php endif; ?>>Manajer</option>
-                                        <option value="gudang" <?php if ($u->level == "gudang") : ?> Selected <?php endif; ?>>Gudang</option>
-                                    </select>
+                                    <input class="form-control" name="level" type="email" value="<?= $u->level ?>" readonly>
                                 </div>
 
                                 <!-- Status -->
                                 <div class="form-group"><label>Status</label>
-                                    <select name="status" class="form-control">
-                                        <option value="Aktif" <?php if ($u->status == "Aktif") : ?> Selected <?php endif; ?>>Aktif</option>
-                                        <option value="Tidak Aktif" <?php if ($u->status == "Tidak Aktif") : ?> Selected <?php endif; ?>>Tidak Aktif</option>
-                                    </select>
+                                    <input class="form-control" name="status" type="email" value="<?= $u->status ?>" readonly>
                                 </div>
 
+                                <!-- Password lama -->
+                                <input name="pwdLama" type="hidden" value="<?= $u->password ?>">
 
+                                <!-- Password -->
+                                <div class="form-group">
+                                    <label>Password
+                                        <span class="text-danger">*kosongkan jika tidak ingin merubah</span>
+                                    </label>
+                                    <input class="form-control" name="pwd" type="password" value="">
+                                </div>
+
+                                <!-- Konfirmasi Password -->
+                                <div class="form-group"><label>Konfirmasi Password</label>
+                                    <input class="form-control" name="kpwd" type="password" value="">
+                                </div>
 
                             </div>
-
-
                             <br>
                         </div>
                     </div>
@@ -94,12 +84,6 @@
                             <h6 class="m-0 font-weight-bold text-white">Foto</h6>
                         </div>
                         <div class="card-body">
-                            <div class="card bg-warning text-white shadow">
-                                <div class="card-body">
-                                    Format
-                                    <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif</div>
-                                </div>
-                            </div>
                             <br>
                             <center>
                                 <div>
@@ -107,45 +91,9 @@
                                 </div>
                             </center>
                             <br>
-                            <span class="text-danger">*kosongkan jika tidak ingin merubah</span>
-                            <!-- foto -->
-                            <div class="form-group">
-                                <div class="custom-file">
-                                    <input type="hidden" name="fotoLama" value="<?= $u->foto ?>">
-                                    <input class="custom-file-input" type="file" id="GetFile" name="photo" onchange="VerifyFileNameAndFileSize()" accept=".png,.gif,.jpeg,.tiff,.jpg">
-                                    <label class="custom-file-label" for="customFile">Pilih File</label>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3 bg-info">
-                            <h6 class="m-0 font-weight-bold text-white">Ubah Password</h6>
-                        </div>
-                        <div class="card-body">
-
-                            <div class="card bg-warning text-white mb-3 shadow">
-                                <div class="card-body">
-                                    Kosongkan jika tidak ingin merubah!
-                                </div>
-                            </div>
-
-                            <!-- Password lama -->
-                            <input name="pwdLama" type="hidden" value="<?= $u->password ?>">
-
-                            <!-- Password -->
-                            <div class="form-group"><label>Password</label>
-                                <input class="form-control" name="pwd" type="password" value="">
-                            </div>
-
-                            <!-- Konfirmasi Password -->
-                            <div class="form-group"><label>Konfirmasi Password</label>
-                                <input class="form-control" name="kpwd" type="password" value="">
-                            </div>
-
-                        </div>
-                    </div>
 
                 </div>
             </div>

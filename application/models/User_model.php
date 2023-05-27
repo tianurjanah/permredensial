@@ -53,6 +53,13 @@ class user_model extends ci_model{
 
     }
 
+    public function ubah_data_bio($where, $data, $table)
+    {
+       $this->db->where($where);
+       $this->db->update($table, $data);
+
+    }
+
 
     public function buat_kode()   {
 		  $this->db->select('RIGHT(user.id_user,3) as kode', FALSE);

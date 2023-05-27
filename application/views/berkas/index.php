@@ -1,88 +1,6 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-    
 
-<?php foreach ($user as $u) : ?>
-
-    <form action="<?= base_url() ?>kompetensi/selanjutnya" name="myForm" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
-
-        <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <div class="d-sm-flex">
-                <a href="<?= base_url() ?>barang" class="btn btn-md btn-circle btn-info">
-                    <i class="fas fa-arrow-left"></i>
-                </a>
-                &nbsp;
-                <h3 class="h3 mb-0 text-gray-800">Formulir Pengajuan Kredensial</h3>
-            </div>
-            <a href="<?= base_url() ?>kompetensi/selanjutnya" class="btn btn-primary btn-md btn-icon-split" onsubmit=getData()>
-                <span class="text text-white">Selanjutnya</span>
-                <span class="icon text-white-50">
-                    <i class="fas fa-arrow-right"></i>
-                </span>
-            </a>
-
-        </div>
-
-        <div class="d-sm-flex  justify-content-between mb-0">
-            <div class="col-lg-8 mb-4">
-
-        <div class="card border-bottom-info shadow mb-4">
-                    <div class="card-header py-3 bg-info">
-                        <h6 class="m-0 font-weight-bold text-white">Form Pengajuan</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="col-lg-12">
-                            <!-- Nama Lengkap -->
-                            <div class="form-group"><label>Nama Lengkap (Termasuk Gelar)</label>
-                                <input class="form-control" name="nama_lengkap" type="text" value="<?= $u->nama ?>" readonly>
-                            </div>
-                            <!-- NIP / NIK -->
-                            <div class="form-group"><label>NIP / NIK</label>
-                                <input class="form-control" name="nip" type="text" value="<?= $u->nip ?>" readonly>
-                            </div>
-                            <!-- Tempat Lahir -->
-                            <div class="form-group"><label>Tempat Lahir</label>
-                                <input class="form-control" name="tempat_lahir" type="text" value="<?= $u->tmptlahir ?>" readonly>
-                            </div>
-                            <!-- Tanggal Lahir -->
-                            <div class="form-group"><label>Tanggal Lahir</label>
-                                <input class="form-control" value="<?= $u->tgllahir ?>" readonly name="tanggal_lahir" type="date" placeholder="">
-                            </div>
-                            <!-- Tempat Lahir -->
-                            <div class="form-group"><label>Alamat</label>
-                                <input class="form-control" name="alamat" type="text" value="<?= $u->alamat ?>" readonly>
-                            </div>
-                            <!-- Telepon / HP -->
-                            <div class="form-group"><label>Telepon / HP</label>
-                                <input class="form-control" name="telepon" type="text" value="<?= $u->notelp ?>" readonly>
-                            </div>
-                            <!-- E-mail -->
-                            <div class="form-group"><label>E-mail</label>
-                                <input class="form-control" name="email" type="email" value="<?= $u->email ?>" readonly>
-                            </div>
-                            <!-- Nomor STR -->
-                            <div class="form-group"><label>Nomor STR</label>
-                                <input class="form-control" name="nomor_str" type="text" value="<?= $u->str ?>" readonly>
-                            </div>
-                            <!-- Nomor SIP -->
-                            <div class="form-group"><label>Nomor SIP</label>
-                                <input class="form-control" name="nomor_sip" type="text" value="<?= $u->sip ?>" readonly>
-                            </div>
-                            <!-- Tanggal Mulai Bekerja -->
-                            <div class="form-group"><label>Tanggal Mulai Bekerja</label>
-                                <input class="form-control" value="<?= $u->tglmbekerja ?>" readonly name="tanggal_kerja" type="date" placeholder="">
-                            </div>
-                            
-                            
-                        </div>
-                        <?php endforeach; ?>
-                        <br>
-                    </div>
-                </div>
-
-            
-                <!-- Page Heading -->
 
         <div class="d-sm-flex  justify-content-between mb-0">
             <div class="col-lg-12 mb-4">
@@ -93,22 +11,9 @@
                     </div>
 
                     <div class="card-body">
-                    
-                            <!-- Kategori -->
-                            <?php if ($ktg > 0) : ?>
-                                <div class="form-group"><label>Kategori</label>
-                                    <select name="kategori" class="form-control chosen">
-                                        <option value="">--Pilih--</option>
-                                        <?php foreach ($kategori as $j) : ?>
-                                            <option value="<?= $j->id_kategori ?>.<?= $j->nama_kategori ?>"><?= $j->ket ?></option>
-                                        <?php endforeach ?>
-                                    </select>
-                                </div>
-                                <?php else : ?>
-                            <?php endif; ?>
-                            
                         <div class="col-lg-12">
                         <p>
+                        <form action="<?= base_url() ?>berkas/input_biodata" name="myForm" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
                             <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian1" aria-expanded="false" aria-controls="Bagian1">
                                 BIODATA
                             </button>
@@ -149,8 +54,15 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <button type="submit" class="btn btn-success btn-md col-lg-2,9 btn-icon-split ml-auto">
+                                        <span class="text text-white">Simpan Berkas Biodata</span>
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-save"></i>
+                                        </span>
+                                    </button>
                                 </div>
                             </div>
+                        </form>
                         
                             <p>
                                 <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian2" aria-expanded="false" aria-controls="Bagian2">
@@ -396,45 +308,6 @@
                 </div>
             </div>
         </div>
-
-    </div>
-
-                    <div class="col-lg-4 mb-4">
-                    <!-- file -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3 bg-info">
-                            <h6 class="m-0 font-weight-bold text-white">Foto</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="card bg-warning text-white shadow">
-                                <div class="card-body">
-                                    Format
-                                    <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif</div>
-                                </div>
-                            </div>
-                            <br>
-                            <center>
-                                <div>
-                                    <img src="<?= base_url() ?>assets/upload/pengguna/<?= $u->foto ?>" id="outputImg" width="200" maxheight="300">
-                                </div>
-                            </center>
-                            <br>
-                            <span class="text-danger">*kosongkan jika tidak ingin merubah</span>
-                            <!-- foto -->
-                            <div class="form-group">
-                                <div class="custom-file">
-                                    <input type="hidden" name="fotoLama" value="<?= $u->foto ?>">
-                                    <input class="custom-file-input" type="file" id="GetFile" name="photo" onchange="VerifyFileNameAndFileSize()" accept=".png,.gif,.jpeg,.tiff,.jpg">
-                                    <label class="custom-file-label" for="customFile">Pilih File</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-        </div>
-
-
-    </form>
 
 </div>
 <!-- /.container-fluid -->
