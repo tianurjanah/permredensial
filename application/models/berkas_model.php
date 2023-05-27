@@ -139,4 +139,14 @@ class berkas_model extends ci_model{
         $query = $this->db->get(); 
         return $query->result();
      }
+
+     public function getSuratlamaranPath(){
+      $query = $this->db->get('biodata');
+      if ($query->num_rows() > 0) {
+        $result = $query->row();
+        return $result->surat_lamaran;
+      } else{
+        return null;
+      }
+     }
 }
