@@ -13,7 +13,7 @@
                     <div class="card-body">
                         <div class="col-lg-12">
                         <p>
-                        <form action="<?= base_url() ?>berkas/input_biodata" name="myForm" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+                        <form action="<?= base_url() ?>berkas/biodata_tambah" name="myForm" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
                             <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian1" aria-expanded="false" aria-controls="Bagian1">
                                 BIODATA
                             </button>

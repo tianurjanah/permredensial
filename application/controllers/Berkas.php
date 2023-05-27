@@ -1,4 +1,5 @@
 <?php
+ob_start();
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Berkas extends CI_Controller {
@@ -13,6 +14,7 @@ class Berkas extends CI_Controller {
 		$this->load->model('perawatan_model');
 		$this->load->model('kategori_model');
 		$this->load->model('user_model');
+		$this->load->model('berkas_model');
   	}
 	
 	public function index()
@@ -81,7 +83,7 @@ class Berkas extends CI_Controller {
 
         $this->load->library('upload', $config);
         
-		$kode = 	$this->barang_model->buat_kode();
+		$kode = 	$this->berkas_model->buat_kode();
 		$nama_barang = $this->input->post('nama_barang');
 		$posisi = 	$this->input->post('posisi');
 		$kategori = 	$this->input->post('kategori');
@@ -235,44 +237,68 @@ class Berkas extends CI_Controller {
 	public function biodata_tambah()
 	{
 
-        $config['upload_path']   = './assets/upload/barang/';
+        $config['upload_path']   = './assets/upload/berkas_biodata/';
 		$config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF||tiff|TIFF|PDF|pdf';
-	
-		$namaFile = $_FILES['photo']['name'];
-		$error = $_FILES['photo']['error'];
+		
+		$namaLamaran = $_FILES['suratlamaran']['name'];
+		$errorLamaran = $_FILES['suratlamaran']['error'];
+
+		$namaCV = $_FILES['currivitae']['name'];
+		$errorCV = $_FILES['currivitae']['error'];
+
+		$namadatakaryawan= $_FILES['datakaryawan']['name'];
+		$errordatakaryawan = $_FILES['datakaryawan']['error'];
+
+		$namascanktp = $_FILES['scanktp']['name'];
+		$errorscanktp = $_FILES['scanktp']['error'];
 
         $this->load->library('upload', $config);
         
-		$kode = $this->barang_model->buat_kode();
-		$nama_barang = $this->input->post('nama_barang');
-		$posisi = $this->input->post('posisi');
-		$kategori = $this->input->post('kategori');
-        $tanggal_masuk = $this->input->post('tanggal_masuk');
+		$kode = $this->berkas_model->buat_kode();
+		$user = $this->session->userdata('login_session')['id_user'];
         
-        if ($namaFile == '') {
-            $ganti = 'box.png';
-        }else{
-          	if (! $this->upload->do_upload('photo')) {
-				$error = $this->upload->display_errors();
-				redirect('barang/tambah');
-          	}
-          	else{
-				$data = array('photo' => $this->upload->data());
-				$nama_file= $data['photo']['file_name'];
-				$ganti = str_replace(" ", "_", $nama_file);
-          	}
-      	}
+		if (! $this->upload->do_upload('suratlamaran')) {
+			$errorLamaran = $this->upload->display_errors();
+			redirect('berkas/index');
+		}
+		else if (! $this->upload->do_upload('currivitae')) {
+			$errorCV = $this->upload->display_errors();
+			redirect('berkas/index');
+		}
+		else if (! $this->upload->do_upload('datakaryawan')) {
+			$errordatakaryawan = $this->upload->display_errors();
+			redirect('berkas/index');
+		}
+		else if (! $this->upload->do_upload('scanktp')) {
+			$errorscanktp = $this->upload->display_errors();
+			redirect('berkas/index');
+		}
+		else{
+			$datalamaran = array('suratlamaran' => $this->upload->data());
+			$datacv = array('currivitae' => $this->upload->data());
+			$datakaryawan = array('datakaryawan' => $this->upload->data());
+			$datascan = array('scanktp' => $this->upload->data());
+
+			$nama_file_lamaran= $datalamaran['suratlamaran']['file_name'];
+			$nama_file_cv= $datacv['currivitae']['file_name'];
+			$nama_file_datakaryawan= $datakaryawan['datakaryawan']['file_name'];
+			$nama_file_scanktp= $datascan['scanktp']['file_name'];
+			$gantilamaran = str_replace(" ", "_", $nama_file_lamaran);
+			$ganticv = str_replace(" ", "_", $nama_file_cv);
+			$gantidatakaryawan = str_replace(" ", "_", $nama_file_datakaryawan);
+			$gantiscanktp = str_replace(" ", "_", $nama_file_scanktp);
+		}
 		
 		$data=array(
-			'id_barang'=> $kode,
-			'nama_barang'=> $nama_barang,
-			'posisi'=> $posisi,
-			'kategori'=> $kategori,
-            'tanggal_masuk'=> $tanggal_masuk,
-            'foto' => $ganti
+			'id_biodata'=> $kode,
+			'id_user'=> $user,
+			'surat_lamaran'=> $gantilamaran,
+			'cv'=> $ganticv,
+            'formulir_data'=> $gantidatakaryawan,
+            'ktp' => $gantiscanktp
 		);
 
-		$this->barang_model->tambah_data($data, 'barang');
+		$this->berkas_model->tambah_data($data, 'biodata');
 		$this->session->set_flashdata('Pesan','
 		<script>
 		$(document).ready(function() {
@@ -284,6 +310,6 @@ class Berkas extends CI_Controller {
 		});
 		</script>
 		');
-    	redirect('barang');
+    	redirect('berkas/index');
 	}
 }
