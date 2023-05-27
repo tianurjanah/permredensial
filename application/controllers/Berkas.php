@@ -244,7 +244,6 @@ class Berkas extends CI_Controller {
 		$kode = $this->berkas_model->buat_kode();
 		$user = $this->session->userdata('login_session')['id_user'];
 		
-        
 		$namaLamaran = $_FILES['suratlamaran']['name'];
 		$errorLamaran = $_FILES['suratlamaran']['error'];
 
