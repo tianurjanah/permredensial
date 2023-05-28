@@ -1,4 +1,5 @@
 <!-- Begin Page Content -->
+
 <div class="container-fluid">
 
 
@@ -17,7 +18,7 @@
                             <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian1" aria-expanded="false" aria-controls="Bagian1">
                                 BIODATA
                             </button>
-                        </p> <br>
+                             </p> <br>
                             <div class="collapse mb-4" id="Bagian1">
                                 <div class="card card-body">
                                     <div class="table-responsive">
@@ -27,12 +28,16 @@
                                                 <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif .pdf</div>
                                             </div>
                                         </div>
+                                        
                                          <!-- suratlamaran -->
                                         <div class="form-group"><label>Surat Lamaran</label>
                                             <div class="custom-file">
                                                 <input class="custom-file-input" type="file" id="suratlamaran" name="suratlamaran" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
                                                     <label class="custom-file-label" for="customFile" id="filelamaran">Pilih File</label>
                                             </div>
+                                            
+                                                <br><br>
+                                            
                                         </div>
                                          <!-- cv -->
                                         <div class="form-group"><label>Curriculum Vitae</label>
@@ -40,18 +45,21 @@
                                                 <input class="custom-file-input" type="file" id="currivitae" name="currivitae" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
                                                     <label class="custom-file-label" for="customFile" id="filecv">Pilih File</label>
                                             </div>
+                                            
                                         </div>
                                         <div class="form-group"><label>Formulir Data Karyawan</label>
                                             <div class="custom-file">
                                                 <input class="custom-file-input" type="file" id="datakaryawan" name="datakaryawan" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
                                                     <label class="custom-file-label" for="customFile" id="filelamaran">Pilih File</label>
                                             </div>
+                                            
                                         </div>
                                         <div class="form-group"><label>Scan KTP</label>
                                             <div class="custom-file">
                                                 <input class="custom-file-input" type="file" id="scanktp" name="scanktp" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
                                                     <label class="custom-file-label" for="customFile" id="filelamaran">Pilih File</label>
                                             </div>
+                                           
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-success btn-md col-lg-2,9 btn-icon-split ml-auto">
@@ -63,6 +71,7 @@
                                 </div>
                             </div>
                         </form>
+                        
                         
                             <p>
                                 <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian2" aria-expanded="false" aria-controls="Bagian2">

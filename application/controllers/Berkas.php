@@ -20,7 +20,7 @@ class Berkas extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = 'BERKAS PENGAJUAN';
-		$data['barang'] = $this->barang_model->dataJoin()->result();
+		$data['biodata'] = $this->berkas_model->dataJoin()->result();
 
 		$data['suratlamaran'] = $this->berkas_model->getSuratlamaranPath();
 
@@ -289,6 +289,8 @@ class Berkas extends CI_Controller {
 		$datascan = array('scanktp' => $this->upload->data());
 		$nama_file_scanktp = $datascan['scanktp']['file_name'];
 		$gantiscanktp = str_replace(" ", "_", $nama_file_scanktp);
+		
+		
 
 		$data = array(
 			'id_biodata'=> $kode,
@@ -298,19 +300,29 @@ class Berkas extends CI_Controller {
 			'formulir_data'=> $gantidatakaryawan,
 			'ktp' => $gantiscanktp
 		);
-
-		$this->berkas_model->tambah_data($data, 'biodata');
-		$this->session->set_flashdata('Pesan','
-		<script>
-		$(document).ready(function() {
-			swal.fire({
-				title: "Berhasil ditambahkan!",
-				icon: "success",
-				confirmButtonColor: "#4e73df",
+		$where = array('id_user'=>$user);
+		$existingData = $this->berkas_model->detail_data($where,'biodata');
+		if ($existingData) {
+			$this->berkas_model->ubah_data($where, $data, 'biodata');
+			$pesan = 'Data berhasil diubah!';
+		} else {
+			$this->berkas_model->tambah_data($data, 'biodata');
+			$pesan = 'Data berhasil ditambahkan!';
+		}
+	
+		$this->session->set_flashdata('Pesan', '
+			<script>
+			$(document).ready(function() {
+				swal.fire({
+					title: "Berhasil!",
+					text: "' . $pesan . '",
+					icon: "success",
+					confirmButtonColor: "#4e73df",
+				});
 			});
-		});
-		</script>
+			</script>
 		');
+
     	redirect('berkas/index');
 	}
 }
