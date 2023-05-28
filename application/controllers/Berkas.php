@@ -300,7 +300,8 @@ class Berkas extends CI_Controller {
 			'formulir_data'=> $gantidatakaryawan,
 			'ktp' => $gantiscanktp
 		);
-		$where = array('id_user'=>$user);
+		
+		$where = array('id_user'=>$this->session->userdata('login_session')['id_user']);
 		$existingData = $this->berkas_model->detail_data($where,'biodata');
 		if ($existingData) {
 			$this->berkas_model->ubah_data($where, $data, 'biodata');

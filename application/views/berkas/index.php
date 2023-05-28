@@ -14,7 +14,8 @@
                     <div class="card-body">
                         <div class="col-lg-12">
                         <p>
-                        <form action="<?= base_url() ?>berkas/biodata_tambah" name="myForm" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+                        <form action="<?= base_url() ?>berkas/biodata_tambah" name="myForm" method="POST" enctype="multipart/form-data">
+                        <?php foreach ($biodata as $b) :?>
                             <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian1" aria-expanded="false" aria-controls="Bagian1">
                                 BIODATA
                             </button>
@@ -34,34 +35,58 @@
                                             <div class="custom-file">
                                                 <input class="custom-file-input" type="file" id="suratlamaran" name="suratlamaran" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
                                                     <label class="custom-file-label" for="customFile" id="filelamaran">Pilih File</label>
+                                            </div><br><br>
+                                            <div class="pdf-container">
+                                                <?php if ($b->surat_lamaran != '') : ?>
+                                                    <embed src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->surat_lamaran ?>" type="application/pdf" width="100%" height="600px">
+                                                <?php else: ?>
+                                                    <p>File Surat Lamaran Tidak Tersedia.</p>
+                                                <?php endif; ?>
                                             </div>
-                                            
-                                                <br><br>
-                                            
                                         </div>
                                          <!-- cv -->
                                         <div class="form-group"><label>Curriculum Vitae</label>
                                             <div class="custom-file">
                                                 <input class="custom-file-input" type="file" id="currivitae" name="currivitae" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
                                                     <label class="custom-file-label" for="customFile" id="filecv">Pilih File</label>
+                                            </div><br><br>
+                                            <div class="pdf-container">
+                                                <?php if ($b->cv != '') : ?>
+                                                    <embed src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->cv ?>" type="application/pdf" width="100%" height="600px">
+                                                <?php else: ?>
+                                                    <p>File Surat Lamaran Tidak Tersedia.</p>
+                                                <?php endif; ?>
                                             </div>
-                                            
                                         </div>
                                         <div class="form-group"><label>Formulir Data Karyawan</label>
                                             <div class="custom-file">
                                                 <input class="custom-file-input" type="file" id="datakaryawan" name="datakaryawan" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
                                                     <label class="custom-file-label" for="customFile" id="filelamaran">Pilih File</label>
+                                            </div><br><br>
+                                            <div class="pdf-container">
+                                                <?php if ($b->formulir_data != '') : ?>
+                                                    <embed src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->formulir_data ?>" type="application/pdf" width="100%" height="600px">
+                                                <?php else: ?>
+                                                    <p>File Surat Lamaran Tidak Tersedia.</p>
+                                                <?php endif; ?>
                                             </div>
-                                            
                                         </div>
                                         <div class="form-group"><label>Scan KTP</label>
                                             <div class="custom-file">
                                                 <input class="custom-file-input" type="file" id="scanktp" name="scanktp" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
                                                     <label class="custom-file-label" for="customFile" id="filelamaran">Pilih File</label>
+                                            </div><br><br>
+                                            <div class="pdf-container">
+                                                <?php if ($b->ktp != '') : ?>
+                                                    <embed src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->ktp ?>" type="application/pdf" width="100%" height="600px">
+                                                <?php else: ?>
+                                                    <p>File Surat Lamaran Tidak Tersedia.</p>
+                                                <?php endif; ?>
                                             </div>
                                            
                                         </div>
                                     </div>
+                                    <?php endforeach; ?>
                                     <button type="submit" class="btn btn-success btn-md col-lg-2,9 btn-icon-split ml-auto">
                                         <span class="text text-white">Simpan Berkas Biodata</span>
                                         <span class="icon text-white-50">
@@ -104,6 +129,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                
                             <p> 
                                 <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian4" aria-expanded="false" aria-controls="Bagian4">
                                     SURAT IJIN
@@ -697,68 +723,68 @@
 <?php endif; ?>
 
 <script>
-    function validateForm() {
-        var kategori = document.forms["myForm"]["kategori"].value;
-        var nama_lengkap = document.forms["myForm"]["nama_lengkap"].value;
-        var nip = document.forms["myForm"]["nip"].value;
-        var tempat_lahir = document.forms["myForm"]["tempat_lahir"].value;
-        var tanggal_lahir = document.forms["myForm"]["tanggal_lahir"].value;
-        var alamat = document.forms["myForm"]["alamat"].value;
-        var telepon = document.forms["myForm"]["telepon"].value;
-        var email = document.forms["myForm"]["email"].value;
-        var nomor_sip = document.forms["myForm"]["nomor_sip"].value;
-        var nomor_str = document.forms["myForm"]["nomor_str"].value;
-        var tanggal_kerja = document.forms["myForm"]["tanggal_kerja"].value;
+    // function validateForm() {
+    //     var kategori = document.forms["myForm"]["kategori"].value;
+    //     var nama_lengkap = document.forms["myForm"]["nama_lengkap"].value;
+    //     var nip = document.forms["myForm"]["nip"].value;
+    //     var tempat_lahir = document.forms["myForm"]["tempat_lahir"].value;
+    //     var tanggal_lahir = document.forms["myForm"]["tanggal_lahir"].value;
+    //     var alamat = document.forms["myForm"]["alamat"].value;
+    //     var telepon = document.forms["myForm"]["telepon"].value;
+    //     var email = document.forms["myForm"]["email"].value;
+    //     var nomor_sip = document.forms["myForm"]["nomor_sip"].value;
+    //     var nomor_str = document.forms["myForm"]["nomor_str"].value;
+    //     var tanggal_kerja = document.forms["myForm"]["tanggal_kerja"].value;
 
-        if (kategori == "") {
-            validasi('Kategori wajib di isi!', 'warning');
-            return false;
-        } else if (nama_lengkap == '') {
-            validasi('Nama lengkap wajib di isi!', 'warning');
-            return false;
-        } else if (nip == '') {
-            validasi('NIP / NIK wajib di isi!', 'warning');
-            return false;
-        } else if (tempat_lahir == '') {
-            validasi('Tempat lahir wajib di isi!', 'warning');
-            return false;
-        } else if (tanggal_lahir == '') {
-            validasi('Tempat lahir wajib di isi!', 'warning');
-            return false;
-        } else if (alamat == '') {
-            validasi('Alamat wajib di isi!', 'warning');
-            return false;
-        } else if (telepon == '') {
-            validasi('Telepon wajib di isi!', 'warning');
-            return false;
-        } else if (email == '') {
-            validasi('E-mail wajib di isi!', 'warning');
-            return false;
-        } else if (nomor_sip == '') {
-            validasi('Nomor SIP wajib di isi!', 'warning');
-            return false;
-        } else if (nomor_str == '') {
-            validasi('Nomor STR wajib di isi!', 'warning');
-            return false;
-        } else if (tanggal_kerja == '') {
-            validasi('Tanggal Kerja wajib di isi!', 'warning');
-            return false;
-        }
-    }
-    function getData(){
-        document.getElementById("kategori").innerHTML = localStorage.getItem("kategori_value");
-        document.getElementById("nama_lengkap").innerHTML = localStorage.getItem("nama_lengkap_value");
-        document.getElementById("nip").innerHTML = localStorage.getItem("nip_value"); 
-        document.getElementById("tempat_lahir").innerHTML = localStorage.getItem("tempat_lahir_value");
-        document.getElementById("tanggal_lahir").innerHTML = localStorage.getItem("tanggal_lahir_value");
-        document.getElementById("alamat").innerHTML = localStorage.getItem("alamat_value"); 
-        document.getElementById("telepon").innerHTML = localStorage.getItem("telepon_value");
-        document.getElementById("email").innerHTML = localStorage.getItem("email_value");
-        document.getElementById("nomor_sip").innerHTML = localStorage.getItem("nomor_sip_value");
-        document.getElementById("nomor_str").innerHTML = localStorage.getItem("nomor_str_value");
-        document.getElementById("tanggal_kerja").innerHTML = localStorage.getItem("tanggal_kerja_value");
-        return false;
-    }
+    //     if (kategori == "") {
+    //         validasi('Kategori wajib di isi!', 'warning');
+    //         return false;
+    //     } else if (nama_lengkap == '') {
+    //         validasi('Nama lengkap wajib di isi!', 'warning');
+    //         return false;
+    //     } else if (nip == '') {
+    //         validasi('NIP / NIK wajib di isi!', 'warning');
+    //         return false;
+    //     } else if (tempat_lahir == '') {
+    //         validasi('Tempat lahir wajib di isi!', 'warning');
+    //         return false;
+    //     } else if (tanggal_lahir == '') {
+    //         validasi('Tempat lahir wajib di isi!', 'warning');
+    //         return false;
+    //     } else if (alamat == '') {
+    //         validasi('Alamat wajib di isi!', 'warning');
+    //         return false;
+    //     } else if (telepon == '') {
+    //         validasi('Telepon wajib di isi!', 'warning');
+    //         return false;
+    //     } else if (email == '') {
+    //         validasi('E-mail wajib di isi!', 'warning');
+    //         return false;
+    //     } else if (nomor_sip == '') {
+    //         validasi('Nomor SIP wajib di isi!', 'warning');
+    //         return false;
+    //     } else if (nomor_str == '') {
+    //         validasi('Nomor STR wajib di isi!', 'warning');
+    //         return false;
+    //     } else if (tanggal_kerja == '') {
+    //         validasi('Tanggal Kerja wajib di isi!', 'warning');
+    //         return false;
+    //     }
+    // }
+    // function getData(){
+    //     document.getElementById("kategori").innerHTML = localStorage.getItem("kategori_value");
+    //     document.getElementById("nama_lengkap").innerHTML = localStorage.getItem("nama_lengkap_value");
+    //     document.getElementById("nip").innerHTML = localStorage.getItem("nip_value"); 
+    //     document.getElementById("tempat_lahir").innerHTML = localStorage.getItem("tempat_lahir_value");
+    //     document.getElementById("tanggal_lahir").innerHTML = localStorage.getItem("tanggal_lahir_value");
+    //     document.getElementById("alamat").innerHTML = localStorage.getItem("alamat_value"); 
+    //     document.getElementById("telepon").innerHTML = localStorage.getItem("telepon_value");
+    //     document.getElementById("email").innerHTML = localStorage.getItem("email_value");
+    //     document.getElementById("nomor_sip").innerHTML = localStorage.getItem("nomor_sip_value");
+    //     document.getElementById("nomor_str").innerHTML = localStorage.getItem("nomor_str_value");
+    //     document.getElementById("tanggal_kerja").innerHTML = localStorage.getItem("tanggal_kerja_value");
+    //     return false;
+    // }
 </script>
 
 <!-- Javascript pas foto -->
