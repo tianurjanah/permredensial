@@ -23,7 +23,7 @@ class Berkas extends CI_Controller {
 		$data['biodata'] = $this->berkas_model->dataJoin()->result();
 
 		$data['suratlamaran'] = $this->berkas_model->getSuratlamaranPath();
-
+		$data['user'] = $this->user_model->data()->result();
 		$this->load->view('templates/header', $data);
 		$this->load->view('berkas/index', '$data');
 		$this->load->view('templates/footer');
@@ -40,7 +40,6 @@ class Berkas extends CI_Controller {
 		$data['ktg'] = $this->kategori_model->data()->num_rows();
 
 		$this->load->view('templates/header', $data);
-		// $this->load->view('barang/form_tambah');
 		$this->load->view('barang/formulir');
 		$this->load->view('templates/footer');
     }
@@ -236,94 +235,121 @@ class Berkas extends CI_Controller {
     	echo json_encode($data);
 	}
 
-	public function biodata_tambah()
-	{
-        $config['upload_path']   = './assets/upload/berkas_biodata/';
-		$config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF||tiff|TIFF|PDF|pdf';
+	public function biodata_tambah(){
+    $config['upload_path']   = './assets/upload/berkas_biodata/';
+    $config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF|tiff|TIFF|PDF|pdf';
 
-		$kode = $this->berkas_model->buat_kode();
-		$user = $this->session->userdata('login_session')['id_user'];
-		
-		$namaLamaran = $_FILES['suratlamaran']['name'];
-		$errorLamaran = $_FILES['suratlamaran']['error'];
+    $kode = $this->berkas_model->buat_kode();
+    $user = $this->session->userdata('login_session')['id_user'];
 
-		$namaCV = $_FILES['currivitae']['name'];
-		$errorCV = $_FILES['currivitae']['error'];
+    $this->load->library('upload', $config);
 
-		$namadatakaryawan= $_FILES['datakaryawan']['name'];
-		$errordatakaryawan = $_FILES['datakaryawan']['error'];
+    $data = array(
+        'id_biodata' => $kode,
+        'id_user' => $user
+    );
 
-		$namascanktp = $_FILES['scanktp']['name'];
-		$errorscanktp = $_FILES['scanktp']['error'];
+    // Proses upload dan perubahan file surat lamaran
+    if (!empty($_FILES['suratlamaran']['name'])) {
+        if (!$this->upload->do_upload('suratlamaran')) {
+            $errorLamaran = $this->upload->display_errors();
+            redirect('berkas/index');
+        } else {
+            $datalamaran = array('suratlamaran' => $this->upload->data());
+            $nama_file_lamaran = $datalamaran['suratlamaran']['file_name'];
+            $gantilamaran = str_replace(" ", "_", $nama_file_lamaran);
+            $data['surat_lamaran'] = $gantilamaran;
+        }
+    }
 
-		$this->load->library('upload', $config);
+    // Proses upload dan perubahan file CV
+    if (!empty($_FILES['currivitae']['name'])) {
+        if (!$this->upload->do_upload('currivitae')) {
+            $errorCV = $this->upload->display_errors();
+            redirect('berkas/index');
+        } else {
+            $datacv = array('currivitae' => $this->upload->data());
+            $nama_file_cv = $datacv['currivitae']['file_name'];
+            $ganticv = str_replace(" ", "_", $nama_file_cv);
+            $data['cv'] = $ganticv;
+        }
+    }
 
-		if (! $this->upload->do_upload('suratlamaran')) {
-			$errorLamaran = $this->upload->display_errors();
-			redirect('berkas/index');
-		}
-		$datalamaran = array('suratlamaran' => $this->upload->data());
-		$nama_file_lamaran = $datalamaran['suratlamaran']['file_name'];
-		$gantilamaran = str_replace(" ", "_", $nama_file_lamaran);
+    // Proses upload dan perubahan file formulir data karyawan
+    if (!empty($_FILES['datakaryawan']['name'])) {
+        if (!$this->upload->do_upload('datakaryawan')) {
+            $errordatakaryawan = $this->upload->display_errors();
+            redirect('berkas/index');
+        } else {
+            $datakaryawan = array('datakaryawan' => $this->upload->data());
+            $nama_file_datakaryawan = $datakaryawan['datakaryawan']['file_name'];
+            $gantidatakaryawan = str_replace(" ", "_", $nama_file_datakaryawan);
+            $data['formulir_data'] = $gantidatakaryawan;
+        }
+    }
 
-		if (! $this->upload->do_upload('currivitae')) {
-			$errorCV = $this->upload->display_errors();
-			redirect('berkas/index');
-		}
-		$datacv = array('currivitae' => $this->upload->data());
-		$nama_file_cv = $datacv['currivitae']['file_name'];
-		$ganticv = str_replace(" ", "_", $nama_file_cv);
+    // Proses upload dan perubahan file scan KTP
+    if (!empty($_FILES['scanktp']['name'])) {
+        if (!$this->upload->do_upload('scanktp')) {
+            $errorscanktp = $this->upload->display_errors();
+            redirect('berkas/index');
+        } else {
+            $datascan = array('scanktp' => $this->upload->data());
+            $nama_file_scanktp = $datascan['scanktp']['file_name'];
+            $gantiscanktp = str_replace(" ", "_", $nama_file_scanktp);
+            $data['ktp'] = $gantiscanktp;
+        }
+    }
 
-		if (! $this->upload->do_upload('datakaryawan')) {
-			$errordatakaryawan = $this->upload->display_errors();
-			redirect('berkas/index');
-		}
-		$datakaryawan = array('datakaryawan' => $this->upload->data());
-		$nama_file_datakaryawan = $datakaryawan['datakaryawan']['file_name'];
-		$gantidatakaryawan = str_replace(" ", "_", $nama_file_datakaryawan);
+    $where = array('id_user' => $this->session->userdata('login_session')['id_user']);
+    $existingData = $this->berkas_model->detail_data($where, 'biodata');
+    if ($existingData) {
+        $this->berkas_model->ubah_data($where, $data, 'biodata');
+        $pesan = 'Data berhasil diubah!';
+    } else {
+        $this->berkas_model->tambah_data($data, 'biodata');
+        $pesan = 'Data berhasil ditambahkan!';
+    }
 
-		if (! $this->upload->do_upload('scanktp')) {
-			$errorscanktp = $this->upload->display_errors();
-			redirect('berkas/index');
-		}
-		$datascan = array('scanktp' => $this->upload->data());
-		$nama_file_scanktp = $datascan['scanktp']['file_name'];
-		$gantiscanktp = str_replace(" ", "_", $nama_file_scanktp);
-		
-		
+    $this->session->set_flashdata('Pesan', '
+        <script>
+        $(document).ready(function() {
+            swal.fire({
+                title: "Berhasil!",
+                text: "' . $pesan . '",
+                icon: "success",
+                confirmButtonColor: "#4e73df",
+            });
+        });
+        </script>
+    ');
 
-		$data = array(
-			'id_biodata'=> $kode,
-			'id_user'=> $user,
-			'surat_lamaran'=> $gantilamaran,
-			'cv'=> $ganticv,
-			'formulir_data'=> $gantidatakaryawan,
-			'ktp' => $gantiscanktp
-		);
-		
-		$where = array('id_user'=>$this->session->userdata('login_session')['id_user']);
-		$existingData = $this->berkas_model->detail_data($where,'biodata');
-		if ($existingData) {
-			$this->berkas_model->ubah_data($where, $data, 'biodata');
-			$pesan = 'Data berhasil diubah!';
-		} else {
-			$this->berkas_model->tambah_data($data, 'biodata');
-			$pesan = 'Data berhasil ditambahkan!';
-		}
-	
-		$this->session->set_flashdata('Pesan', '
-			<script>
-			$(document).ready(function() {
-				swal.fire({
-					title: "Berhasil!",
-					text: "' . $pesan . '",
-					icon: "success",
-					confirmButtonColor: "#4e73df",
-				});
-			});
-			</script>
-		');
-
-    	redirect('berkas/index');
+    redirect('berkas/index');
 	}
+
+	// ========================================================================//
+		
+	public function berkas_ijazah()
+	{
+		$data['title'] = 'BERKAS PENGAJUAN';
+		$data['biodata'] = $this->berkas_model->dataJoin()->result();
+		$data['user'] = $this->user_model->data()->result();
+
+		$data['suratlamaran'] = $this->berkas_model->getSuratlamaranPath();
+
+		$this->load->view('berkas_ijazah/index', $data);
+    }
+
+	public function tambah_ijazah()
+	{
+        $data['title'] = 'Pengajuan';
+		 //data untuk select
+		$data['kategori'] = $this->kategori_model->data()->result();
+		$where = array('id_user'=>$this->session->userdata('login_session')['id_user']);
+		$data['user'] = $this->user_model->detail_data($where, 'user')->result();
+
+		$data['ktg'] = $this->kategori_model->data()->num_rows();
+
+		$this->load->view('berkas_ijazah/form_tambah');
+    }
 }

@@ -107,25 +107,10 @@
                                 <div class="collapse mb-4" id="Bagian2">
                                     <div class="card card-body">
                                         <div class="table-responsive">
-                                            <div class="card bg-warning mb-4 text-white shadow">
-                                                <div class="card-body">
-                                                    Format
-                                                    <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif .pdf</div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <table class="table table-bordered" id="tableloop">
-                                                    <thead>
-                                                        <tr>
-                                                            <th class="text-align-center text-md-left">No</th>
-                                                            <th class="text-align-center text-md-left">Form Ijazah</th>
-                                                            <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Barisbaru"><i class="fa fa-plus"></i></button></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                        <br><br>
+                                        <div class="pdf-container">
+                                            <embed src="<?= base_url() ?>berkas/berkas_ijazah" type="application/pdf" width="100%" height="600px">
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -138,12 +123,6 @@
                             <div class="collapse mb-4" id="Bagian4">
                                 <div class="card card-body">
                                     <div class="table-responsive">
-                                        <div class="card bg-warning mb-4 text-white shadow">
-                                            <div class="card-body">
-                                                Format
-                                                <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif .pdf</div>
-                                            </div>
-                                        </div>
                                          <!-- suratlamaran -->
                                         <div class="form-group"><label>STR</label>
                                             <div class="custom-file">

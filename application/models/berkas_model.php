@@ -111,7 +111,7 @@ class berkas_model extends ci_model{
 
     }
 
-    public function buat_kode()   {
+    public function buat_kode(){
 		  $this->db->select('RIGHT(biodata.id_biodata,4) as kode', FALSE);
 		  $this->db->order_by('id_biodata','DESC');
 		  $this->db->limit(1);
