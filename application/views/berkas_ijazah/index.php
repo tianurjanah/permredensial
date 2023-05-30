@@ -42,10 +42,10 @@
                     <table class="table table-hover" id="dtHorizontalExample" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th width="1%">No</th>
-                                <th>Foto</th>
-                                <th>Nama User</th>
-                                <th>Email</th>
+                                <th width="1%">No Ijazah</th>
+                                <th>Gelar</th>
+                                <th>Lampiran</th>
+                                <th>Transkip</th>
                                 <th width="1%">Aksi</th>
                             </tr>
                         </thead>
@@ -55,19 +55,7 @@
                                 <td onclick="detail('<?= $u->id_user ?>')"><?= $no++ ?>.</td>
                                 <td onclick="detail('<?= $u->id_user ?>')"><img style="border-radius: 5px;" src="<?= base_url() ?>assets/upload/pengguna/<?= $u->foto ?>" alt=""
                                         width="50px"></td>
-                                <td onclick="detail('<?= $u->id_user ?>')"><?= $u->nama ?></td>
                                 <td onclick="detail('<?= $u->id_user ?>')"><?= $u->email ?></td>
-                                <td onclick="detail('<?= $u->id_user ?>')">
-                                
-                                <?php if($u->status == 'Aktif'): ?>
-                                    <span class="badge badge-success badge-md">
-                                    <?php else: ?>
-                                    <span class="badge badge-secondary badge-md">
-                                    <?php endif; ?>
-                                        <?= $u->status ?>
-                                    </span>
-                            
-                                </td>
                                 <td onclick="detail('<?= $u->id_user ?>')"><?= $u->level ?></td>
                                 <td>
                                     <center>
