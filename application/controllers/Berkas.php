@@ -22,7 +22,8 @@ class Berkas extends CI_Controller
 	public function index()
 	{
 		$data['title'] = 'BERKAS PENGAJUAN';
-		$data['biodata'] = $this->berkas_model->dataJoin()->result();
+		$id = $this->session->userdata('login_session')['id_user'];
+		$data['biodata'] = $this->berkas_model->ambil_data_barang($id)->result();
 
 		$data['suratlamaran'] = $this->berkas_model->getSuratlamaranPath();
 		$data['user'] = $this->user_model->data()->result();
@@ -377,7 +378,7 @@ class Berkas extends CI_Controller
 				$errorberkastranskip = $this->upload->display_errors();
 				redirect('berkas/index');
 			} else {
-				$datatranskip= array('berkastranskip' => $this->upload->data());
+				$datatranskip = array('berkastranskip' => $this->upload->data());
 				$nama_file_transkip = $datatranskip['berkastranskip']['file_name'];
 				$gantitranskip = str_replace(" ", "_", $nama_file_transkip);
 				$data['transkip'] = $gantitranskip;
