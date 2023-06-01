@@ -58,7 +58,7 @@
                                 <input class="form-control" name="nomor_ijazah" type="text" placeholder="">
                             </div>
 
-                            <div class="form-group"><label>Level</label>
+                            <div class="form-group"><label>Gelar</label>
                                 <select name="gelar" class="form-control">
                                     <option value="">--Pilih--</option>
                                     <option value="D3 (Ahli Madya)">D3 (Ahli Madya)</option>

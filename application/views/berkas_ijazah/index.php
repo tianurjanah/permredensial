@@ -54,19 +54,33 @@
                                 <tr>
                                     <td onclick="detail('<?= $i->nomor_ijazah ?>')"><?= $i->nomor_ijazah ?></td>
                                     <td onclick="detail('<?= $i->nomor_ijazah ?>')"><?= $i->gelar ?></td>
-                                    <td onclick="detail('<?= $i->nomor_ijazah ?>')"><img style="border-radius: 5px;"
-                                            src="<?= base_url() ?>assets/upload/berkas_ijazah/<?= $i->lampiran ?>" alt=""
-                                            width="50px"></td>
-                                    <td onclick="detail('<?= $i->nomor_ijazah ?>')"><img style="border-radius: 5px;"
-                                            src="<?= base_url() ?>assets/upload/berkas_ijazah/<?= $i->transkip ?>" alt=""
-                                            width="50px"></td>
+                                    <td>
+                                        <?php if ($i->lampiran != ''): ?>
+                                            <a href="<?= base_url('assets/upload/berkas_ijazah/' . $i->lampiran) ?>"
+                                                target="_blank">
+                                                <i class="fa fa-file-pdf"></i> Lihat Berkas
+                                            </a>
+                                        <?php else: ?>
+                                            <p>File Surat Lampiran Tidak Tersedia.</p>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <?php if ($i->transkip != ''): ?>
+                                            <a href="<?= base_url('assets/upload/berkas_ijazah/' . $i->transkip) ?>"
+                                                target="_blank">
+                                                <i class="fa fa-file-pdf"></i> Lihat Berkas
+                                            </a>
+                                        <?php else: ?>
+                                            <p>File Surat Lampiran Tidak Tersedia.</p>
+                                        <?php endif; ?>
+                                    </td>
                                     <td>
                                         <center>
                                             <a href="<?= base_url() ?>berkas/ubah_ijazah/<?= $i->nomor_ijazah ?>"
                                                 class="btn btn-circle btn-success btn-sm">
                                                 <i class="fas fa-pen"></i>
                                             </a>
-                                            <a href="base_url() ?>berkas/proses_hapus_ijazah/<?= $i->nomor_ijazah ?>/<?= $i->lampiran ?>/<?= $i->transkip ?>"
+                                            <a href="<?= base_url() ?>berkas/proses_hapus_ijazah/<?= $i->nomor_ijazah ?>"
                                                 class="btn btn-circle btn-danger btn-sm">
                                                 <i class="fas fa-trash"></i>
                                             </a>
@@ -117,7 +131,7 @@
     </script>
 <?php endif; ?>
 <script>
-    function konfirmasi(nomor, lampiran, transkrip) {
+    function konfirmasi(nomor) {
         var base_url = $('#baseurl').val();
 
         swal.fire({
@@ -140,7 +154,7 @@
                     showConfirmButton: false,
                 }).then(
                     function () {
-                        window.location.href = base_url + "berkas/proses_hapus_ijazah/" + nomor + "/" + lampiran + "/" + transkrip;
+                        window.location.href = base_url + "berkas/proses_hapus_ijazah/" + nomor;
                     }
                 );
             }

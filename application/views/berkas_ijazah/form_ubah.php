@@ -35,13 +35,6 @@
                     &nbsp;
                     <h1 class="h2 mb-0 text-gray-800">Ubah Data Ijazah</h1>
                 </div>
-                <button type="submit" class="btn btn-success btn-md btn-icon-split">
-                    <span class="text text-white">Simpan Perubahan Ijazah</span>
-                    <span class="icon text-white-50">
-                        <i class="fas fa-save"></i>
-                    </span>
-                </button>
-
             </div>
 
             <div class="d-sm-flex  justify-content-between mb-0">
@@ -60,36 +53,63 @@
                                         value="<?= $i->nomor_ijazah ?>" readonly>
                                 </div>
 
+
                                 <div class="form-group"><label>Gelar</label>
                                     <select name="gelar" class="form-control">
-                                        <option value="">--Pilih--</option>
-                                        <option value="D3 (Ahli Madya)">D3 (Ahli Madya)</option>
-                                        <option value="Sarjana Terapan (D4/S1)">Sarjana Terapan (D4/S1)</option>
-                                        <option value="Master(S2)">Master(S2)</option>
-                                        <option value="Doktor(S3)">Doktor(S3)</option>
+                                        <option value="D3 (Ahli Madya)" <?php if ($i->gelar == "D3 (Ahli Madya)"): ?> Selected
+                                            <?php endif; ?>>
+                                            D3 (Ahli Madya)</option>
+                                        <option value="Sarjana Terapan (D4/S1)" <?php if ($i->gelar == "Sarjana Terapan (D4/S1)"): ?> Selected <?php endif; ?>>Sarjana Terapan (D4/S1)</option>
+                                        <option value="Master(S2)" <?php if ($i->gelar == "Master(S2)"): ?> Selected <?php endif; ?>>
+                                            Master(S2)</option>
+                                        <option value="Doktor(S3)" <?php if ($i->gelar == "Doktor(S3)"): ?> Selected <?php endif; ?>>Doktor(S3)
+                                        </option>
                                     </select>
                                 </div>
-
-                                <div class="form-group"><label>Lampiran</label>
+                                
+                                <div class="form-group"><label>Lampiran Ijazah</label>
                                     <div class="custom-file">
                                         <input class="custom-file-input" type="file" id="lampiran" name="lampiran"
                                             onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                        <label class="custom-file-label" for="customFile" id="filelamaran">Pilih
+                                        <label class="custom-file-label" for="customFile" id="filelampiran">Pilih
                                             File</label>
                                     </div><br><br>
+                                    <div class="pdf-container">
+                                        <?php if ($i->lampiran != ''): ?>
+                                            <embed src="<?= base_url() ?>assets/upload/berkas_ijazah/<?= $i->lampiran ?>"
+                                                type="application/pdf" width="100%" height="600px">
+                                        <?php else: ?>
+                                            <p>File Surat Lampiran Tidak Tersedia.</p>
+                                        <?php endif; ?>
+                                    </div>
                                 </div>
-
+                                
                                 <div class="form-group"><label>Transkip</label>
                                     <div class="custom-file">
                                         <input class="custom-file-input" type="file" id="transkip" name="transkip"
                                             onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                        <label class="custom-file-label" for="customFile" id="filelamaran">Pilih
+                                        <label class="custom-file-label" for="customFile" id="filetranskip">Pilih
                                             File</label>
                                     </div><br><br>
+                                    <div class="pdf-container">
+                                        <?php if ($i->transkip != ''): ?>
+                                            <embed src="<?= base_url() ?>assets/upload/berkas_ijazah/<?= $i->transkip ?>"
+                                                type="application/pdf" width="100%" height="600px">
+                                        <?php else: ?>
+                                            <p>File Surat Transkip Tidak Tersedia.</p>
+                                        <?php endif; ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <button type="submit" class="btn btn-success btn-md btn-icon-split">
+                        <span class="text text-white">Simpan Perubahan Ijazah</span>
+                        <span class="icon text-white-50">
+                            <i class="fas fa-save"></i>
+                        </span>
+                    </button>
 
                 </div>
 

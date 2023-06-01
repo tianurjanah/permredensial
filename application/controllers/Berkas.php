@@ -549,69 +549,60 @@ class Berkas extends CI_Controller
 
 	public function proses_ubah_ijazah()
 	{
-		$config['upload_path'] = './assets/upload/barang/';
+		$config['upload_path'] = './assets/upload/berkas_ijazah/';
 		$config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF||tiff|TIFF|PDF|pdf';
 
 		$namaFile_lampiran = $_FILES['lampiran']['name'];
 		$namaFile_transkip = $_FILES['transkip']['name'];
-		$error = $_FILES['photo']['error'];
+		$errorLampiran = $_FILES['lampiran']['error'];
+		$errorTranskip = $_FILES['transkip']['error'];
 
 		$this->load->library('upload', $config);
 
 		$nomor_ijazah = $this->input->post('nomor_ijazah');
 		$user = $this->session->userdata('login_session')['id_user'];
 		$gelar = $this->input->post('gelar');
+		$where = array(
+			'nomor_ijazah' => $nomor_ijazah
+		);
+		$lampiranlama = $this->berkas_model->ambilLampiran_ijazah($where);
+		$transkiplama = $this->berkas_model->ambilTranskip_ijazah($where);
 
-		$lampiranlama = $this->input->post('lampiranlama');
-		$transkiplama = $this->input->post('transkiplama');
-
-		if ($namaFile_lampiran == '') {
-			$ganti_lampiran = $lampiranlama;
-		} else {
+		if (!empty($_FILES['lampiran']['name'])) {
 			if (!$this->upload->do_upload('lampiran')) {
-				$error = $this->upload->display_errors();
-				redirect('berkas_ijazah/form_ubah/' . $nomor_ijazah);
+				$errorLampiran = $this->upload->display_errors();
+				redirect('berkas/berkas_ijazah');
 			} else {
-
-				$data = array('lampiran' => $this->upload->data());
-				$nama_file_lampiran = $data['lampiran']['file_name'];
-				$ganti_lampiran = str_replace(" ", "_", $nama_file_lampiran);
-				if ($lampiranlama == 'cloud.png') {
-
-				} else {
-					unlink('./assets/upload/berkas_ijazah/' . $lampiranlama . '');
-				}
+				$datalampiran = array('lampiran' => $this->upload->data());
+				$nama_file_lampiran = $datalampiran['lampiran']['file_name'];
+				$gantilampiran = str_replace(" ", "_", $nama_file_lampiran);
+				$data['lampiran'] = $gantilampiran;
 			}
-		}
-
-		if ($namaFile_transkip == '') {
-			$ganti_transkip = $transkiplama;
 		} else {
-			if (!$this->upload->do_upload('transkip')) {
-				$error = $this->upload->display_errors();
-				redirect('berkas_ijazah/form_ubah/' . $nomor_ijazah);
-			} else {
-
-				$data = array('transkip' => $this->upload->data());
-				$nama_file_transkip = $data['transkip']['file_name'];
-				$ganti_transkip = str_replace(" ", "_", $nama_file_transkip);
-				if ($transkiplama == 'cloud.png') {
-
-				} else {
-					unlink('./assets/upload/berkas_ijazah/' . $transkiplama . '');
-				}
-
-			}
-
+			$gantilampiran = $lampiranlama;
 		}
 
+		// Proses upload dan perubahan file formulir data karyawan
+		if (!empty($_FILES['transkip']['name'])) {
+			if (!$this->upload->do_upload('transkip')) {
+				$errorTranskip = $this->upload->display_errors();
+				redirect('berkas/berkas_ijazah');
+			} else {
+				$datatranskip = array('transkip' => $this->upload->data());
+				$nama_file_transkip = $datatranskip['transkip']['file_name'];
+				$gantitranskip = str_replace(" ", "_", $nama_file_transkip);
+				$data['transkip'] = $gantitranskip;
+			}
+		} else {
+			$gantitranskip = $transkiplama;
+		}
 
 		$data = array(
 			'nomor_ijazah' => $nomor_ijazah,
 			'id_user' => $user,
 			'gelar' => $gelar,
-			'lampiran' => $ganti_lampiran,
-			'transkip' => $ganti_transkip
+			'lampiran' => $gantilampiran,
+			'transkip' => $gantitranskip
 		);
 
 		$where = array(
@@ -636,40 +627,32 @@ class Berkas extends CI_Controller
 	public function proses_hapus_ijazah($nomor)
 	{
 		$where = array('nomor_ijazah' => $nomor);
-		$lampiran = $this->berkas_model->ambilFoto_ijazah($where);
-		$transkip = $this->berkas_model->ambilFoto_ijazah($where);
-
+		$lampiran = $this->berkas_model->ambilLampiran_ijazah($where);
+		$transkip = $this->berkas_model->ambilTranskip_ijazah($where);
 		if ($lampiran) {
-			if ($lampiran == 'cloud.png') {
-
-			} else {
-				unlink('./assets/upload/berkas_ijazah/' . $lampiran . '');
+			if ($lampiran != 'cloud.png') {
+				unlink('./assets/upload/berkas_ijazah/' . $lampiran);
 			}
-
-			$this->berkas_model->hapus_data($where, 'ijazah');
 		}
 
 		if ($transkip) {
-			if ($transkip == 'cloud.png') {
-
-			} else {
-				unlink('./assets/upload/berkas_ijazah/' . $transkip . '');
+			if ($transkip != 'cloud.png') {
+				unlink('./assets/upload/berkas_ijazah/' . $transkip);
 			}
-
-			$this->berkas_model->hapus_data($where, 'ijazah');
 		}
 
+		$this->berkas_model->hapus_data_ijazah($where, 'ijazah');
 		$this->session->set_flashdata('Pesan', '
-		<script>
-		$(document).ready(function() {
-			swal.fire({
-				title: "Berhasil dihapus!",
-				icon: "success",
-				confirmButtonColor: "#4e73df",
-			});
-		});
-		</script>
-		');
+            <script>
+            $(document).ready(function() {
+                swal.fire({
+                    title: "Berhasil dihapus!",
+                    icon: "success",
+                    confirmButtonColor: "#4e73df",
+                });
+            });
+            </script>
+        ');
 		redirect('berkas/berkas_ijazah');
 	}
 

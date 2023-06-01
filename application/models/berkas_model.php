@@ -183,4 +183,46 @@ class berkas_model extends ci_model
     $this->db->update($table, $data);
 
   }
+
+  public function hapus_data_ijazah($where, $table)
+  {
+    $this->db->where($where);
+    $this->db->delete($table);
+
+    if ($this->db->affected_rows() > 0) {
+      return TRUE;
+    }
+    return false;
+  }
+
+  public function ambilLampiran_ijazah($where)
+  {
+    $this->db->select('lampiran');
+    $this->db->where($where);
+    $query = $this->db->get('ijazah');
+
+    if ($query->num_rows() > 0) {
+      $data = $query->row();
+      $lampiran = $data->lampiran;
+      return $lampiran;
+    }
+
+    return null;
+  }
+
+  public function ambilTranskip_ijazah($where)
+  {
+    $this->db->select('transkip');
+    $this->db->where($where);
+    $query = $this->db->get('ijazah');
+
+    if ($query->num_rows() > 0) {
+      $data = $query->row();
+      $transkip = $data->transkip;
+      return $transkip;
+    }
+
+    return null;
+  }
+
 }
