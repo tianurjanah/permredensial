@@ -65,9 +65,9 @@ class berkas_model extends ci_model
 
   public function ambilFoto($where)
   {
-    $this->db->order_by('id_barang', 'ASC');
+    $this->db->order_by('id_biodata', 'ASC');
     $this->db->limit(1);
-    $query = $this->db->get_where('barang', $where);
+    $query = $this->db->get_where('biodata', $where);
 
     $data = $query->row();
     $foto = $data->foto;
@@ -152,5 +152,35 @@ class berkas_model extends ci_model
     } else {
       return null;
     }
+  }
+
+  //==========IJAZAH============
+  public function ambil_data_ijazah($id)
+  {
+    $this->db->select('*');
+    $this->db->from('ijazah');
+    $this->db->where('id_user', $id);
+
+    $query = $this->db->get();
+    return $query;
+  }
+  public function ambil_detail_ijazah($nomor)
+  {
+    $this->db->select('*');
+    $this->db->from('ijazah');
+    $this->db->where('nomor_ijazah', $nomor);
+
+    $query = $this->db->get();
+    return $query;
+  }
+  public function tambah_data_ijazah($data, $table)
+  {
+    $this->db->insert($table, $data);
+  }
+  public function ubah_data_ijazah($where, $data, $table)
+  {
+    $this->db->where($where);
+    $this->db->update($table, $data);
+
   }
 }

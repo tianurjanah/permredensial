@@ -3,260 +3,281 @@
 <div class="container-fluid">
 
 
-        <div class="d-sm-flex  justify-content-between mb-0">
-            <div class="col-lg-12 mb-4">
-                <!-- Illustrations -->
-                <div class="card border-bottom-info shadow mb-4">
-                    <div class="card-header py-3 bg-info">
-                        <h6 class="m-0 font-weight-bold text-white">Berkas Pengajuan</h6>
-                    </div>
+    <div class="d-sm-flex  justify-content-between mb-0">
+        <div class="col-lg-12 mb-4">
+            <!-- Illustrations -->
+            <div class="card border-bottom-info shadow mb-4">
+                <div class="card-header py-3 bg-info">
+                    <h6 class="m-0 font-weight-bold text-white">Berkas Pengajuan</h6>
+                </div>
 
-                    <div class="card-body">
-                        <div class="col-lg-12">
+                <div class="card-body">
+                    <div class="col-lg-12">
                         <p>
-                        <form action="<?= base_url() ?>berkas/biodata_tambah" name="myForm" method="POST" enctype="multipart/form-data">
-                        <?php foreach ($biodata as $b) :?>
-                            <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian1" aria-expanded="false" aria-controls="Bagian1">
-                                BIODATA
-                            </button>
-                             </p> <br>
-                            <div class="collapse mb-4" id="Bagian1">
-                                <div class="card card-body">
-                                    <div class="table-responsive">
-                                        <div class="card bg-warning mb-4 text-white shadow">
-                                            <div class="card-body">
-                                                Format
-                                                <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif .pdf</div>
-                                            </div>
-                                        </div>
-                                        
-                                         <!-- suratlamaran -->
-                                        <div class="form-group"><label>Surat Lamaran</label>
-                                            <div class="custom-file">
-                                                <input class="custom-file-input" type="file" id="suratlamaran" name="suratlamaran" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                                    <label class="custom-file-label" for="customFile" id="filelamaran">Pilih File</label>
-                                            </div><br><br>
-                                            <div class="pdf-container">
-                                                <?php if ($b->surat_lamaran != '') : ?>
-                                                    <embed src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->surat_lamaran ?>" type="application/pdf" width="100%" height="600px">
-                                                <?php else: ?>
-                                                    <p>File Surat Lamaran Tidak Tersedia.</p>
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
-                                         <!-- cv -->
-                                        <div class="form-group"><label>Curriculum Vitae</label>
-                                            <div class="custom-file">
-                                                <input class="custom-file-input" type="file" id="currivitae" name="currivitae" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                                    <label class="custom-file-label" for="customFile" id="filecv">Pilih File</label>
-                                            </div><br><br>
-                                            <div class="pdf-container">
-                                                <?php if ($b->cv != '') : ?>
-                                                    <embed src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->cv ?>" type="application/pdf" width="100%" height="600px">
-                                                <?php else: ?>
-                                                    <p>File Surat Lamaran Tidak Tersedia.</p>
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
-                                        <div class="form-group"><label>Formulir Data Karyawan</label>
-                                            <div class="custom-file">
-                                                <input class="custom-file-input" type="file" id="datakaryawan" name="datakaryawan" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                                    <label class="custom-file-label" for="customFile" id="filelamaran">Pilih File</label>
-                                            </div><br><br>
-                                            <div class="pdf-container">
-                                                <?php if ($b->formulir_data != '') : ?>
-                                                    <embed src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->formulir_data ?>" type="application/pdf" width="100%" height="600px">
-                                                <?php else: ?>
-                                                    <p>File Surat Lamaran Tidak Tersedia.</p>
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
-                                        <div class="form-group"><label>Scan KTP</label>
-                                            <div class="custom-file">
-                                                <input class="custom-file-input" type="file" id="scanktp" name="scanktp" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                                    <label class="custom-file-label" for="customFile" id="filelamaran">Pilih File</label>
-                                            </div><br><br>
-                                            <div class="pdf-container">
-                                                <?php if ($b->ktp != '') : ?>
-                                                    <embed src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->ktp ?>" type="application/pdf" width="100%" height="600px">
-                                                <?php else: ?>
-                                                    <p>File Surat Lamaran Tidak Tersedia.</p>
-                                                <?php endif; ?>
-                                            </div>
-                                           
-                                        </div>
-                                    </div>
-                                    <?php endforeach; ?>
-                                    <button type="submit" class="btn btn-success btn-md col-lg-2,9 btn-icon-split ml-auto">
-                                        <span class="text text-white">Simpan Berkas Biodata</span>
-                                        <span class="icon text-white-50">
-                                            <i class="fas fa-save"></i>
-                                        </span>
+                            <?php if (!empty($biodata)): ?>
+                                <?php foreach ($biodata as $b): ?>
+                                <form action="<?= base_url() ?>berkas/biodata_tambah" name="myForm" method="POST"
+                                    enctype="multipart/form-data">
+
+
+                                    <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse"
+                                        data-target="#Bagian1" aria-expanded="false" aria-controls="Bagian1">
+                                        BIODATA
                                     </button>
-                                </div>
-                            </div>
-                        </form>
-                        
-                        
-                            <p>
-                                <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian2" aria-expanded="false" aria-controls="Bagian2">
-                                    IJAZAH
-                                </button>
-                            </p> 
-                            <br>
-                                <div class="collapse mb-4" id="Bagian2">
-                                    <div class="card card-body">
-                                        <div class="table-responsive">
-                                        <br><br>
-                                        <div class="pdf-container">
-                                            <embed src="<?= base_url() ?>berkas/berkas_ijazah" type="application/pdf" width="100%" height="600px">
-                                        </div>
+                                    </p> <br>
+
+                                    <div class="collapse mb-4" id="Bagian1">
+                                        <div class="card card-body">
+                                            <div class="table-responsive">
+                                                <div class="card bg-warning mb-4 text-white shadow">
+                                                    <div class="card-body">
+                                                        Format
+                                                        <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif .pdf
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- suratlamaran -->
+                                                <div class="form-group"><label>Surat Lamaran</label>
+                                                    <div class="custom-file">
+                                                        <input class="custom-file-input" type="file" id="suratlamaran"
+                                                            name="suratlamaran" onchange="VerifyLampiran(event)"
+                                                            accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
+                                                        <label class="custom-file-label" for="customFile" id="filelamaran">Pilih
+                                                            File</label>
+                                                    </div><br><br>
+                                                    <div class="pdf-container">
+                                                        <?php if ($b->surat_lamaran != ''): ?>
+                                                            <embed
+                                                                src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->surat_lamaran ?>"
+                                                                type="application/pdf" width="100%" height="600px">
+                                                        <?php else: ?>
+                                                            <p>File Surat Lamaran Tidak Tersedia.</p>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                </div>
+                                                <!-- cv -->
+                                                <div class="form-group"><label>Curriculum Vitae</label>
+                                                    <div class="custom-file">
+                                                        <input class="custom-file-input" type="file" id="currivitae"
+                                                            name="currivitae" onchange="VerifyLampiran(event)"
+                                                            accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
+                                                        <label class="custom-file-label" for="customFile" id="filecv">Pilih
+                                                            File</label>
+                                                    </div><br><br>
+                                                    <div class="pdf-container">
+                                                        <?php if ($b->cv != ''): ?>
+                                                            <embed src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->cv ?>"
+                                                                type="application/pdf" width="100%" height="600px">
+                                                        <?php else: ?>
+                                                            <p>File Surat Lamaran Tidak Tersedia.</p>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group"><label>Formulir Data Karyawan</label>
+                                                    <div class="custom-file">
+                                                        <input class="custom-file-input" type="file" id="datakaryawan"
+                                                            name="datakaryawan" onchange="VerifyLampiran(event)"
+                                                            accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
+                                                        <label class="custom-file-label" for="customFile" id="filelamaran">Pilih
+                                                            File</label>
+                                                    </div><br><br>
+                                                    <div class="pdf-container">
+                                                        <?php if ($b->formulir_data != ''): ?>
+                                                            <embed
+                                                                src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->formulir_data ?>"
+                                                                type="application/pdf" width="100%" height="600px">
+                                                        <?php else: ?>
+                                                            <p>File Surat Lamaran Tidak Tersedia.</p>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group"><label>Scan KTP</label>
+                                                    <div class="custom-file">
+                                                        <input class="custom-file-input" type="file" id="scanktp" name="scanktp"
+                                                            onchange="VerifyLampiran(event)"
+                                                            accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
+                                                        <label class="custom-file-label" for="customFile" id="filelamaran">Pilih
+                                                            File</label>
+                                                    </div><br><br>
+                                                    <div class="pdf-container">
+                                                        <?php if ($b->ktp != ''): ?>
+                                                            <embed
+                                                                src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->ktp ?>"
+                                                                type="application/pdf" width="100%" height="600px">
+                                                        <?php else: ?>
+                                                            <p>File Surat Lamaran Tidak Tersedia.</p>
+                                                        <?php endif; ?>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                            <button type="submit"
+                                                class="btn btn-success btn-md col-lg-2,9 btn-icon-split ml-auto">
+                                                <span class="text text-white">Simpan Berkas Biodata</span>
+                                                <span class="icon text-white-50">
+                                                    <i class="fas fa-save"></i>
+                                                </span>
+                                            </button>
                                         </div>
                                     </div>
-                                </div>
-                                
-                            <p> 
-                                <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian4" aria-expanded="false" aria-controls="Bagian4">
-                                    SURAT IJIN
-                                </button>
-                            </p><br>
-                            <div class="collapse mb-4" id="Bagian4">
-                                <div class="card card-body">
-                                    <div class="table-responsive">
-                                         <!-- suratlamaran -->
-                                        <div class="form-group"><label>STR</label>
-                                            <div class="custom-file">
-                                                <input class="form-control" name="tempat_lahir" type="text" placeholder="Yang Mengeluarkan">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="custom-file">
-                                                <input class="form-control" name="tempat_lahir" type="text" placeholder="Masa Berlaku">
-                                            </div>
-                                        </div>
-                                        <div class="form-group"><label>SIP</label>
-                                            <div class="custom-file">
-                                                <input class="form-control" name="tempat_lahir" type="text" placeholder="Yang Mengeluarkan">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="custom-file">
-                                                <input class="form-control" name="tempat_lahir" type="text" placeholder="Masa Berlaku">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <table class="table table-bordered" id="suratijintableloop">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="text-align-center text-md-left">No</th>
-                                                        <th class="text-align-center text-md-left">Form Surat Ijin</th>
-                                                        <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Suratijinbarisbaru"><i class="fa fa-plus"></i></button></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>                                
-                                </div>
-                            </div>
-                        <p>
-                            <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian5" aria-expanded="false" aria-controls="Bagian5">
-                                SERTIFIKASI PELATIHAN KEAHLIAN
-                            </button>
-                        </p><br>
-                            <div class="collapse mb-4" id="Bagian5">
-                                <div class="card card-body">
-                                    <div class="table-responsive">
-                                    <div class="form-group">
-                                            <table class="table table-bordered" id="pelatihantableloop">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="text-align-center text-md-left">No</th>
-                                                        <th class="text-align-center text-md-left">Form Ijazah</th>
-                                                        <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Pelatihanbarisbaru"><i class="fa fa-plus"></i></button></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>                                
-                                </div>
-                            </div>
-                        <p>
-                            <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian6" aria-expanded="false" aria-controls="Bagian6">
-                                PENGALAMAN KERJA
-                            </button>
-                        </p><br>
-                            <div class="collapse mb-4" id="Bagian6">
-                                <div class="card card-body">
-                                    <div class="table-responsive">
-                                    <div class="form-group">
-                                            <table class="table table-bordered" id="kerjatableloop">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="text-align-center text-md-left">No</th>
-                                                        <th class="text-align-center text-md-left">Form Ijazah</th>
-                                                        <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Kerjabarisbaru"><i class="fa fa-plus"></i></button></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>                                
-                                </div>
-                            </div>
-                            <p>
-                                <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian7" aria-expanded="false" aria-controls="Bagian7">
-                                    VERIFIKASI SUMBER UTAMA <i>(PRIMARY SOURCE VERIFICATION)</i>
-                                </button>
-                            </p>
-                            <br>
-                            <div class="collapse mb-4" id="Bagian7">
-                                <div class="card card-body">
-                                    <div class="table-responsive">
-                                    <p>
-                                        <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Pendidikan" aria-expanded="false" aria-controls="Bagian7">
-                                            Pendidikan
-                                        </button>
-                                    </p><br>
-                                    <div class="collapse mb-4" id="Pendidikan">
-                                        <div class="card card-body">
-                                            <div class="table-responsive">
-                                                <div class="form-group">
-                                                    <table class="table table-bordered" id="pendidikantableloop">
-                                                        <thead>
-                                                            <tr>
-                                                                <th class="text-align-center text-md-left">No</th>
-                                                                <th class="text-align-center text-md-left">Form Ijazah</th>
-                                                                <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Pendidikanbarisbaru"><i class="fa fa-plus"></i></button></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        </tbody>
-                                                    </table>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <div class="card-body">
+                                    <div class="col-lg-12">
+                                        <p>
+                                        <form action="<?= base_url() ?>berkas/biodata_tambah" name="myForm" method="POST"
+                                            enctype="multipart/form-data">
+
+
+                                            <button class="btn btn-primary col-lg-12 btn-info" type="button"
+                                                data-toggle="collapse" data-target="#Bagian1" aria-expanded="false"
+                                                aria-controls="Bagian1">
+                                                BIODATA
+                                            </button>
+                                            </p> <br>
+
+                                            <div class="collapse mb-4" id="Bagian1">
+                                                <div class="card card-body">
+                                                    <div class="table-responsive">
+                                                        <div class="card bg-warning mb-4 text-white shadow">
+                                                            <div class="card-body">
+                                                                Format
+                                                                <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif
+                                                                    .tif .pdf
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- suratlamaran -->
+                                                        <div class="form-group"><label>Surat Lamaran</label>
+                                                            <div class="custom-file">
+                                                                <input class="custom-file-input" type="file"
+                                                                    id="suratlamaran" name="suratlamaran"
+                                                                    onchange="VerifyLampiran(event)"
+                                                                    accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
+                                                                <label class="custom-file-label" for="customFile"
+                                                                    id="filelamaran">Pilih
+                                                                    File</label>
+                                                            </div><br><br>
+                                                        </div>
+                                                        <!-- cv -->
+                                                        <div class="form-group"><label>Curriculum Vitae</label>
+                                                            <div class="custom-file">
+                                                                <input class="custom-file-input" type="file" id="currivitae"
+                                                                    name="currivitae" onchange="VerifyLampiran(event)"
+                                                                    accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
+                                                                <label class="custom-file-label" for="customFile"
+                                                                    id="filecv">Pilih
+                                                                    File</label>
+                                                            </div><br><br>
+                                                        </div>
+                                                        <div class="form-group"><label>Formulir Data Karyawan</label>
+                                                            <div class="custom-file">
+                                                                <input class="custom-file-input" type="file"
+                                                                    id="datakaryawan" name="datakaryawan"
+                                                                    onchange="VerifyLampiran(event)"
+                                                                    accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
+                                                                <label class="custom-file-label" for="customFile"
+                                                                    id="filelamaran">Pilih
+                                                                    File</label>
+                                                            </div><br><br>
+                                                        </div>
+                                                        <div class="form-group"><label>Scan KTP</label>
+                                                            <div class="custom-file">
+                                                                <input class="custom-file-input" type="file" id="scanktp"
+                                                                    name="scanktp" onchange="VerifyLampiran(event)"
+                                                                    accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
+                                                                <label class="custom-file-label" for="customFile"
+                                                                    id="filelamaran">Pilih
+                                                                    File</label>
+                                                            </div><br><br>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <button type="submit"
+                                                        class="btn btn-success btn-md col-lg-2,9 btn-icon-split ml-auto">
+                                                        <span class="text text-white">Simpan Berkas Biodata</span>
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-save"></i>
+                                                        </span>
+                                                    </button>
                                                 </div>
                                             </div>
-                                        </div>                                
+                                        </form>
+                                    <?php endif; ?>
+
+
+                                    <p>
+                                        <button class="btn btn-primary col-lg-12 btn-info" type="button"
+                                            data-toggle="collapse" data-target="#Bagian2" aria-expanded="false"
+                                            aria-controls="Bagian2">
+                                            IJAZAH
+                                        </button>
+                                    </p>
+                                    <br>
+                                    <div class="collapse mb-4" id="Bagian2">
+                                        <div class="card card-body">
+                                            <div class="table-responsive">
+                                                <br><br>
+                                                <div class="pdf-container">
+                                                    <embed src="<?= base_url() ?>berkas/berkas_ijazah"
+                                                        type="application/pdf" width="100%" height="600px">
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+
                                     <p>
-                                        <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#SuratIjin" aria-expanded="false" aria-controls="Bagian7">
-                                            Surat Ijin
+                                        <button class="btn btn-primary col-lg-12 btn-info" type="button"
+                                            data-toggle="collapse" data-target="#Bagian4" aria-expanded="false"
+                                            aria-controls="Bagian4">
+                                            SURAT IJIN
                                         </button>
                                     </p><br>
-                                    <div class="collapse mb-4" id="SuratIjin">
+                                    <div class="collapse mb-4" id="Bagian4">
                                         <div class="card card-body">
                                             <div class="table-responsive">
+                                                <!-- suratlamaran -->
+                                                <div class="form-group"><label>STR</label>
+                                                    <div class="custom-file">
+                                                        <input class="form-control" name="tempat_lahir" type="text"
+                                                            placeholder="Yang Mengeluarkan">
+                                                    </div>
+                                                </div>
                                                 <div class="form-group">
-                                                    <table class="table table-bordered" id="verifikasisuratijintableloop">
+                                                    <div class="custom-file">
+                                                        <input class="form-control" name="tempat_lahir" type="text"
+                                                            placeholder="Masa Berlaku">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group"><label>SIP</label>
+                                                    <div class="custom-file">
+                                                        <input class="form-control" name="tempat_lahir" type="text"
+                                                            placeholder="Yang Mengeluarkan">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="custom-file">
+                                                        <input class="form-control" name="tempat_lahir" type="text"
+                                                            placeholder="Masa Berlaku">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <table class="table table-bordered" id="suratijintableloop">
                                                         <thead>
                                                             <tr>
                                                                 <th class="text-align-center text-md-left">No</th>
-                                                                <th class="text-align-center text-md-left">Form Ijazah</th>
-                                                                <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Verifikasisuratijinbarisbaru"><i class="fa fa-plus"></i></button></th>
+                                                                <th class="text-align-center text-md-left">Form Surat
+                                                                    Ijin</th>
+                                                                <th class="col-lg-2"><button
+                                                                        class="btn btn-success btn-block"
+                                                                        id="Suratijinbarisbaru"><i
+                                                                            class="fa fa-plus"></i></button>
+                                                                </th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -264,23 +285,30 @@
                                                     </table>
                                                 </div>
                                             </div>
-                                        </div>     
-                                    </div>                           
+                                        </div>
+                                    </div>
                                     <p>
-                                        <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#PengalamanKerja" aria-expanded="false" aria-controls="Bagian7">
-                                            Pengalaman Kerja
+                                        <button class="btn btn-primary col-lg-12 btn-info" type="button"
+                                            data-toggle="collapse" data-target="#Bagian5" aria-expanded="false"
+                                            aria-controls="Bagian5">
+                                            SERTIFIKASI PELATIHAN KEAHLIAN
                                         </button>
                                     </p><br>
-                                    <div class="collapse mb-4" id="PengalamanKerja">
+                                    <div class="collapse mb-4" id="Bagian5">
                                         <div class="card card-body">
                                             <div class="table-responsive">
                                                 <div class="form-group">
-                                                    <table class="table table-bordered" id="verifikasipengalamankerjatableloop">
+                                                    <table class="table table-bordered" id="pelatihantableloop">
                                                         <thead>
                                                             <tr>
                                                                 <th class="text-align-center text-md-left">No</th>
-                                                                <th class="text-align-center text-md-left">Form Ijazah</th>
-                                                                <th class ="col-lg-2"><button class="btn btn-success btn-block" id="Verifikasipengalamankerjabarisbaru"><i class="fa fa-plus"></i></button></th>
+                                                                <th class="text-align-center text-md-left">Form Ijazah
+                                                                </th>
+                                                                <th class="col-lg-2"><button
+                                                                        class="btn btn-success btn-block"
+                                                                        id="Pelatihanbarisbaru"><i
+                                                                            class="fa fa-plus"></i></button>
+                                                                </th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -288,420 +316,569 @@
                                                     </table>
                                                 </div>
                                             </div>
-                                        </div>     
-                                    </div>                           
-                                </div>
-                            </div>
-                            <p>
-                            <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse" data-target="#Bagian8" aria-expanded="false" aria-controls="Bagian8">
-                                SURAT KETERANGAN SEHAT
-                            </button>
-                            </p><br>
-                            <div class="collapse mb-4" id="Bagian8">
-                                <div class="card card-body">
-                                    <div class="table-responsive">
-                                    <div class="card bg-warning mb-4 text-white shadow">
-                                            <div class="card-body">
-                                                Format
-                                                <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif .pdf</div>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        <button class="btn btn-primary col-lg-12 btn-info" type="button"
+                                            data-toggle="collapse" data-target="#Bagian6" aria-expanded="false"
+                                            aria-controls="Bagian6">
+                                            PENGALAMAN KERJA
+                                        </button>
+                                    </p><br>
+                                    <div class="collapse mb-4" id="Bagian6">
+                                        <div class="card card-body">
+                                            <div class="table-responsive">
+                                                <div class="form-group">
+                                                    <table class="table table-bordered" id="kerjatableloop">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="text-align-center text-md-left">No</th>
+                                                                <th class="text-align-center text-md-left">Form Ijazah
+                                                                </th>
+                                                                <th class="col-lg-2"><button
+                                                                        class="btn btn-success btn-block"
+                                                                        id="Kerjabarisbaru"><i
+                                                                            class="fa fa-plus"></i></button></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
-                                         <!-- suratlamaran -->
-                                        <div class="form-group"><label>Surat Kesehatan</label>
-                                            <div class="custom-file">
-                                                <input class="custom-file-input" type="file" id="suratkesehatan" name="suratkesehatan" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                                    <label class="custom-file-label" for="customFile" id="filelamaran">Pilih File</label>
+                                    </div>
+                                    <p>
+                                        <button class="btn btn-primary col-lg-12 btn-info" type="button"
+                                            data-toggle="collapse" data-target="#Bagian7" aria-expanded="false"
+                                            aria-controls="Bagian7">
+                                            VERIFIKASI SUMBER UTAMA <i>(PRIMARY SOURCE VERIFICATION)</i>
+                                        </button>
+                                    </p>
+                                    <br>
+                                    <div class="collapse mb-4" id="Bagian7">
+                                        <div class="card card-body">
+                                            <div class="table-responsive">
+                                                <p>
+                                                    <button class="btn btn-primary col-lg-12 btn-info" type="button"
+                                                        data-toggle="collapse" data-target="#Pendidikan"
+                                                        aria-expanded="false" aria-controls="Bagian7">
+                                                        Pendidikan
+                                                    </button>
+                                                </p><br>
+                                                <div class="collapse mb-4" id="Pendidikan">
+                                                    <div class="card card-body">
+                                                        <div class="table-responsive">
+                                                            <div class="form-group">
+                                                                <table class="table table-bordered"
+                                                                    id="pendidikantableloop">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th class="text-align-center text-md-left">
+                                                                                No</th>
+                                                                            <th class="text-align-center text-md-left">
+                                                                                Form Ijazah
+                                                                            </th>
+                                                                            <th class="col-lg-2"><button
+                                                                                    class="btn btn-success btn-block"
+                                                                                    id="Pendidikanbarisbaru"><i
+                                                                                        class="fa fa-plus"></i></button>
+                                                                            </th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p>
+                                                <button class="btn btn-primary col-lg-12 btn-info" type="button"
+                                                    data-toggle="collapse" data-target="#SuratIjin"
+                                                    aria-expanded="false" aria-controls="Bagian7">
+                                                    Surat Ijin
+                                                </button>
+                                            </p><br>
+                                            <div class="collapse mb-4" id="SuratIjin">
+                                                <div class="card card-body">
+                                                    <div class="table-responsive">
+                                                        <div class="form-group">
+                                                            <table class="table table-bordered"
+                                                                id="verifikasisuratijintableloop">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="text-align-center text-md-left">No
+                                                                        </th>
+                                                                        <th class="text-align-center text-md-left">Form
+                                                                            Ijazah</th>
+                                                                        <th class="col-lg-2"><button
+                                                                                class="btn btn-success btn-block"
+                                                                                id="Verifikasisuratijinbarisbaru"><i
+                                                                                    class="fa fa-plus"></i></button>
+                                                                        </th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p>
+                                                <button class="btn btn-primary col-lg-12 btn-info" type="button"
+                                                    data-toggle="collapse" data-target="#PengalamanKerja"
+                                                    aria-expanded="false" aria-controls="Bagian7">
+                                                    Pengalaman Kerja
+                                                </button>
+                                            </p><br>
+                                            <div class="collapse mb-4" id="PengalamanKerja">
+                                                <div class="card card-body">
+                                                    <div class="table-responsive">
+                                                        <div class="form-group">
+                                                            <table class="table table-bordered"
+                                                                id="verifikasipengalamankerjatableloop">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="text-align-center text-md-left">No
+                                                                        </th>
+                                                                        <th class="text-align-center text-md-left">Form
+                                                                            Ijazah</th>
+                                                                        <th class="col-lg-2"><button
+                                                                                class="btn btn-success btn-block"
+                                                                                id="Verifikasipengalamankerjabarisbaru"><i
+                                                                                    class="fa fa-plus"></i></button>
+                                                                        </th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>                                
+                                    </div>
+                                    <p>
+                                        <button class="btn btn-primary col-lg-12 btn-info" type="button"
+                                            data-toggle="collapse" data-target="#Bagian8" aria-expanded="false"
+                                            aria-controls="Bagian8">
+                                            SURAT KETERANGAN SEHAT
+                                        </button>
+                                    </p><br>
+                                    <div class="collapse mb-4" id="Bagian8">
+                                        <div class="card card-body">
+                                            <div class="table-responsive">
+                                                <div class="card bg-warning mb-4 text-white shadow">
+                                                    <div class="card-body">
+                                                        Format
+                                                        <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif
+                                                            .pdf</div>
+                                                    </div>
+                                                </div>
+                                                <!-- suratlamaran -->
+                                                <div class="form-group"><label>Surat Kesehatan</label>
+                                                    <div class="custom-file">
+                                                        <input class="custom-file-input" type="file" id="suratkesehatan"
+                                                            name="suratkesehatan" onchange="VerifyLampiran(event)"
+                                                            accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
+                                                        <label class="custom-file-label" for="customFile"
+                                                            id="filelamaran">Pilih
+                                                            File</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
-                       
-                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
+        <!-- /.container-fluid -->
 
-</div>
-<!-- /.container-fluid -->
-
-</div>
-<!-- End of Main Content -->
+    </div>
+    <!-- End of Main Content -->
 
 
-<script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
-<script src="<?= base_url(); ?>assets/js/barang.js"></script>
-<script src="<?= base_url(); ?>assets/js/loading.js"></script>
-<script src="<?= base_url(); ?>assets/plugin/chosen/chosen.jquery.min.js"></script>
+    <script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
+    <script src="<?= base_url(); ?>assets/js/barang.js"></script>
+    <script src="<?= base_url(); ?>assets/js/loading.js"></script>
+    <script src="<?= base_url(); ?>assets/plugin/chosen/chosen.jquery.min.js"></script>
 
-<script>
-    $('.chosen').chosen({
-        width: '100%',
-
-    });
-</script>
-
-<?php if ($this->session->flashdata('Pesan')) : ?>
-
-<?php else : ?>
     <script>
-        $(document).ready(function() {
+        $('.chosen').chosen({
+            width: '100%',
 
-            let timerInterval
-            Swal.fire({
-                title: 'Memuat...',
-                timer: 1000,
-                onBeforeOpen: () => {
-                    Swal.showLoading()
-                },
-                onClose: () => {
-                    clearInterval(timerInterval)
-                }
-            }).then((result) => {
-                for(B=1;B<=1;B++){
-                    BarisBaru();
-                    suratijinbarisbaru();
-                    pendidikanbarisbaru();
-                    verifikasisuratijinbarisbaru();
-                    verifikasipengalamankerjabarisbaru();
-                    pelatihanbarisbaru();
-                    kerjabarisbaru();
-                }
-                    $('#Barisbaru').click(function(e){
+        });
+    </script>
+
+    <?php if ($this->session->flashdata('Pesan')): ?>
+
+    <?php else: ?>
+        <script>
+            $(document).ready(function () {
+
+                let timerInterval
+                Swal.fire({
+                    title: 'Memuat...',
+                    timer: 1000,
+                    onBeforeOpen: () => {
+                        Swal.showLoading()
+                    },
+                    onClose: () => {
+                        clearInterval(timerInterval)
+                    }
+                }).then((result) => {
+                    for (B = 1; B <= 1; B++) {
+                        BarisBaru();
+                        suratijinbarisbaru();
+                        pendidikanbarisbaru();
+                        verifikasisuratijinbarisbaru();
+                        verifikasipengalamankerjabarisbaru();
+                        pelatihanbarisbaru();
+                        kerjabarisbaru();
+                    }
+                    $('#Barisbaru').click(function (e) {
                         e.preventDefault();
                         BarisBaru();
                     });
-                    $('#Suratijinbarisbaru').click(function(e){
+                    $('#Suratijinbarisbaru').click(function (e) {
                         e.preventDefault();
                         suratijinbarisbaru();
                     });
-                    $('#Pendidikanbarisbaru').click(function(e){
+                    $('#Pendidikanbarisbaru').click(function (e) {
                         e.preventDefault();
                         pendidikanbarisbaru();
                     });
-                        $('#Pelatihanbarisbaru').click(function(e){
+                    $('#Pelatihanbarisbaru').click(function (e) {
                         e.preventDefault();
                         pelatihanbarisbaru();
                     });
-                    $('#Verifikasisuratijinbarisbaru').click(function(e){
+                    $('#Verifikasisuratijinbarisbaru').click(function (e) {
                         e.preventDefault();
                         verifikasisuratijinbarisbaru();
                     });
-                    $('#Verifikasipengalamankerjabarisbaru').click(function(e){
+                    $('#Verifikasipengalamankerjabarisbaru').click(function (e) {
                         e.preventDefault();
                         verifikasipengalamankerjabarisbaru();
                     });
-                    
-                    $('#Kerjabarisbaru').click(function(e){
+
+                    $('#Kerjabarisbaru').click(function (e) {
                         e.preventDefault();
                         kerjabarisbaru();
                     });
-        });
-    });
-        
-        function BarisBaru(){
-        $(document).ready(function() {
-            $("[data-toggle='tooltip'").tooltip();
-        });
-        var Nomor = $("#tableloop tbody tr").length + 1;
-        var Baris = '<tr>';
-                Baris += '<td class ="text-center">'+Nomor+'</td>';
-                Baris += '<td>';
-                    Baris += '<div class="form-group"><label>Nomor Ijazah</label>';
-                    Baris += '<input class="form-control" name="nomor_ijazah[]" type="text" required="">';
-                    Baris += '</div>';
-                    Baris += '<div class="form-group"><label>Gelar</label>';
-                    Baris += '<input class="form-control" name="gelar[]" type="text">';
-                    Baris += '</div>';
-                    Baris += '<div class="form-group"><label>Lampiran Ijazah</label>';
-                    Baris += '<br>';
-                    Baris += '<div class="custom-file">';
-                    Baris += '<input class="custom-file-input mb-3" type="file" id="lampiran_ijazah[] name="lampiran_ijazah[]" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">';
-                    Baris += '<label class="custom-file-label" for="customFile" id="file_ijazah[] name="file_ijazah[]"">Pilih File</label>';
-                    Baris += '</div>';
-                    Baris += '</div>';
-                    Baris += '<div class="form-group"><label>Transkrip Nilai</label>';
-                    Baris += '<br>';
-                    Baris += '<div class="custom-file">';
-                    Baris += '<input class="custom-file-input mb-3" type="file" id="transkrip_nilai[] name="lampiran_ijazah[]" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">';
-                    Baris += '<label class="custom-file-label" for="customFile" id="file_nilai[]">Pilih File</label>';
-                    Baris += '</div>';
-                    Baris += '</div>';
-                Baris +='</td>';
-                Baris += '<td class="text-center">';
-                    Baris += '<a class="btn btn-sm btn-danger align-center col-lg-12 p-3" data-toggle="tooltip" title"Hapus Baris" id="hapusbaris"><i class="fas fa-times" ></i></a>';
-                Baris +='</td>';
-            Baris += '</tr>';
-        console.log(Baris);
-
-        $("#tableloop tbody").append(Baris);
-        $("#tableloop tbody tr").each(function() {
-        });
-    }
-        $(document).on('click','#hapusbaris',function(e){
-            e.preventDefault();
-            var Nomor = 1;
-            $(this).parent().parent().remove();
-            $('tableloop tbody tr').each(function(){
-                $(this).find('td:nth-child(1)').html(Nomor);
-                Nomor++;
+                });
             });
-        });
 
-        function suratijinbarisbaru(){
-        $(document).ready(function() {
-            $("[data-toggle='tooltip'").tooltip();
-        });
-        var Nomor = $("#suratijintableloop tbody tr").length + 1;
-        var Baris = '<tr>';
-                Baris += '<td class ="text-center">'+Nomor+'</td>';
+            function BarisBaru() {
+                $(document).ready(function () {
+                    $("[data-toggle='tooltip'").tooltip();
+                });
+                var Nomor = $("#tableloop tbody tr").length + 1;
+                var Baris = '<tr>';
+                Baris += '<td class ="text-center">' + Nomor + '</td>';
                 Baris += '<td>';
-                    Baris += '<div class="form-group"><label>Jenis Surat Ijin</label>';
-                    Baris += '<input class="form-control" name="jenissurat[]" type="text">';
-                    Baris += '</div>';
-                    Baris += '<div class="form-group">';
-                    Baris += '<input class="form-control" name="jenissurat[]" type="text" placeholder="Yang Mengeluarkan">';
-                    Baris += '</div>';
-                    Baris += '<div class="form-group">';
-                    Baris += '<input class="form-control" name="jenissurat[]" type="text" placeholder="Masa Berlaku">';
-                    Baris += '</div>';
-                    Baris += '</div>';
-                Baris +='</td>';
+                Baris += '<div class="form-group"><label>Nomor Ijazah</label>';
+                Baris += '<input class="form-control" name="nomor_ijazah[]" type="text" required="">';
+                Baris += '</div>';
+                Baris += '<div class="form-group"><label>Gelar</label>';
+                Baris += '<input class="form-control" name="gelar[]" type="text">';
+                Baris += '</div>';
+                Baris += '<div class="form-group"><label>Lampiran Ijazah</label>';
+                Baris += '<br>';
+                Baris += '<div class="custom-file">';
+                Baris += '<input class="custom-file-input mb-3" type="file" id="lampiran_ijazah[] name="lampiran_ijazah[]" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">';
+                Baris += '<label class="custom-file-label" for="customFile" id="file_ijazah[] name="file_ijazah[]"">Pilih File</label>';
+                Baris += '</div>';
+                Baris += '</div>';
+                Baris += '<div class="form-group"><label>Transkrip Nilai</label>';
+                Baris += '<br>';
+                Baris += '<div class="custom-file">';
+                Baris += '<input class="custom-file-input mb-3" type="file" id="transkrip_nilai[] name="lampiran_ijazah[]" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">';
+                Baris += '<label class="custom-file-label" for="customFile" id="file_nilai[]">Pilih File</label>';
+                Baris += '</div>';
+                Baris += '</div>';
+                Baris += '</td>';
                 Baris += '<td class="text-center">';
-                    Baris += '<a class="btn btn-sm btn-danger align-center col-lg-12 p-3" data-toggle="tooltip" title"Hapus Baris" id="suratijinhapusbaris"><i class="fas fa-times" ></i></a>';
-                Baris +='</td>';
-            Baris += '</tr>';
-        console.log(Baris);
+                Baris += '<a class="btn btn-sm btn-danger align-center col-lg-12 p-3" data-toggle="tooltip" title"Hapus Baris" id="hapusbaris"><i class="fas fa-times" ></i></a>';
+                Baris += '</td>';
+                Baris += '</tr>';
+                console.log(Baris);
 
-        $("#suratijintableloop tbody").append(Baris);
-        $("#suratijintableloop tbody tr").each(function() {
-        });
-    }
-        $(document).on('click','#suratijinhapusbaris',function(e){
-            e.preventDefault();
-            var Nomor = 1;
-            $(this).parent().parent().remove();
-            $('suratijintableloop tbody tr').each(function(){
-                $(this).find('td:nth-child(1)').html(Nomor);
-                Nomor++;
+                $("#tableloop tbody").append(Baris);
+                $("#tableloop tbody tr").each(function () {
+                });
+            }
+            $(document).on('click', '#hapusbaris', function (e) {
+                e.preventDefault();
+                var Nomor = 1;
+                $(this).parent().parent().remove();
+                $('tableloop tbody tr').each(function () {
+                    $(this).find('td:nth-child(1)').html(Nomor);
+                    Nomor++;
+                });
             });
-        });
 
-        function pelatihanbarisbaru(){
-        $(document).ready(function() {
-            $("[data-toggle='tooltip'").tooltip();
-        });
-        var Nomor = $("#pelatihantableloop tbody tr").length + 1;
-        var Baris = '<tr>';
-                Baris += '<td class ="text-center">'+Nomor+'</td>';
+            function suratijinbarisbaru() {
+                $(document).ready(function () {
+                    $("[data-toggle='tooltip'").tooltip();
+                });
+                var Nomor = $("#suratijintableloop tbody tr").length + 1;
+                var Baris = '<tr>';
+                Baris += '<td class ="text-center">' + Nomor + '</td>';
                 Baris += '<td>';
-                    Baris += '<div class="form-group"><label>Nama Pelatihan</label>';
-                    Baris += '<input class="form-control" name="nama_pelatihan[]" type="text">';
-                    Baris += '</div>';
-                    Baris += '<div class="form-group">';
-                    Baris += '<input class="form-control" name="berlaku_sertifikat[]" type="text" placeholder="Masa Berlaku Sertifikat">';
-                    Baris += '</div>';
-                    Baris += '<div class="form-group">';
-                    Baris += '<input class="form-control" name="penyelenggara[]" type="text" placeholder="Institusi Penyelenggara">';
-                    Baris += '</div>';
-                    Baris += '</div>';
-                Baris +='</td>';
+                Baris += '<div class="form-group"><label>Jenis Surat Ijin</label>';
+                Baris += '<input class="form-control" name="jenissurat[]" type="text">';
+                Baris += '</div>';
+                Baris += '<div class="form-group">';
+                Baris += '<input class="form-control" name="jenissurat[]" type="text" placeholder="Yang Mengeluarkan">';
+                Baris += '</div>';
+                Baris += '<div class="form-group">';
+                Baris += '<input class="form-control" name="jenissurat[]" type="text" placeholder="Masa Berlaku">';
+                Baris += '</div>';
+                Baris += '</div>';
+                Baris += '</td>';
                 Baris += '<td class="text-center">';
-                    Baris += '<a class="btn btn-sm btn-danger align-center col-lg-12 p-3" data-toggle="tooltip" title"Hapus Baris" id="pelatihanhapusbaris"><i class="fas fa-times" ></i></a>';
-                Baris +='</td>';
-            Baris += '</tr>';
-        console.log(Baris);
+                Baris += '<a class="btn btn-sm btn-danger align-center col-lg-12 p-3" data-toggle="tooltip" title"Hapus Baris" id="suratijinhapusbaris"><i class="fas fa-times" ></i></a>';
+                Baris += '</td>';
+                Baris += '</tr>';
+                console.log(Baris);
 
-        $("#pelatihantableloop tbody").append(Baris);
-        $("#pelatihantableloop tbody tr").each(function() {
-        });
-    }
-        $(document).on('click','#pelatihanhapusbaris',function(e){
-            e.preventDefault();
-            var Nomor = 1;
-            $(this).parent().parent().remove();
-            $('pelatihantableloop tbody tr').each(function(){
-                $(this).find('td:nth-child(1)').html(Nomor);
-                Nomor++;
+                $("#suratijintableloop tbody").append(Baris);
+                $("#suratijintableloop tbody tr").each(function () {
+                });
+            }
+            $(document).on('click', '#suratijinhapusbaris', function (e) {
+                e.preventDefault();
+                var Nomor = 1;
+                $(this).parent().parent().remove();
+                $('suratijintableloop tbody tr').each(function () {
+                    $(this).find('td:nth-child(1)').html(Nomor);
+                    Nomor++;
+                });
             });
-        });
 
-        function kerjabarisbaru(){
-        $(document).ready(function() {
-            $("[data-toggle='tooltip'").tooltip();
-        });
-        var Nomor = $("#kerjatableloop tbody tr").length + 1;
-        var Baris = '<tr>';
-                Baris += '<td class ="text-center">'+Nomor+'</td>';
+            function pelatihanbarisbaru() {
+                $(document).ready(function () {
+                    $("[data-toggle='tooltip'").tooltip();
+                });
+                var Nomor = $("#pelatihantableloop tbody tr").length + 1;
+                var Baris = '<tr>';
+                Baris += '<td class ="text-center">' + Nomor + '</td>';
                 Baris += '<td>';
-                    Baris += '<div class="form-group"><label>Nama Perusahaan</label>';
-                    Baris += '<input class="form-control" name="nama_perusahaan[]" type="text">';
-                    Baris += '</div>';
-                    Baris += '<div class="form-group"><label>Masa Kerja Dari</label>';
-                    Baris += '<input class="form-control" name="kerja_dari[]" type="date">';
-                    Baris += '</div>';
-                    Baris += '<div class="form-group"><label>Masa Kerja Sampai</label>';
-                    Baris += '<input class="form-control" name="kerja_sampai[]" type="date">';
-                    Baris += '</div>';
-                    Baris += '<div class="form-group"><label>Surat Referensi</label>';
-                    Baris += '<br>';
-                    Baris += '<div class="custom-file">';
-                    Baris += '<input class="custom-file-input mb-3" type="file" id="lampiran_referensi[] name="lampiran_referensi[]" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">';
-                    Baris += '<label class="custom-file-label" for="customFile" id="file_referensi[] name="file_referensi[]"">Pilih File</label>';
-                    Baris += '</div>';
-                    Baris += '</div>';
-                    Baris += '</div>';
-                Baris +='</td>';
+                Baris += '<div class="form-group"><label>Nama Pelatihan</label>';
+                Baris += '<input class="form-control" name="nama_pelatihan[]" type="text">';
+                Baris += '</div>';
+                Baris += '<div class="form-group">';
+                Baris += '<input class="form-control" name="berlaku_sertifikat[]" type="text" placeholder="Masa Berlaku Sertifikat">';
+                Baris += '</div>';
+                Baris += '<div class="form-group">';
+                Baris += '<input class="form-control" name="penyelenggara[]" type="text" placeholder="Institusi Penyelenggara">';
+                Baris += '</div>';
+                Baris += '</div>';
+                Baris += '</td>';
                 Baris += '<td class="text-center">';
-                    Baris += '<a class="btn btn-sm btn-danger align-center col-lg-12 p-3" data-toggle="tooltip" title"Hapus Baris" id="kerjahapusbaris"><i class="fas fa-times" ></i></a>';
-                Baris +='</td>';
-            Baris += '</tr>';
-        console.log(Baris);
+                Baris += '<a class="btn btn-sm btn-danger align-center col-lg-12 p-3" data-toggle="tooltip" title"Hapus Baris" id="pelatihanhapusbaris"><i class="fas fa-times" ></i></a>';
+                Baris += '</td>';
+                Baris += '</tr>';
+                console.log(Baris);
 
-        $("#kerjatableloop tbody").append(Baris);
-        $("#kerjatableloop tbody tr").each(function() {
-        });
-        }
-        $(document).on('click','#kerjahapusbaris',function(e){
-            e.preventDefault();
-            var Nomor = 1;
-            $(this).parent().parent().remove();
-            $('kerjatableloop tbody tr').each(function(){
-                $(this).find('td:nth-child(1)').html(Nomor);
-                Nomor++;
+                $("#pelatihantableloop tbody").append(Baris);
+                $("#pelatihantableloop tbody tr").each(function () {
+                });
+            }
+            $(document).on('click', '#pelatihanhapusbaris', function (e) {
+                e.preventDefault();
+                var Nomor = 1;
+                $(this).parent().parent().remove();
+                $('pelatihantableloop tbody tr').each(function () {
+                    $(this).find('td:nth-child(1)').html(Nomor);
+                    Nomor++;
+                });
             });
-        });
-        function pendidikanbarisbaru(){
-        $(document).ready(function() {
-            $("[data-toggle='tooltip'").tooltip();
-        });
-        var Nomor = $("#pendidikantableloop tbody tr").length + 1;
-        var Baris = '<tr>';
-                Baris += '<td class ="text-center">'+Nomor+'</td>';
+
+            function kerjabarisbaru() {
+                $(document).ready(function () {
+                    $("[data-toggle='tooltip'").tooltip();
+                });
+                var Nomor = $("#kerjatableloop tbody tr").length + 1;
+                var Baris = '<tr>';
+                Baris += '<td class ="text-center">' + Nomor + '</td>';
                 Baris += '<td>';
-                    Baris += '<div class="form-group"><label>Nama Institusi</label>';
-                    Baris += '<input class="form-control" name="namainstitusipendidikan[]" type="text">';
-                    Baris += '</div>';
-                    Baris += '<div class="form-group"><label>Tanggal Pengiriman</label>';
-                    Baris += '<input class="form-control" name="tanggalpengirimanpendidikan[]" type="date">';
-                    Baris += '</div>';
-                    Baris += '<div class="form-group"><label>Surat Balasan</label>';
-                    Baris += '<br>';
-                    Baris += '<div class="custom-file">';
-                    Baris += '<input class="custom-file-input mb-3" type="file" id="surat_balasan_pendidikan[] name="surat_balasan_pendidikan[]" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">';
-                    Baris += '<label class="custom-file-label" for="customFile" id="file_balasan_pendidikan[] name="file_balasan_pendidikan[]"">Pilih File</label>';
-                    Baris += '</div>';
-                    Baris += '</div>';
-                    Baris += '</div>';
-                Baris +='</td>';
+                Baris += '<div class="form-group"><label>Nama Perusahaan</label>';
+                Baris += '<input class="form-control" name="nama_perusahaan[]" type="text">';
+                Baris += '</div>';
+                Baris += '<div class="form-group"><label>Masa Kerja Dari</label>';
+                Baris += '<input class="form-control" name="kerja_dari[]" type="date">';
+                Baris += '</div>';
+                Baris += '<div class="form-group"><label>Masa Kerja Sampai</label>';
+                Baris += '<input class="form-control" name="kerja_sampai[]" type="date">';
+                Baris += '</div>';
+                Baris += '<div class="form-group"><label>Surat Referensi</label>';
+                Baris += '<br>';
+                Baris += '<div class="custom-file">';
+                Baris += '<input class="custom-file-input mb-3" type="file" id="lampiran_referensi[] name="lampiran_referensi[]" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">';
+                Baris += '<label class="custom-file-label" for="customFile" id="file_referensi[] name="file_referensi[]"">Pilih File</label>';
+                Baris += '</div>';
+                Baris += '</div>';
+                Baris += '</div>';
+                Baris += '</td>';
                 Baris += '<td class="text-center">';
-                    Baris += '<a class="btn btn-sm btn-danger align-center col-lg-12 p-3" data-toggle="tooltip" title"Hapus Baris" id="pendidikanhapusbaris"><i class="fas fa-times" ></i></a>';
-                Baris +='</td>';
-            Baris += '</tr>';
-        console.log(Baris);
+                Baris += '<a class="btn btn-sm btn-danger align-center col-lg-12 p-3" data-toggle="tooltip" title"Hapus Baris" id="kerjahapusbaris"><i class="fas fa-times" ></i></a>';
+                Baris += '</td>';
+                Baris += '</tr>';
+                console.log(Baris);
 
-        $("#pendidikantableloop tbody").append(Baris);
-        $("#pendidikantableloop tbody tr").each(function() {
-        });
-    }
-        $(document).on('click','#pendidikanhapusbaris',function(e){
-            e.preventDefault();
-            var Nomor = 1;
-            $(this).parent().parent().remove();
-            $('pendidikantableloop tbody tr').each(function(){
-                $(this).find('td:nth-child(1)').html(Nomor);
-                Nomor++;
+                $("#kerjatableloop tbody").append(Baris);
+                $("#kerjatableloop tbody tr").each(function () {
+                });
+            }
+            $(document).on('click', '#kerjahapusbaris', function (e) {
+                e.preventDefault();
+                var Nomor = 1;
+                $(this).parent().parent().remove();
+                $('kerjatableloop tbody tr').each(function () {
+                    $(this).find('td:nth-child(1)').html(Nomor);
+                    Nomor++;
+                });
             });
-        });
-        function verifikasisuratijinbarisbaru(){
-        $(document).ready(function() {
-            $("[data-toggle='tooltip'").tooltip();
-        });
-        var Nomor = $("#verifikasisuratijintableloop tbody tr").length + 1;
-        var Baris = '<tr>';
-                Baris += '<td class ="text-center">'+Nomor+'</td>';
+            function pendidikanbarisbaru() {
+                $(document).ready(function () {
+                    $("[data-toggle='tooltip'").tooltip();
+                });
+                var Nomor = $("#pendidikantableloop tbody tr").length + 1;
+                var Baris = '<tr>';
+                Baris += '<td class ="text-center">' + Nomor + '</td>';
                 Baris += '<td>';
-                    Baris += '<div class="form-group"><label>Nama Institusi</label>';
-                    Baris += '<input class="form-control" name="namainstitusisuratijin[]" type="text">';
-                    Baris += '</div>';
-                    Baris += '<div class="form-group"><label>Tanggal Pengiriman</label>';
-                    Baris += '<input class="form-control" name="tanggalpengirimansuratijin[]" type="date">';
-                    Baris += '</div>';
-                    Baris += '<div class="form-group"><label>Surat Balasan</label>';
-                    Baris += '<br>';
-                    Baris += '<div class="custom-file">';
-                    Baris += '<input class="custom-file-input mb-3" type="file" id="surat_balasan_suratijin[] name="surat_balasan_suratijin[]" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">';
-                    Baris += '<label class="custom-file-label" for="customFile" id="file_balasan_suratijin[] name="file_balasan_suratijin[]"">Pilih File</label>';
-                    Baris += '</div>';
-                    Baris += '</div>';
-                    Baris += '</div>';
-                Baris +='</td>';
+                Baris += '<div class="form-group"><label>Nama Institusi</label>';
+                Baris += '<input class="form-control" name="namainstitusipendidikan[]" type="text">';
+                Baris += '</div>';
+                Baris += '<div class="form-group"><label>Tanggal Pengiriman</label>';
+                Baris += '<input class="form-control" name="tanggalpengirimanpendidikan[]" type="date">';
+                Baris += '</div>';
+                Baris += '<div class="form-group"><label>Surat Balasan</label>';
+                Baris += '<br>';
+                Baris += '<div class="custom-file">';
+                Baris += '<input class="custom-file-input mb-3" type="file" id="surat_balasan_pendidikan[] name="surat_balasan_pendidikan[]" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">';
+                Baris += '<label class="custom-file-label" for="customFile" id="file_balasan_pendidikan[] name="file_balasan_pendidikan[]"">Pilih File</label>';
+                Baris += '</div>';
+                Baris += '</div>';
+                Baris += '</div>';
+                Baris += '</td>';
                 Baris += '<td class="text-center">';
-                    Baris += '<a class="btn btn-sm btn-danger align-center col-lg-12 p-3" data-toggle="tooltip" title"Hapus Baris" id="verifikasisuratijinhapusbaris"><i class="fas fa-times" ></i></a>';
-                Baris +='</td>';
-            Baris += '</tr>';
-        console.log(Baris);
+                Baris += '<a class="btn btn-sm btn-danger align-center col-lg-12 p-3" data-toggle="tooltip" title"Hapus Baris" id="pendidikanhapusbaris"><i class="fas fa-times" ></i></a>';
+                Baris += '</td>';
+                Baris += '</tr>';
+                console.log(Baris);
 
-        $("#verifikasisuratijintableloop tbody").append(Baris);
-        $("#verifikasisuratijintableloop tbody tr").each(function() {
-        });
-    }
-        $(document).on('click','#verifikasisuratijinhapusbaris',function(e){
-            e.preventDefault();
-            var Nomor = 1;
-            $(this).parent().parent().remove();
-            $('verifikasisuratijintableloop tbody tr').each(function(){
-                $(this).find('td:nth-child(1)').html(Nomor);
-                Nomor++;
+                $("#pendidikantableloop tbody").append(Baris);
+                $("#pendidikantableloop tbody tr").each(function () {
+                });
+            }
+            $(document).on('click', '#pendidikanhapusbaris', function (e) {
+                e.preventDefault();
+                var Nomor = 1;
+                $(this).parent().parent().remove();
+                $('pendidikantableloop tbody tr').each(function () {
+                    $(this).find('td:nth-child(1)').html(Nomor);
+                    Nomor++;
+                });
             });
-        });
-        function verifikasipengalamankerjabarisbaru(){
-        $(document).ready(function() {
-            $("[data-toggle='tooltip'").tooltip();
-        });
-        var Nomor = $("#verifikasipengalamankerjatableloop tbody tr").length + 1;
-        var Baris = '<tr>';
-                Baris += '<td class ="text-center">'+Nomor+'</td>';
+            function verifikasisuratijinbarisbaru() {
+                $(document).ready(function () {
+                    $("[data-toggle='tooltip'").tooltip();
+                });
+                var Nomor = $("#verifikasisuratijintableloop tbody tr").length + 1;
+                var Baris = '<tr>';
+                Baris += '<td class ="text-center">' + Nomor + '</td>';
                 Baris += '<td>';
-                    Baris += '<div class="form-group"><label>Nama Institusi</label>';
-                    Baris += '<input class="form-control" name="namainstitusipengalamankerja[]" type="text">';
-                    Baris += '</div>';
-                    Baris += '<div class="form-group"><label>Tanggal Pengiriman</label>';
-                    Baris += '<input class="form-control" name="tanggalpengirimanpengalamankerja[]" type="date">';
-                    Baris += '</div>';
-                    Baris += '<div class="form-group"><label>Surat Balasan</label>';
-                    Baris += '<br>';
-                    Baris += '<div class="custom-file">';
-                    Baris += '<input class="custom-file-input mb-3" type="file" id="surat_balasan_pengalamankerja[] name="surat_balasan_pengalamankerja[]" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">';
-                    Baris += '<label class="custom-file-label" for="customFile" id="file_balasan_pengalamankerja[] name="file_balasan_pengalamankerja[]"">Pilih File</label>';
-                    Baris += '</div>';
-                    Baris += '</div>';
-                    Baris += '</div>';
-                Baris +='</td>';
+                Baris += '<div class="form-group"><label>Nama Institusi</label>';
+                Baris += '<input class="form-control" name="namainstitusisuratijin[]" type="text">';
+                Baris += '</div>';
+                Baris += '<div class="form-group"><label>Tanggal Pengiriman</label>';
+                Baris += '<input class="form-control" name="tanggalpengirimansuratijin[]" type="date">';
+                Baris += '</div>';
+                Baris += '<div class="form-group"><label>Surat Balasan</label>';
+                Baris += '<br>';
+                Baris += '<div class="custom-file">';
+                Baris += '<input class="custom-file-input mb-3" type="file" id="surat_balasan_suratijin[] name="surat_balasan_suratijin[]" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">';
+                Baris += '<label class="custom-file-label" for="customFile" id="file_balasan_suratijin[] name="file_balasan_suratijin[]"">Pilih File</label>';
+                Baris += '</div>';
+                Baris += '</div>';
+                Baris += '</div>';
+                Baris += '</td>';
                 Baris += '<td class="text-center">';
-                    Baris += '<a class="btn btn-sm btn-danger align-center col-lg-12 p-3" data-toggle="tooltip" title"Hapus Baris" id="verifikasipengalamankerjahapusbaris"><i class="fas fa-times" ></i></a>';
-                Baris +='</td>';
-            Baris += '</tr>';
-        console.log(Baris);
+                Baris += '<a class="btn btn-sm btn-danger align-center col-lg-12 p-3" data-toggle="tooltip" title"Hapus Baris" id="verifikasisuratijinhapusbaris"><i class="fas fa-times" ></i></a>';
+                Baris += '</td>';
+                Baris += '</tr>';
+                console.log(Baris);
 
-        $("#verifikasipengalamankerjatableloop tbody").append(Baris);
-        $("#verifikasipengalamankerjatableloop tbody tr").each(function() {
-        });
-    }
-        $(document).on('click','#verifikasipengalamankerjahapusbaris',function(e){
-            e.preventDefault();
-            var Nomor = 1;
-            $(this).parent().parent().remove();
-            $('verifikasipengalamankerjatableloop tbody tr').each(function(){
-                $(this).find('td:nth-child(1)').html(Nomor);
-                Nomor++;
+                $("#verifikasisuratijintableloop tbody").append(Baris);
+                $("#verifikasisuratijintableloop tbody tr").each(function () {
+                });
+            }
+            $(document).on('click', '#verifikasisuratijinhapusbaris', function (e) {
+                e.preventDefault();
+                var Nomor = 1;
+                $(this).parent().parent().remove();
+                $('verifikasisuratijintableloop tbody tr').each(function () {
+                    $(this).find('td:nth-child(1)').html(Nomor);
+                    Nomor++;
+                });
             });
-        });
-    </script>
-<?php endif; ?>
+            function verifikasipengalamankerjabarisbaru() {
+                $(document).ready(function () {
+                    $("[data-toggle='tooltip'").tooltip();
+                });
+                var Nomor = $("#verifikasipengalamankerjatableloop tbody tr").length + 1;
+                var Baris = '<tr>';
+                Baris += '<td class ="text-center">' + Nomor + '</td>';
+                Baris += '<td>';
+                Baris += '<div class="form-group"><label>Nama Institusi</label>';
+                Baris += '<input class="form-control" name="namainstitusipengalamankerja[]" type="text">';
+                Baris += '</div>';
+                Baris += '<div class="form-group"><label>Tanggal Pengiriman</label>';
+                Baris += '<input class="form-control" name="tanggalpengirimanpengalamankerja[]" type="date">';
+                Baris += '</div>';
+                Baris += '<div class="form-group"><label>Surat Balasan</label>';
+                Baris += '<br>';
+                Baris += '<div class="custom-file">';
+                Baris += '<input class="custom-file-input mb-3" type="file" id="surat_balasan_pengalamankerja[] name="surat_balasan_pengalamankerja[]" onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">';
+                Baris += '<label class="custom-file-label" for="customFile" id="file_balasan_pengalamankerja[] name="file_balasan_pengalamankerja[]"">Pilih File</label>';
+                Baris += '</div>';
+                Baris += '</div>';
+                Baris += '</div>';
+                Baris += '</td>';
+                Baris += '<td class="text-center">';
+                Baris += '<a class="btn btn-sm btn-danger align-center col-lg-12 p-3" data-toggle="tooltip" title"Hapus Baris" id="verifikasipengalamankerjahapusbaris"><i class="fas fa-times" ></i></a>';
+                Baris += '</td>';
+                Baris += '</tr>';
+                console.log(Baris);
 
-<script>
+                $("#verifikasipengalamankerjatableloop tbody").append(Baris);
+                $("#verifikasipengalamankerjatableloop tbody tr").each(function () {
+                });
+            }
+            $(document).on('click', '#verifikasipengalamankerjahapusbaris', function (e) {
+                e.preventDefault();
+                var Nomor = 1;
+                $(this).parent().parent().remove();
+                $('verifikasipengalamankerjatableloop tbody tr').each(function () {
+                    $(this).find('td:nth-child(1)').html(Nomor);
+                    Nomor++;
+                });
+            });
+        </script>
+    <?php endif; ?>
+
+    <script>
     // function validateForm() {
     //     var kategori = document.forms["myForm"]["kategori"].value;
     //     var nama_lengkap = document.forms["myForm"]["nama_lengkap"].value;
@@ -753,10 +930,10 @@
     // function getData(){
     //     document.getElementById("kategori").innerHTML = localStorage.getItem("kategori_value");
     //     document.getElementById("nama_lengkap").innerHTML = localStorage.getItem("nama_lengkap_value");
-    //     document.getElementById("nip").innerHTML = localStorage.getItem("nip_value"); 
+    //     document.getElementById("nip").innerHTML = localStorage.getItem("nip_value");
     //     document.getElementById("tempat_lahir").innerHTML = localStorage.getItem("tempat_lahir_value");
     //     document.getElementById("tanggal_lahir").innerHTML = localStorage.getItem("tanggal_lahir_value");
-    //     document.getElementById("alamat").innerHTML = localStorage.getItem("alamat_value"); 
+    //     document.getElementById("alamat").innerHTML = localStorage.getItem("alamat_value");
     //     document.getElementById("telepon").innerHTML = localStorage.getItem("telepon_value");
     //     document.getElementById("email").innerHTML = localStorage.getItem("email_value");
     //     document.getElementById("nomor_sip").innerHTML = localStorage.getItem("nomor_sip_value");
@@ -764,109 +941,109 @@
     //     document.getElementById("tanggal_kerja").innerHTML = localStorage.getItem("tanggal_kerja_value");
     //     return false;
     // }
-</script>
+    </script>
 
-<!-- Javascript pas foto -->
-<script>
-    function fileIsValid(fileName) {
-    var ext = fileName.match(/\.([^\.]+)$/)[1];
-    ext = ext.toLowerCase();
-    var isValid = true;
-    switch (ext) {
-        case 'png':
-        case 'jpeg':
-        case 'jpg':
-        case 'tiff':
-        case 'gif':
-        case 'tif':
+    <!-- Javascript pas foto -->
+    <script>
+        function fileIsValid(fileName) {
+            var ext = fileName.match(/\.([^\.]+)$/)[1];
+            ext = ext.toLowerCase();
+            var isValid = true;
+            switch (ext) {
+                case 'png':
+                case 'jpeg':
+                case 'jpg':
+                case 'tiff':
+                case 'gif':
+                case 'tif':
 
-            break;
-        default:
-            this.value = '';
-            isValid = false;
-    }
-    return isValid;
-}
-    function fileIsValidpdf(fileName) {
-    var ext = fileName.match(/\.([^\.]+)$/)[1];
-    ext = ext.toLowerCase();
-    var isValid = true;
-    switch (ext) {
-        case 'png':
-        case 'jpeg':
-        case 'jpg':
-        case 'tiff':
-        case 'gif':
-        case 'tif':
-        case 'pdf':
-
-            break;
-        default:
-            this.value = '';
-            isValid = false;
-    }
-    return isValid;
-}
-
-function VerifyPasFotoNameAndSize() {
-    var file = document.getElementById('pasfoto').files[0];
-    if (file != null) {
-        var fileName = file.name;
-        if (fileIsValid(fileName) == false) {
-            validasi('Format bukan gambar!', 'warning');
-            document.getElementById('pasfoto').value = null;
-            return false;
+                    break;
+                default:
+                    this.value = '';
+                    isValid = false;
+            }
+            return isValid;
         }
-        var content;
-        var size = file.size;
-        if ((size != null) && ((size / (1024 * 1024)) > 3)) {
-            validasi('Ukuran maximum 1024px', 'warning');
-            document.getElementById('pasfoto').value = null;
-            return false;
+        function fileIsValidpdf(fileName) {
+            var ext = fileName.match(/\.([^\.]+)$/)[1];
+            ext = ext.toLowerCase();
+            var isValid = true;
+            switch (ext) {
+                case 'png':
+                case 'jpeg':
+                case 'jpg':
+                case 'tiff':
+                case 'gif':
+                case 'tif':
+                case 'pdf':
+
+                    break;
+                default:
+                    this.value = '';
+                    isValid = false;
+            }
+            return isValid;
         }
 
-        var ext = fileName.match(/\.([^\.]+)$/)[1];
-        ext = ext.toLowerCase();
-        $("#pasphoto").addClass("selected").html(file.name);
-        document.getElementById('outputImg').src = window.URL.createObjectURL(file);
-        return true;
+        function VerifyPasFotoNameAndSize() {
+            var file = document.getElementById('pasfoto').files[0];
+            if (file != null) {
+                var fileName = file.name;
+                if (fileIsValid(fileName) == false) {
+                    validasi('Format bukan gambar!', 'warning');
+                    document.getElementById('pasfoto').value = null;
+                    return false;
+                }
+                var content;
+                var size = file.size;
+                if ((size != null) && ((size / (1024 * 1024)) > 3)) {
+                    validasi('Ukuran maximum 1024px', 'warning');
+                    document.getElementById('pasfoto').value = null;
+                    return false;
+                }
 
-    } else
-        return false;
-}
+                var ext = fileName.match(/\.([^\.]+)$/)[1];
+                ext = ext.toLowerCase();
+                $("#pasphoto").addClass("selected").html(file.name);
+                document.getElementById('outputImg').src = window.URL.createObjectURL(file);
+                return true;
 
-function VerifyLampiran(event) {
-    var file = event.target.files[0];
-    if (file != null) {
-        var fileName = file.name;
-        console.log(fileName);
-        if (fileIsValidpdf(fileName) == false) {
-            validasi('Format Salah!', 'warning');
-            // document.getElementById('').value = null;
-            return false;
+            } else
+                return false;
         }
-        var content;
-        var size = file.size;
-        if ((size != null) && ((size / (1024 * 1024)) > 3)) {
-            validasi('Ukuran maximum 1024px', 'warning');
-            // document.getElementById('suratlamaran').value = null;
-            return false;
+
+        function VerifyLampiran(event) {
+            var file = event.target.files[0];
+            if (file != null) {
+                var fileName = file.name;
+                console.log(fileName);
+                if (fileIsValidpdf(fileName) == false) {
+                    validasi('Format Salah!', 'warning');
+                    // document.getElementById('').value = null;
+                    return false;
+                }
+                var content;
+                var size = file.size;
+                if ((size != null) && ((size / (1024 * 1024)) > 3)) {
+                    validasi('Ukuran maximum 1024px', 'warning');
+                    // document.getElementById('suratlamaran').value = null;
+                    return false;
+                }
+
+                var ext = fileName.match(/\.([^\.]+)$/)[1];
+                ext = ext.toLowerCase();
+                var fileLabel = event.target.nextElementSibling;
+                fileLabel.classList.add("selected");
+                fileLabel.innerHTML = file.name;
+                // document.getElementById('outputImg').src = window.URL.createObjectURL(file);
+                return true;
+
+            } else
+                return false;
         }
+        function logFileUpload(event) {
+            var file = event.target.files[0];
+            console.log("Uploaded file:", file);
 
-        var ext = fileName.match(/\.([^\.]+)$/)[1];
-        ext = ext.toLowerCase();
-        var fileLabel = event.target.nextElementSibling;
-        fileLabel.classList.add("selected");
-        fileLabel.innerHTML= file.name;
-        // document.getElementById('outputImg').src = window.URL.createObjectURL(file);
-        return true;
-
-    } else
-        return false;
-}
-function logFileUpload(event) {
-  var file = event.target.files[0];
-  console.log("Uploaded file:", file);
-
-}
-</script>
+        }
+    </script>
