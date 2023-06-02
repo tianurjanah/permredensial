@@ -19,9 +19,7 @@ class Pengalaman extends CI_Controller
         $data['title'] = 'User';
         $data['user'] = $this->user_model->data()->result();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('user/index');
-        $this->load->view('templates/footer');
+        $this->load->view('pengalaman/index');
     }
 
 }

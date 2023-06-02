@@ -210,7 +210,7 @@
                                         </form>
                                     <?php endif; ?>
 
-
+                                    <!-- IJAZAH -->
                                     <p>
                                         <button class="btn btn-primary col-lg-12 btn-info" type="button"
                                             data-toggle="collapse" data-target="#Bagian2" aria-expanded="false"
@@ -231,231 +231,137 @@
                                         </div>
                                     </div>
 
+                                    <!-- SURAT IZIN -->
+                                    <p>
+                                        <button class="btn btn-primary col-lg-12 btn-info" type="button"
+                                            data-toggle="collapse" data-target="#Bagian3" aria-expanded="false"
+                                            aria-controls="Bagian3">
+                                            SURAT IZIN
+                                        </button>
+                                    </p>
+                                    <br>
+                                    <div class="collapse mb-4" id="Bagian3">
+                                        <div class="card card-body">
+                                            <div class="table-responsive">
+                                                <br><br>
+                                                <div class="pdf-container">
+                                                    <embed src="<?= base_url() ?>SuratIzin/index"
+                                                        type="application/pdf" width="100%" height="600px">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- SERTIFIKASI PELATIHAN KERJA -->
                                     <p>
                                         <button class="btn btn-primary col-lg-12 btn-info" type="button"
                                             data-toggle="collapse" data-target="#Bagian4" aria-expanded="false"
                                             aria-controls="Bagian4">
-                                            SURAT IJIN
+                                            SERTIFIKASI PELATIHAN KERJA
                                         </button>
-                                    </p><br>
+                                    </p>
+                                    <br>
                                     <div class="collapse mb-4" id="Bagian4">
                                         <div class="card card-body">
                                             <div class="table-responsive">
-                                                <!-- suratlamaran -->
-                                                <div class="form-group"><label>STR</label>
-                                                    <div class="custom-file">
-                                                        <input class="form-control" name="tempat_lahir" type="text"
-                                                            placeholder="Yang Mengeluarkan">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="custom-file">
-                                                        <input class="form-control" name="tempat_lahir" type="text"
-                                                            placeholder="Masa Berlaku">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group"><label>SIP</label>
-                                                    <div class="custom-file">
-                                                        <input class="form-control" name="tempat_lahir" type="text"
-                                                            placeholder="Yang Mengeluarkan">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="custom-file">
-                                                        <input class="form-control" name="tempat_lahir" type="text"
-                                                            placeholder="Masa Berlaku">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <table class="table table-bordered" id="suratijintableloop">
-                                                        <thead>
-                                                            <tr>
-                                                                <th class="text-align-center text-md-left">No</th>
-                                                                <th class="text-align-center text-md-left">Form Surat
-                                                                    Ijin</th>
-                                                                <th class="col-lg-2"><button
-                                                                        class="btn btn-success btn-block"
-                                                                        id="Suratijinbarisbaru"><i
-                                                                            class="fa fa-plus"></i></button>
-                                                                </th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        </tbody>
-                                                    </table>
+                                                <br><br>
+                                                <div class="pdf-container">
+                                                    <embed src="<?= base_url() ?>Pelatihan/index"
+                                                        type="application/pdf" width="100%" height="600px">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
+                                    <!-- PENGALAMAN KERJA -->
                                     <p>
                                         <button class="btn btn-primary col-lg-12 btn-info" type="button"
                                             data-toggle="collapse" data-target="#Bagian5" aria-expanded="false"
                                             aria-controls="Bagian5">
-                                            SERTIFIKASI PELATIHAN KEAHLIAN
+                                            PENGALAMAN KERJA
                                         </button>
-                                    </p><br>
+                                    </p>
+                                    <br>
                                     <div class="collapse mb-4" id="Bagian5">
                                         <div class="card card-body">
                                             <div class="table-responsive">
-                                                <div class="form-group">
-                                                    <table class="table table-bordered" id="pelatihantableloop">
-                                                        <thead>
-                                                            <tr>
-                                                                <th class="text-align-center text-md-left">No</th>
-                                                                <th class="text-align-center text-md-left">Form Ijazah
-                                                                </th>
-                                                                <th class="col-lg-2"><button
-                                                                        class="btn btn-success btn-block"
-                                                                        id="Pelatihanbarisbaru"><i
-                                                                            class="fa fa-plus"></i></button>
-                                                                </th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        </tbody>
-                                                    </table>
+                                                <br><br>
+                                                <div class="pdf-container">
+                                                    <embed src="<?= base_url() ?>Pengalaman/index"
+                                                        type="application/pdf" width="100%" height="600px">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    
                                     <p>
                                         <button class="btn btn-primary col-lg-12 btn-info" type="button"
                                             data-toggle="collapse" data-target="#Bagian6" aria-expanded="false"
                                             aria-controls="Bagian6">
-                                            PENGALAMAN KERJA
-                                        </button>
-                                    </p><br>
-                                    <div class="collapse mb-4" id="Bagian6">
-                                        <div class="card card-body">
-                                            <div class="table-responsive">
-                                                <div class="form-group">
-                                                    <table class="table table-bordered" id="kerjatableloop">
-                                                        <thead>
-                                                            <tr>
-                                                                <th class="text-align-center text-md-left">No</th>
-                                                                <th class="text-align-center text-md-left">Form Ijazah
-                                                                </th>
-                                                                <th class="col-lg-2"><button
-                                                                        class="btn btn-success btn-block"
-                                                                        id="Kerjabarisbaru"><i
-                                                                            class="fa fa-plus"></i></button></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p>
-                                        <button class="btn btn-primary col-lg-12 btn-info" type="button"
-                                            data-toggle="collapse" data-target="#Bagian7" aria-expanded="false"
-                                            aria-controls="Bagian7">
                                             VERIFIKASI SUMBER UTAMA <i>(PRIMARY SOURCE VERIFICATION)</i>
                                         </button>
                                     </p>
                                     <br>
-                                    <div class="collapse mb-4" id="Bagian7">
+                                    <div class="collapse mb-4" id="Bagian6">
                                         <div class="card card-body">
-                                            <div class="table-responsive">
-                                                <p>
-                                                    <button class="btn btn-primary col-lg-12 btn-info" type="button"
-                                                        data-toggle="collapse" data-target="#Pendidikan"
-                                                        aria-expanded="false" aria-controls="Bagian7">
-                                                        Pendidikan
-                                                    </button>
-                                                </p><br>
-                                                <div class="collapse mb-4" id="Pendidikan">
-                                                    <div class="card card-body">
-                                                        <div class="table-responsive">
-                                                            <div class="form-group">
-                                                                <table class="table table-bordered"
-                                                                    id="pendidikantableloop">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th class="text-align-center text-md-left">
-                                                                                No</th>
-                                                                            <th class="text-align-center text-md-left">
-                                                                                Form Ijazah
-                                                                            </th>
-                                                                            <th class="col-lg-2"><button
-                                                                                    class="btn btn-success btn-block"
-                                                                                    id="Pendidikanbarisbaru"><i
-                                                                                        class="fa fa-plus"></i></button>
-                                                                            </th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
+                                            <!-- VSU PENDIDIKAN -->
+                                            <p>
+                                                <button class="btn btn-primary col-lg-12 btn-info" type="button"
+                                                    data-toggle="collapse" data-target="#Bagian7" aria-expanded="false"
+                                                    aria-controls="Bagian7">
+                                                    PENDIDIKAN
+                                                </button>
+                                            </p>
+                                            <br>
+                                            <div class="collapse mb-4" id="Bagian7">
+                                                <div class="card card-body">
+                                                    <div class="table-responsive">
+                                                        <br><br>
+                                                        <div class="pdf-container">
+                                                            <embed src="<?= base_url() ?>Vsu_pendidikan/index"
+                                                                type="application/pdf" width="100%" height="600px">
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <!-- VSU SURAT IZIN -->
                                             <p>
                                                 <button class="btn btn-primary col-lg-12 btn-info" type="button"
-                                                    data-toggle="collapse" data-target="#SuratIjin"
-                                                    aria-expanded="false" aria-controls="Bagian7">
-                                                    Surat Ijin
+                                                    data-toggle="collapse" data-target="#Bagian8" aria-expanded="false"
+                                                    aria-controls="Bagian8">
+                                                    SURAT UZIN
                                                 </button>
-                                            </p><br>
-                                            <div class="collapse mb-4" id="SuratIjin">
+                                            </p>
+                                            <br>
+                                            <div class="collapse mb-4" id="Bagian8">
                                                 <div class="card card-body">
                                                     <div class="table-responsive">
-                                                        <div class="form-group">
-                                                            <table class="table table-bordered"
-                                                                id="verifikasisuratijintableloop">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th class="text-align-center text-md-left">No
-                                                                        </th>
-                                                                        <th class="text-align-center text-md-left">Form
-                                                                            Ijazah</th>
-                                                                        <th class="col-lg-2"><button
-                                                                                class="btn btn-success btn-block"
-                                                                                id="Verifikasisuratijinbarisbaru"><i
-                                                                                    class="fa fa-plus"></i></button>
-                                                                        </th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                </tbody>
-                                                            </table>
+                                                        <br><br>
+                                                        <div class="pdf-container">
+                                                            <embed src="<?= base_url() ?>Vsu_suratizin/index"
+                                                                type="application/pdf" width="100%" height="600px">
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <!-- VSU PENGALAMAN -->
                                             <p>
                                                 <button class="btn btn-primary col-lg-12 btn-info" type="button"
-                                                    data-toggle="collapse" data-target="#PengalamanKerja"
-                                                    aria-expanded="false" aria-controls="Bagian7">
-                                                    Pengalaman Kerja
+                                                    data-toggle="collapse" data-target="#Bagian9" aria-expanded="false"
+                                                    aria-controls="Bagian9">
+                                                    PENGALAMAN
                                                 </button>
-                                            </p><br>
-                                            <div class="collapse mb-4" id="PengalamanKerja">
+                                            </p>
+                                            <br>
+                                            <div class="collapse mb-4" id="Bagian9">
                                                 <div class="card card-body">
                                                     <div class="table-responsive">
-                                                        <div class="form-group">
-                                                            <table class="table table-bordered"
-                                                                id="verifikasipengalamankerjatableloop">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th class="text-align-center text-md-left">No
-                                                                        </th>
-                                                                        <th class="text-align-center text-md-left">Form
-                                                                            Ijazah</th>
-                                                                        <th class="col-lg-2"><button
-                                                                                class="btn btn-success btn-block"
-                                                                                id="Verifikasipengalamankerjabarisbaru"><i
-                                                                                    class="fa fa-plus"></i></button>
-                                                                        </th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                </tbody>
-                                                            </table>
+                                                        <br><br>
+                                                        <div class="pdf-container">
+                                                            <embed src="<?= base_url() ?>Vsu_pengalaman/index"
+                                                                type="application/pdf" width="100%" height="600px">
                                                         </div>
                                                     </div>
                                                 </div>
