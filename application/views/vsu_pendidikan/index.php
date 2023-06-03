@@ -41,8 +41,8 @@
                     <table class="table table-hover" id="dtHorizontalExample" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th width="1%">No VSU Pendidikan</th>
-                                <th>Nama Perusahaan</th>
+                                <th width="1%">ID</th>
+                                <th>Nama Institusi</th>
                                 <th>Tanggal Pengiriman</th>
                                 <th>Surat Balasan</th>
                                 <th width="1%">Aksi</th>
@@ -64,7 +64,7 @@
                                                 class="btn btn-circle btn-success btn-sm">
                                                 <i class="fas fa-pen"></i>
                                             </a>
-                                            <a href="<?= base_url() ?>Vsu_pendidikan/proses_hapus_pendidikan/<?= $vp->nomor_pendidikanvsu ?>"
+                                            <a href="<?= base_url() ?>Vsu_pendidikan/hapus_pendidikan/<?= $vp->nomor_pendidikanvsu ?>"
                                                 class="btn btn-circle btn-danger btn-sm">
                                                 <i class="fas fa-trash"></i>
                                             </a>

@@ -41,7 +41,7 @@
                     <table class="table table-hover" id="dtHorizontalExample" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th width="1%">ID Pengalaman</th>
+                                <th>ID</th>
                                 <th>Perusahaan</th>
                                 <th>Masa Kerja Dari</th>
                                 <th>Masa Kerja Sampai</th>
@@ -53,23 +53,29 @@
                             <?php $no = 1;
                             foreach ($pengalaman as $p): ?>
                                 <tr>
-                                    <td onclick="detail('<?= $p->id_pengalaman ?>')"><?= $i->nomor_izin ?></td>
-                                    <td onclick="detail('<?= $p->id_pengalaman ?>')"><?= $i->perusahaan ?></td>
-                                    <td onclick="detail('<?= $p->id_pengalaman ?>')"><?= $i->kerja_dari ?></td>
-                                    <td onclick="detail('<?= $p->id_pengalaman ?>')"><?= $i->kerja_sampai ?></td>
-                                    <td onclick="detail('<?= $p->id_pengalaman ?>')"><?= $i->Referensi ?></td>
-
+                                    <td onclick="detail('<?= $p->id_pengalaman ?>')"><?= $p->id_pengalaman ?></td>
+                                    <td onclick="detail('<?= $p->id_pengalaman ?>')"><?= $p->perusahaan ?></td>
+                                    <td onclick="detail('<?= $p->id_pengalaman ?>')"><?= $p->kerja_dari ?></td>
+                                    <td onclick="detail('<?= $p->id_pengalaman ?>')"><?= $p->kerja_sampai ?></td>
                                     <td>
-                                        <center>
-                                            <a href="<?= base_url() ?>Pengalaman/ubah_pengalaman/<?= $p->id_pengalaman ?>"
-                                                class="btn btn-circle btn-success btn-sm">
-                                                <i class="fas fa-pen"></i>
+                                        <?php if ($p->referensi != ''): ?> <a
+                                                href="<?= base_url('assets/upload/berkas_pengalaman/' . $p->referensi) ?>"
+                                                target="_blank">
+                                                <i class="fa fa-file-pdf"></i> Lihat Berkas
                                             </a>
-                                            <a href="<?= base_url() ?>Pengalaman/proses_hapus_pengalaman/<?= $p->id_pengalaman ?>"
-                                                class="btn btn-circle btn-danger btn-sm">
-                                                <i class="fas fa-trash"></i>
-                                            </a>
-                                        </center>
+                                        <?php else: ?>
+                                            <p>File Surat Lampiran Tidak Tersedia.</p>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <a href="<?= base_url() ?>pengalaman/ubah_pengalaman/<?= $p->id_pengalaman ?>"
+                                            class="btn btn-circle btn-success btn-sm">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
+                                        <a href="<?= base_url() ?>Pengalaman/hapus_pengalaman/<?= $p->id_pengalaman ?>"
+                                            class="btn btn-circle btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -110,9 +116,6 @@
 
             })
         });
-
-
-
     </script>
 <?php endif; ?>
 <script>
