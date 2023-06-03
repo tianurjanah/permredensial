@@ -245,8 +245,8 @@
                                             <div class="table-responsive">
                                                 <br><br>
                                                 <div class="pdf-container">
-                                                    <embed src="<?= base_url() ?>SuratIzin/index"
-                                                        type="application/pdf" width="100%" height="600px">
+                                                    <embed src="<?= base_url() ?>SuratIzin/index" type="application/pdf"
+                                                        width="100%" height="600px">
                                                 </div>
                                             </div>
                                         </div>
@@ -266,8 +266,8 @@
                                             <div class="table-responsive">
                                                 <br><br>
                                                 <div class="pdf-container">
-                                                    <embed src="<?= base_url() ?>Pelatihan/index"
-                                                        type="application/pdf" width="100%" height="600px">
+                                                    <embed src="<?= base_url() ?>Pelatihan/index" type="application/pdf"
+                                                        width="100%" height="600px">
                                                 </div>
                                             </div>
                                         </div>
@@ -293,7 +293,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <p>
                                         <button class="btn btn-primary col-lg-12 btn-info" type="button"
                                             data-toggle="collapse" data-target="#Bagian6" aria-expanded="false"
@@ -330,7 +330,7 @@
                                                 <button class="btn btn-primary col-lg-12 btn-info" type="button"
                                                     data-toggle="collapse" data-target="#Bagian8" aria-expanded="false"
                                                     aria-controls="Bagian8">
-                                                    SURAT UZIN
+                                                    SURAT IZIN
                                                 </button>
                                             </p>
                                             <br>

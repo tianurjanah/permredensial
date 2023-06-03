@@ -54,7 +54,7 @@
                                 <tr>
                                     <td onclick="detail('<?= $vp->nomor_pengalamanvsu ?>')"><?= $vp->nomor_pengalamanvsu ?>
                                     </td>
-                                    <td onclick="detail('<?= $vp->nomor_pengalamanvsu ?>')"><?= $vp->nama_institusi ?></td>
+                                    <td onclick="detail('<?= $vp->nomor_pengalamanvsu ?>')"><?= $vp->nama_perusahaan ?></td>
                                     <td onclick="detail('<?= $vp->nomor_pengalamanvsu ?>')"><?= $vp->tgl_pengiriman ?></td>
                                     <td onclick="detail('<?= $vp->nomor_pengalamanvsu ?>')"><?= $vp->balasan ?></td>
 
