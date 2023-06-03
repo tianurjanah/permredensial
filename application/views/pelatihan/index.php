@@ -52,18 +52,18 @@
                             <?php $no = 1;
                             foreach ($pelatihan as $p): ?>
                                 <tr>
-                                    <td onclick="detail('<?= $p->id_pelatihan ?>')"><?= $i->id_pelatihan ?></td>
-                                    <td onclick="detail('<?= $p->id_pelatihan ?>')"><?= $i->nama_pelatihan ?></td>
-                                    <td onclick="detail('<?= $p->id_pelatihan ?>')"><?= $i->berlaku ?></td>
-                                    <td onclick="detail('<?= $p->id_pelatihan ?>')"><?= $i->penyelenggara ?></td>
+                                    <td onclick="detail('<?= $p->id_pelatihan ?>')"><?= $p->id_pelatihan ?></td>
+                                    <td onclick="detail('<?= $p->id_pelatihan ?>')"><?= $p->nama_pelatihan ?></td>
+                                    <td onclick="detail('<?= $p->id_pelatihan ?>')"><?= $p->berlaku ?></td>
+                                    <td onclick="detail('<?= $p->id_pelatihan ?>')"><?= $p->penyelenggara ?></td>
 
                                     <td>
                                         <center>
-                                            <a href="<?= base_url() ?>Pelatihan/ubah_pelatihan/<?= $si->id_pelatihan ?>"
+                                            <a href="<?= base_url() ?>Pelatihan/ubah_pelatihan/<?= $p->id_pelatihan ?>"
                                                 class="btn btn-circle btn-success btn-sm">
                                                 <i class="fas fa-pen"></i>
                                             </a>
-                                            <a href="<?= base_url() ?>Pelatihan/proses_hapus_pelatihan/<?= $si->id_pelatihan ?>"
+                                            <a href="<?= base_url() ?>Pelatihan/proses_hapus_pelatihan/<?= $p->id_pelatihan ?>"
                                                 class="btn btn-circle btn-danger btn-sm">
                                                 <i class="fas fa-trash"></i>
                                             </a>
@@ -82,9 +82,7 @@
 
 
 </div>
-<!-- /.container-fluid -->
 
-</div>
 <!-- End of Main Content -->
 
 <script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
@@ -137,7 +135,7 @@
                     showConfirmButton: false,
                 }).then(
                     function () {
-                        window.location.href = base_url + "surat_izin/proses_hapus_surat_izin/" + nomor;
+                        window.location.href = base_url + "pelatihan/proses_hapus_pelatihan/" + nomor;
                     }
                 );
             }

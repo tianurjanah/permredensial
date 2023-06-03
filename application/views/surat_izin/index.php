@@ -50,12 +50,12 @@
                         </thead>
                         <tbody style="cursor:pointer;" id="tbody">
                             <?php $no = 1;
-                            foreach ($surat_ijin as $si): ?>
+                            foreach ($surat_izin as $si): ?>
                                 <tr>
-                                    <td onclick="detail('<?= $i->nomor_izin ?>')"><?= $i->nomor_izin ?></td>
-                                    <td onclick="detail('<?= $i->nomor_izin ?>')"><?= $i->jenis_surat ?></td>
-                                    <td onclick="detail('<?= $i->nomor_izin ?>')"><?= $i->mengeluarkan ?></td>
-                                    <td onclick="detail('<?= $i->nomor_izin ?>')"><?= $i->masa_berlaku ?></td>
+                                    <td onclick="detail('<?= $si->nomor_izin ?>')"><?= $si->nomor_izin ?></td>
+                                    <td onclick="detail('<?= $si->nomor_izin ?>')"><?= $si->jenis_surat ?></td>
+                                    <td onclick="detail('<?= $si->nomor_izin ?>')"><?= $si->mengeluarkan ?></td>
+                                    <td onclick="detail('<?= $si->nomor_izin ?>')"><?= $si->masa_berlaku ?></td>
 
                                     <td>
                                         <center>
@@ -114,7 +114,7 @@
     </script>
 <?php endif; ?>
 <script>
-    function konfirmasi(nomor) {
+    function konfirmasi(nomor_izin) {
         var base_url = $('#baseurl').val();
 
         swal.fire({

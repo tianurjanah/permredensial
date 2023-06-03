@@ -25,6 +25,7 @@ class Berkas extends CI_Controller
 		$id = $this->session->userdata('login_session')['id_user'];
 		$data['biodata'] = $this->berkas_model->ambil_data_barang($id)->result();
 		$data['user'] = $this->user_model->data()->result();
+		$data['sehat'] = $this->berkas_model->ambil_data_sehat($id)->result();
 		$this->load->view('templates/header', $data);
 		$this->load->view('berkas/index', $data);
 		$this->load->view('templates/footer');
@@ -463,16 +464,13 @@ class Berkas extends CI_Controller
 			$data['ijazah'] = array();
 		}
 
-		$data['kategori'] = $this->kategori_model->data()->result();
-		$data['ktg'] = $this->kategori_model->data()->num_rows();
-
 		$this->load->view('berkas_ijazah/form_ubah', $data);
 	}
 
 
 	public function detail($id)
 	{
-		$data['title'] = 'Pengajuan';
+		$data['title'] = 'Surat Izin';
 
 		//menampilkan data berdasarkan id
 		$data['data'] = $this->berkas_model-- > detail_join($id, 'ijazah')->result();
@@ -662,6 +660,66 @@ class Berkas extends CI_Controller
 		$where = array('nomor_ijazah' => $id);
 		$data['ijazah'] = $this->berkas_model->ambil_data_ijazah($id)->result();
 		echo json_encode($data);
+	}
+
+	//============Keterangan Sehat=========
+
+	public function biodata_sehat()
+	{
+
+		$config['upload_path'] = './assets/upload/berkas_sehat/';
+		$config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF||tiff|TIFF|PDF|pdf';
+
+		$namaFile_keterangan = $_FILES['surat_keterangan']['name'];
+		$errorketerangan = $_FILES['surat_keterangan']['error'];
+
+		$this->load->library('upload', $config);
+
+		$id = $this->berkas_model->buat_kode_sehat();
+		$kode = $this->session->userdata('login_session')['id_user'];
+
+		// Proses upload dan perubahan file surat lamaran
+		if (!empty($_FILES['surat_keterangan']['name'])) {
+			if (!$this->upload->do_upload('surat_keterangan')) {
+				$errorketerangan = $this->upload->display_errors();
+				redirect('berkas/index');
+			} else {
+				$dataketerangan = array('surat_keterangan' => $this->upload->data());
+				$nama_file_keterangan = $dataketerangan['surat_keterangan']['file_name'];
+				$gantiketerangan = str_replace(" ", "_", $nama_file_keterangan);
+			}
+		}
+
+		$data = array(
+			'id_sehat' => $id,
+			'id_user' => $kode,
+			'surat_keterangan' => $gantiketerangan
+		);
+
+		$where = array('id_user' => $this->session->userdata('login_session')['id_user']);
+		$existingData = $this->berkas_model->detail_data_sehat($where, 'sehat');
+		if ($existingData) {
+			$this->berkas_model->ubah_data_sehat($where, $data, 'sehat');
+			$pesan = 'Data berhasil diubah!';
+		} else {
+			$this->berkas_model->tambah_data_sehat($data, 'sehat');
+			$pesan = 'Data berhasil ditambahkan!';
+		}
+
+		$this->session->set_flashdata('Pesan', '
+	    <script>
+	    $(document).ready(function() {
+	        swal.fire({
+	            title: "Berhasil!",
+	            text: "' . $pesan . '",
+	            icon: "success",
+	            confirmButtonColor: "#4e73df",
+	        });
+	    });
+	    </script>
+	');
+
+		redirect('berkas/index');
 	}
 
 }
