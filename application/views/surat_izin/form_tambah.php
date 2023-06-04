@@ -28,20 +28,12 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <div class="d-sm-flex">
-                <a href="<?= base_url() ?>surat_izin/index" class="btn btn-md btn-circle btn-info">
+                <a href="<?= base_url() ?>Suratizin/index" class="btn btn-md btn-circle btn-info">
                     <i class="fas fa-arrow-left"></i>
                 </a>
                 &nbsp;
                 <h1 class="h2 mb-0 text-gray-800">Tambah Data Surat Izin</h1>
             </div>
-
-            <button type="submit" class="btn btn-primary btn-md btn-icon-split">
-                <span class="text text-white">Simpan Data Surat Izin</span>
-                <span class="icon text-white-50">
-                    <i class="fas fa-save"></i>
-                </span>
-            </button>
-
         </div>
 
         <div class="d-sm-flex  justify-content-between mb-0">
@@ -74,6 +66,15 @@
                         <br>
                     </div>
                 </div>
+
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-success btn-md btn-icon-split">
+                            <span class="text text-white">Simpan Surat Izin</span>
+                            <span class="icon text-white-50">
+                                <i class="fas fa-save"></i>
+                            </span>
+                        </button>
+                    </div>
 
             </div>
         </div>

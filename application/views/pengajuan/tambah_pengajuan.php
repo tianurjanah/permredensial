@@ -7,7 +7,7 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <div class="d-sm-flex">
-                <a href="<?= base_url() ?>kompetensi" class="btn btn-md btn-circle btn-info">
+                <a href="<?= base_url() ?>pengajuan/index" class="btn btn-md btn-circle btn-info">
                     <i class="fas fa-arrow-left"></i>
                 </a>
                 &nbsp;

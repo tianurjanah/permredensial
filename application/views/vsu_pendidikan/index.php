@@ -56,7 +56,16 @@
                                     </td>
                                     <td onclick="detail('<?= $vp->nomor_pendidikanvsu ?>')"><?= $vp->nama_institusi ?></td>
                                     <td onclick="detail('<?= $vp->nomor_pendidikanvsu ?>')"><?= $vp->tgl_pengiriman ?></td>
-                                    <td onclick="detail('<?= $vp->nomor_pendidikanvsu ?>')"><?= $vp->balasan ?></td>
+                                    <td>
+                                        <?php if ($vp->balasan != ''): ?> <a
+                                                href="<?= base_url('assets/upload/berkas_vsu_pendidikan/' . $vp->balasan) ?>"
+                                                target="_blank">
+                                                <i class="fa fa-file-pdf"></i> Lihat Berkas
+                                            </a>
+                                        <?php else: ?>
+                                            <p>File Surat Lampiran Tidak Tersedia.</p>
+                                        <?php endif; ?>
+                                    </td>
 
                                     <td>
                                         <center>

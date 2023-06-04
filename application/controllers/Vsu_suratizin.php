@@ -31,7 +31,7 @@ class Vsu_suratizin extends CI_Controller
         $this->load->view('vsu_suratizin/form_tambah');
 
     }
-    public function ubah_suratizin($id)
+    public function ubah_vsu_suratizin($id)
     {
         $data['title'] = 'UBAH SURAT IZIN';
         // Menampilkan data berdasarkan id
@@ -46,7 +46,7 @@ class Vsu_suratizin extends CI_Controller
         $this->load->view('vsu_suratizin/form_ubah', $data);
     }
 
-    public function proses_tambah_pendidikan()
+    public function proses_tambah_suratizin()
     {
         $config['upload_path'] = './assets/upload/berkas_vsu_suratizin/';
         $config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF||tiff|TIFF|PDF|pdf';
@@ -114,7 +114,7 @@ class Vsu_suratizin extends CI_Controller
         $where = array(
             'nomor_izinvsu' => $id
         );
-        $balasanlama = $this->vsu_pendidikan_model->ambilbalasan($where);
+        $balasanlama = $this->vsu_suratizin_model->ambilbalasan($where);
 
         if (!empty($_FILES['balasan']['name'])) {
             if (!$this->upload->do_upload('balasan')) {
@@ -124,7 +124,7 @@ class Vsu_suratizin extends CI_Controller
                 $databalasan = array('balasan' => $this->upload->data());
                 $nama_file_balasan = $databalasan['balasan']['file_name'];
                 $gantibalasan = str_replace(" ", "_", $nama_file_balasan);
-                $data['referensi'] = $gantibalasan;
+                $data['balasan'] = $gantibalasan;
             }
         } else {
             $gantibalasan = $balasanlama;

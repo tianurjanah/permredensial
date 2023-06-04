@@ -32,14 +32,6 @@
                 &nbsp;
                 <h1 class="h2 mb-0 text-gray-800">Ubah Data VSU Pengalaman</h1>
             </div>
-
-            <button type="submit" class="btn btn-primary btn-md btn-icon-split">
-                <span class="text text-white">Simpan Data VSU Pengalaman</span>
-                <span class="icon text-white-50">
-                    <i class="fas fa-save"></i>
-                </span>
-            </button>
-
         </div>
 
         <div class="d-sm-flex  justify-content-between mb-0">
@@ -89,22 +81,23 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <br>
                 </div>
             </div>
-
-    </div>
-    </div>
-
+        </div>
+        <div class="text-right">
+            <button type="submit" class="btn btn-success btn-md btn-icon-split">
+                <span class="text text-white">Simpan Data VSU Pengalaman</span>
+                <span class="icon text-white-50">
+                    <i class="fas fa-save"></i>
+                </span>
+            </button>
+        </div>
 
     </form>
 
-    </div>
+</div>
     <!-- /.container-fluid -->
 <?php endforeach; ?>
-</div>
-<!-- End of Main Content -->
 
 <script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
 <script src="<?= base_url(); ?>assets/js/pengguna.js"></script>

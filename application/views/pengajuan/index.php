@@ -3,9 +3,9 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Daftar Pengajuan</h1>
-        <a href="<?= base_url() ?>barang/tambah/<?= $this->session->userdata('login_session')['id_user'] ?>" class="btn btn-sm btn-primary btn-icon-split">
-            <span class="text text-white">Tambah Data</span>
+        <h1 class="h3 mb-0 text-gray-800">Riwayat Pengajuan</h1>
+        <a href="<?= base_url() ?>pengajuan/tambah/<?= $this->session->userdata('login_session')['id_user'] ?>" class="btn btn-sm btn-primary btn-icon-split">
+            <span class="text text-white">Tambah Data Pengajuan</span>
             <span class="icon text-white-50">
                 <i class="fas fa-plus"></i>
             </span>
@@ -27,16 +27,6 @@
                                 <th class="text-center">Status</th>
                             </tr>
                         </thead>
-                        <tbody style="cursor:pointer;" id="tbody"> 
-                            <?php $no=1; foreach ($barang as $b): ?>
-                            <tr>
-                                <td onclick="detail('<?= $b->id_barang ?>')"><?= $no++ ?>.</td>
-                                <td onclick="detail('<?= $b->id_barang ?>')"><?= $b->nama_barang ?></td>
-                                <td onclick="detail('<?= $b->id_barang ?>')" class="text-center"><?= $b->tanggal_masuk ?></td>
-                                <td class="text-center">-</td>
-                            </tr>
-                            <?php endforeach; ?>
-                        </tbody>
                     </table>
                 </div>
             </div>

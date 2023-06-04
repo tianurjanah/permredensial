@@ -29,7 +29,7 @@
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <div class="d-sm-flex">
-                    <a href="<?= base_url() ?>pelatihan/index" class="btn btn-md btn-circle btn-dark">
+                    <a href="<?= base_url() ?>pelatihan/index" class="btn btn-md btn-circle btn-info">
                         <i class="fas fa-arrow-left"></i>
                     </a>
                     &nbsp;
@@ -41,7 +41,7 @@
                 <div class="col-lg-8 mb-4">
                     <!-- Illustrations -->
                     <div class="card border-bottom-secondary shadow mb-4">
-                        <div class="card-header py-3 bg-dark">
+                        <div class="card-header py-3 bg-info">
                             <h6 class="m-0 font-weight-bold text-white">Form Data Pelatihan</h6>
                         </div>
                         <div class="card-body">
@@ -75,13 +75,15 @@
                             </div>
                         </div>
                     </div>
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-success btn-md btn-icon-split">
+                            <span class="text text-white">Simpan Perubahan Pelatihan</span>
+                            <span class="icon text-white-50">
+                                <i class="fas fa-save"></i>
+                            </span>
+                        </button>
 
-                    <button type="submit" class="btn btn-success btn-md btn-icon-split">
-                        <span class="text text-white">Simpan Perubahan Ijazah</span>
-                        <span class="icon text-white-50">
-                            <i class="fas fa-save"></i>
-                        </span>
-                    </button>
+                    </div>
 
                 </div>
 

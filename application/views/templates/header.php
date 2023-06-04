@@ -255,12 +255,12 @@ if (!$this->session->has_userdata('login_session')){
             <div class="sidebar-heading">
                 Berkas Pengajuan
             </div>
-            <?php if($title == 'Barang'): ?>
+            <?php if($title == 'Pengajuan Kompetensi'): ?>
             <li class="nav-item active">
                 <?php else: ?>
             <li class="nav-item">
                 <?php endif; ?>
-                <a class="nav-link" href="<?= base_url() ?>barang">
+                <a class="nav-link" href="<?= base_url() ?>pengajuan/index">
                     <i class="fas fa-fw fa-boxes"></i>
                     <span>Pengajuan Kompetensi</span>
                 </a>

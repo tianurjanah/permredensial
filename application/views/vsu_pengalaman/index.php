@@ -56,7 +56,16 @@
                                     </td>
                                     <td onclick="detail('<?= $vp->nomor_pengalamanvsu ?>')"><?= $vp->nama_perusahaan ?></td>
                                     <td onclick="detail('<?= $vp->nomor_pengalamanvsu ?>')"><?= $vp->tgl_pengiriman ?></td>
-                                    <td onclick="detail('<?= $vp->nomor_pengalamanvsu ?>')"><?= $vp->balasan ?></td>
+                                    <td>
+                                        <?php if ($vp->balasan != ''): ?> <a
+                                                href="<?= base_url('assets/upload/berkas_vsu_pengalaman/' . $vp->balasan) ?>"
+                                                target="_blank">
+                                                <i class="fa fa-file-pdf"></i> Lihat Berkas
+                                            </a>
+                                        <?php else: ?>
+                                            <p>File Surat Lampiran Tidak Tersedia.</p>
+                                        <?php endif; ?>
+                                    </td>
 
                                     <td>
                                         <center>
@@ -64,7 +73,7 @@
                                                 class="btn btn-circle btn-success btn-sm">
                                                 <i class="fas fa-pen"></i>
                                             </a>
-                                            <a href="<?= base_url() ?>Vsu_pengalaman/proses_hapus_pengalaman/<?= $vp->nomor_pengalamanvsu ?>"
+                                            <a href="<?= base_url() ?>Vsu_pengalaman/hapus_pengalaman/<?= $vp->nomor_pengalamanvsu ?>"
                                                 class="btn btn-circle btn-danger btn-sm">
                                                 <i class="fas fa-trash"></i>
                                             </a>

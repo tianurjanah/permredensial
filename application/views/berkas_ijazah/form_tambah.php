@@ -28,19 +28,12 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <div class="d-sm-flex">
-                <a href="<?= base_url() ?>user" class="btn btn-md btn-circle btn-info">
+                <a href="<?= base_url() ?>berkas/berkas_ijazah" class="btn btn-md btn-circle btn-info">
                     <i class="fas fa-arrow-left"></i>
                 </a>
                 &nbsp;
                 <h1 class="h2 mb-0 text-gray-800">Tambah Data Ijazah</h1>
             </div>
-
-            <button type="submit" class="btn btn-primary btn-md btn-icon-split">
-                <span class="text text-white">Simpan Data Ijazah</span>
-                <span class="icon text-white-50">
-                    <i class="fas fa-save"></i>
-                </span>
-            </button>
 
         </div>
 
@@ -101,6 +94,16 @@
                         </div>
                         <br>
                     </div>
+                </div>
+
+                
+                <div class="text-right">
+                    <button type="submit" class="btn btn-success btn-md btn-icon-split">
+                        <span class="text text-white">Simpan Data Ijazah</span>
+                            <span class="icon text-white-50">
+                        <i class="fas fa-save"></i>
+                        </span>
+                    </button>
                 </div>
 
             </div>

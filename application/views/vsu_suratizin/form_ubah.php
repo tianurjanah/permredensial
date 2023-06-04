@@ -32,14 +32,6 @@
                 &nbsp;
                 <h1 class="h2 mb-0 text-gray-800">Ubah Data VSU Surat Izin</h1>
             </div>
-
-            <button type="submit" class="btn btn-primary btn-md btn-icon-split">
-                <span class="text text-white">Simpan Data VSU Surat Izin</span>
-                <span class="icon text-white-50">
-                    <i class="fas fa-save"></i>
-                </span>
-            </button>
-
         </div>
 
         <div class="d-sm-flex  justify-content-between mb-0">
@@ -49,13 +41,13 @@
                     <div class="card-header py-3 bg-info">
                         <h6 class="m-0 font-weight-bold text-white">Formulir VSU Surat Izin</h6>
                     </div>
-                    <?php foreach ($nomor_izinvsu as $vs): ?>
+                    <?php foreach ($vsu_suratizin as $vs): ?>
                         <div class="card-body">
                             <div class="col-lg-12">
                                 <!-- Perusahaan -->
-                                <div class="form-group"><label>ID Pendidikan</label>
-                                    <input class="form-control" name="nomor_nomor_izinvsu" id="id" type="text"
-                                        placeholder="" value="<?= $vs->nomor_nomor_izinvsu ?>" readonly="">
+                                <div class="form-group"><label>Nomor Izin VSU</label>
+                                    <input class="form-control" name="suratizin" id="id" type="text"
+                                        placeholder="" value="<?= $vs->nomor_izinvsu ?>" readonly="">
                                 </div>
 
                                 <!-- Perusahaan -->
@@ -88,22 +80,24 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <br>
                 </div>
             </div>
 
-    </div>
-    </div>
-
+        </div>
+        <div class="text-right">
+            <button type="submit" class="btn btn-success btn-md btn-icon-split">
+                <span class="text text-white">Simpan Data VSU Surat Izin</span>
+                <span class="icon text-white-50">
+                    <i class="fas fa-save"></i>
+                </span>
+            </button>
+        </div>
 
     </form>
 
-    </div>
+</div>
     <!-- /.container-fluid -->
 <?php endforeach; ?>
-</div>
-<!-- End of Main Content -->
 
 <script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
 <script src="<?= base_url(); ?>assets/js/pengguna.js"></script>

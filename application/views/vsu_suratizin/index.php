@@ -24,7 +24,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Verifikasi Sumber Utama Bagian Surat Izin</h1>
-        <a href="<?= base_url() ?>Vsu_pendidikan/tambah_pendidikan" class="btn btn-sm btn-primary btn-icon-split">
+        <a href="<?= base_url() ?>Vsu_suratizin/tambah_suratizin" class="btn btn-sm btn-primary btn-icon-split">
             <span class="text text-white">Tambah VSU Surat Izin</span>
             <span class="icon text-white-50">
                 <i class="fas fa-plus"></i>
@@ -56,7 +56,16 @@
                                     </td>
                                     <td onclick="detail('<?= $vs->nomor_izinvsu ?>')"><?= $vs->nama_institusi ?></td>
                                     <td onclick="detail('<?= $vs->nomor_izinvsu ?>')"><?= $vs->tgl_pengiriman ?></td>
-                                    <td onclick="detail('<?= $vs->nomor_izinvsu ?>')"><?= $vs->balasan ?></td>
+                                    <td>
+                                        <?php if ($vs->balasan != ''): ?> <a
+                                                href="<?= base_url('assets/upload/berkas_vsu_suratizin/' . $vs->balasan) ?>"
+                                                target="_blank">
+                                                <i class="fa fa-file-pdf"></i> Lihat Berkas
+                                            </a>
+                                        <?php else: ?>
+                                            <p>File Surat Balasan Tidak Tersedia.</p>
+                                        <?php endif; ?>
+                                    </td>
 
                                     <td>
                                         <center>
@@ -64,7 +73,7 @@
                                                 class="btn btn-circle btn-success btn-sm">
                                                 <i class="fas fa-pen"></i>
                                             </a>
-                                            <a href="<?= base_url() ?>Vsu_suratizin/proses_hapus_vsu_suratizin/<?= $vs->nomor_izinvsu ?>"
+                                            <a href="<?= base_url() ?>Vsu_suratizin/hapus_suratizin/<?= $vs->nomor_izinvsu ?>"
                                                 class="btn btn-circle btn-danger btn-sm">
                                                 <i class="fas fa-trash"></i>
                                             </a>
