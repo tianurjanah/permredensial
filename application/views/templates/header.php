@@ -269,6 +269,235 @@ if (!$this->session->has_userdata('login_session')){
             <?php endif; ?>
 
 
+            <?php if($this->session->userdata('login_session')['level'] == 'Pegawai'): ?>
+            
+            <div class="sidebar-heading">
+                Proses Kredensial
+            </div>
+            <?php if($title == 'Barang'): ?>
+            <li class="nav-item active">
+                <?php else: ?>
+            <li class="nav-item">
+                <?php endif; ?>
+                <a class="nav-link" href="<?= base_url() ?>biodata/tambah/<?= $this->session->userdata('login_session')['id_user'] ?>">
+                    <i class="fas fa-fw fa-boxes"></i>
+                    <span>Biodata Diri</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
+            <?php endif; ?>
+
+
+            <?php if($this->session->userdata('login_session')['level'] == 'Pegawai'): ?>
+
+            <div class="sidebar-heading">
+                Berkas Pengajuan
+            </div>
+            <?php if($title == 'Barang'): ?>
+            <li class="nav-item active">
+                <?php else: ?>
+            <li class="nav-item">
+                <?php endif; ?>
+                <a class="nav-link" href="<?= base_url() ?>berkas">
+                    <i class="fas fa-fw fa-boxes"></i>
+                    <span>Berkas Pengajuan</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
+            <?php endif; ?>
+
+
+            <?php if($this->session->userdata('login_session')['level'] == 'SDM'): ?>
+            <div class="sidebar-heading">
+                Data User
+            </div>
+            <?php if($title == 'User'): ?>
+            <li class="nav-item active">
+                <?php else: ?>
+            <li class="nav-item">
+                <?php endif; ?>
+                <a class="nav-link" href="<?= base_url() ?>user">
+                    <i class="fas fa-fw fa-user-friends"></i>
+                    <span>Approve Pengajuan</span>
+                </a>
+            </li>
+
+            <div class="sidebar-heading">
+                Pengajuan
+            </div>
+            <?php if($title == 'Approve Pengajuan'): ?>
+            <li class="nav-item active">
+                <?php else: ?>
+            <li class="nav-item">
+                <?php endif; ?>
+                <a class="nav-link" href="<?= base_url() ?>mitrabestari/index">
+                    <i class="fas fa-list"></i>
+                    <span>Approve Hasil Kredensialing</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <?php endif; ?>
+
+
+            <?php if($this->session->userdata('login_session')['level'] == 'Komite'): ?>
+
+            <div class="sidebar-heading">
+                Berkas Pengajuan
+            </div>
+            <?php if($title == 'Jadwal Kredensialing'): ?>
+            <li class="nav-item active">
+                <?php else: ?>
+            <li class="nav-item">
+                <?php endif; ?>
+                <a class="nav-link" href="<?= base_url() ?>berkas">
+                    <i class="fas fa-fw fa-boxes"></i>
+                    <span>Jadwal Kredensialing</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
+            <?php endif; ?>
+
+
+            <?php if($this->session->userdata('login_session')['level'] == 'Komite'): ?>
+
+            <div class="sidebar-heading">
+                Berkas Pengajuan
+            </div>
+            <?php if($title == 'Hasil Kredensialing'): ?>
+            <li class="nav-item active">
+                <?php else: ?>
+            <li class="nav-item">
+                <?php endif; ?>
+                <a class="nav-link" href="<?= base_url() ?>pengajuan/index">
+                    <i class="fas fa-fw fa-boxes"></i>
+                    <span>Hasil Kredensialing</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
+            <?php endif; ?>
+
+
+            <?php if($this->session->userdata('login_session')['level'] == 'Komite'): ?>
+
+            <div class="sidebar-heading">
+                Berkas Pengajuan
+            </div>
+            <?php if($title == 'Berita Acara'): ?>
+            <li class="nav-item active">
+                <?php else: ?>
+            <li class="nav-item">
+                <?php endif; ?>
+                <a class="nav-link" href="<?= base_url() ?>pengajuan/index">
+                    <i class="fas fa-fw fa-boxes"></i>
+                    <span>Berita Acara</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
+            <?php endif; ?>
+
+
+            <?php if($this->session->userdata('login_session')['level'] == 'Komite'): ?>
+
+            <div class="sidebar-heading">
+                Berkas Pengajuan
+            </div>
+            <?php if($title == 'Surat Rekomendasi'): ?>
+            <li class="nav-item active">
+                <?php else: ?>
+            <li class="nav-item">
+                <?php endif; ?>
+                <a class="nav-link" href="<?= base_url() ?>pengajuan/index">
+                    <i class="fas fa-fw fa-boxes"></i>
+                    <span>Surat Rekomendasi</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
+            <?php endif; ?>
+
+
+            <?php if($this->session->userdata('login_session')['level'] == 'Mitra Bestari'): ?>
+
+            <div class="sidebar-heading">
+                Berkas Pengajuan
+            </div>
+            <?php if($title == 'Proses Kredensialing'): ?>
+            <li class="nav-item active">
+                <?php else: ?>
+            <li class="nav-item">
+                <?php endif; ?>
+                <a class="nav-link" href="<?= base_url() ?>pengajuan/index">
+                    <i class="fas fa-fw fa-boxes"></i>
+                    <span>Proses Kredensialing</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
+            <?php endif; ?>
+
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+
+            <?php if($this->session->userdata('login_session')['level'] == 'Direktur'): ?>
+
+            <div class="sidebar-heading">
+                Berkas Pengajuan
+            </div>
+            <?php if($title == 'Proses Kredensialing'): ?>
+            <li class="nav-item active">
+                <?php else: ?>
+            <li class="nav-item">
+                <?php endif; ?>
+                <a class="nav-link" href="<?= base_url() ?>pengajuan/index">
+                    <i class="fas fa-fw fa-boxes"></i>
+                    <span>Hasil Kredensialing</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
+            <?php endif; ?>
+
+
+            <?php if($this->session->userdata('login_session')['level'] == 'Direktur'): ?>
+
+            <div class="sidebar-heading">
+                Berkas Pengajuan
+            </div>
+            <?php if($title == 'Proses Kredensialing'): ?>
+            <li class="nav-item active">
+                <?php else: ?>
+            <li class="nav-item">
+                <?php endif; ?>
+                <a class="nav-link" href="<?= base_url() ?>pengajuan/index">
+                    <i class="fas fa-fw fa-boxes"></i>
+                    <span>Surat Penugasan</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
+            <?php endif; ?>
+
+
+            <?php if($this->session->userdata('login_session')['level'] == 'Direktur'): ?>
+
+            <div class="sidebar-heading">
+                Berkas Pengajuan
+            </div>
+            <?php if($title == 'Proses Kredensialing'): ?>
+            <li class="nav-item active">
+                <?php else: ?>
+            <li class="nav-item">
+                <?php endif; ?>
+                <a class="nav-link" href="<?= base_url() ?>pengajuan/index">
+                    <i class="fas fa-fw fa-boxes"></i>
+                    <span>Rincian Kewenangan</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
+            <?php endif; ?>
+
+
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
