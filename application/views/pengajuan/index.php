@@ -4,7 +4,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Riwayat Pengajuan</h1>
-        <a href="<?= base_url() ?>pengajuan/tambah/<?= $this->session->userdata('login_session')['id_user'] ?>" class="btn btn-sm btn-primary btn-icon-split">
+        <a href="<?= base_url() ?>pengajuan/tambah" class="btn btn-sm btn-primary btn-icon-split">
             <span class="text text-white">Tambah Data Pengajuan</span>
             <span class="icon text-white-50">
                 <i class="fas fa-plus"></i>
@@ -42,32 +42,32 @@
 
 <script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
 <script src="<?= base_url(); ?>assets/js/barang.js"></script>
-<?php if($this->session->flashdata('Pesan')): ?>
-<?= $this->session->flashdata('Pesan') ?>
+<?php if ($this->session->flashdata('Pesan')): ?>
+    <?= $this->session->flashdata('Pesan') ?>
 <?php else: ?>
-<script>
-$(document).ready(function() {
-    let timerInterval
-    Swal.fire({
-        title: 'Memuat...',
-        timer: 1000,
-        onBeforeOpen: () => {
-            Swal.showLoading()
-        },
-        onClose: () => {
-            clearInterval(timerInterval)
-        }
-    }).then((result) => {
-        
-    })
-});
-</script>
+    <script>
+        $(document).ready(function () {
+            let timerInterval
+            Swal.fire({
+                title: 'Memuat...',
+                timer: 1000,
+                onBeforeOpen: () => {
+                    Swal.showLoading()
+                },
+                onClose: () => {
+                    clearInterval(timerInterval)
+                }
+            }).then((result) => {
+
+            })
+        });
+    </script>
 <?php endif; ?>
 
 <script>
     function detail(id) {
-    var base_url = $('#baseurl').val();
-    window.location.href = base_url + "barang/detail/" + id;
+        var base_url = $('#baseurl').val();
+        window.location.href = base_url + "barang/detail/" + id;
 
-}
+    }
 </script>
