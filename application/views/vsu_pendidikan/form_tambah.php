@@ -21,7 +21,7 @@
 
 <div class="container-fluid">
 
-    <form action="<?= base_url() ?>Vsu_pendidikan/proses_tambah_pendidikan" name="myForm" method="POST"
+    <form action="<?= base_url() ?>Pengajuan/proses_tambah_pendidikan" name="myForm" method="POST"
         enctype="multipart/form-data" onsubmit="return validateForm()">
 
 
@@ -76,9 +76,9 @@
                     </div>
                     <br>
                 </div>
-                <div class = "text-right">
+                <div class="text-right">
                     <button type="submit" class="btn btn-success btn-md btn-icon-split">
-                        <span class="text text-white">Simpan Data VSU Pendidikan</span>
+                        <span class="text text-white">Simpan Data Pengajuan</span>
                         <span class="icon text-white-50">
                             <i class="fas fa-save"></i>
                         </span>

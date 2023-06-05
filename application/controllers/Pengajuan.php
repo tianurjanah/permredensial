@@ -1,9 +1,11 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Pengajuan extends CI_Controller {
+class Pengajuan extends CI_Controller
+{
 
-	public function __construct() {
+	public function __construct()
+	{
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->helper('download');
@@ -11,8 +13,8 @@ class Pengajuan extends CI_Controller {
 		$this->load->helper('cookie');
 		$this->load->model('user_model');
 		$this->load->model('kompetensi_model');
-  	}
-	
+	}
+
 	public function index()
 	{
 		$data['title'] = 'Pengajuan';
@@ -21,13 +23,13 @@ class Pengajuan extends CI_Controller {
 		$this->load->view('templates/header', $data);
 		$this->load->view('pengajuan/index');
 		$this->load->view('templates/footer');
-    }
+	}
 
-    public function tambah()
+	public function tambah()
 	{
-        $data['title'] = 'Tambah Pengajuan';
+		$data['title'] = 'Tambah Pengajuan';
 
-        $data['bagian1'] = $this->kompetensi_model->bagian1()->result();
+		$data['bagian1'] = $this->kompetensi_model->bagian1()->result();
 		$data['bagian2'] = $this->kompetensi_model->bagian2()->result();
 		$data['bagian3'] = $this->kompetensi_model->bagian3()->result();
 		$data['bagian4'] = $this->kompetensi_model->bagian4()->result();
@@ -58,205 +60,43 @@ class Pengajuan extends CI_Controller {
 		$data['bagian10mnjl'] = $this->kompetensi_model->bagian10mnjl()->result();
 		$data['bagian11'] = $this->kompetensi_model->bagian11()->result();
 		$data['bagian12'] = $this->kompetensi_model->bagian12()->result();
-        
+
 		$this->load->view('templates/header', $data);
 		$this->load->view('pengajuan/tambah_pengajuan');
 		$this->load->view('templates/footer');
 	}
 
-	public function ubah($id)
-	{
-		$data['title'] = 'User';
-		$where = array('id_user'=>$id);
-		$data['user'] = $this->user_model->detail_data($where, 'user')->result();
-
-		$this->load->view('templates/header', $data);
-		$this->load->view('user/form_ubah');
-		$this->load->view('templates/footer');
-	}
-
-	public function detail_data($id)
-  	{
-		$data['title'] = 'User';
-
-		$where = array('id_user'=>$id);
-		$data['data'] = $this->user_model->detail_data($where, 'user')->result();
-
-		$this->load->view('templates/header', $data);
-		$this->load->view('user/detail');
-		$this->load->view('templates/footer');
-  	}
-
-	public function proses_hapus($id)
-	{
-		$where = array('id_user' => $id );
-		$foto = $this->user_model->ambilFoto($where);
-		if($foto){
-			if($foto == 'user.png'){
-
-			}else{
-				unlink('./assets/upload/pengguna/'.$foto.'');
-			}
-			
-			$this->user_model->hapus_data($where, 'user');
-		}
-		
-		
-		$this->session->set_flashdata('Pesan','
-		<script>
-		$(document).ready(function() {
-			swal.fire({
-				title: "Berhasil dihapus!",
-				icon: "success",
-				confirmButtonColor: "#4e73df",
-			});
-		});
-		</script>
-		');
-		redirect('user');
-	}
-	
 	public function proses_tambah()
 	{
-		
-		$config['upload_path']   = './assets/upload/pengguna/';
-		$config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF||tiff|TIFF';
-	
-		$namaFile = $_FILES['photo']['name'];
-		$error = $_FILES['photo']['error'];
+		$selectedBagian1 = $this->input->post("bagian1");
 
-		$this->load->library('upload', $config);
-		
-		$kode = $this->user_model->buat_kode(); 
-		$namaL = $this->input->post('namaL');
-		$user = $this->input->post('user');
-		$notelp = $this->input->post('notelp');
-		$email = $this->input->post('email');
-		$level = $this->input->post('level');
-		$pass = $this->input->post('pwd');
-		$status = "Aktif";
-	
-	
-		if ($namaFile == '') {
-		  	$ganti = 'user.png';
-		}else{
-			if (! $this->upload->do_upload('photo')) {
-			  $error = $this->upload->display_errors();
-		  	redirect('user/tambah');
-			}
-			else{
-	
-			  $data = array('photo' => $this->upload->data());
-			  $nama_file= $data['photo']['file_name'];
-			  $ganti = str_replace(" ", "_", $nama_file);
-	
-	
-			}
+		$kode = $this->kompetensi_model->buat_kode();
+		$data_index = array(
+			'id' => $kode,
+			'id_user' => $this->session->userdata('login_session')['id_user'],
+			'tanggal_pengajuan' => date("Y-m-d"),
+			'kategori' => 'Pengajuan Test'
+		);
+		$this->kompetensi_model->tambah_data($data_index, 'pengajuan_index');
 
-		}
+		if (!empty($selectedBagian1)) {
+			foreach ($selectedBagian1 as $bagian1) {
+				// var_dump($bagian1);
+				$id_kb = $this->kompetensi_model->ambilidkb($bagian1);
 
-		$data=array(
-			'id_user'=>$kode,
-			'nama'=>$namaL,
-			'username'=>$user,
-			'notelp'=>$notelp,
-			'email'=>$email,
-			'level'=>$level,
-			'password'=>md5($pass),
-			'status'=>$status,
-			'foto'=>$ganti
+				var_dump($id_kb);
+				$data = array(
+					'id_pengajuan_index' => $kode,
+					'id_nakes' => $this->session->userdata('login_session')['id_user'],
+					'id_kompetensi' => $id_kb,
+					'status' => 'Diminta'
 				);
-	  
-		  $this->user_model->tambah_data($data, 'user');
-		  $this->session->set_flashdata('Pesan','
-			<script>
-			$(document).ready(function() {
-			swal.fire({
-				title: "Berhasil ditambah!",
-				icon: "success",
-				confirmButtonColor: "#4e73df",
-			});
-			});
-			</script>
-			');
-		  redirect('user');
+
+				$this->kompetensi_model->tambah_data($data, 'pengajuan');
+			}
+		}
+		redirect('pengajuan/index');
 
 	}
 
-	public function proses_ubah()
-	{
-		$config['upload_path']   = './assets/upload/pengguna/';
-		$config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF||tiff|TIFF';
-	
-		$namaFile = $_FILES['photo']['name'];
-		$error = $_FILES['photo']['error'];
-
-		$this->load->library('upload', $config);
-		
-		$kode = $this->input->post('iduser');
-		$namaL = $this->input->post('namaL');
-		$user = $this->input->post('user');
-		$notelp = $this->input->post('notelp');
-		$email = $this->input->post('email');
-		$level = $this->input->post('level');
-		$status = $this->input->post('status');
-		$pass = $this->input->post('pwd');
-		$passLama = $this->input->post('pwdLama');
-
-		$flama = $this->input->post('fotoLama');
-
-		if($pass == ''){
-			$passUpdate = $passLama;
-		}else{
-			$passUpdate = md5($pass);
-		}
-	
-	
-		if ($namaFile == '') {
-		  	$ganti = $flama;
-		}else{
-			if (! $this->upload->do_upload('photo')) {
-			  $error = $this->upload->display_errors();
-		  	redirect('user/ubah/'.$kode);
-			}
-			else{
-			  $data = array('photo' => $this->upload->data());
-			  $nama_file= $data['photo']['file_name'];
-			  $ganti = str_replace(" ", "_", $nama_file);
-			  if($flama !== 'user.png'){
-				unlink('./assets/upload/pengguna/'.$flama.'');
-			  }
-	
-			}
-
-		}
-
-		$data=array(
-			'nama'=>$namaL,
-			'username'=>$user,
-			'notelp'=>$notelp,
-			'email'=>$email,
-			'level'=>$level,
-			'password'=>$passUpdate,
-			'status'=>$status,
-			'foto'=>$ganti
-				);
-
-		$where = array('id_user'=>$kode);
-	  
-		  $this->user_model->ubah_databio($where, $data, 'user');
-		  $this->session->set_flashdata('Pesan','
-			<script>
-			$(document).ready(function() {
-			swal.fire({
-				title: "Berhasil diubah!",
-				icon: "success",
-				confirmButtonColor: "#4e73df",
-			});
-			});
-			</script>
-			');
-		  redirect('user');
-	}
-    
 }
