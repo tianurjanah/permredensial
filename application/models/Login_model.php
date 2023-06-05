@@ -1,12 +1,13 @@
 <?php
-class login_model extends ci_model{
+class login_model extends ci_model
+{
 
-	public function cek_login($where, $table)
-	{
-		return $this->db->get_where($table, $where);
-	}
+    public function cek_login($where, $table)
+    {
+        return $this->db->get_where($table, $where);
+    }
 
-	public function checkLogin($username, $password)
+    public function checkLogin($username, $password)
     {
         $checkUsername = $this->db->query("SELECT id_user,nama,status FROM user WHERE username='$username' ");
         $hasil = $checkUsername->num_rows();
@@ -29,4 +30,3 @@ class login_model extends ci_model{
         return $data;
     }
 }
-

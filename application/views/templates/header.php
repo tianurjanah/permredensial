@@ -57,7 +57,7 @@ if (!$this->session->has_userdata('login_session')){
                     <img src="<?= base_url(); ?>assets/icon/kredensial.png" width="50">
                 </div>
                 <div class="sidebar-brand-text mx-3 ">KREDENSIAL</div>
-                
+
             </a>
 
             <!-- Divider -->
@@ -73,11 +73,13 @@ if (!$this->session->has_userdata('login_session')){
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-            
+
             <hr class="sidebar-divider d-none d-md-block">
-            
+
+            <!-- ---------------- ADMIN ----------------------- -->
+
             <?php if($this->session->userdata('login_session')['level'] == 'Admin'): ?>
-            
+
             <div class="sidebar-heading">
                 Kategori
             </div>
@@ -95,7 +97,7 @@ if (!$this->session->has_userdata('login_session')){
             <?php endif; ?>
 
             <?php if($this->session->userdata('login_session')['level'] == 'Admin'): ?>
-            
+
             <div class="sidebar-heading">
                 Pengujian
             </div>
@@ -111,15 +113,15 @@ if (!$this->session->has_userdata('login_session')){
             </li>
             <hr class="sidebar-divider d-none d-md-block">
             <?php endif; ?>
-            
+
             <?php if($this->session->userdata('login_session')['level'] == 'Admin'): ?>
 
             <!-- Heading -->
             <div class="sidebar-heading">
                 Maintenance
             </div>
-        
-             <!-- Nav Item - Pages Collapse Menu -->
+
+            <!-- Nav Item - Pages Collapse Menu -->
             <?php if($title == 'Perawatan' or $title == 'Perbaikan'): ?>
             <li class="nav-item active">
                 <?php else: ?>
@@ -130,7 +132,8 @@ if (!$this->session->has_userdata('login_session')){
                     <i class="fas fa-fw fa-random"></i>
                     <span>Maintenance</span>
                 </a>
-                <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="collapsePages1" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Maintenance</h6>
                         <a class="collapse-item" href="<?= base_url() ?>perawatan/laporan"><b>Perawatan</b></a>
@@ -146,7 +149,7 @@ if (!$this->session->has_userdata('login_session')){
             <?php endif; ?>
 
             <?php if($this->session->userdata('login_session')['level'] == 'Admin'): ?>
-            
+
             <div class="sidebar-heading">
                 Data User
             </div>
@@ -178,42 +181,11 @@ if (!$this->session->has_userdata('login_session')){
 
             <?php endif; ?>
 
-            <?php if($this->session->userdata('login_session')['level'] == 'Supervisor'): ?>
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Laporan
-            </div>
-
-            <?php if($title == 'Laporan Barang' or $title == 'Laporan Perawatan' or $title == 'Laporan Perbaikanr'): ?>
-            <li class="nav-item active">
-                <?php else: ?>
-            <li class="nav-item">
-                <?php endif; ?>
-                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages2" aria-expanded="true"
-                    aria-controls="collapsePages2">
-                    <i class="fas fa-fw fa-print"></i>
-                    <span>Laporan</span>
-                </a>
-                <div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Laporan</h6>
-                        <a class="collapse-item" href="<?= base_url() ?>laporanbrg"><b>Data Barang</b></a>
-                        <a class="collapse-item" href="<?= base_url() ?>laporanprw/laporan"><b>Data Perawatan</b></a>
-                        <a class="collapse-item" href="<?= base_url() ?>laporanprb/laporan"><b>Data Perbaikan</b></a>
-                    </div>
-
-                </div>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <?php endif; ?>
-
+            <!-- ---------------- PEGAWAI ----------------------- -->
 
             <?php if($this->session->userdata('login_session')['level'] == 'Pegawai'): ?>
-            
+
             <div class="sidebar-heading">
                 Proses Kredensial
             </div>
@@ -222,7 +194,8 @@ if (!$this->session->has_userdata('login_session')){
                 <?php else: ?>
             <li class="nav-item">
                 <?php endif; ?>
-                <a class="nav-link" href="<?= base_url() ?>biodata/tambah/<?= $this->session->userdata('login_session')['id_user'] ?>">
+                <a class="nav-link"
+                    href="<?= base_url() ?>biodata/tambah/<?= $this->session->userdata('login_session')['id_user'] ?>">
                     <i class="fas fa-fw fa-boxes"></i>
                     <span>Biodata Diri</span>
                 </a>
@@ -270,7 +243,7 @@ if (!$this->session->has_userdata('login_session')){
 
 
             <?php if($this->session->userdata('login_session')['level'] == 'Pegawai'): ?>
-            
+
             <div class="sidebar-heading">
                 Proses Kredensial
             </div>
@@ -279,7 +252,8 @@ if (!$this->session->has_userdata('login_session')){
                 <?php else: ?>
             <li class="nav-item">
                 <?php endif; ?>
-                <a class="nav-link" href="<?= base_url() ?>biodata/tambah/<?= $this->session->userdata('login_session')['id_user'] ?>">
+                <a class="nav-link"
+                    href="<?= base_url() ?>biodata/tambah/<?= $this->session->userdata('login_session')['id_user'] ?>">
                     <i class="fas fa-fw fa-boxes"></i>
                     <span>Biodata Diri</span>
                 </a>
@@ -306,39 +280,45 @@ if (!$this->session->has_userdata('login_session')){
             <hr class="sidebar-divider d-none d-md-block">
             <?php endif; ?>
 
+            <!-- ------------- SDM ------------------ -->
 
             <?php if($this->session->userdata('login_session')['level'] == 'SDM'): ?>
             <div class="sidebar-heading">
-                Data User
+                Approve Pengajuan
             </div>
-            <?php if($title == 'User'): ?>
+            <?php if($title == 'Approve Pengajuan Kredensial'): ?>
             <li class="nav-item active">
                 <?php else: ?>
             <li class="nav-item">
                 <?php endif; ?>
-                <a class="nav-link" href="<?= base_url() ?>user">
+                <a class="nav-link" href="<?= base_url() ?>Approve_pengajuan/index">
                     <i class="fas fa-fw fa-user-friends"></i>
                     <span>Approve Pengajuan</span>
-                </a>
-            </li>
-
-            <div class="sidebar-heading">
-                Pengajuan
-            </div>
-            <?php if($title == 'Approve Pengajuan'): ?>
-            <li class="nav-item active">
-                <?php else: ?>
-            <li class="nav-item">
-                <?php endif; ?>
-                <a class="nav-link" href="<?= base_url() ?>mitrabestari/index">
-                    <i class="fas fa-list"></i>
-                    <span>Approve Hasil Kredensialing</span>
                 </a>
             </li>
             <hr class="sidebar-divider d-none d-md-block">
 
             <?php endif; ?>
 
+            <?php if($this->session->userdata('login_session')['level'] == 'SDM'): ?>
+
+            <div class="sidebar-heading">
+                Hasil Pengajuan Kredensial
+            </div>
+            <?php if($title == 'Approve Pengajuan Hasil Kredensial'): ?>
+            <li class="nav-item active">
+                <?php else: ?>
+            <li class="nav-item">
+                <?php endif; ?>
+                <a class="nav-link" href="<?= base_url() ?>Approve_hasil/index">
+                    <i class="fas fa-fw fa-boxes"></i>
+                    <span>Hasil Kredensial</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
+            <?php endif; ?>
+
+            <!-- -------------- KOMITE ------------------ -->
 
             <?php if($this->session->userdata('login_session')['level'] == 'Komite'): ?>
 
@@ -350,7 +330,7 @@ if (!$this->session->has_userdata('login_session')){
                 <?php else: ?>
             <li class="nav-item">
                 <?php endif; ?>
-                <a class="nav-link" href="<?= base_url() ?>berkas">
+                <a class="nav-link" href="<?= base_url() ?>jadwal_kredensialing/index">
                     <i class="fas fa-fw fa-boxes"></i>
                     <span>Jadwal Kredensialing</span>
                 </a>
@@ -369,14 +349,15 @@ if (!$this->session->has_userdata('login_session')){
                 <?php else: ?>
             <li class="nav-item">
                 <?php endif; ?>
-                <a class="nav-link" href="<?= base_url() ?>pengajuan/index">
+                <a class="nav-link" href="<?= base_url() ?>hasil_kredensialing/index">
                     <i class="fas fa-fw fa-boxes"></i>
                     <span>Hasil Kredensialing</span>
                 </a>
             </li>
+
+
             <hr class="sidebar-divider d-none d-md-block">
             <?php endif; ?>
-
 
             <?php if($this->session->userdata('login_session')['level'] == 'Komite'): ?>
 
@@ -388,7 +369,7 @@ if (!$this->session->has_userdata('login_session')){
                 <?php else: ?>
             <li class="nav-item">
                 <?php endif; ?>
-                <a class="nav-link" href="<?= base_url() ?>pengajuan/index">
+                <a class="nav-link" href="<?= base_url() ?>berita_acara/index">
                     <i class="fas fa-fw fa-boxes"></i>
                     <span>Berita Acara</span>
                 </a>
@@ -407,7 +388,7 @@ if (!$this->session->has_userdata('login_session')){
                 <?php else: ?>
             <li class="nav-item">
                 <?php endif; ?>
-                <a class="nav-link" href="<?= base_url() ?>pengajuan/index">
+                <a class="nav-link" href="<?= base_url() ?>surat_rekomendasi/index">
                     <i class="fas fa-fw fa-boxes"></i>
                     <span>Surat Rekomendasi</span>
                 </a>
@@ -415,6 +396,7 @@ if (!$this->session->has_userdata('login_session')){
             <hr class="sidebar-divider d-none d-md-block">
             <?php endif; ?>
 
+            <!-- ----------- MITRA BESTARI --------------- -->
 
             <?php if($this->session->userdata('login_session')['level'] == 'Mitra Bestari'): ?>
 
@@ -434,12 +416,7 @@ if (!$this->session->has_userdata('login_session')){
             <hr class="sidebar-divider d-none d-md-block">
             <?php endif; ?>
 
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
+            <!-- ---------- DIREKTUR -------------- -->
 
             <?php if($this->session->userdata('login_session')['level'] == 'Direktur'): ?>
 
@@ -553,7 +530,7 @@ if (!$this->session->has_userdata('login_session')){
 
                         </li>
                         <?php if($this->session->userdata('login_session')['level'] == 'Admin' ): ?>
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small mt-4"> Admin  </span>
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small mt-4"> Admin </span>
                         <?php endif; ?>
                         <?php if($this->session->userdata('login_session')['level'] == 'Supervisor' ): ?>
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small mt-4"> Supervisor </span>
@@ -561,18 +538,32 @@ if (!$this->session->has_userdata('login_session')){
                         <?php if($this->session->userdata('login_session')['level'] == 'Pegawai' ): ?>
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small mt-4"> Pegawai </span>
                         <?php endif; ?>
+                        <?php if($this->session->userdata('login_session')['level'] == 'SDM' ): ?>
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small mt-4"> SDM </span>
+                        <?php endif; ?>
+                        <?php if($this->session->userdata('login_session')['level'] == 'Komite' ): ?>
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small mt-4"> Komite </span>
+                        <?php endif; ?>
+                        <?php if($this->session->userdata('login_session')['level'] == 'Mitra Bestari' ): ?>
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small mt-4"> Mitra Bestari </span>
+                        <?php endif; ?>
+                        <?php if($this->session->userdata('login_session')['level'] == 'Direktur' ): ?>
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small mt-4"> Direktur </span>
+                        <?php endif; ?>
 
                         <div class="topbar-divider d-none d-sm-block"></div>
-                        
+
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            
+
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                
+
                                 <span></span>
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="namaP"><?= $this->session->userdata('login_session')['username'] ?></span>
-                                <input type="hidden" name="iduser" id="iduser" value="<?= $this->session->userdata('login_session')['id_user'] ?>">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"
+                                    id="namaP"><?= $this->session->userdata('login_session')['username'] ?></span>
+                                <input type="hidden" name="iduser" id="iduser"
+                                    value="<?= $this->session->userdata('login_session')['id_user'] ?>">
                                 <img class="img-profile rounded-circle" id="img"
                                     src="<?= base_url() ?>assets/upload/pengguna/<?= $this->session->userdata('login_session')['foto'] ?>">
                             </a>
@@ -583,7 +574,7 @@ if (!$this->session->has_userdata('login_session')){
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
-                               
+
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item logout" href="#" id="logout" onclick="logout()">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
