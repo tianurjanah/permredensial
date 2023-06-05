@@ -428,9 +428,9 @@ if (!$this->session->has_userdata('login_session')){
                 <?php else: ?>
             <li class="nav-item">
                 <?php endif; ?>
-                <a class="nav-link" href="<?= base_url() ?>pengajuan/index">
+                <a class="nav-link" href="<?= base_url() ?>Direktur_approve/index">
                     <i class="fas fa-fw fa-boxes"></i>
-                    <span>Hasil Kredensialing</span>
+                    <span>Approve Kredensialing</span>
                 </a>
             </li>
             <hr class="sidebar-divider d-none d-md-block">
@@ -447,7 +447,7 @@ if (!$this->session->has_userdata('login_session')){
                 <?php else: ?>
             <li class="nav-item">
                 <?php endif; ?>
-                <a class="nav-link" href="<?= base_url() ?>pengajuan/index">
+                <a class="nav-link" href="<?= base_url() ?>Direktur_penugasan/index">
                     <i class="fas fa-fw fa-boxes"></i>
                     <span>Surat Penugasan</span>
                 </a>
@@ -466,7 +466,7 @@ if (!$this->session->has_userdata('login_session')){
                 <?php else: ?>
             <li class="nav-item">
                 <?php endif; ?>
-                <a class="nav-link" href="<?= base_url() ?>pengajuan/index">
+                <a class="nav-link" href="<?= base_url() ?>Direktur_kewenangan/index">
                     <i class="fas fa-fw fa-boxes"></i>
                     <span>Rincian Kewenangan</span>
                 </a>
