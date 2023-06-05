@@ -68,6 +68,8 @@ class Pengajuan extends CI_Controller
 
 	public function proses_tambah()
 	{
+		$selectedBagian1 = $this->input->post("bagian1");
+
 		$kode = $this->kompetensi_model->buat_kode();
 		$data_index = array(
 			'id' => $kode,
@@ -77,23 +79,21 @@ class Pengajuan extends CI_Controller
 		);
 		$this->kompetensi_model->tambah_data($data_index, 'pengajuan_index');
 
-		$selectedBagian1 = $this->input->post("bagian1");
-		// var_dump($selectedBagian1);
+		if (!empty($selectedBagian1)) {
+			foreach ($selectedBagian1 as $bagian1) {
+				// var_dump($bagian1);
+				$id_kb = $this->kompetensi_model->ambilidkb($bagian1);
 
+				var_dump($id_kb);
+				$data = array(
+					'id_pengajuan_index' => $kode,
+					'id_nakes' => $this->session->userdata('login_session')['id_user'],
+					'id_kompetensi' => $id_kb,
+					'status' => 'Diminta'
+				);
 
-		foreach ($selectedBagian1 as $bagian1) {
-			// var_dump($bagian1);
-			$id_kb = $this->kompetensi_model->ambilidkb($bagian1);
-
-			var_dump($id_kb);
-			$data = array(
-				'id_pengajuan_index' => $kode,
-				'id_nakes' => $this->session->userdata('login_session')['id_user'],
-				'id_kompetensi' => $id_kb,
-				'status' => 'Diminta'
-			);
-
-			$this->kompetensi_model->tambah_data($data, 'pengajuan');
+				$this->kompetensi_model->tambah_data($data, 'pengajuan');
+			}
 		}
 		redirect('pengajuan/index');
 
