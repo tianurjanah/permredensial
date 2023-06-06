@@ -27,6 +27,18 @@
                                 <th class="text-center">Status</th>
                             </tr>
                         </thead>
+                        <tbody style="cursor:pointer;" id="tbody">
+                            <?php $no = 1;
+                            foreach ($pengajuan_index as $pi): ?>
+                                <tr>
+                                    <td onclick="detail('<?= $pi->id ?>')" class="text-center"><?= $no++ ?></td>
+                                    <td onclick="detail('<?= $pi->id ?>')"><?= $pi->kategori ?></td>
+                                    <td onclick="detail('<?= $pi->id ?>')" class="text-center"><?= $pi->tanggal_pengajuan ?>
+                                    </td>
+                                    <td onclick="detail('<?= $pi->id ?>')" class="text-center"><?= $pi->status ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
                     </table>
                 </div>
             </div>

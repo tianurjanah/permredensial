@@ -251,4 +251,23 @@ class kompetensi_model extends ci_model
         return null;
     }
 
+    public function ambil_detail_pengajuan_index($id)
+    {
+        $this->db->select('*');
+        $this->db->from('pengajuan_index');
+        $this->db->where('id_user', $id);
+
+        $query = $this->db->get();
+        return $query;
+    }
+
+    public function ambil_pengajuan_index()
+    {
+        $this->db->select('*');
+        $this->db->from('pengajuan_index');
+
+        $query = $this->db->get();
+        return $query;
+    }
+
 }

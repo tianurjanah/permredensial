@@ -12,6 +12,8 @@ class Approve_pengajuan extends CI_Controller
         $this->load->library('pagination');
         $this->load->helper('cookie');
         $this->load->model('user_model');
+        $this->load->model('kompetensi_model');
+        $this->load->model('berkas_model');
         // $this->load->model('approve_pengajuan_model');
 
     }
@@ -20,31 +22,26 @@ class Approve_pengajuan extends CI_Controller
         $data['title'] = 'Approve Pengajuan Kredensial';
         $data['user'] = $this->user_model->data()->result();
 
+        $data['pengajuan_idx'] = $this->kompetensi_model->ambil_pengajuan_index()->result();
+
         $this->load->view('templates/header', $data);
-        $this->load->view('approve_pengajuan/index');
+        $this->load->view('approve_pengajuan/index', $data);
         $this->load->view('templates/footer');
     }
 
-    public function tambah_pendidikan()
+    public function ubah($id)
     {
-        $data['title'] = 'TAMBAH PENDIDIKAN';
-        $this->load->view('vsu_pendidikan/form_tambah');
+        $data['title'] = 'Approve Pengajuan';
+        $where = array('id_user' => $id);
+        $data['user'] = $id;
+        $data['biodata'] = $this->berkas_model->ambil_data_barang($id)->result();
+        $data['sehat'] = $this->berkas_model->ambil_data_sehat($id)->result();
 
+        $this->load->view('templates/header', $data);
+        $this->load->view('approve_pengajuan/approve');
+        $this->load->view('templates/footer');
     }
-    public function ubah_pendidikan($id)
-    {
-        $data['title'] = 'UBAH PENDIDIKAN';
-        // Menampilkan data berdasarkan id
-        // Mengambil data ijazah
-        $data['pendidikan'] = $this->vsu_pendidikan_model->ambil_detail_pendidikan($id)->result();
 
-        // Memastikan variabel $ijazah terdefinisi
-        if (empty($data['pendidikan'])) {
-            $data['pendidikan'] = array();
-        }
-
-        $this->load->view('vsu_pendidikan/form_ubah', $data);
-    }
 
     public function proses_tambah_pendidikan()
     {

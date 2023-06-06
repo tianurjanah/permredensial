@@ -4,16 +4,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class SuratIzin extends CI_Controller
 {
 
-    public function __construct()
-    {
-        parent::__construct();
-        $this->load->helper('url');
-        $this->load->helper('download');
-        $this->load->library('pagination');
-        $this->load->helper('cookie');
-        $this->load->model('user_model');
-        $this->load->model('surat_izin_model');
-    }
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->helper('url');
+		$this->load->helper('download');
+		$this->load->library('pagination');
+		$this->load->helper('cookie');
+		$this->load->model('user_model');
+		$this->load->model('surat_izin_model');
+	}
 
 	public function index()
 	{
@@ -96,7 +96,7 @@ class SuratIzin extends CI_Controller
 		$jenis_surat = $this->input->post('jenis_surat');
 		$mengeluarkan = $this->input->post('mengeluarkan');
 		$masa_berlaku = $this->input->post('masa_berlaku');
-	
+
 		$data = array(
 			'nomor_izin' => $nomor_izin,
 			'id_user' => $user,
@@ -128,7 +128,7 @@ class SuratIzin extends CI_Controller
 	public function proses_hapus_surat_izin($nomor)
 	{
 		$where = array('nomor_izin' => $nomor);
-		
+
 		$this->surat_izin_model->hapus_data_surat_izin($where, 'surat_izin');
 		$this->session->set_flashdata('Pesan', '
             <script>
@@ -150,6 +150,15 @@ class SuratIzin extends CI_Controller
 		$where = array('nomor_izin' => $id);
 		$data['surat_izin'] = $this->surat_izin_model->ambil_data_surat_izin($id)->result();
 		echo json_encode($data);
+	}
+
+	public function approval($id)
+	{
+		$data['title'] = 'SURAT IZIN';
+		$data['surat_izin'] = $this->surat_izin_model->ambil_data_surat_izin($id)->result();
+		$data['user'] = $this->user_model->data()->result();
+
+		$this->load->view('surat_izin/approve', $data);
 	}
 
 }

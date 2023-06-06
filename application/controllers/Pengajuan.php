@@ -19,9 +19,10 @@ class Pengajuan extends CI_Controller
 	{
 		$data['title'] = 'Pengajuan';
 		// $data['user'] = $this->user_model->data()->result();
-
+		$id = $this->session->userdata('login_session')['id_user'];
+		$data['pengajuan_index'] = $this->kompetensi_model->ambil_detail_pengajuan_index($id)->result();
 		$this->load->view('templates/header', $data);
-		$this->load->view('pengajuan/index');
+		$this->load->view('pengajuan/index', $data);
 		$this->load->view('templates/footer');
 	}
 
@@ -68,6 +69,7 @@ class Pengajuan extends CI_Controller
 
 	public function proses_tambah()
 	{
+		$kategori = $this->input->post("kategori");
 		$selectedBagian1 = $this->input->post("bagian1");
 		$selectedBagian2 = $this->input->post("bagian2");
 		$selectedBagian3 = $this->input->post("bagian3");
@@ -99,13 +101,15 @@ class Pengajuan extends CI_Controller
 		$selectedBagian10mnjl = $this->input->post("bagian10mnjl");
 		$selectedBagian11 = $this->input->post("bagian11");
 		$selectedBagian12 = $this->input->post("bagian12");
+		date_default_timezone_set('Asia/Jakarta');
 
 		$kode = $this->kompetensi_model->buat_kode();
 		$data_index = array(
 			'id' => $kode,
 			'id_user' => $this->session->userdata('login_session')['id_user'],
-			'tanggal_pengajuan' => date("Y-m-d"),
-			'kategori' => 'Pengajuan Test'
+			'tanggal_pengajuan' => date("Y-m-d H:i:s"),
+			'kategori' => $kategori,
+			'status' => 'Diminta'
 		);
 		$this->kompetensi_model->tambah_data($data_index, 'pengajuan_index');
 

@@ -241,45 +241,6 @@ if (!$this->session->has_userdata('login_session')){
             <hr class="sidebar-divider d-none d-md-block">
             <?php endif; ?>
 
-
-            <?php if($this->session->userdata('login_session')['level'] == 'Pegawai'): ?>
-
-            <div class="sidebar-heading">
-                Proses Kredensial
-            </div>
-            <?php if($title == 'Barang'): ?>
-            <li class="nav-item active">
-                <?php else: ?>
-            <li class="nav-item">
-                <?php endif; ?>
-                <a class="nav-link"
-                    href="<?= base_url() ?>biodata/tambah/<?= $this->session->userdata('login_session')['id_user'] ?>">
-                    <i class="fas fa-fw fa-boxes"></i>
-                    <span>Biodata Diri</span>
-                </a>
-            </li>
-            <hr class="sidebar-divider d-none d-md-block">
-            <?php endif; ?>
-
-
-            <?php if($this->session->userdata('login_session')['level'] == 'Pegawai'): ?>
-
-            <div class="sidebar-heading">
-                Berkas Pengajuan
-            </div>
-            <?php if($title == 'Barang'): ?>
-            <li class="nav-item active">
-                <?php else: ?>
-            <li class="nav-item">
-                <?php endif; ?>
-                <a class="nav-link" href="<?= base_url() ?>berkas">
-                    <i class="fas fa-fw fa-boxes"></i>
-                    <span>Berkas Pengajuan</span>
-                </a>
-            </li>
-            <hr class="sidebar-divider d-none d-md-block">
-            <?php endif; ?>
-
             <!-- ------------- SDM ------------------ -->
 
             <?php if($this->session->userdata('login_session')['level'] == 'SDM'): ?>

@@ -23,14 +23,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Approve Pengajuan Kredensial</h1>
-        <!-- <a href="<?= base_url() ?>approve_pengajuan/tambah_pendidikan" class="btn btn-sm btn-primary btn-icon-split">
-            <span class="text text-white">Approve Pengajuan</span>
-            <span class="icon text-white-50">
-                <i class="fas fa-plus"></i>
-            </span>
-        </a> -->
-
+        <h1 class="h3 mb-0 text-gray-800">Data Surat Izin</h1>
     </div>
 
     <div class="col-lg-12 mb-4">
@@ -41,35 +34,20 @@
                     <table class="table table-hover" id="dtHorizontalExample" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th width="1%">ID</th>
-                                <th>Nama Pengaju</th>
-                                <th>Kategori</th>
-                                <th>Tanggal Pengajuan</th>
-                                <th>Mitra Bestari</th>
-                                <th>Status</th>
-                                <th>Catatan</th>
-                                <th width="1%">Aksi</th>
+                                <th width="1%">No Izin</th>
+                                <th>Jenis Surat</th>
+                                <th>Yang Mengeluarkan</th>
+                                <th>Masa Berlaku</th>
                             </tr>
                         </thead>
                         <tbody style="cursor:pointer;" id="tbody">
                             <?php $no = 1;
-                            foreach ($pengajuan_idx as $pj): ?>
+                            foreach ($surat_izin as $si): ?>
                                 <tr>
-                                    <td onclick="detail('<?= $pj->id ?>')"><?= $no++ ?>.</td>
-                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->id_user ?></td>
-                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->kategori ?></td>
-                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->tgl_pengajuan ?></td>
-                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->nama_mitra ?></td>
-                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->status ?></td>
-                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->catatan ?></td>
-                                    <td>
-                                        <center>
-                                            <a href="<?= base_url() ?>Approve_pengajuan/ubah/<?= $pj->id_user ?>"
-                                                class="btn btn-circle btn-success btn-sm">
-                                                <i class="fas fa-pen"></i>
-                                            </a>
-                                        </center>
-                                    </td>
+                                    <td onclick="detail('<?= $si->nomor_izin ?>')"><?= $si->nomor_izin ?></td>
+                                    <td onclick="detail('<?= $si->nomor_izin ?>')"><?= $si->jenis_surat ?></td>
+                                    <td onclick="detail('<?= $si->nomor_izin ?>')"><?= $si->mengeluarkan ?></td>
+                                    <td onclick="detail('<?= $si->nomor_izin ?>')"><?= $si->masa_berlaku ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
@@ -109,10 +87,13 @@
 
             })
         });
+
+
+
     </script>
 <?php endif; ?>
 <script>
-    function konfirmasi(nomor) {
+    function konfirmasi(nomor_izin) {
         var base_url = $('#baseurl').val();
 
         swal.fire({
@@ -135,7 +116,7 @@
                     showConfirmButton: false,
                 }).then(
                     function () {
-                        window.location.href = base_url + "Vsu_pendidikan/proses_hapus_pendidikan/" + nomor;
+                        window.location.href = base_url + "surat_izin/proses_hapus_surat_izin/" + nomor;
                     }
                 );
             }
