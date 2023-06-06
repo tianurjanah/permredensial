@@ -386,6 +386,7 @@ class Berkas extends CI_Controller
 		$this->load->library('upload', $config);
 
 		$id = $this->berkas_model->buat_kode_sehat();
+		var_dump($id);
 		$kode = $this->session->userdata('login_session')['id_user'];
 
 		// Proses upload dan perubahan file surat lamaran
@@ -397,6 +398,7 @@ class Berkas extends CI_Controller
 				$dataketerangan = array('surat_keterangan' => $this->upload->data());
 				$nama_file_keterangan = $dataketerangan['surat_keterangan']['file_name'];
 				$gantiketerangan = str_replace(" ", "_", $nama_file_keterangan);
+				var_dump($gantiketerangan);
 			}
 		}
 
@@ -407,7 +409,8 @@ class Berkas extends CI_Controller
 		);
 
 		$where = array('id_user' => $this->session->userdata('login_session')['id_user']);
-		$existingData = $this->berkas_model->detail_data_sehat($where, 'sehat');
+		$existingData = $this->berkas_model->detail_data_sehat($where, 'sehat')->result();
+		// print_r($existingData);
 		if ($existingData) {
 			$this->berkas_model->ubah_data_sehat($where, $data, 'sehat');
 			$pesan = 'Data berhasil diubah!';

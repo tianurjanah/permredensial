@@ -368,17 +368,16 @@
                                             </div>
                                         </div>
                                     </div>
+
+
+                                    <button class="btn btn-primary col-lg-12 btn-info" type="button"
+                                        data-toggle="collapse" data-target="#Bagian10" aria-expanded="false"
+                                        aria-controls="Bagian8">
+                                        SURAT KETERANGAN SEHAT
+                                    </button>
+                                    </p> <br>
                                     <form action="<?= base_url() ?>berkas/biodata_sehat" name="myForm" method="POST"
                                         enctype="multipart/form-data">
-
-
-                                        <button class="btn btn-primary col-lg-12 btn-info" type="button"
-                                            data-toggle="collapse" data-target="#Bagian10" aria-expanded="false"
-                                            aria-controls="Bagian8">
-                                            SURAT KETERANGAN SEHAT
-                                        </button>
-                                        </p> <br>
-
                                         <div class="collapse mb-4" id="Bagian10">
                                             <div class="card card-body">
                                                 <div class="table-responsive">
@@ -427,9 +426,11 @@
                                                         </button>
                                                     </div>
                                                 </div>
-                                            <?php endforeach; ?>
-                                        <?php else: ?>
-
+                                            </form>
+                                        <?php endforeach; ?>
+                                    <?php else: ?>
+                                        <form action="<?= base_url() ?>berkas/biodata_sehat" name="myForm" method="POST"
+                                            enctype="multipart/form-data">
                                             <!-- suratlamaran -->
                                             <div class="form-group"><label>Surat Keterangan Sehat</label>
                                                 <div class="custom-file">
