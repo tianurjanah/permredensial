@@ -76,5 +76,14 @@ class vsu_suratizin_model extends ci_model
         $this->db->update($table, $data);
 
     }
+    public function ambil_data_surat_vsuratizin($id)
+    {
+        $this->db->select('*');
+        $this->db->from('vsu_suratizin');
+        $this->db->where('id_user', $id);
+
+        $query = $this->db->get();
+        return $query;
+    }
 
 }

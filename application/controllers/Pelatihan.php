@@ -4,16 +4,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Pelatihan extends CI_Controller
 {
 
-    public function __construct()
-    {
-        parent::__construct();
-        $this->load->helper('url');
-        $this->load->helper('download');
-        $this->load->library('pagination');
-        $this->load->helper('cookie');
-        $this->load->model('user_model');
-        $this->load->model('pelatihan_model');
-    }
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->helper('url');
+		$this->load->helper('download');
+		$this->load->library('pagination');
+		$this->load->helper('cookie');
+		$this->load->model('user_model');
+		$this->load->model('pelatihan_model');
+	}
 
 	public function index()
 	{
@@ -23,6 +23,15 @@ class Pelatihan extends CI_Controller
 		$data['user'] = $this->user_model->data()->result();
 
 		$this->load->view('pelatihan/index', $data);
+	}
+
+	public function approval($id)
+	{
+		$data['title'] = 'SERTIFIKASI PELATIHAN';
+		$data['pelatihan'] = $this->pelatihan_model->ambil_data_surat_pelatihan($id)->result();
+		$data['user'] = $this->user_model->data()->result();
+
+		$this->load->view('pelatihan/approve', $data);
 	}
 
 	public function tambah_pelatihan()
@@ -64,7 +73,7 @@ class Pelatihan extends CI_Controller
 		$user = $this->session->userdata('login_session')['id_user'];
 		$nama_pelatihan = $this->input->post('nama_pelatihan');
 		$berlaku = $this->input->post('berlaku');
-		$penyelenggara	 = $this->input->post('penyelenggara');
+		$penyelenggara = $this->input->post('penyelenggara');
 
 		$data = array(
 			'id_pelatihan' => $id_pelatihan,
@@ -95,7 +104,7 @@ class Pelatihan extends CI_Controller
 		$user = $this->session->userdata('login_session')['id_user'];
 		$nama_pelatihan = $this->input->post('nama_pelatihan');
 		$berlaku = $this->input->post('berlaku');
-		$penyelenggara	 = $this->input->post('penyelenggara');
+		$penyelenggara = $this->input->post('penyelenggara');
 
 		$data = array(
 			'id_pelatihan' => $id_pelatihan,
@@ -128,7 +137,7 @@ class Pelatihan extends CI_Controller
 	public function proses_hapus_pelatihan($nomor)
 	{
 		$where = array('id_pelatihan' => $nomor);
-		
+
 		$this->pelatihan_model->hapus_data_pelatihan($where, 'pelatihan');
 		$this->session->set_flashdata('Pesan', '
             <script>

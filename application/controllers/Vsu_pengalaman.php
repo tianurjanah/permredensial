@@ -24,6 +24,14 @@ class Vsu_pengalaman extends CI_Controller
 
         $this->load->view('vsu_pengalaman/index', $data);
     }
+    public function approval($id)
+    {
+        $data['title'] = 'VSU PENGALAMAN';
+        $data['vsu_pengalaman'] = $this->vsu_pengalaman_model->ambil_data_surat_vpengalaman($id)->result();
+        $data['user'] = $this->user_model->data()->result();
+
+        $this->load->view('vsu_pengalaman/approve', $data);
+    }
 
     public function tambah_pengalaman()
     {

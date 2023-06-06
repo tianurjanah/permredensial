@@ -24,6 +24,14 @@ class Vsu_suratizin extends CI_Controller
 
         $this->load->view('vsu_suratizin/index', $data);
     }
+    public function approval($id)
+    {
+        $data['title'] = 'VSU SURAT IZIN';
+        $data['vsu_suratizin'] = $this->vsu_suratizin_model->ambil_data_surat_vsuratizin($id)->result();
+        $data['user'] = $this->user_model->data()->result();
+
+        $this->load->view('vsu_suratizin/approve', $data);
+    }
 
     public function tambah_suratizin()
     {

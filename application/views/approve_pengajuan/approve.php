@@ -15,178 +15,76 @@
                     <div class="col-lg-12">
                         <p>
                             <?php if (!empty($biodata)): ?>
-                                <?php foreach ($biodata as $b): ?>
-                                <form action="<?= base_url() ?>berkas/biodata_sehat" name="myForm" method="POST"
-                                    enctype="multipart/form-data">
+                            <?php foreach ($biodata as $b): ?>
+                        <form action="<?= base_url() ?>berkas/biodata_sehat" name="myForm" method="POST"
+                            enctype="multipart/form-data">
 
 
-                                    <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse"
-                                        data-target="#Bagian1" aria-expanded="false" aria-controls="Bagian1">
-                                        BIODATA
-                                    </button>
-                                    </p> <br>
+                            <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse"
+                                data-target="#Bagian1" aria-expanded="false" aria-controls="Bagian1">
+                                BIODATA
+                            </button>
+                            </p> <br>
 
-                                    <div class="collapse mb-4" id="Bagian1">
-                                        <div class="card card-body">
-                                            <div class="table-responsive">
-                                                <div class="card bg-warning mb-4 text-white shadow">
-                                                    <div class="card-body">
-                                                        Format
-                                                        <div class="text-white-45 small">.png .jpeg .jpg .tiff .gif .tif .pdf
-                                                        </div>
-                                                    </div>
-                                                </div>
+                            <div class="collapse mb-4" id="Bagian1">
+                                <div class="card card-body">
+                                    <div class="table-responsive">
 
-                                                <!-- suratlamaran -->
-                                                <div class="form-group"><label>Surat Lamaran</label>
-                                                    <div class="custom-file">
-                                                        <input class="custom-file-input" type="file" id="suratlamaran"
-                                                            name="suratlamaran" onchange="VerifyLampiran(event)"
-                                                            accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                                        <label class="custom-file-label" for="customFile" id="filelamaran">Pilih
-                                                            File</label>
-                                                    </div><br><br>
-                                                    <div class="pdf-container">
-                                                        <?php if ($b->surat_lamaran != ''): ?>
-                                                            <embed
-                                                                src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->surat_lamaran ?>"
-                                                                type="application/pdf" width="100%" height="600px">
-                                                        <?php else: ?>
-                                                            <p>File Surat Lamaran Tidak Tersedia.</p>
-                                                        <?php endif; ?>
-                                                    </div>
-                                                </div>
-                                                <!-- cv -->
-                                                <div class="form-group"><label>Curriculum Vitae</label>
-                                                    <div class="custom-file">
-                                                        <input class="custom-file-input" type="file" id="currivitae"
-                                                            name="currivitae" onchange="VerifyLampiran(event)"
-                                                            accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                                        <label class="custom-file-label" for="customFile" id="filecv">Pilih
-                                                            File</label>
-                                                    </div><br><br>
-                                                    <div class="pdf-container">
-                                                        <?php if ($b->cv != ''): ?>
-                                                            <embed src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->cv ?>"
-                                                                type="application/pdf" width="100%" height="600px">
-                                                        <?php else: ?>
-                                                            <p>File Surat Lamaran Tidak Tersedia.</p>
-                                                        <?php endif; ?>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group"><label>Formulir Data Karyawan</label>
-                                                    <div class="custom-file">
-                                                        <input class="custom-file-input" type="file" id="datakaryawan"
-                                                            name="datakaryawan" onchange="VerifyLampiran(event)"
-                                                            accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                                        <label class="custom-file-label" for="customFile" id="filelamaran">Pilih
-                                                            File</label>
-                                                    </div><br><br>
-                                                    <div class="pdf-container">
-                                                        <?php if ($b->formulir_data != ''): ?>
-                                                            <embed
-                                                                src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->formulir_data ?>"
-                                                                type="application/pdf" width="100%" height="600px">
-                                                        <?php else: ?>
-                                                            <p>File Surat Lamaran Tidak Tersedia.</p>
-                                                        <?php endif; ?>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group"><label>Scan KTP</label>
-                                                    <div class="custom-file">
-                                                        <input class="custom-file-input" type="file" id="scanktp" name="scanktp"
-                                                            onchange="VerifyLampiran(event)"
-                                                            accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                                        <label class="custom-file-label" for="customFile" id="filelamaran">Pilih
-                                                            File</label>
-                                                    </div><br><br>
-                                                    <div class="pdf-container">
-                                                        <?php if ($b->ktp != ''): ?>
-                                                            <embed
-                                                                src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->ktp ?>"
-                                                                type="application/pdf" width="100%" height="600px">
-                                                        <?php else: ?>
-                                                            <p>File Surat Lamaran Tidak Tersedia.</p>
-                                                        <?php endif; ?>
-
-                                                    </div>
-
-                                                </div>
-
+                                        <!-- suratlamaran -->
+                                        <div class="form-group"><label><b>SURAT LAMARAN</b></label>
+                                            <div class="pdf-container">
+                                                <?php if ($b->surat_lamaran != ''): ?>
+                                                <embed
+                                                    src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->surat_lamaran ?>"
+                                                    type="application/pdf" width="100%" height="600px">
+                                                <?php else: ?>
+                                                <p>File Surat Lamaran Tidak Tersedia.</p>
+                                                <?php endif; ?>
                                             </div>
-                                            <button type="submit"
-                                                class="btn btn-success btn-md col-lg-2,9 btn-icon-split ml-auto">
-                                                <span class="text text-white">Simpan Berkas Biodata</span>
-                                                <span class="icon text-white-50">
-                                                    <i class="fas fa-save"></i>
-                                                </span>
-                                            </button>
                                         </div>
-                                    </div>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <div class="card-body">
-                                    <div class="col-lg-12">
-                                        <p>
-                                        <form action="<?= base_url() ?>berkas/biodata_tambah" name="myForm" method="POST"
-                                            enctype="multipart/form-data">
-
-
-                                            <button class="btn btn-primary col-lg-12 btn-info" type="button"
-                                                data-toggle="collapse" data-target="#Bagian1" aria-expanded="false"
-                                                aria-controls="Bagian1">
-                                                BIODATA
-                                            </button>
-                                            </p> <br>
-
-                                            <div class="collapse mb-4" id="Bagian1">
-                                                <div class="card card-body">
-                                                    <div class="table-responsive">
-                                                        <!-- cv -->
-                                                        <div class="form-group"><label>Curriculum Vitae</label>
-                                                            <div class="custom-file">
-                                                                <input class="custom-file-input" type="file" id="currivitae"
-                                                                    name="currivitae" onchange="VerifyLampiran(event)"
-                                                                    accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                                                <label class="custom-file-label" for="customFile"
-                                                                    id="filecv">Pilih
-                                                                    File</label>
-                                                            </div><br><br>
-                                                        </div>
-                                                        <div class="form-group"><label>Formulir Data Karyawan</label>
-                                                            <div class="custom-file">
-                                                                <input class="custom-file-input" type="file"
-                                                                    id="datakaryawan" name="datakaryawan"
-                                                                    onchange="VerifyLampiran(event)"
-                                                                    accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                                                <label class="custom-file-label" for="customFile"
-                                                                    id="filelamaran">Pilih
-                                                                    File</label>
-                                                            </div><br><br>
-                                                        </div>
-                                                        <div class="form-group"><label>Scan KTP</label>
-                                                            <div class="custom-file">
-                                                                <input class="custom-file-input" type="file" id="scanktp"
-                                                                    name="scanktp" onchange="VerifyLampiran(event)"
-                                                                    accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                                                <label class="custom-file-label" for="customFile"
-                                                                    id="filelamaran">Pilih
-                                                                    File</label>
-                                                            </div><br><br>
-
-                                                        </div>
-
-                                                    </div>
-                                                    <button type="submit"
-                                                        class="btn btn-success btn-md col-lg-2,9 btn-icon-split ml-auto">
-                                                        <span class="text text-white">Simpan Berkas Biodata</span>
-                                                        <span class="icon text-white-50">
-                                                            <i class="fas fa-save"></i>
-                                                        </span>
-                                                    </button>
-                                                </div>
+                                        <!-- cv -->
+                                        <div class="form-group"><label><b>CURRICULUM VITAE</b></label>
+                                            <div class="pdf-container">
+                                                <?php if ($b->cv != ''): ?>
+                                                <embed src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->cv ?>"
+                                                    type="application/pdf" width="100%" height="600px">
+                                                <?php else: ?>
+                                                <p>File Curriculum Vitae Tidak Tersedia.</p>
+                                                <?php endif; ?>
                                             </div>
-                                        </form>
+                                        </div>
+                                        <div class="form-group"><label>Formulir Data Karyawan</label>
+                                            <div class="pdf-container">
+                                                <?php if ($b->formulir_data != ''): ?>
+                                                <embed
+                                                    src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->formulir_data ?>"
+                                                    type="application/pdf" width="100%" height="600px">
+                                                <?php else: ?>
+                                                <p>File Data Karyawan Tidak Tersedia.</p>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                        <div class="form-group"><label>Scan KTP</label>
+                                            <div class="pdf-container">
+                                                <?php if ($b->ktp != ''): ?>
+                                                <embed
+                                                    src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->ktp ?>"
+                                                    type="application/pdf" width="100%" height="600px">
+                                                <?php else: ?>
+                                                <p>File KTP Tidak Tersedia.</p>
+                                                <?php endif; ?>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <?php endforeach; ?>
+                            <?php else: ?>
+                            <div class="card-body">
+                                <div class="col-lg-12">
                                     <?php endif; ?>
 
                                     <!-- IJAZAH -->
@@ -203,7 +101,7 @@
                                             <div class="table-responsive">
                                                 <br><br>
                                                 <div class="pdf-container">
-                                                    <embed src="<?= base_url() ?>berkas/berkas_ijazah"
+                                                    <embed src="<?= base_url() ?>berkas/approval_ijazah/<?= $user ?>"
                                                         type="application/pdf" width="100%" height="600px">
                                                 </div>
                                             </div>
@@ -245,8 +143,8 @@
                                             <div class="table-responsive">
                                                 <br><br>
                                                 <div class="pdf-container">
-                                                    <embed src="<?= base_url() ?>Pelatihan/index" type="application/pdf"
-                                                        width="100%" height="600px">
+                                                    <embed src="<?= base_url() ?>Pelatihan/approval/<?= $user ?>"
+                                                        type="application/pdf" width="100%" height="600px">
                                                 </div>
                                             </div>
                                         </div>
@@ -266,7 +164,7 @@
                                             <div class="table-responsive">
                                                 <br><br>
                                                 <div class="pdf-container">
-                                                    <embed src="<?= base_url() ?>Pengalaman/index"
+                                                    <embed src="<?= base_url() ?>Pengalaman/approval/<?= $user ?>"
                                                         type="application/pdf" width="100%" height="600px">
                                                 </div>
                                             </div>
@@ -297,7 +195,8 @@
                                                     <div class="table-responsive">
                                                         <br><br>
                                                         <div class="pdf-container">
-                                                            <embed src="<?= base_url() ?>Vsu_pendidikan/index"
+                                                            <embed
+                                                                src="<?= base_url() ?>Vsu_pendidikan/approval/<?= $user ?>"
                                                                 type="application/pdf" width="100%" height="600px">
                                                         </div>
                                                     </div>
@@ -318,7 +217,8 @@
                                                     <div class="table-responsive">
                                                         <br><br>
                                                         <div class="pdf-container">
-                                                            <embed src="<?= base_url() ?>Vsu_suratizin/index"
+                                                            <embed
+                                                                src="<?= base_url() ?>Vsu_suratizin/approval/<?= $user ?>"
                                                                 type="application/pdf" width="100%" height="600px">
                                                         </div>
                                                     </div>
@@ -339,7 +239,8 @@
                                                     <div class="table-responsive">
                                                         <br><br>
                                                         <div class="pdf-container">
-                                                            <embed src="<?= base_url() ?>Vsu_pengalaman/index/"
+                                                            <embed
+                                                                src="<?= base_url() ?>Vsu_pengalaman/approval/<?= $user ?>"
                                                                 type="application/pdf" width="100%" height="600px">
                                                         </div>
                                                     </div>
@@ -349,7 +250,6 @@
                                     </div>
                                     <form action="<?= base_url() ?>berkas/biodata_sehat" name="myForm" method="POST"
                                         enctype="multipart/form-data">
-
 
                                         <button class="btn btn-primary col-lg-12 btn-info" type="button"
                                             data-toggle="collapse" data-target="#Bagian10" aria-expanded="false"
@@ -371,66 +271,66 @@
                                                     </div>
 
                                                     <?php if (!empty($sehat)): ?>
-                                                        <?php foreach ($sehat as $s): ?>
+                                                    <?php foreach ($sehat as $s): ?>
 
-                                                            <!-- Surat Keterangan Sehat -->
-                                                            <div class="form-group"><label>Surat Keterangan Sehat</label>
-                                                                <div class="custom-file">
-                                                                    <input class="custom-file-input" type="file"
-                                                                        id="surat_keterangan" name="surat_keterangan"
-                                                                        onchange="VerifyLampiran(event)"
-                                                                        accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                                                    <label class="custom-file-label" for="customFile"
-                                                                        id="fileketerangan">Pilih
-                                                                        File</label>
-                                                                </div><br><br>
-                                                                <div class="pdf-container">
-                                                                    <?php if ($s->surat_keterangan != ''): ?>
-                                                                        <embed
-                                                                            src="<?= base_url() ?>assets/upload/berkas_sehat/<?= $s->surat_keterangan ?>"
-                                                                            type="application/pdf" width="100%" height="600px">
-                                                                    <?php else: ?>
-                                                                        <p>File Surat Keterangan Sehat Tidak Tersedia.</p>
-                                                                    <?php endif; ?>
-                                                                </div>
-                                                            </div>
-
+                                                    <!-- Surat Keterangan Sehat -->
+                                                    <div class="form-group"><label>Surat Keterangan Sehat</label>
+                                                        <div class="custom-file">
+                                                            <input class="custom-file-input" type="file"
+                                                                id="surat_keterangan" name="surat_keterangan"
+                                                                onchange="VerifyLampiran(event)"
+                                                                accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
+                                                            <label class="custom-file-label" for="customFile"
+                                                                id="fileketerangan">Pilih
+                                                                File</label>
+                                                        </div><br><br>
+                                                        <div class="pdf-container">
+                                                            <?php if ($s->surat_keterangan != ''): ?>
+                                                            <embed
+                                                                src="<?= base_url() ?>assets/upload/berkas_sehat/<?= $s->surat_keterangan ?>"
+                                                                type="application/pdf" width="100%" height="600px">
+                                                            <?php else: ?>
+                                                            <p>File Surat Keterangan Sehat Tidak Tersedia.</p>
+                                                            <?php endif; ?>
                                                         </div>
-                                                        <button type="submit"
-                                                            class="btn btn-success btn-md col-lg-2,9 btn-icon-split ml-auto">
-                                                            <span class="text text-white">Simpan Berkas Surat Keterangan
-                                                                Sehat</span>
-                                                            <span class="icon text-white-50">
-                                                                <i class="fas fa-save"></i>
-                                                            </span>
-                                                        </button>
                                                     </div>
+
                                                 </div>
-                                            <?php endforeach; ?>
+                                                <button type="submit"
+                                                    class="btn btn-success btn-md col-lg-2,9 btn-icon-split ml-auto">
+                                                    <span class="text text-white">Simpan Berkas Surat Keterangan
+                                                        Sehat</span>
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-save"></i>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <?php endforeach; ?>
                                         <?php else: ?>
 
-                                            <!-- suratlamaran -->
-                                            <div class="form-group"><label>Surat Keterangan Sehat</label>
-                                                <div class="custom-file">
-                                                    <input class="custom-file-input" type="file" id="surat_keterangan"
-                                                        name="surat_keterangan" onchange="VerifyLampiran(event)"
-                                                        accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                                    <label class="custom-file-label" for="customFile"
-                                                        id="fileketerangan">Pilih
-                                                        File</label>
-                                                </div><br><br>
-                                            </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-success btn-md col-lg-2,9 btn-icon-split ml-auto">
-                                        <span class="text text-white">Simpan Berkas Surat
-                                            Keterangan Sehat</span>
-                                        <span class="icon text-white-50">
-                                            <i class="fas fa-save"></i>
-                                        </span>
-                                    </button>
+                                        <!-- suratlamaran -->
+                                        <div class="form-group"><label>Surat Keterangan Sehat</label>
+                                            <div class="custom-file">
+                                                <input class="custom-file-input" type="file" id="surat_keterangan"
+                                                    name="surat_keterangan" onchange="VerifyLampiran(event)"
+                                                    accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
+                                                <label class="custom-file-label" for="customFile"
+                                                    id="fileketerangan">Pilih
+                                                    File</label>
+                                            </div><br><br>
+                                        </div>
                                 </div>
-                        </div>
-                        </form>
+                                <button type="submit" class="btn btn-success btn-md col-lg-2,9 btn-icon-split ml-auto">
+                                    <span class="text text-white">Simpan Berkas Surat
+                                        Keterangan Sehat</span>
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-save"></i>
+                                    </span>
+                                </button>
+                            </div>
+                    </div>
+                    </form>
                     <?php endif; ?>
                 </div>
             </div>
@@ -450,115 +350,115 @@
 <script src="<?= base_url(); ?>assets/plugin/chosen/chosen.jquery.min.js"></script>
 
 <script>
-    $('.chosen').chosen({
-        width: '100%',
+$('.chosen').chosen({
+    width: '100%',
 
-    });
+});
 </script>
 
 <!-- Javascript pas foto -->
 <script>
-    function fileIsValid(fileName) {
+function fileIsValid(fileName) {
+    var ext = fileName.match(/\.([^\.]+)$/)[1];
+    ext = ext.toLowerCase();
+    var isValid = true;
+    switch (ext) {
+        case 'png':
+        case 'jpeg':
+        case 'jpg':
+        case 'tiff':
+        case 'gif':
+        case 'tif':
+
+            break;
+        default:
+            this.value = '';
+            isValid = false;
+    }
+    return isValid;
+}
+
+function fileIsValidpdf(fileName) {
+    var ext = fileName.match(/\.([^\.]+)$/)[1];
+    ext = ext.toLowerCase();
+    var isValid = true;
+    switch (ext) {
+        case 'png':
+        case 'jpeg':
+        case 'jpg':
+        case 'tiff':
+        case 'gif':
+        case 'tif':
+        case 'pdf':
+
+            break;
+        default:
+            this.value = '';
+            isValid = false;
+    }
+    return isValid;
+}
+
+function VerifyPasFotoNameAndSize() {
+    var file = document.getElementById('pasfoto').files[0];
+    if (file != null) {
+        var fileName = file.name;
+        if (fileIsValid(fileName) == false) {
+            validasi('Format bukan gambar!', 'warning');
+            document.getElementById('pasfoto').value = null;
+            return false;
+        }
+        var content;
+        var size = file.size;
+        if ((size != null) && ((size / (1024 * 1024)) > 3)) {
+            validasi('Ukuran maximum 1024px', 'warning');
+            document.getElementById('pasfoto').value = null;
+            return false;
+        }
+
         var ext = fileName.match(/\.([^\.]+)$/)[1];
         ext = ext.toLowerCase();
-        var isValid = true;
-        switch (ext) {
-            case 'png':
-            case 'jpeg':
-            case 'jpg':
-            case 'tiff':
-            case 'gif':
-            case 'tif':
+        $("#pasphoto").addClass("selected").html(file.name);
+        document.getElementById('outputImg').src = window.URL.createObjectURL(file);
+        return true;
 
-                break;
-            default:
-                this.value = '';
-                isValid = false;
+    } else
+        return false;
+}
+
+function VerifyLampiran(event) {
+    var file = event.target.files[0];
+    if (file != null) {
+        var fileName = file.name;
+        console.log(fileName);
+        if (fileIsValidpdf(fileName) == false) {
+            validasi('Format Salah!', 'warning');
+            // document.getElementById('').value = null;
+            return false;
         }
-        return isValid;
-    }
+        var content;
+        var size = file.size;
+        if ((size != null) && ((size / (1024 * 1024)) > 3)) {
+            validasi('Ukuran maximum 1024px', 'warning');
+            // document.getElementById('suratlamaran').value = null;
+            return false;
+        }
 
-    function fileIsValidpdf(fileName) {
         var ext = fileName.match(/\.([^\.]+)$/)[1];
         ext = ext.toLowerCase();
-        var isValid = true;
-        switch (ext) {
-            case 'png':
-            case 'jpeg':
-            case 'jpg':
-            case 'tiff':
-            case 'gif':
-            case 'tif':
-            case 'pdf':
+        var fileLabel = event.target.nextElementSibling;
+        fileLabel.classList.add("selected");
+        fileLabel.innerHTML = file.name;
+        // document.getElementById('outputImg').src = window.URL.createObjectURL(file);
+        return true;
 
-                break;
-            default:
-                this.value = '';
-                isValid = false;
-        }
-        return isValid;
-    }
+    } else
+        return false;
+}
 
-    function VerifyPasFotoNameAndSize() {
-        var file = document.getElementById('pasfoto').files[0];
-        if (file != null) {
-            var fileName = file.name;
-            if (fileIsValid(fileName) == false) {
-                validasi('Format bukan gambar!', 'warning');
-                document.getElementById('pasfoto').value = null;
-                return false;
-            }
-            var content;
-            var size = file.size;
-            if ((size != null) && ((size / (1024 * 1024)) > 3)) {
-                validasi('Ukuran maximum 1024px', 'warning');
-                document.getElementById('pasfoto').value = null;
-                return false;
-            }
+function logFileUpload(event) {
+    var file = event.target.files[0];
+    console.log("Uploaded file:", file);
 
-            var ext = fileName.match(/\.([^\.]+)$/)[1];
-            ext = ext.toLowerCase();
-            $("#pasphoto").addClass("selected").html(file.name);
-            document.getElementById('outputImg').src = window.URL.createObjectURL(file);
-            return true;
-
-        } else
-            return false;
-    }
-
-    function VerifyLampiran(event) {
-        var file = event.target.files[0];
-        if (file != null) {
-            var fileName = file.name;
-            console.log(fileName);
-            if (fileIsValidpdf(fileName) == false) {
-                validasi('Format Salah!', 'warning');
-                // document.getElementById('').value = null;
-                return false;
-            }
-            var content;
-            var size = file.size;
-            if ((size != null) && ((size / (1024 * 1024)) > 3)) {
-                validasi('Ukuran maximum 1024px', 'warning');
-                // document.getElementById('suratlamaran').value = null;
-                return false;
-            }
-
-            var ext = fileName.match(/\.([^\.]+)$/)[1];
-            ext = ext.toLowerCase();
-            var fileLabel = event.target.nextElementSibling;
-            fileLabel.classList.add("selected");
-            fileLabel.innerHTML = file.name;
-            // document.getElementById('outputImg').src = window.URL.createObjectURL(file);
-            return true;
-
-        } else
-            return false;
-    }
-
-    function logFileUpload(event) {
-        var file = event.target.files[0];
-        console.log("Uploaded file:", file);
-
-    }
+}
 </script>

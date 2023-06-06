@@ -253,7 +253,7 @@ class berkas_model extends ci_model
   public function ubah_data_sehat($where, $data, $table)
   {
     $this->db->where($where);
-    $this->db->update($table,$data);
+    $this->db->update($table, $data);
 
   }
 
@@ -265,6 +265,17 @@ class berkas_model extends ci_model
   {
     $this->db->select('*');
     $this->db->from('sehat');
+    $this->db->where('id_user', $id);
+
+    $query = $this->db->get();
+    return $query;
+  }
+
+
+  public function ambil_data_surat_ijazah($id)
+  {
+    $this->db->select('*');
+    $this->db->from('ijazah');
     $this->db->where('id_user', $id);
 
     $query = $this->db->get();

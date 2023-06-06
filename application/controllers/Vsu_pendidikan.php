@@ -24,6 +24,14 @@ class Vsu_pendidikan extends CI_Controller
 
         $this->load->view('vsu_pendidikan/index', $data);
     }
+    public function approval($id)
+    {
+        $data['title'] = 'VSU PENDIDIKAN';
+        $data['vsu_pendidikan'] = $this->vsu_pendidikan_model->ambil_data_surat_vpendidikan($id)->result();
+        $data['user'] = $this->user_model->data()->result();
+
+        $this->load->view('vsu_pendidikan/approve', $data);
+    }
 
     public function tambah_pendidikan()
     {

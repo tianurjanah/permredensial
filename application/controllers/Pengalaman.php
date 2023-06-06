@@ -24,6 +24,14 @@ class Pengalaman extends CI_Controller
 
         $this->load->view('pengalaman/index', $data);
     }
+    public function approval($id)
+    {
+        $data['title'] = 'DATA PENGALAMAN KERJA';
+        $data['pengalaman'] = $this->pengalaman_model->ambil_data_surat_pengalaman($id)->result();
+        $data['user'] = $this->user_model->data()->result();
+
+        $this->load->view('pengalaman/approve', $data);
+    }
 
     public function tambah_pengalaman()
     {

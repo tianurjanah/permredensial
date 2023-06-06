@@ -76,5 +76,14 @@ class pengalaman_model extends ci_model
         $this->db->update($table, $data);
 
     }
+    public function ambil_data_surat_pengalaman($id)
+    {
+        $this->db->select('*');
+        $this->db->from('pengalaman');
+        $this->db->where('id_user', $id);
+
+        $query = $this->db->get();
+        return $query;
+    }
 
 }
