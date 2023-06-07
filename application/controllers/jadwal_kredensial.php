@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Approve_pengajuan extends CI_Controller
+class jadwal_kredensial extends CI_Controller
 {
 
     public function __construct()
