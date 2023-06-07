@@ -94,22 +94,27 @@ class Approve_pengajuan extends CI_Controller
 
     //     redirect('vsu_pendidikan/index');
     // }
+
     public function proses_diterima($id)
-    {
-        $kode = $id;
-        $status = 'Diterima';
-        $catatan = $this->input->post('catatan');
+{
+    $kode = $this->input->post('id');
+    $catatan = $this->input->post('catatan');
 
-        $data = array(
-            'status' => $status,
-            'catatan' => $catatan
-        );
+    $data = array(
+        'status' => 'Diterima',
+        'catatan' => $catatan
+    );
 
-        $where = array(
-            'id' => $kode
-        );
+    $where = array(
+        'id' => $kode
+    );
 
-        $this->approve_pengajuan_model->ubah_terima($where, $data, 'pengajuan_index');
+    $this->approve_pengajuan_model->ubah_terima($where, $data, 'pengajuan_index');
+
+        // Perubahan untuk mengubah value "Diterima" pada kolom status
+        $this->db->where('id', $kode);
+        $this->db->update('pengajuan_index');
+
         $this->session->set_flashdata('Pesan', '
         <script>
         $(document).ready(function() {
@@ -124,6 +129,8 @@ class Approve_pengajuan extends CI_Controller
 
         redirect('approve_pengajuan/index');
     }
+
+
 
     public function hapus_pendidikan($nomor)
     {

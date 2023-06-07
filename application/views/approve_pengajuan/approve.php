@@ -16,317 +16,286 @@
                         <p>
                             <?php if (!empty($biodata)): ?>
                                 <?php foreach ($biodata as $b): ?>
-                                <form action="<?= base_url() ?>berkas/biodata_sehat" name="myForm" method="POST"
-                                    enctype="multipart/form-data">
-
 
                                     <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse"
                                         data-target="#Bagian1" aria-expanded="false" aria-controls="Bagian1">
                                         BIODATA
                                     </button>
-                                    </p> <br>
+                                </p> <br>
 
-                                    <div class="collapse mb-4" id="Bagian1">
-                                        <div class="card card-body">
-                                            <div class="table-responsive">
+                                <div class="collapse mb-4" id="Bagian1">
+                                    <div class="card card-body">
+                                        <div class="table-responsive">
 
-                                                <!-- suratlamaran -->
-                                                <div class="form-group"><label><b>SURAT LAMARAN</b></label>
-                                                    <div class="pdf-container">
-                                                        <?php if ($b->surat_lamaran != ''): ?>
-                                                            <embed
-                                                                src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->surat_lamaran ?>"
-                                                                type="application/pdf" width="100%" height="600px">
-                                                        <?php else: ?>
-                                                            <p>File Surat Lamaran Tidak Tersedia.</p>
-                                                        <?php endif; ?>
-                                                    </div>
-                                                </div>
-                                                <!-- cv -->
-                                                <div class="form-group"><label><b>CURRICULUM VITAE</b></label>
-                                                    <div class="pdf-container">
-                                                        <?php if ($b->cv != ''): ?>
-                                                            <embed src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->cv ?>"
-                                                                type="application/pdf" width="100%" height="600px">
-                                                        <?php else: ?>
-                                                            <p>File Curriculum Vitae Tidak Tersedia.</p>
-                                                        <?php endif; ?>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group"><label>Formulir Data Karyawan</label>
-                                                    <div class="pdf-container">
-                                                        <?php if ($b->formulir_data != ''): ?>
-                                                            <embed
-                                                                src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->formulir_data ?>"
-                                                                type="application/pdf" width="100%" height="600px">
-                                                        <?php else: ?>
-                                                            <p>File Data Karyawan Tidak Tersedia.</p>
-                                                        <?php endif; ?>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group"><label>Scan KTP</label>
-                                                    <div class="pdf-container">
-                                                        <?php if ($b->ktp != ''): ?>
-                                                            <embed
-                                                                src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->ktp ?>"
-                                                                type="application/pdf" width="100%" height="600px">
-                                                        <?php else: ?>
-                                                            <p>File KTP Tidak Tersedia.</p>
-                                                        <?php endif; ?>
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <div class="card-body">
-                                    <div class="col-lg-12">
-                                    <?php endif; ?>
-
-                                    <!-- IJAZAH -->
-                                    <p>
-                                        <button class="btn btn-primary col-lg-12 btn-info" type="button"
-                                            data-toggle="collapse" data-target="#Bagian2" aria-expanded="false"
-                                            aria-controls="Bagian2">
-                                            IJAZAH
-                                        </button>
-                                    </p>
-                                    <br>
-                                    <div class="collapse mb-4" id="Bagian2">
-                                        <div class="card card-body">
-                                            <div class="table-responsive">
-                                                <br><br>
+                                            <!-- suratlamaran -->
+                                            <div class="form-group"><label><b>SURAT LAMARAN</b></label>
                                                 <div class="pdf-container">
-                                                    <embed src="<?= base_url() ?>berkas/approval_ijazah/<?= $user ?>"
-                                                        type="application/pdf" width="100%" height="600px">
+                                                    <?php if ($b->surat_lamaran != ''): ?>
+                                                        <embed
+                                                            src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->surat_lamaran ?>"
+                                                            type="application/pdf" width="100%" height="600px">
+                                                    <?php else: ?>
+                                                        <p>File Surat Lamaran Tidak Tersedia.</p>
+                                                    <?php endif; ?>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- SURAT IZIN -->
-                                    <p>
-                                        <button class="btn btn-primary col-lg-12 btn-info" type="button"
-                                            data-toggle="collapse" data-target="#Bagian3" aria-expanded="false"
-                                            aria-controls="Bagian3">
-                                            SURAT IZIN
-                                        </button>
-                                    </p>
-                                    <br>
-                                    <div class="collapse mb-4" id="Bagian3">
-                                        <div class="card card-body">
-                                            <div class="table-responsive">
-                                                <br><br>
+                                            <!-- cv -->
+                                            <div class="form-group"><label><b>CURRICULUM VITAE</b></label>
                                                 <div class="pdf-container">
-                                                    <embed src="<?= base_url() ?>SuratIzin/approval/<?= $user ?>"
-                                                        type="application/pdf" width="100%" height="600px">
+                                                    <?php if ($b->cv != ''): ?>
+                                                        <embed src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->cv ?>"
+                                                            type="application/pdf" width="100%" height="600px">
+                                                    <?php else: ?>
+                                                        <p>File Curriculum Vitae Tidak Tersedia.</p>
+                                                    <?php endif; ?>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- SERTIFIKASI PELATIHAN KERJA -->
-                                    <p>
-                                        <button class="btn btn-primary col-lg-12 btn-info" type="button"
-                                            data-toggle="collapse" data-target="#Bagian4" aria-expanded="false"
-                                            aria-controls="Bagian4">
-                                            SERTIFIKASI PELATIHAN KERJA
-                                        </button>
-                                    </p>
-                                    <br>
-                                    <div class="collapse mb-4" id="Bagian4">
-                                        <div class="card card-body">
-                                            <div class="table-responsive">
-                                                <br><br>
+                                            <div class="form-group"><label>Formulir Data Karyawan</label>
                                                 <div class="pdf-container">
-                                                    <embed src="<?= base_url() ?>Pelatihan/approval/<?= $user ?>"
-                                                        type="application/pdf" width="100%" height="600px">
+                                                    <?php if ($b->formulir_data != ''): ?>
+                                                        <embed
+                                                            src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->formulir_data ?>"
+                                                            type="application/pdf" width="100%" height="600px">
+                                                    <?php else: ?>
+                                                        <p>File Data Karyawan Tidak Tersedia.</p>
+                                                    <?php endif; ?>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- PENGALAMAN KERJA -->
-                                    <p>
-                                        <button class="btn btn-primary col-lg-12 btn-info" type="button"
-                                            data-toggle="collapse" data-target="#Bagian5" aria-expanded="false"
-                                            aria-controls="Bagian5">
-                                            PENGALAMAN KERJA
-                                        </button>
-                                    </p>
-                                    <br>
-                                    <div class="collapse mb-4" id="Bagian5">
-                                        <div class="card card-body">
-                                            <div class="table-responsive">
-                                                <br><br>
+                                            <div class="form-group"><label>Scan KTP</label>
                                                 <div class="pdf-container">
-                                                    <embed src="<?= base_url() ?>Pengalaman/approval/<?= $user ?>"
-                                                        type="application/pdf" width="100%" height="600px">
+                                                    <?php if ($b->ktp != ''): ?>
+                                                        <embed src="<?= base_url() ?>assets/upload/berkas_biodata/<?= $b->ktp ?>"
+                                                            type="application/pdf" width="100%" height="600px">
+                                                    <?php else: ?>
+                                                        <p>File KTP Tidak Tersedia.</p>
+                                                    <?php endif; ?>
+
                                                 </div>
+
                                             </div>
+
                                         </div>
-                                    </div>
-
-                                    <p>
-                                        <button class="btn btn-primary col-lg-12 btn-info" type="button"
-                                            data-toggle="collapse" data-target="#Bagian6" aria-expanded="false"
-                                            aria-controls="Bagian6">
-                                            VERIFIKASI SUMBER UTAMA <i>(PRIMARY SOURCE VERIFICATION)</i>
-                                        </button>
-                                    </p>
-                                    <br>
-                                    <div class="collapse mb-4" id="Bagian6">
-                                        <div class="card card-body">
-                                            <!-- VSU PENDIDIKAN -->
-                                            <p>
-                                                <button class="btn btn-primary col-lg-12 btn-info" type="button"
-                                                    data-toggle="collapse" data-target="#Bagian7" aria-expanded="false"
-                                                    aria-controls="Bagian7">
-                                                    PENDIDIKAN
-                                                </button>
-                                            </p>
-                                            <br>
-                                            <div class="collapse mb-4" id="Bagian7">
-                                                <div class="card card-body">
-                                                    <div class="table-responsive">
-                                                        <br><br>
-                                                        <div class="pdf-container">
-                                                            <embed
-                                                                src="<?= base_url() ?>Vsu_pendidikan/approval/<?= $user ?>"
-                                                                type="application/pdf" width="100%" height="600px">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- VSU SURAT IZIN -->
-                                            <p>
-                                                <button class="btn btn-primary col-lg-12 btn-info" type="button"
-                                                    data-toggle="collapse" data-target="#Bagian8" aria-expanded="false"
-                                                    aria-controls="Bagian8">
-                                                    SURAT IZIN
-                                                </button>
-                                            </p>
-                                            <br>
-                                            <div class="collapse mb-4" id="Bagian8">
-                                                <div class="card card-body">
-                                                    <div class="table-responsive">
-                                                        <br><br>
-                                                        <div class="pdf-container">
-                                                            <embed
-                                                                src="<?= base_url() ?>Vsu_suratizin/approval/<?= $user ?>"
-                                                                type="application/pdf" width="100%" height="600px">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- VSU PENGALAMAN -->
-                                            <p>
-                                                <button class="btn btn-primary col-lg-12 btn-info" type="button"
-                                                    data-toggle="collapse" data-target="#Bagian9" aria-expanded="false"
-                                                    aria-controls="Bagian9">
-                                                    PENGALAMAN
-                                                </button>
-                                            </p>
-                                            <br>
-                                            <div class="collapse mb-4" id="Bagian9">
-                                                <div class="card card-body">
-                                                    <div class="table-responsive">
-                                                        <br><br>
-                                                        <div class="pdf-container">
-                                                            <embed
-                                                                src="<?= base_url() ?>Vsu_pengalaman/approval/<?= $user ?>"
-                                                                type="application/pdf" width="100%" height="600px">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <form action="<?= base_url() ?>berkas/biodata_sehat" name="myForm" method="POST"
-                                        enctype="multipart/form-data">
-
-                                        <button class="btn btn-primary col-lg-12 btn-info" type="button"
-                                            data-toggle="collapse" data-target="#Bagian10" aria-expanded="false"
-                                            aria-controls="Bagian8">
-                                            SURAT KETERANGAN SEHAT
-                                        </button>
-                                        </p> <br>
-
-                                        <div class="collapse mb-4" id="Bagian10">
-                                            <div class="card card-body">
-                                                <div class="table-responsive">
-
-                                                    <?php if (!empty($sehat)): ?>
-                                                        <?php foreach ($sehat as $s): ?>
-
-                                                            <!-- Surat Keterangan Sehat -->
-                                                            <div class="form-group"><label>Surat Keterangan Sehat</label>
-                                                                <div class="custom-file">
-                                                                    <input class="custom-file-input" type="file"
-                                                                        id="surat_keterangan" name="surat_keterangan"
-                                                                        onchange="VerifyLampiran(event)"
-                                                                        accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                                                    <label class="custom-file-label" for="customFile"
-                                                                        id="fileketerangan">Pilih
-                                                                        File</label>
-                                                                </div><br><br>
-                                                                <div class="pdf-container">
-                                                                    <?php if ($s->surat_keterangan != ''): ?>
-                                                                        <embed
-                                                                            src="<?= base_url() ?>assets/upload/berkas_sehat/<?= $s->surat_keterangan ?>"
-                                                                            type="application/pdf" width="100%" height="600px">
-                                                                    <?php else: ?>
-                                                                        <p>File Surat Keterangan Sehat Tidak Tersedia.</p>
-                                                                    <?php endif; ?>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            <?php endforeach; ?>
-                                        <?php else: ?>
                                     </div>
                                 </div>
-                        </div>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <div class="card-body">
+                                <div class="col-lg-12">
+                                <?php endif; ?>
 
+                                <!-- IJAZAH -->
+                                <p>
+                                    <button class="btn btn-primary col-lg-12 btn-info" type="button"
+                                        data-toggle="collapse" data-target="#Bagian2" aria-expanded="false"
+                                        aria-controls="Bagian2">
+                                        IJAZAH
+                                    </button>
+                                </p>
+                                <br>
+                                <div class="collapse mb-4" id="Bagian2">
+                                    <div class="card card-body">
+                                        <div class="table-responsive">
+                                            <br><br>
+                                            <div class="pdf-container">
+                                                <embed src="<?= base_url() ?>berkas/approval_ijazah/<?= $user ?>"
+                                                    type="application/pdf" width="100%" height="600px">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                        <?php foreach ($approve as $a): ?>
-                            <div class="form-group">
-                                <label>ID Approve</label>
-                                <input class="form-control" name="id" type="text" value="<?= $a->id ?>" readonly>
+                                <!-- SURAT IZIN -->
+                                <p>
+                                    <button class="btn btn-primary col-lg-12 btn-info" type="button"
+                                        data-toggle="collapse" data-target="#Bagian3" aria-expanded="false"
+                                        aria-controls="Bagian3">
+                                        SURAT IZIN
+                                    </button>
+                                </p>
+                                <br>
+                                <div class="collapse mb-4" id="Bagian3">
+                                    <div class="card card-body">
+                                        <div class="table-responsive">
+                                            <br><br>
+                                            <div class="pdf-container">
+                                                <embed src="<?= base_url() ?>SuratIzin/approval/<?= $user ?>"
+                                                    type="application/pdf" width="100%" height="600px">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SERTIFIKASI PELATIHAN KERJA -->
+                                <p>
+                                    <button class="btn btn-primary col-lg-12 btn-info" type="button"
+                                        data-toggle="collapse" data-target="#Bagian4" aria-expanded="false"
+                                        aria-controls="Bagian4">
+                                        SERTIFIKASI PELATIHAN KERJA
+                                    </button>
+                                </p>
+                                <br>
+                                <div class="collapse mb-4" id="Bagian4">
+                                    <div class="card card-body">
+                                        <div class="table-responsive">
+                                            <br><br>
+                                            <div class="pdf-container">
+                                                <embed src="<?= base_url() ?>Pelatihan/approval/<?= $user ?>"
+                                                    type="application/pdf" width="100%" height="600px">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- PENGALAMAN KERJA -->
+                                <p>
+                                    <button class="btn btn-primary col-lg-12 btn-info" type="button"
+                                        data-toggle="collapse" data-target="#Bagian5" aria-expanded="false"
+                                        aria-controls="Bagian5">
+                                        PENGALAMAN KERJA
+                                    </button>
+                                </p>
+                                <br>
+                                <div class="collapse mb-4" id="Bagian5">
+                                    <div class="card card-body">
+                                        <div class="table-responsive">
+                                            <br><br>
+                                            <div class="pdf-container">
+                                                <embed src="<?= base_url() ?>Pengalaman/approval/<?= $user ?>"
+                                                    type="application/pdf" width="100%" height="600px">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p>
+                                    <button class="btn btn-primary col-lg-12 btn-info" type="button"
+                                        data-toggle="collapse" data-target="#Bagian6" aria-expanded="false"
+                                        aria-controls="Bagian6">
+                                        VERIFIKASI SUMBER UTAMA <i>(PRIMARY SOURCE VERIFICATION)</i>
+                                    </button>
+                                </p>
+                                <br>
+                                <div class="collapse mb-4" id="Bagian6">
+                                    <div class="card card-body">
+                                        <!-- VSU PENDIDIKAN -->
+                                        <p>
+                                            <button class="btn btn-primary col-lg-12 btn-info" type="button"
+                                                data-toggle="collapse" data-target="#Bagian7" aria-expanded="false"
+                                                aria-controls="Bagian7">
+                                                PENDIDIKAN
+                                            </button>
+                                        </p>
+                                        <br>
+                                        <div class="collapse mb-4" id="Bagian7">
+                                            <div class="card card-body">
+                                                <div class="table-responsive">
+                                                    <br><br>
+                                                    <div class="pdf-container">
+                                                        <embed
+                                                            src="<?= base_url() ?>Vsu_pendidikan/approval/<?= $user ?>"
+                                                            type="application/pdf" width="100%" height="600px">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- VSU SURAT IZIN -->
+                                        <p>
+                                            <button class="btn btn-primary col-lg-12 btn-info" type="button"
+                                                data-toggle="collapse" data-target="#Bagian8" aria-expanded="false"
+                                                aria-controls="Bagian8">
+                                                SURAT IZIN
+                                            </button>
+                                        </p>
+                                        <br>
+                                        <div class="collapse mb-4" id="Bagian8">
+                                            <div class="card card-body">
+                                                <div class="table-responsive">
+                                                    <br><br>
+                                                    <div class="pdf-container">
+                                                        <embed
+                                                            src="<?= base_url() ?>Vsu_suratizin/approval/<?= $user ?>"
+                                                            type="application/pdf" width="100%" height="600px">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- VSU PENGALAMAN -->
+                                        <p>
+                                            <button class="btn btn-primary col-lg-12 btn-info" type="button"
+                                                data-toggle="collapse" data-target="#Bagian9" aria-expanded="false"
+                                                aria-controls="Bagian9">
+                                                PENGALAMAN
+                                            </button>
+                                        </p>
+                                        <br>
+                                        <div class="collapse mb-4" id="Bagian9">
+                                            <div class="card card-body">
+                                                <div class="table-responsive">
+                                                    <br><br>
+                                                    <div class="pdf-container">
+                                                        <embed
+                                                            src="<?= base_url() ?>Vsu_pengalaman/approval/<?= $user ?>"
+                                                            type="application/pdf" width="100%" height="600px">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-primary col-lg-12 btn-info" type="button" data-toggle="collapse"
+                                    data-target="#Bagian10" aria-expanded="false" aria-controls="Bagian8">
+                                    SURAT KETERANGAN SEHAT
+                                </button>
+                                </p> <br>
+
+                                <div class="collapse mb-4" id="Bagian10">
+                                    <div class="card card-body">
+                                        <div class="table-responsive">
+
+                                            <?php if (!empty($sehat)): ?>
+                                                <?php foreach ($sehat as $s): ?>
+
+                                                    <!-- Surat Keterangan Sehat -->
+                                                    <div class="form-group"><label>Formulir Data Karyawan</label>
+                                                        <div class="pdf-container">
+                                                            <?php if ($s->surat_keterangan != ''): ?>
+                                                                <embed
+                                                                    src="<?= base_url() ?>assets/upload/berkas_sehat/<?= $s->surat_keterangan ?>"
+                                                                    type="application/pdf" width="100%" height="600px">
+                                                            <?php else: ?>
+                                                                <p>File Data Karyawan Tidak Tersedia.</p>
+                                                            <?php endif; ?>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                </div>
                             </div>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php foreach ($approve as $a): ?>
+                        <form id="approve-form" action="<?= base_url() ?>Approve_pengajuan/proses_diterima/<?= $a->id ?>"
+                            method="post">
+                            <input type="hidden" name="id" value="<?= $a->id ?>">
                             <div class="form-group">
                                 <label>Catatan</label>
                                 <input class="form-control" name="catatan" type="text" value="<?= $a->catatan ?>">
                             </div>
-
                             <div class="text-right">
-                                <a href="<?= base_url() ?>Approve_pengajuan/proses_diterima/<?= $a->id ?>"
-                                    class="btn btn-success btn-md col-lg-2,9 btn-icon-split ml-auto">
-                                    <span class="text text-white">Diterima</span>
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-save"></i>
-                                    </span>
-                                </a>
-
-                                <a href="<?= base_url() ?>Approve_pengajuan/tolak/<?= $a->id ?>"
-                                    class="btn btn-danger btn-md col-lg-2,9 btn-icon-split ml-auto">
-                                    <span class="text text-white">Ditolak</span>
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-save"></i>
-                                    </span>
-                                </a>
+                                <input type="submit" class="btn btn-success btn-md col-lg-2,9 btn-icon-split ml-auto"
+                                    value="Diterima" onclick="submitForm('approve-form')">
                             </div>
-                        <?php endforeach; ?>
                         </form>
-                    <?php endif; ?>
+                    <?php endforeach; ?>
+
                 </div>
             </div>
         </div>
@@ -455,5 +424,13 @@
         var file = event.target.files[0];
         console.log("Uploaded file:", file);
 
+    }
+
+    function submitForm(formId) {
+        // Mengubah nilai status menjadi "Diterima"
+        document.getElementById(formId).status.value = "Diterima";
+
+        // Mengirimkan form
+        document.getElementById(formId).submit();
     }
 </script>
