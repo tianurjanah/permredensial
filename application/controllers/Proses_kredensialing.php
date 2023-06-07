@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Approve_pengajuan extends CI_Controller
+class proses_kredensialing extends CI_Controller
 {
 
     public function __construct()
@@ -25,11 +25,11 @@ class Approve_pengajuan extends CI_Controller
         $data['pengajuan_idx'] = $this->kompetensi_model->ambil_pengajuan_index()->result();
 
         $this->load->view('templates/header', $data);
-        $this->load->view('approve_pengajuan/index', $data);
+        $this->load->view('proses_kredensialing/index', $data);
         $this->load->view('templates/footer');
     }
 
-    public function index_jadwal()
+    public function index_kredensialing()
     {
         $data['title'] = 'Approve Pengajuan Kredensial';
         $data['user'] = $this->user_model->data()->result();
@@ -50,7 +50,7 @@ class Approve_pengajuan extends CI_Controller
         $data['approve'] = $this->approve_pengajuan_model->ambil_data_approve($id)->result();
 
         $this->load->view('templates/header', $data);
-        $this->load->view('approve_pengajuan/approve');
+        $this->load->view('proses_kredensialing/ubah');
         $this->load->view('templates/footer');
     }
 
@@ -66,7 +66,7 @@ class Approve_pengajuan extends CI_Controller
         $data['user'] = $this->user_model->data_mitra();
 
         $this->load->view('templates/header', $data);
-        $this->load->view('jadwal_kredensial/approve');
+        $this->load->view('jadwal_kredensialing/approve');
         $this->load->view('templates/footer');
     }
 

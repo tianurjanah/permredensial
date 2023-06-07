@@ -369,7 +369,25 @@ if (!$this->session->has_userdata('login_session')){
                 <?php else: ?>
             <li class="nav-item">
                 <?php endif; ?>
-                <a class="nav-link" href="<?= base_url() ?>jadwal_kredensial/index">
+                <a class="nav-link" href="<?= base_url() ?>Approve_pengajuan/index">
+                    <i class="fas fa-fw fa-boxes"></i>
+                    <span>Proses Approve Dokumen</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
+            <?php endif; ?>
+
+            <?php if($this->session->userdata('login_session')['level'] == 'Mitra Bestari'): ?>
+
+            <div class="sidebar-heading">
+                Berkas Pengajuan
+            </div>
+            <?php if($title == 'Proses Kredensialing'): ?>
+            <li class="nav-item active">
+                <?php else: ?>
+            <li class="nav-item">
+                <?php endif; ?>
+                <a class="nav-link" href="<?= base_url() ?>Proses_kredensialing/index">
                     <i class="fas fa-fw fa-boxes"></i>
                     <span>Proses Kredensialing</span>
                 </a>
