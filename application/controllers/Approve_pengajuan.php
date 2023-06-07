@@ -130,7 +130,7 @@ class Approve_pengajuan extends CI_Controller
         </script>
         ');
 
-        redirect('jadwal_kredensialing/index');
+        redirect('approve_pengajuan/index_jadwal');
     }
 
 

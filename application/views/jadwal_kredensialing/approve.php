@@ -29,15 +29,15 @@
 
                                 <!-- MITRA BESTARI -->
                                 <?php if (count($user) > 0): ?>
-                                    <div class="form-group"><label>Mita Bestari</label>
-                                        <select name="kategori" class="form-control chosen">
+                                    <div class="form-group"><label>Mitra Bestari</label>
+                                        <select name="mitra" class="form-control chosen">
                                             <?php foreach ($user as $u): ?>
 
                                                 <?php if ($a->user == $u->id_user): ?>
-                                                    <option value="<?= $u->id_user ?>.<?= $u->nama ?>" selected>
+                                                    <option value="<?= $u->nama ?>" selected>
                                                         <?= $u->nama ?></option>
                                                 <?php else: ?>
-                                                    <option value="<?= $u->id_user ?>.<?= $u->nama ?>">
+                                                    <option value="<?= $u->nama ?>">
                                                         <?= $u->nama ?></option>
                                                 <?php endif; ?>
 
@@ -64,7 +64,7 @@
                                                     </td>
                                                     <td>
                                                         <input class="form-control" name="pukul" id="pukul" type="time"
-                                                            placeholder="" value="<?= $a->pukul ?>">
+                                                            value="<?= $a->pukul ?>">
                                                     </td>
                                                 </div>
                                             </tr>

@@ -59,7 +59,7 @@
                                     <td onclick="detail('<?= $pj->id ?>')"><?= $pj->id ?></td>
                                     <td onclick="detail('<?= $pj->id ?>')"><?= $pj->kategori ?></td>
                                     <td onclick="detail('<?= $pj->id ?>')"><?= $pj->tgl_pengajuan ?></td>
-                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->nama_mitra ?></td>
+                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->mitra ?></td>
                                     <td onclick="detail('<?= $pj->id ?>')"><?= $pj->status ?></td>
                                     <td onclick="detail('<?= $pj->id ?>')"><?= $pj->catatan ?></td>
                                     <td>
