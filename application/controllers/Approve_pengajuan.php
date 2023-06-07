@@ -14,7 +14,7 @@ class Approve_pengajuan extends CI_Controller
         $this->load->model('user_model');
         $this->load->model('kompetensi_model');
         $this->load->model('berkas_model');
-        // $this->load->model('approve_pengajuan_model');
+        $this->load->model('approve_pengajuan_model');
 
     }
     public function index()
@@ -28,7 +28,6 @@ class Approve_pengajuan extends CI_Controller
         $this->load->view('approve_pengajuan/index', $data);
         $this->load->view('templates/footer');
     }
-
     public function ubah($id)
     {
         $data['title'] = 'Approve Pengajuan';
@@ -36,6 +35,7 @@ class Approve_pengajuan extends CI_Controller
         $data['user'] = $id;
         $data['biodata'] = $this->berkas_model->ambil_data_barang($id)->result();
         $data['sehat'] = $this->berkas_model->ambil_data_sehat($id)->result();
+        $data['approve'] = $this->approve_pengajuan_model->ambil_data_approve($id)->result();
 
         $this->load->view('templates/header', $data);
         $this->load->view('approve_pengajuan/approve');
@@ -43,115 +43,86 @@ class Approve_pengajuan extends CI_Controller
     }
 
 
-    public function proses_tambah_pendidikan()
+    // public function proses_tambah_pendidikan()
+    // {
+    //     $config['upload_path'] = './assets/upload/berkas_vsu_pendidikan/';
+    //     $config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF||tiff|TIFF|PDF|pdf';
+
+    //     $surat_balasan = $_FILES['balasan']['name'];
+    //     $error = $_FILES['balasan']['error'];
+
+    //     $this->load->library('upload', $config);
+
+    //     $id = $this->vsu_pendidikan_model->buat_kode();
+    //     $user = $this->session->userdata('login_session')['id_user'];
+    //     $institusi = $this->input->post('institusi');
+    //     $pengiriman = $this->input->post('pengiriman');
+
+    //     if ($surat_balasan == '') {
+    //         $surat_balasan = 'cloud.png';
+    //     } else {
+    //         if (!$this->upload->do_upload('balasan')) {
+    //             $error = $this->upload->display_errors();
+    //             redirect('vsu_pendidikan/form_tambah');
+    //         } else {
+    //             $data = array('balasan' => $this->upload->data());
+    //             $nama_file_balasan = $data['balasan']['file_name'];
+    //             $ganti_balasan = str_replace(" ", "_", $nama_file_balasan);
+    //         }
+    //     }
+
+    //     $data = array(
+    //         'nomor_pendidikanvsu' => $id,
+    //         'id_user' => $user,
+    //         'nama_institusi' => $institusi,
+    //         'tgl_pengiriman' => $pengiriman,
+    //         'balasan' => $ganti_balasan
+    //     );
+
+    //     $this->vsu_pendidikan_model->tambah_data($data, 'vsu_pendidikan');
+    //     $this->session->set_flashdata('Pesan', '
+    // 	<script>
+    // 	$(document).ready(function() {
+    // 		swal.fire({
+    // 			title: "Berhasil ditambahkan!",
+    // 			icon: "success",
+    // 			confirmButtonColor: "#4e73df",
+    // 		});
+    // 	});
+    // 	</script>
+    // 	');
+
+    //     redirect('vsu_pendidikan/index');
+    // }
+    public function proses_diterima($id)
     {
-        $config['upload_path'] = './assets/upload/berkas_vsu_pendidikan/';
-        $config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF||tiff|TIFF|PDF|pdf';
-
-        $surat_balasan = $_FILES['balasan']['name'];
-        $error = $_FILES['balasan']['error'];
-
-        $this->load->library('upload', $config);
-
-        $id = $this->vsu_pendidikan_model->buat_kode();
-        $user = $this->session->userdata('login_session')['id_user'];
-        $institusi = $this->input->post('institusi');
-        $pengiriman = $this->input->post('pengiriman');
-
-        if ($surat_balasan == '') {
-            $surat_balasan = 'cloud.png';
-        } else {
-            if (!$this->upload->do_upload('balasan')) {
-                $error = $this->upload->display_errors();
-                redirect('vsu_pendidikan/form_tambah');
-            } else {
-                $data = array('balasan' => $this->upload->data());
-                $nama_file_balasan = $data['balasan']['file_name'];
-                $ganti_balasan = str_replace(" ", "_", $nama_file_balasan);
-            }
-        }
+        $kode = $id;
+        $status = 'Diterima';
+        $catatan = $this->input->post('catatan');
 
         $data = array(
-            'nomor_pendidikanvsu' => $id,
-            'id_user' => $user,
-            'nama_institusi' => $institusi,
-            'tgl_pengiriman' => $pengiriman,
-            'balasan' => $ganti_balasan
-        );
-
-        $this->vsu_pendidikan_model->tambah_data($data, 'vsu_pendidikan');
-        $this->session->set_flashdata('Pesan', '
-		<script>
-		$(document).ready(function() {
-			swal.fire({
-				title: "Berhasil ditambahkan!",
-				icon: "success",
-				confirmButtonColor: "#4e73df",
-			});
-		});
-		</script>
-		');
-
-        redirect('vsu_pendidikan/index');
-    }
-    public function proses_ubah_pendidikan()
-    {
-        $config['upload_path'] = './assets/upload/berkas_vsu_pendidikan/';
-        $config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF||tiff|TIFF|PDF|pdf';
-
-        $namaFile_balasan = $_FILES['balasan']['name'];
-        $error = $_FILES['balasan']['error'];
-
-        $this->load->library('upload', $config);
-
-        $id = $this->input->post('nomor_pendidikanvsu');
-        $user = $this->session->userdata('login_session')['id_user'];
-        $institusi = $this->input->post('nama_institusi');
-        $pengiriman = $this->input->post('tgl_pengiriman');
-        $where = array(
-            'nomor_pendidikanvsu' => $id
-        );
-        $balasanlama = $this->vsu_pendidikan_model->ambilbalasan($where);
-
-        if (!empty($_FILES['balasan']['name'])) {
-            if (!$this->upload->do_upload('balasan')) {
-                $error = $this->upload->display_errors();
-                redirect('vsu_pendidikan/index');
-            } else {
-                $databalasan = array('balasan' => $this->upload->data());
-                $nama_file_balasan = $databalasan['balasan']['file_name'];
-                $gantibalasan = str_replace(" ", "_", $nama_file_balasan);
-                $data['balasan'] = $gantibalasan;
-            }
-        } else {
-            $gantibalasan = $balasanlama;
-        }
-
-        $data = array(
-            'nomor_pendidikanvsu' => $id,
-            'id_user' => $user,
-            'nama_institusi' => $institusi,
-            'tgl_pengiriman' => $pengiriman,
-            'balasan' => $gantibalasan
+            'status' => $status,
+            'catatan' => $catatan
         );
 
         $where = array(
-            'nomor_pendidikanvsu' => $id
+            'id' => $kode
         );
 
-        $this->vsu_pendidikan_model->ubah_data($where, $data, 'vsu_pendidikan');
+        $this->approve_pengajuan_model->ubah_terima($where, $data, 'pengajuan_index');
         $this->session->set_flashdata('Pesan', '
-		<script>
-		$(document).ready(function() {
-			swal.fire({
-				title: "Berhasil diubah!",
-				icon: "success",
-				confirmButtonColor: "#4e73df",
-			});
-		});
-		</script>
-		');
-        redirect('vsu_pendidikan/index');
+        <script>
+        $(document).ready(function() {
+            swal.fire({
+                title: "Berhasil diubah!",
+                icon: "success",
+                confirmButtonColor: "#4e73df",
+            });
+        });
+        </script>
+        ');
+
+        redirect('approve_pengajuan/index');
     }
 
     public function hapus_pendidikan($nomor)

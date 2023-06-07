@@ -56,11 +56,17 @@
                             foreach ($pengajuan_idx as $pj): ?>
                                 <tr>
                                     <td onclick="detail('<?= $pj->id ?>')"><?= $no++ ?>.</td>
-                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->id_user ?></td>
+                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->id ?></td>
                                     <td onclick="detail('<?= $pj->id ?>')"><?= $pj->kategori ?></td>
                                     <td onclick="detail('<?= $pj->id ?>')"><?= $pj->tgl_pengajuan ?></td>
                                     <td onclick="detail('<?= $pj->id ?>')"><?= $pj->nama_mitra ?></td>
-                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->status ?></td>
+                                    <td>
+                                        <?php if ($pj->status == 'Diterima'): ?>
+                                            Diterima
+                                        <?php elseif ($pj->status == 'Ditolak'): ?>
+                                            Ditolak
+                                        <?php endif; ?>
+                                    </td>
                                     <td onclick="detail('<?= $pj->id ?>')"><?= $pj->catatan ?></td>
                                     <td>
                                         <center>
@@ -73,6 +79,7 @@
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
+
                     </table>
                 </div>
             </div>
