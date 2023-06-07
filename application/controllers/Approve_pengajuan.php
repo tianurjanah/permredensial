@@ -96,24 +96,23 @@ class Approve_pengajuan extends CI_Controller
     // }
 
     public function proses_diterima($id)
-{
-    $kode = $this->input->post('id');
-    $catatan = $this->input->post('catatan');
+    {
+        $kode = $this->input->post('id');
+        $catatan = $this->input->post('catatan');
+        $status = 'Disetujui';
 
-    $data = array(
-        'status' => 'Diterima',
-        'catatan' => $catatan
-    );
+        $data = array(
+            'status' => $status,
+            'catatan' => $catatan
+        );
 
-    $where = array(
-        'id' => $kode
-    );
+        $where = array(
+            'id' => $kode
+        );
 
-    $this->approve_pengajuan_model->ubah_terima($where, $data, 'pengajuan_index');
+        $this->approve_pengajuan_model->ubah_terima($where, $data, 'pengajuan_index');
 
         // Perubahan untuk mengubah value "Diterima" pada kolom status
-        $this->db->where('id', $kode);
-        $this->db->update('pengajuan_index');
 
         $this->session->set_flashdata('Pesan', '
         <script>

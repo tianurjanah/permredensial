@@ -282,7 +282,7 @@
                     <?php endif; ?>
 
                     <?php foreach ($approve as $a): ?>
-                        <form id="approve-form" action="<?= base_url() ?>Approve_pengajuan/proses_diterima/<?= $a->id ?>"
+                        <form id="approve-form" action="<?= base_url() ?>approve_pengajuan/proses_diterima/<?= $a->id ?>"
                             method="post">
                             <input type="hidden" name="id" value="<?= $a->id ?>">
                             <div class="form-group">

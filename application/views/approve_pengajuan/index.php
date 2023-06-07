@@ -60,13 +60,7 @@
                                     <td onclick="detail('<?= $pj->id ?>')"><?= $pj->kategori ?></td>
                                     <td onclick="detail('<?= $pj->id ?>')"><?= $pj->tgl_pengajuan ?></td>
                                     <td onclick="detail('<?= $pj->id ?>')"><?= $pj->nama_mitra ?></td>
-                                    <td>
-                                        <?php if ($pj->status == 'Diterima'): ?>
-                                            Diterima
-                                        <?php elseif ($pj->status == 'Ditolak'): ?>
-                                            Ditolak
-                                        <?php endif; ?>
-                                    </td>
+                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->status ?></td>
                                     <td onclick="detail('<?= $pj->id ?>')"><?= $pj->catatan ?></td>
                                     <td>
                                         <center>
