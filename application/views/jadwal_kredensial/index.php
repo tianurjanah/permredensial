@@ -48,6 +48,8 @@
                                 <th>Mitra Bestari</th>
                                 <th>Status</th>
                                 <th>Catatan</th>
+                                <th>Jadwal</th>
+                                <th>Jam</th>
                                 <th width="1%">Aksi</th>
                             </tr>
                         </thead>
@@ -62,6 +64,8 @@
                                     <td onclick="detail('<?= $pj->id ?>')"><?= $pj->mitra ?></td>
                                     <td onclick="detail('<?= $pj->id ?>')"><?= $pj->status ?></td>
                                     <td onclick="detail('<?= $pj->id ?>')"><?= $pj->catatan ?></td>
+                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->jadwal ?></td>
+                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->pukul ?></td>
                                     <td>
                                         <center>
                                             <a href="<?= base_url() ?>Approve_pengajuan/ubah_jadwal/<?= $pj->id_user ?>"
