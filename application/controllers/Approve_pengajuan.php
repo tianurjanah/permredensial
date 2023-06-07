@@ -98,8 +98,8 @@ class Approve_pengajuan extends CI_Controller
     public function proses_diterima($id)
     {
         $kode = $this->input->post('id');
+        $status = $this->input->post('status');
         $catatan = $this->input->post('catatan');
-        $status = 'Disetujui';
 
         $data = array(
             'status' => $status,
@@ -111,9 +111,6 @@ class Approve_pengajuan extends CI_Controller
         );
 
         $this->approve_pengajuan_model->ubah_terima($where, $data, 'pengajuan_index');
-
-        // Perubahan untuk mengubah value "Diterima" pada kolom status
-
         $this->session->set_flashdata('Pesan', '
         <script>
         $(document).ready(function() {
