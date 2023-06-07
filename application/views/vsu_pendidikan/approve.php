@@ -39,7 +39,6 @@
                                 <th>Nama Institusi</th>
                                 <th>Tanggal Pengiriman</th>
                                 <th>Surat Balasan</th>
-                                <th width="1%">Aksi</th>
                             </tr>
                         </thead>
                         <tbody style="cursor:pointer;" id="tbody">
@@ -59,19 +58,6 @@
                                         <?php else: ?>
                                             <p>File Surat Lampiran Tidak Tersedia.</p>
                                         <?php endif; ?>
-                                    </td>
-
-                                    <td>
-                                        <center>
-                                            <a href="<?= base_url() ?>Vsu_pendidikan/ubah_pendidikan/<?= $vp->nomor_pendidikanvsu ?>"
-                                                class="btn btn-circle btn-success btn-sm">
-                                                <i class="fas fa-pen"></i>
-                                            </a>
-                                            <a href="<?= base_url() ?>Vsu_pendidikan/hapus_pendidikan/<?= $vp->nomor_pendidikanvsu ?>"
-                                                class="btn btn-circle btn-danger btn-sm">
-                                                <i class="fas fa-trash"></i>
-                                            </a>
-                                        </center>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

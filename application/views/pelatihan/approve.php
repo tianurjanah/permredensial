@@ -38,31 +38,17 @@
                                 <th>Nama Pelatihan</th>
                                 <th>Masa Berlaku Sertifikat</th>
                                 <th>Institusi Penyelenggara</th>
-                                <th width="1%">Aksi</th>
                             </tr>
                         </thead>
                         <tbody style="cursor:pointer;" id="tbody">
                             <?php $no = 1;
                             foreach ($pelatihan as $p): ?>
-                            <tr>
-                                <td onclick="detail('<?= $p->id_pelatihan ?>')"><?= $p->id_pelatihan ?></td>
-                                <td onclick="detail('<?= $p->id_pelatihan ?>')"><?= $p->nama_pelatihan ?></td>
-                                <td onclick="detail('<?= $p->id_pelatihan ?>')"><?= $p->berlaku ?></td>
-                                <td onclick="detail('<?= $p->id_pelatihan ?>')"><?= $p->penyelenggara ?></td>
-
-                                <td>
-                                    <center>
-                                        <a href="<?= base_url() ?>Pelatihan/ubah_pelatihan/<?= $p->id_pelatihan ?>"
-                                            class="btn btn-circle btn-success btn-sm">
-                                            <i class="fas fa-pen"></i>
-                                        </a>
-                                        <a href="<?= base_url() ?>Pelatihan/proses_hapus_pelatihan/<?= $p->id_pelatihan ?>"
-                                            class="btn btn-circle btn-danger btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
-                                    </center>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td onclick="detail('<?= $p->id_pelatihan ?>')"><?= $p->id_pelatihan ?></td>
+                                    <td onclick="detail('<?= $p->id_pelatihan ?>')"><?= $p->nama_pelatihan ?></td>
+                                    <td onclick="detail('<?= $p->id_pelatihan ?>')"><?= $p->berlaku ?></td>
+                                    <td onclick="detail('<?= $p->id_pelatihan ?>')"><?= $p->penyelenggara ?></td>
+                                </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
@@ -81,55 +67,55 @@
 <script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
 <script src="<?= base_url(); ?>assets/js/pengguna.js"></script>
 <?php if ($this->session->flashdata('Pesan')): ?>
-<?= $this->session->flashdata('Pesan') ?>
+    <?= $this->session->flashdata('Pesan') ?>
 <?php else: ?>
-<script>
-$(document).ready(function() {
-    let timerInterval
-    Swal.fire({
-        title: 'Memuat...',
-        timer: 1000,
-        onBeforeOpen: () => {
-            Swal.showLoading()
-        },
-        onClose: () => {
-            clearInterval(timerInterval)
-        }
-    }).then((result) => {
-
-    })
-});
-</script>
-<?php endif; ?>
-<script>
-function konfirmasi(nomor) {
-    var base_url = $('#baseurl').val();
-
-    swal.fire({
-        title: "Hapus Data ini?",
-        icon: "warning",
-        closeOnClickOutside: false,
-        showCancelButton: true,
-        confirmButtonText: 'Iya',
-        confirmButtonColor: '#4e73df',
-        cancelButtonText: 'Batal',
-        cancelButtonColor: '#d33',
-    }).then((result) => {
-        if (result.value) {
+    <script>
+        $(document).ready(function () {
+            let timerInterval
             Swal.fire({
-                title: "Memuat...",
+                title: 'Memuat...',
+                timer: 1000,
                 onBeforeOpen: () => {
                     Swal.showLoading()
                 },
-                timer: 1000,
-                showConfirmButton: false,
-            }).then(
-                function() {
-                    window.location.href = base_url + "pelatihan/proses_hapus_pelatihan/" + nomor;
+                onClose: () => {
+                    clearInterval(timerInterval)
                 }
-            );
-        }
-    });
+            }).then((result) => {
 
-}
+            })
+        });
+    </script>
+<?php endif; ?>
+<script>
+    function konfirmasi(nomor) {
+        var base_url = $('#baseurl').val();
+
+        swal.fire({
+            title: "Hapus Data ini?",
+            icon: "warning",
+            closeOnClickOutside: false,
+            showCancelButton: true,
+            confirmButtonText: 'Iya',
+            confirmButtonColor: '#4e73df',
+            cancelButtonText: 'Batal',
+            cancelButtonColor: '#d33',
+        }).then((result) => {
+            if (result.value) {
+                Swal.fire({
+                    title: "Memuat...",
+                    onBeforeOpen: () => {
+                        Swal.showLoading()
+                    },
+                    timer: 1000,
+                    showConfirmButton: false,
+                }).then(
+                    function () {
+                        window.location.href = base_url + "pelatihan/proses_hapus_pelatihan/" + nomor;
+                    }
+                );
+            }
+        });
+
+    }
 </script>

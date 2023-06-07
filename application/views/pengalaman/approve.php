@@ -39,7 +39,6 @@
                                 <th>Masa Kerja Dari</th>
                                 <th>Masa Kerja Sampai</th>
                                 <th>Surat Referensi</th>
-                                <th width="1%">Aksi</th>
                             </tr>
                         </thead>
                         <tbody style="cursor:pointer;" id="tbody">
@@ -59,16 +58,6 @@
                                         <?php else: ?>
                                             <p>File Surat Lampiran Tidak Tersedia.</p>
                                         <?php endif; ?>
-                                    </td>
-                                    <td>
-                                        <a href="<?= base_url() ?>pengalaman/ubah_pengalaman/<?= $p->id_pengalaman ?>"
-                                            class="btn btn-circle btn-success btn-sm">
-                                            <i class="fas fa-pen"></i>
-                                        </a>
-                                        <a href="<?= base_url() ?>Pengalaman/hapus_pengalaman/<?= $p->id_pengalaman ?>"
-                                            class="btn btn-circle btn-danger btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
