@@ -23,7 +23,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Jadwal Pengajuan Kredensial</h1>
+        <h1 class="h3 mb-0 text-gray-800">Jadwal Kredensialing</h1>
         <!-- <a href="<?= base_url() ?>approve_pengajuan/tambah_pendidikan" class="btn btn-sm btn-primary btn-icon-split">
             <span class="text text-white">Approve Pengajuan</span>
             <span class="icon text-white-50">
@@ -42,42 +42,39 @@
                         <thead>
                             <tr>
                                 <th width="1%">ID</th>
-                                <th>Nama Institusi</th>
-                                <th>Tanggal Pengiriman</th>
-                                <th>Surat Balasan</th>
+                                <th>Nama Pengaju</th>
+                                <th>Kategori</th>
+                                <th>Tanggal Pengajuan</th>
+                                <th>Mitra Bestari</th>
+                                <th>Status</th>
+                                <th>Catatan</th>
                                 <th width="1%">Aksi</th>
                             </tr>
-                            <!-- </thead>
+                        </thead>
                         <tbody style="cursor:pointer;" id="tbody">
                             <?php $no = 1;
-                            foreach ($vsu_pendidikan as $vp): ?>
-                            <tr>
-                                <td onclick="detail('<?= $vp->nomor_pendidikanvsu ?>')"><?= $vp->nomor_pendidikanvsu ?>
-                                </td>
-                                <td onclick="detail('<?= $vp->nomor_pendidikanvsu ?>')"><?= $vp->nama_institusi ?></td>
-                                <td onclick="detail('<?= $vp->nomor_pendidikanvsu ?>')"><?= $vp->tgl_pengiriman ?></td>
-                                <td>
-                                    <?php if ($vp->balasan != ''): ?> <a
-                                        href="<?= base_url('assets/upload/berkas_vsu_pendidikan/' . $vp->balasan) ?>"
-                                        target="_blank">
-                                        <i class="fa fa-file-pdf"></i> Lihat Berkas
-                                    </a>
-                                    <?php else: ?>
-                                    <p>File Surat Lampiran Tidak Tersedia.</p>
-                                    <?php endif; ?>
-                                </td>
-
-                                <td>
-                                    <center>
-                                        <a href="<?= base_url() ?>Vsu_pendidikan/ubah_pendidikan/<?= $vp->nomor_pendidikanvsu ?>"
-                                            class="btn btn-circle btn-success btn-sm">
-                                            <i class="fas fa-pen"></i>
-                                        </a>
-                                    </center>
-                                </td>
-                            </tr>
+                            foreach ($pengajuan_idx as $pj): ?>
+                                <tr>
+                                    <td onclick="detail('<?= $pj->id ?>')"><?= $no++ ?>.</td>
+                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->id_user ?></td>
+                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->kategori ?></td>
+                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->tgl_pengajuan ?></td>
+                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->mitra ?></td>
+                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->status ?></td>
+                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->catatan ?></td>
+                                    <td>
+                                        <center>
+                                            <a href="<?= base_url() ?>Approve_pengajuan/ubah_jadwal/<?= $pj->id_user ?>"
+                                                class="btn btn-circle btn-success btn-sm">
+                                                <i class="fas fa-pen"></i>
+                                            </a>
+                                        </center>
+                                    </td>
+                                </tr>
                             <?php endforeach; ?>
-                        </tbody> -->
+                        </tbody>
+
+
                     </table>
                 </div>
             </div>

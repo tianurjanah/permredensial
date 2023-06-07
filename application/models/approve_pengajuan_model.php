@@ -16,6 +16,11 @@ class approve_pengajuan_model extends ci_model
         $this->db->where($where);
         $this->db->update($table, $data);
     }
+    public function ubah_jadwal($where, $data, $table)
+    {
+        $this->db->where($where);
+        $this->db->update($table, $data);
+    }
     public function detail_data_approve($where, $table)
     {
         return $this->db->get_where($table, $where);

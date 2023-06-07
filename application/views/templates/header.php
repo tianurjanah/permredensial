@@ -291,7 +291,7 @@ if (!$this->session->has_userdata('login_session')){
                 <?php else: ?>
             <li class="nav-item">
                 <?php endif; ?>
-                <a class="nav-link" href="<?= base_url() ?>jadwal_kredensialing/index">
+                <a class="nav-link" href="<?= base_url() ?>Approve_pengajuan/index_jadwal">
                     <i class="fas fa-fw fa-boxes"></i>
                     <span>Jadwal Kredensialing</span>
                 </a>

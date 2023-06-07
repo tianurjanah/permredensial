@@ -28,6 +28,18 @@ class Approve_pengajuan extends CI_Controller
         $this->load->view('approve_pengajuan/index', $data);
         $this->load->view('templates/footer');
     }
+
+    public function index_jadwal()
+    {
+        $data['title'] = 'Approve Pengajuan Kredensial';
+        $data['user'] = $this->user_model->data()->result();
+        $data['pengajuan_idx'] = $this->kompetensi_model->ambil_pengajuan_index()->result();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('jadwal_kredensialing/index', $data);
+        $this->load->view('templates/footer');
+    }
+
     public function ubah($id)
     {
         $data['title'] = 'Approve Pengajuan';
@@ -42,58 +54,21 @@ class Approve_pengajuan extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function ubah_jadwal($id)
+    {
+        $data['title'] = 'Approve Pengajuan';
+        $where = array('id_user' => $id);
 
-    // public function proses_tambah_pendidikan()
-    // {
-    //     $config['upload_path'] = './assets/upload/berkas_vsu_pendidikan/';
-    //     $config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF||tiff|TIFF|PDF|pdf';
+        $data['user'] = $id;
 
-    //     $surat_balasan = $_FILES['balasan']['name'];
-    //     $error = $_FILES['balasan']['error'];
+        $data['approve'] = $this->approve_pengajuan_model->ambil_data_approve($id)->result();
 
-    //     $this->load->library('upload', $config);
+        $data['user'] = $this->user_model->data_mitra();
 
-    //     $id = $this->vsu_pendidikan_model->buat_kode();
-    //     $user = $this->session->userdata('login_session')['id_user'];
-    //     $institusi = $this->input->post('institusi');
-    //     $pengiriman = $this->input->post('pengiriman');
-
-    //     if ($surat_balasan == '') {
-    //         $surat_balasan = 'cloud.png';
-    //     } else {
-    //         if (!$this->upload->do_upload('balasan')) {
-    //             $error = $this->upload->display_errors();
-    //             redirect('vsu_pendidikan/form_tambah');
-    //         } else {
-    //             $data = array('balasan' => $this->upload->data());
-    //             $nama_file_balasan = $data['balasan']['file_name'];
-    //             $ganti_balasan = str_replace(" ", "_", $nama_file_balasan);
-    //         }
-    //     }
-
-    //     $data = array(
-    //         'nomor_pendidikanvsu' => $id,
-    //         'id_user' => $user,
-    //         'nama_institusi' => $institusi,
-    //         'tgl_pengiriman' => $pengiriman,
-    //         'balasan' => $ganti_balasan
-    //     );
-
-    //     $this->vsu_pendidikan_model->tambah_data($data, 'vsu_pendidikan');
-    //     $this->session->set_flashdata('Pesan', '
-    // 	<script>
-    // 	$(document).ready(function() {
-    // 		swal.fire({
-    // 			title: "Berhasil ditambahkan!",
-    // 			icon: "success",
-    // 			confirmButtonColor: "#4e73df",
-    // 		});
-    // 	});
-    // 	</script>
-    // 	');
-
-    //     redirect('vsu_pendidikan/index');
-    // }
+        $this->load->view('templates/header', $data);
+        $this->load->view('jadwal_kredensialing/approve');
+        $this->load->view('templates/footer');
+    }
 
     public function proses_diterima($id)
     {
@@ -124,6 +99,38 @@ class Approve_pengajuan extends CI_Controller
         ');
 
         redirect('approve_pengajuan/index');
+    }
+    public function proses_jadwal($id)
+    {
+        $kode = $this->input->post('id');
+        $mitra = $this->input->post('mitra');
+        $jadwal = $this->input->post('jadwal');
+        $pukul = $this->input->post('pukul');
+
+        $data = array(
+            'mitra' => $mitra,
+            'jadwal' => $jadwal,
+            'pukul' => $pukul
+        );
+
+        $where = array(
+            'id' => $kode
+        );
+
+        $this->approve_pengajuan_model->ubah_terima($where, $data, 'pengajuan_index');
+        $this->session->set_flashdata('Pesan', '
+        <script>
+        $(document).ready(function() {
+            swal.fire({
+                title: "Berhasil diubah!",
+                icon: "success",
+                confirmButtonColor: "#4e73df",
+            });
+        });
+        </script>
+        ');
+
+        redirect('jadwal_kredensialing/index');
     }
 
 

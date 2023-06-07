@@ -86,5 +86,14 @@ class user_model extends ci_model
       $this->db->update($table, $data);
 
    }
+   function data_mitra()
+   {
+      $this->db->select('*');
+      $this->db->from('user');
+      $this->db->where('level', 'Mitra Bestari');
+      $this->db->order_by('nama', 'ASC');
+      return $this->db->get()->result();
+   }
+
 
 }
