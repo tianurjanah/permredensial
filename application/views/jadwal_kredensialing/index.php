@@ -54,23 +54,23 @@
                         <tbody style="cursor:pointer;" id="tbody">
                             <?php $no = 1;
                             foreach ($pengajuan_idx as $pj): ?>
-                                <tr>
-                                    <td onclick="detail('<?= $pj->id ?>')"><?= $no++ ?>.</td>
-                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->id_user ?></td>
-                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->kategori ?></td>
-                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->tgl_pengajuan ?></td>
-                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->mitra ?></td>
-                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->status ?></td>
-                                    <td onclick="detail('<?= $pj->id ?>')"><?= $pj->catatan ?></td>
-                                    <td>
-                                        <center>
-                                            <a href="<?= base_url() ?>Approve_pengajuan/ubah_jadwal/<?= $pj->id_user ?>"
-                                                class="btn btn-circle btn-success btn-sm">
-                                                <i class="fas fa-pen"></i>
-                                            </a>
-                                        </center>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td onclick="detail('<?= $pj->id ?>')"><?= $no++ ?>.</td>
+                                <td onclick="detail('<?= $pj->id ?>')"><?= $pj->id_user ?></td>
+                                <td onclick="detail('<?= $pj->id ?>')"><?= $pj->kategori ?></td>
+                                <td onclick="detail('<?= $pj->id ?>')"><?= $pj->tgl_pengajuan ?></td>
+                                <td onclick="detail('<?= $pj->id ?>')"><?= $pj->nama_mitra ?></td>
+                                <td onclick="detail('<?= $pj->id ?>')"><?= $pj->status ?></td>
+                                <td onclick="detail('<?= $pj->id ?>')"><?= $pj->catatan ?></td>
+                                <td>
+                                    <center>
+                                        <a href="<?= base_url() ?>Approve_pengajuan/ubah_jadwal/<?= $pj->id_user ?>"
+                                            class="btn btn-circle btn-success btn-sm">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
+                                    </center>
+                                </td>
+                            </tr>
                             <?php endforeach; ?>
                         </tbody>
 
@@ -93,55 +93,55 @@
 <script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
 <script src="<?= base_url(); ?>assets/js/pengguna.js"></script>
 <?php if ($this->session->flashdata('Pesan')): ?>
-    <?= $this->session->flashdata('Pesan') ?>
+<?= $this->session->flashdata('Pesan') ?>
 <?php else: ?>
-    <script>
-        $(document).ready(function () {
-            let timerInterval
+<script>
+$(document).ready(function() {
+    let timerInterval
+    Swal.fire({
+        title: 'Memuat...',
+        timer: 1000,
+        onBeforeOpen: () => {
+            Swal.showLoading()
+        },
+        onClose: () => {
+            clearInterval(timerInterval)
+        }
+    }).then((result) => {
+
+    })
+});
+</script>
+<?php endif; ?>
+<script>
+function konfirmasi(nomor) {
+    var base_url = $('#baseurl').val();
+
+    swal.fire({
+        title: "Hapus Data ini?",
+        icon: "warning",
+        closeOnClickOutside: false,
+        showCancelButton: true,
+        confirmButtonText: 'Iya',
+        confirmButtonColor: '#4e73df',
+        cancelButtonText: 'Batal',
+        cancelButtonColor: '#d33',
+    }).then((result) => {
+        if (result.value) {
             Swal.fire({
-                title: 'Memuat...',
-                timer: 1000,
+                title: "Memuat...",
                 onBeforeOpen: () => {
                     Swal.showLoading()
                 },
-                onClose: () => {
-                    clearInterval(timerInterval)
+                timer: 1000,
+                showConfirmButton: false,
+            }).then(
+                function() {
+                    window.location.href = base_url + "Vsu_pendidikan/proses_hapus_pendidikan/" + nomor;
                 }
-            }).then((result) => {
+            );
+        }
+    });
 
-            })
-        });
-    </script>
-<?php endif; ?>
-<script>
-    function konfirmasi(nomor) {
-        var base_url = $('#baseurl').val();
-
-        swal.fire({
-            title: "Hapus Data ini?",
-            icon: "warning",
-            closeOnClickOutside: false,
-            showCancelButton: true,
-            confirmButtonText: 'Iya',
-            confirmButtonColor: '#4e73df',
-            cancelButtonText: 'Batal',
-            cancelButtonColor: '#d33',
-        }).then((result) => {
-            if (result.value) {
-                Swal.fire({
-                    title: "Memuat...",
-                    onBeforeOpen: () => {
-                        Swal.showLoading()
-                    },
-                    timer: 1000,
-                    showConfirmButton: false,
-                }).then(
-                    function () {
-                        window.location.href = base_url + "Vsu_pendidikan/proses_hapus_pendidikan/" + nomor;
-                    }
-                );
-            }
-        });
-
-    }
+}
 </script>
