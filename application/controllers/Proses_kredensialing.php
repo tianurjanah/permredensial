@@ -24,6 +24,38 @@ class proses_kredensialing extends CI_Controller
 
         $data['pengajuan_idx'] = $this->kompetensi_model->ambil_pengajuan_index()->result();
 
+        $data['bagian1'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian2'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian3'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian4'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian5'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian6'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian7'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian8'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian9'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian9a'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian9b'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian9c'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian9d'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian9e'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian9f'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian9g'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian9h'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian9i'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian9j'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian10kmr'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian10smltr'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian10cts'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian10re'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian10mvre'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian10brkt'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian10tps2'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian10crh'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian10ikkk'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian10mnjl'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian11'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+        $data['bagian12'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
+
         $this->load->view('templates/header', $data);
         $this->load->view('proses_kredensialing/index', $data);
         $this->load->view('templates/footer');
