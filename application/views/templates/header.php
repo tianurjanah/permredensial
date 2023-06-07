@@ -369,7 +369,7 @@ if (!$this->session->has_userdata('login_session')){
                 <?php else: ?>
             <li class="nav-item">
                 <?php endif; ?>
-                <a class="nav-link" href="<?= base_url() ?>pengajuan/index">
+                <a class="nav-link" href="<?= base_url() ?>proses_kredensialing/index">
                     <i class="fas fa-fw fa-boxes"></i>
                     <span>Proses Kredensialing</span>
                 </a>
