@@ -68,7 +68,7 @@
                                 <td onclick="detail('<?= $pj->id ?>')"><?= $pj->pukul ?></td>
                                 <td>
                                     <center>
-                                        <a href="<?= base_url() ?>Proses_kredensialing/ubah/<?= $pj->id_user ?>"
+                                        <a href="<?= base_url() ?>Proses_kredensialing/ubah/<?= $pj->id ?>"
                                             class="btn btn-circle btn-success btn-sm">
                                             <i class="fas fa-pen"></i>
                                         </a>

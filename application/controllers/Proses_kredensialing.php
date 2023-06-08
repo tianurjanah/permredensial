@@ -15,6 +15,7 @@ class proses_kredensialing extends CI_Controller
         $this->load->model('kompetensi_model');
         $this->load->model('berkas_model');
         $this->load->model('approve_pengajuan_model');
+        $this->load->model('proses_pengajuan_model');
 
     }
     public function index()
@@ -24,37 +25,6 @@ class proses_kredensialing extends CI_Controller
 
         $data['pengajuan_idx'] = $this->kompetensi_model->ambil_pengajuan_index()->result();
 
-        $data['bagian1'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian2'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian3'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian4'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian5'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian6'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian7'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian8'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian9'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian9a'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian9b'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian9c'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian9d'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian9e'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian9f'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian9g'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian9h'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian9i'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian9j'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian10kmr'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian10smltr'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian10cts'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian10re'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian10mvre'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian10brkt'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian10tps2'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian10crh'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian10ikkk'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian10mnjl'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian11'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
-        $data['bagian12'] = $this->approve_pengajuan_model->getKompetensiData($id_pengajuan_index);
 
         $this->load->view('templates/header', $data);
         $this->load->view('proses_kredensialing/index', $data);
@@ -72,14 +42,42 @@ class proses_kredensialing extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function ubah($id)
+    public function ubah($id_pengajuan_index)
     {
         $data['title'] = 'Approve Pengajuan';
-        $where = array('id_user' => $id);
-        $data['user'] = $id;
-        $data['biodata'] = $this->berkas_model->ambil_data_barang($id)->result();
-        $data['sehat'] = $this->berkas_model->ambil_data_sehat($id)->result();
-        $data['approve'] = $this->approve_pengajuan_model->ambil_data_approve($id)->result();
+
+        $data['bagian1'] = $this->proses_pengajuan_model->getKompetensiDatab1($id_pengajuan_index);
+        $data['bagian2'] = $this->proses_pengajuan_model->getKompetensiDatab2($id_pengajuan_index);
+        $data['bagian3'] = $this->proses_pengajuan_model->getKompetensiDatab3($id_pengajuan_index);
+        $data['bagian4'] = $this->proses_pengajuan_model->getKompetensiDatab4($id_pengajuan_index);
+        $data['bagian5'] = $this->proses_pengajuan_model->getKompetensiDatab5($id_pengajuan_index);
+        $data['bagian6'] = $this->proses_pengajuan_model->getKompetensiDatab6($id_pengajuan_index);
+        $data['bagian7'] = $this->proses_pengajuan_model->getKompetensiDatab7($id_pengajuan_index);
+        $data['bagian8'] = $this->proses_pengajuan_model->getKompetensiDatab8($id_pengajuan_index);
+        $data['bagian9'] = $this->proses_pengajuan_model->getKompetensiDatab9($id_pengajuan_index);
+        $data['bagian9a'] = $this->proses_pengajuan_model->getKompetensiDatab9a($id_pengajuan_index);
+        $data['bagian9b'] = $this->proses_pengajuan_model->getKompetensiDatab9b($id_pengajuan_index);
+        $data['bagian9c'] = $this->proses_pengajuan_model->getKompetensiDatab9c($id_pengajuan_index);
+        $data['bagian9d'] = $this->proses_pengajuan_model->getKompetensiDatab9d($id_pengajuan_index);
+        $data['bagian9e'] = $this->proses_pengajuan_model->getKompetensiDatab9e($id_pengajuan_index);
+        $data['bagian9f'] = $this->proses_pengajuan_model->getKompetensiDatab9f($id_pengajuan_index);
+        $data['bagian9g'] = $this->proses_pengajuan_model->getKompetensiDatab9g($id_pengajuan_index);
+        $data['bagian9h'] = $this->proses_pengajuan_model->getKompetensiDatab9h($id_pengajuan_index);
+        $data['bagian9i'] = $this->proses_pengajuan_model->getKompetensiDatab9i($id_pengajuan_index);
+        $data['bagian9j'] = $this->proses_pengajuan_model->getKompetensiDatab9j($id_pengajuan_index);
+        $data['bagian10kmr'] = $this->proses_pengajuan_model->getKompetensiDatab10kmr($id_pengajuan_index);
+        $data['bagian10smltr'] = $this->proses_pengajuan_model->getKompetensiDatab10smltr($id_pengajuan_index);
+        $data['bagian10cts'] = $this->proses_pengajuan_model->getKompetensiDatab10cts($id_pengajuan_index);
+        $data['bagian10re'] = $this->proses_pengajuan_model->getKompetensiDatab10re($id_pengajuan_index);
+        $data['bagian10mvre'] = $this->proses_pengajuan_model->getKompetensiDatab10mvre($id_pengajuan_index);
+        $data['bagian10brkt'] = $this->proses_pengajuan_model->getKompetensiDatab10brkt($id_pengajuan_index);
+        $data['bagian10tps2'] = $this->proses_pengajuan_model->getKompetensiDatab10tps2($id_pengajuan_index);
+        $data['bagian10crh'] = $this->proses_pengajuan_model->getKompetensiDatab10crh($id_pengajuan_index);
+        $data['bagian10ikkk'] = $this->proses_pengajuan_model->getKompetensiDatab10ikkk($id_pengajuan_index);
+        $data['bagian10mnjl'] = $this->proses_pengajuan_model->getKompetensiDatab10mnjl($id_pengajuan_index);
+        $data['bagian11'] = $this->proses_pengajuan_model->getKompetensiDatab11($id_pengajuan_index);
+        $data['bagian12'] = $this->proses_pengajuan_model->getKompetensiDatab12($id_pengajuan_index);
+
 
         $this->load->view('templates/header', $data);
         $this->load->view('proses_kredensialing/ubah');
