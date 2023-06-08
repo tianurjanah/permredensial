@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-require_once('assets/dompdf/autoload.inc.php');
+require 'vendor/autoload.php';
+// require_once('assets/dompdf/autoload.inc.php');
 use Dompdf\Dompdf;
 
 class Mypdf
@@ -21,7 +21,7 @@ class Mypdf
     $dompdf->setPaper($paper, $orientation);
     // Render the HTML as PDF
     $dompdf->render();
-      $dompdf->stream( $filename . ".pdf", array("Attachment" => FALSE));
+    $dompdf->stream( $filename . ".pdf", array("Attachment" => FALSE));
 
   }
 

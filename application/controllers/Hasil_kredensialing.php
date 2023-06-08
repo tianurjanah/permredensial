@@ -12,17 +12,34 @@ class Hasil_kredensialing extends CI_Controller
         $this->load->library('pagination');
         $this->load->helper('cookie');
         $this->load->model('user_model');
-        // $this->load->model('approve_pengajuan_model');
+        $this->load->model('approve_pengajuan_model');
+        $this->load->model('hasil_kredensialing_model');
 
     }
     public function index()
     {
         $data['title'] = 'Hasil Kredensialing';
-        $data['user'] = $this->user_model->data()->result();
+        $data['pengajuan_index'] = $this->hasil_kredensialing_model->data();
 
         $this->load->view('templates/header', $data);
         $this->load->view('hasil_kredensialing/index');
         $this->load->view('templates/footer');
+    }
+
+    public function approve($id)
+    {
+        $this->load->library('Dompdf');
+        $user = $this->session->userdata('login_session')['username'];
+
+        // $data = array(
+        //     'title' => 'Laporan Barang',
+        //     'barang' => $this->barang_model->datalaporan()->result(),
+        //     'date' => date('d - M - Y'),
+        //     'user' => $user
+        // );
+
+        $html = $this->load->view('pdf/berita_acara');
+        generate_pdf($html,'Berita Acara');
     }
 
     public function tambah_pendidikan()

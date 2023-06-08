@@ -16,6 +16,12 @@ class proses_pengajuan_model extends ci_model
         $this->db->where($where);
         $this->db->update($table, $data);
     }
+    public function ubah_pengajuan($id, $id_kb, $data)
+    {
+        $this->db->where('id_pengajuan_index', $id);
+        $this->db->where('id_kompetensi', $id_kb);
+        $this->db->update('pengajuan', $data);
+    }
     public function ubah_jadwal($where, $data, $table)
     {
         $this->db->where($where);
@@ -37,7 +43,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab1($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi ');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', 'b1');
@@ -49,7 +55,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab2($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '2');
@@ -61,7 +67,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab3($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '3');
@@ -73,7 +79,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab4($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '4');
@@ -85,7 +91,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab5($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '5');
@@ -97,7 +103,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab6($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '6');
@@ -109,7 +115,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab7($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '7');
@@ -121,7 +127,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab8($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '8');
@@ -133,7 +139,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab9($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '9');
@@ -145,7 +151,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab9a($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '9a');
@@ -157,7 +163,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab9b($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '9b');
@@ -169,7 +175,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab9c($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '9c');
@@ -181,7 +187,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab9d($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '9d');
@@ -193,7 +199,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab9e($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '9e');
@@ -205,7 +211,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab9f($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '9f');
@@ -217,7 +223,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab9g($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '9g');
@@ -229,7 +235,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab9h($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '9h');
@@ -241,7 +247,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab9i($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '9i');
@@ -253,7 +259,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab9j($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '9j');
@@ -265,7 +271,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab10kmr($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '10kmr');
@@ -277,7 +283,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab10smltr($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '10smltr');
@@ -289,7 +295,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab10cts($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '10cts');
@@ -301,7 +307,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab10re($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '10re');
@@ -313,7 +319,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab10mvre($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '10mvre');
@@ -325,7 +331,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab10brkt($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '10brkt');
@@ -337,7 +343,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab10tps2($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '10tps2');
@@ -349,7 +355,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab10crh($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '10crh');
@@ -361,7 +367,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab10ikkk($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '10ikkk');
@@ -373,7 +379,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab10mnjl($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '10mnjl');
@@ -385,7 +391,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab11($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '11');
@@ -397,7 +403,7 @@ class proses_pengajuan_model extends ci_model
 
     public function getKompetensiDatab12($id_pengajuan_index)
     {
-        $this->db->select('kompetensi.bagian, kompetensi.kompetensi');
+        $this->db->select('kompetensi.id_kb, kompetensi.bagian, kompetensi.kompetensi');
         $this->db->from('kompetensi');
         $this->db->join('pengajuan', 'pengajuan.id_kompetensi = kompetensi.id_kb', 'right');
         $this->db->where('kompetensi.bagian', '12');

@@ -4,7 +4,7 @@ function pdf_create($html, $filename=”, $paper, $orientation, $stream=TRUE)
 {
     require_once("dompdf/dompdf_config.inc.php");
  
-    $dompdf = new DOMPDF();
+    $dompdf = new Dompdf();
     $dompdf->set_paper($paper,$orientation);
     $dompdf->load_html($html);
     $dompdf->render();
