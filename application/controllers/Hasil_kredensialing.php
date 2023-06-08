@@ -26,20 +26,21 @@ class Hasil_kredensialing extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function approve($id)
+    public function approve()
     {
-        $this->load->library('Dompdf');
-        $user = $this->session->userdata('login_session')['username'];
+        // Load the TCPDF library
+        $this->load->library('pdf');
 
-        // $data = array(
-        //     'title' => 'Laporan Barang',
-        //     'barang' => $this->barang_model->datalaporan()->result(),
-        //     'date' => date('d - M - Y'),
-        //     'user' => $user
-        // );
+        // Create a new PDF instance
+        $pdf = new TCPDF();
 
-        $html = $this->load->view('pdf/berita_acara');
-        generate_pdf($html,'Berita Acara');
+        // Set PDF content and formatting
+        $pdf->AddPage();
+        $pdf->writeHTML($this->load->view('pdf/berita_acara', [], true), true, false, true, false, '');
+
+        // Output the PDF to the browser
+        ob_end_clean();
+        $pdf->Output('Berita_Acara.pdf', 'I');
     }
 
     public function tambah_pendidikan()
