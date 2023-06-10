@@ -21,7 +21,7 @@
 
 <div class="container-fluid">
 
-    <form action="<?= base_url() ?>Pengajuan/proses_tambah_pendidikan" name="myForm" method="POST"
+    <form action="<?= base_url() ?>vsu_pendidikan/proses_tambah_pendidikan" name="myForm" method="POST"
         enctype="multipart/form-data" onsubmit="return validateForm()">
 
 
@@ -119,8 +119,6 @@
 
             })
         });
-
-
     </script>
 <?php endif; ?>
 <script>
