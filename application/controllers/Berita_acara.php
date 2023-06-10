@@ -12,7 +12,7 @@ class Berita_acara extends CI_Controller
         $this->load->library('pagination');
         $this->load->helper('cookie');
         $this->load->model('user_model');
-        // $this->load->model('approve_pengajuan_model');
+        $this->load->model('berita_acara_model');
 
     }
     public function index()
@@ -29,13 +29,14 @@ class Berita_acara extends CI_Controller
     {
         // Load the TCPDF library
         $this->load->library('pdf');
-
+        // $id = $this->session->userdata('login_session')['nama'];
+        $data['mitra'] = $this->berita_acara_model->data();
         // Create a new PDF instance
         $pdf = new TCPDF();
 
         // Set PDF content and formatting
         $pdf->AddPage();
-        $pdf->writeHTML($this->load->view('berita_acara/berita_acara', [], true), true, false, true, false, '');
+        $pdf->writeHTML($this->load->view('berita_acara/berita_acara', $data, true), true, false, true, false, '');
 
         // Output the PDF to the browser
         ob_end_clean();
@@ -48,118 +49,51 @@ class Berita_acara extends CI_Controller
         $this->load->view('vsu_pendidikan/form_tambah');
 
     }
-    public function ubah_pendidikan($id)
+    public function ubah_acara($id)
     {
-        $data['title'] = 'UBAH PENDIDIKAN';
+        $data['title'] = 'UBAH ACARA';
         // Menampilkan data berdasarkan id
         // Mengambil data ijazah
-        $data['pendidikan'] = $this->vsu_pendidikan_model->ambil_detail_pendidikan($id)->result();
+        $data['acara'] = $this->berita_acara_model->ambil_detail_acara($id)->result();
+
 
         // Memastikan variabel $ijazah terdefinisi
         if (empty($data['pendidikan'])) {
             $data['pendidikan'] = array();
         }
 
-        $this->load->view('vsu_pendidikan/form_ubah', $data);
+        $this->load->view('templates/header', $data);
+        $this->load->view('berita_acara/form_ubah');
+        $this->load->view('templates/footer');
     }
 
-    public function proses_tambah_pendidikan()
+    public function proses_ubah_acara()
     {
-        $config['upload_path'] = './assets/upload/berkas_vsu_pendidikan/';
-        $config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF||tiff|TIFF|PDF|pdf';
 
-        $surat_balasan = $_FILES['balasan']['name'];
-        $error = $_FILES['balasan']['error'];
-
-        $this->load->library('upload', $config);
-
-        $id = $this->vsu_pendidikan_model->buat_kode();
-        $user = $this->session->userdata('login_session')['id_user'];
-        $institusi = $this->input->post('institusi');
-        $pengiriman = $this->input->post('pengiriman');
-
-        if ($surat_balasan == '') {
-            $surat_balasan = 'cloud.png';
-        } else {
-            if (!$this->upload->do_upload('balasan')) {
-                $error = $this->upload->display_errors();
-                redirect('vsu_pendidikan/form_tambah');
-            } else {
-                $data = array('balasan' => $this->upload->data());
-                $nama_file_balasan = $data['balasan']['file_name'];
-                $ganti_balasan = str_replace(" ", "_", $nama_file_balasan);
-            }
-        }
-
-        $data = array(
-            'nomor_pendidikanvsu' => $id,
-            'id_user' => $user,
-            'nama_institusi' => $institusi,
-            'tgl_pengiriman' => $pengiriman,
-            'balasan' => $ganti_balasan
-        );
-
-        $this->vsu_pendidikan_model->tambah_data($data, 'vsu_pendidikan');
-        $this->session->set_flashdata('Pesan', '
-		<script>
-		$(document).ready(function() {
-			swal.fire({
-				title: "Berhasil ditambahkan!",
-				icon: "success",
-				confirmButtonColor: "#4e73df",
-			});
-		});
-		</script>
-		');
-
-        redirect('vsu_pendidikan/index');
-    }
-    public function proses_ubah_pendidikan()
-    {
-        $config['upload_path'] = './assets/upload/berkas_vsu_pendidikan/';
-        $config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF||tiff|TIFF|PDF|pdf';
-
-        $namaFile_balasan = $_FILES['balasan']['name'];
-        $error = $_FILES['balasan']['error'];
-
-        $this->load->library('upload', $config);
-
-        $id = $this->input->post('nomor_pendidikanvsu');
-        $user = $this->session->userdata('login_session')['id_user'];
-        $institusi = $this->input->post('nama_institusi');
-        $pengiriman = $this->input->post('tgl_pengiriman');
+        $id = $this->input->post('id_berita');
+        $komite = $this->session->userdata('login_session')['id_user'];
+        $mitra = $this->input->post('mitra');
+        $tanggal = $this->input->post('tanggal');
+        $nama = $this->input->post('nama');
+        $status = $this->input->post('status');
         $where = array(
-            'nomor_pendidikanvsu' => $id
+            'id_berita' => $id
         );
-        $balasanlama = $this->vsu_pendidikan_model->ambilbalasan($where);
-
-        if (!empty($_FILES['balasan']['name'])) {
-            if (!$this->upload->do_upload('balasan')) {
-                $error = $this->upload->display_errors();
-                redirect('vsu_pendidikan/index');
-            } else {
-                $databalasan = array('balasan' => $this->upload->data());
-                $nama_file_balasan = $databalasan['balasan']['file_name'];
-                $gantibalasan = str_replace(" ", "_", $nama_file_balasan);
-                $data['balasan'] = $gantibalasan;
-            }
-        } else {
-            $gantibalasan = $balasanlama;
-        }
 
         $data = array(
-            'nomor_pendidikanvsu' => $id,
-            'id_user' => $user,
-            'nama_institusi' => $institusi,
-            'tgl_pengiriman' => $pengiriman,
-            'balasan' => $gantibalasan
+            'id_berita' => $id,
+            'mitra' => $komite,
+            'nama_institusi' => $mitra,
+            'tanggal' => $tanggal,
+            'nama' => $nama,
+            'status' => $status
         );
 
         $where = array(
-            'nomor_pendidikanvsu' => $id
+            'id_berita' => $id
         );
 
-        $this->vsu_pendidikan_model->ubah_data($where, $data, 'vsu_pendidikan');
+        $this->berita_acara_model->ubah_data($where, $data, 'berita_acara');
         $this->session->set_flashdata('Pesan', '
 		<script>
 		$(document).ready(function() {
@@ -171,7 +105,7 @@ class Berita_acara extends CI_Controller
 		});
 		</script>
 		');
-        redirect('vsu_pendidikan/index');
+        redirect('berita_acara/berita_acara');
     }
 
     public function hapus_pendidikan($nomor)
@@ -197,6 +131,39 @@ class Berita_acara extends CI_Controller
             </script>
         ');
         redirect('vsu_pendidikan/index');
+    }
+    public function getHari($date)
+    {
+        // Mengubah format tanggal ke dalam format "Y-m-d" jika diperlukan
+        $formattedDate = date('Y-m-d', strtotime($date));
+
+        // Mendapatkan nama hari berdasarkan tanggal yang dimasukkan
+        $dayOfWeek = date('l', strtotime($formattedDate));
+
+        if ($dayOfWeek == 'Monday') {
+            $hari = 'Senin';
+        } else if ($dayOfWeek == 'Tuesday') {
+            $hari = 'Selasa';
+        } else if ($dayOfWeek == 'Wednesday') {
+            $hari = 'Rabu';
+        } else if ($dayOfWeek == 'Thursday') {
+            $hari = 'Kamis';
+        } else if ($dayOfWeek == 'Friday') {
+            $hari = 'Jum`at';
+        } else if ($dayOfWeek == 'Saturday') {
+            $hari = 'Sabtu';
+        } else if ($dayOfWeek == 'Sunday') {
+            $hari = 'Minggu';
+        }
+
+        return $hari;
+    }
+    public function getTanggal($date)
+    {
+        // Mengubah format tanggal menjadi "d-m-Y" (misalnya: 27-05-2023)
+        $formattedDate = date('d-m-Y', strtotime($date));
+
+        return $formattedDate;
     }
 
 

@@ -1,9 +1,11 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Barang extends CI_Controller {
+class Barang extends CI_Controller
+{
 
-	public function __construct() {
+	public function __construct()
+	{
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->helper('download');
@@ -13,8 +15,8 @@ class Barang extends CI_Controller {
 		$this->load->model('perawatan_model');
 		$this->load->model('kategori_model');
 		$this->load->model('user_model');
-  	}
-	
+	}
+
 	public function index()
 	{
 		$data['title'] = 'Pengajuan';
@@ -23,14 +25,14 @@ class Barang extends CI_Controller {
 		$this->load->view('templates/header', $data);
 		$this->load->view('barang/index', '$data');
 		$this->load->view('templates/footer');
-    }
+	}
 
-    public function tambah($id)
+	public function tambah($id)
 	{
-        $data['title'] = 'Pengajuan';
-		 //data untuk select
+		$data['title'] = 'Pengajuan';
+		//data untuk select
 		$data['kategori'] = $this->kategori_model->data()->result();
-		$where = array('id_user'=>$id);
+		$where = array('id_user' => $id);
 		$data['user'] = $this->user_model->detail_data($where, 'user')->result();
 
 		$data['ktg'] = $this->kategori_model->data()->num_rows();
@@ -39,15 +41,15 @@ class Barang extends CI_Controller {
 		// $this->load->view('barang/form_tambah');
 		$this->load->view('barang/formulir');
 		$this->load->view('templates/footer');
-    }
-    
-    public function ubah($id)
-	{
-        $data['title'] = 'Pengajuan';
+	}
 
-        //menampilkan data berdasarkan id
-		$where = array('id_barang'=>$id);
-        $data['data'] = $this->barang_model->detail_data($where, 'barang')->result();
+	public function ubah($id)
+	{
+		$data['title'] = 'Pengajuan';
+
+		//menampilkan data berdasarkan id
+		$where = array('id_barang' => $id);
+		$data['data'] = $this->barang_model->detail_data($where, 'barang')->result();
 
 		$data['kategori'] = $this->kategori_model->data()->result();
 
@@ -62,8 +64,8 @@ class Barang extends CI_Controller {
 	{
 		$data['title'] = 'Pengajuan';
 
-        //menampilkan data berdasarkan id
-        $data['data'] = $this->barang_model->detail_join($id, 'barang')->result();
+		//menampilkan data berdasarkan id
+		$data['data'] = $this->barang_model->detail_join($id, 'barang')->result();
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('barang/detail');
@@ -73,45 +75,44 @@ class Barang extends CI_Controller {
 	public function proses_tambah()
 	{
 
-        $config['upload_path']   = './assets/upload/barang/';
+		$config['upload_path'] = './assets/upload/barang/';
 		$config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF||tiff|TIFF|PDF|pdf';
-	
+
 		$namaFile = $_FILES['photo']['name'];
 		$error = $_FILES['photo']['error'];
 
-        $this->load->library('upload', $config);
-        
-		$kode = 	$this->barang_model->buat_kode();
+		$this->load->library('upload', $config);
+
+		$kode = $this->barang_model->buat_kode();
 		$nama_barang = $this->input->post('nama_barang');
-		$posisi = 	$this->input->post('posisi');
-		$kategori = 	$this->input->post('kategori');
-        $tanggal_masuk = 	$this->input->post('tanggal_masuk');
-        
-        if ($namaFile == '') {
-            $ganti = 'box.png';
-        }else{
-          	if (! $this->upload->do_upload('photo')) {
+		$posisi = $this->input->post('posisi');
+		$kategori = $this->input->post('kategori');
+		$tanggal_masuk = $this->input->post('tanggal_masuk');
+
+		if ($namaFile == '') {
+			$ganti = 'box.png';
+		} else {
+			if (!$this->upload->do_upload('photo')) {
 				$error = $this->upload->display_errors();
 				redirect('barang/tambah');
-          	}
-          	else{
+			} else {
 				$data = array('photo' => $this->upload->data());
-				$nama_file= $data['photo']['file_name'];
+				$nama_file = $data['photo']['file_name'];
 				$ganti = str_replace(" ", "_", $nama_file);
-          	}
-      	}
-		
-		$data=array(
-			'id_barang'=> $kode,
-			'nama_barang'=> $nama_barang,
-			'posisi'=> $posisi,
-			'kategori'=> $kategori,
-            'tanggal_masuk'=> $tanggal_masuk,
-            'foto' => $ganti
+			}
+		}
+
+		$data = array(
+			'id_barang' => $kode,
+			'nama_barang' => $nama_barang,
+			'posisi' => $posisi,
+			'kategori' => $kategori,
+			'tanggal_masuk' => $tanggal_masuk,
+			'foto' => $ganti
 		);
 
 		$this->barang_model->tambah_data($data, 'barang');
-		$this->session->set_flashdata('Pesan','
+		$this->session->set_flashdata('Pesan', '
 		<script>
 		$(document).ready(function() {
 			swal.fire({
@@ -122,63 +123,62 @@ class Barang extends CI_Controller {
 		});
 		</script>
 		');
-    	redirect('barang');
+		redirect('barang');
 	}
 
 	public function proses_ubah()
 	{
-        $config['upload_path']   = './assets/upload/barang/';
+		$config['upload_path'] = './assets/upload/barang/';
 		$config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF||tiff|TIFF|PDF|pdf';
-	
+
 		$namaFile = $_FILES['photo']['name'];
 		$error = $_FILES['photo']['error'];
 
-        $this->load->library('upload', $config);
-        
-		$kode =    $this->input->post('idbarang');
-		$barang =  $this->input->post('barang');
-		$posisi = 	$this->input->post('posisi');
-		$kategori = 	$this->input->post('kategori');
-        $tanggal_masuk = 	$this->input->post('tanggal_masuk');
-        
-        $flama = $this->input->post('fotoLama');
+		$this->load->library('upload', $config);
 
-        if ($namaFile == '') {
-            $ganti = $flama;
-        }else{
-          	if (! $this->upload->do_upload('photo')) {
+		$kode = $this->input->post('idbarang');
+		$barang = $this->input->post('barang');
+		$posisi = $this->input->post('posisi');
+		$kategori = $this->input->post('kategori');
+		$tanggal_masuk = $this->input->post('tanggal_masuk');
+
+		$flama = $this->input->post('fotoLama');
+
+		if ($namaFile == '') {
+			$ganti = $flama;
+		} else {
+			if (!$this->upload->do_upload('photo')) {
 				$error = $this->upload->display_errors();
-				redirect('barang/ubah/'.$kode);
-			}
-			else{
-  
+				redirect('barang/ubah/' . $kode);
+			} else {
+
 				$data = array('photo' => $this->upload->data());
-				$nama_file= $data['photo']['file_name'];
+				$nama_file = $data['photo']['file_name'];
 				$ganti = str_replace(" ", "_", $nama_file);
-				if($flama == 'box.png'){
+				if ($flama == 'box.png') {
 
-            }else{
-              	unlink('./assets/upload/barang/'.$flama.'');
-            }
-  
-          }
+				} else {
+					unlink('./assets/upload/barang/' . $flama . '');
+				}
 
-      	}
-		
-		$data=array(
-			'nama_barang'=> $barang,
-			'posisi'=> $posisi,
-			'kategori'=> $kategori,
-            'tanggal_masuk'=> $tanggal_masuk,
-            'foto' => $ganti
+			}
+
+		}
+
+		$data = array(
+			'nama_barang' => $barang,
+			'posisi' => $posisi,
+			'kategori' => $kategori,
+			'tanggal_masuk' => $tanggal_masuk,
+			'foto' => $ganti
 		);
 
 		$where = array(
-			'id_barang'=>$kode
+			'id_barang' => $kode
 		);
 
 		$this->barang_model->ubah_data($where, $data, 'barang');
-		$this->session->set_flashdata('Pesan','
+		$this->session->set_flashdata('Pesan', '
 		<script>
 		$(document).ready(function() {
 			swal.fire({
@@ -189,24 +189,24 @@ class Barang extends CI_Controller {
 		});
 		</script>
 		');
-    	redirect('barang');
+		redirect('barang');
 	}
 
 	public function proses_hapus($id)
 	{
-		$where = array('id_barang' => $id );
+		$where = array('id_barang' => $id);
 		$foto = $this->barang_model->ambilFoto($where);
-		if($foto){
-			if($foto == 'box.png'){
+		if ($foto) {
+			if ($foto == 'box.png') {
 
-			}else{
-				unlink('./assets/upload/barang/'.$foto.'');
+			} else {
+				unlink('./assets/upload/barang/' . $foto . '');
 			}
-			
+
 			$this->barang_model->hapus_data($where, 'barang');
 		}
 
-		$this->session->set_flashdata('Pesan','
+		$this->session->set_flashdata('Pesan', '
 		<script>
 		$(document).ready(function() {
 			swal.fire({
@@ -223,53 +223,52 @@ class Barang extends CI_Controller {
 	public function getData()
 	{
 		$id = $this->input->post('id');
-    	$where = array('id_barang' => $id );
-    	$data = $this->barang_model->detail_data($where, 'barang')->result();
-    	echo json_encode($data);
+		$where = array('id_barang' => $id);
+		$data = $this->barang_model->detail_data($where, 'barang')->result();
+		echo json_encode($data);
 	}
 
 	public function biodata_tambah()
 	{
 
-        $config['upload_path']   = './assets/upload/barang/';
+		$config['upload_path'] = './assets/upload/barang/';
 		$config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF||tiff|TIFF|PDF|pdf';
-	
+
 		$namaFile = $_FILES['photo']['name'];
 		$error = $_FILES['photo']['error'];
 
-        $this->load->library('upload', $config);
-        
+		$this->load->library('upload', $config);
+
 		$kode = $this->barang_model->buat_kode();
 		$nama_barang = $this->input->post('nama_barang');
 		$posisi = $this->input->post('posisi');
 		$kategori = $this->input->post('kategori');
-        $tanggal_masuk = $this->input->post('tanggal_masuk');
-        
-        if ($namaFile == '') {
-            $ganti = 'box.png';
-        }else{
-          	if (! $this->upload->do_upload('photo')) {
+		$tanggal_masuk = $this->input->post('tanggal_masuk');
+
+		if ($namaFile == '') {
+			$ganti = 'box.png';
+		} else {
+			if (!$this->upload->do_upload('photo')) {
 				$error = $this->upload->display_errors();
 				redirect('barang/tambah');
-          	}
-          	else{
+			} else {
 				$data = array('photo' => $this->upload->data());
-				$nama_file= $data['photo']['file_name'];
+				$nama_file = $data['photo']['file_name'];
 				$ganti = str_replace(" ", "_", $nama_file);
-          	}
-      	}
-		
-		$data=array(
-			'id_barang'=> $kode,
-			'nama_barang'=> $nama_barang,
-			'posisi'=> $posisi,
-			'kategori'=> $kategori,
-            'tanggal_masuk'=> $tanggal_masuk,
-            'foto' => $ganti
+			}
+		}
+
+		$data = array(
+			'id_barang' => $kode,
+			'nama_barang' => $nama_barang,
+			'posisi' => $posisi,
+			'kategori' => $kategori,
+			'tanggal_masuk' => $tanggal_masuk,
+			'foto' => $ganti
 		);
 
 		$this->barang_model->tambah_data($data, 'barang');
-		$this->session->set_flashdata('Pesan','
+		$this->session->set_flashdata('Pesan', '
 		<script>
 		$(document).ready(function() {
 			swal.fire({
@@ -280,6 +279,6 @@ class Barang extends CI_Controller {
 		});
 		</script>
 		');
-    	redirect('barang');
+		redirect('barang');
 	}
 }
