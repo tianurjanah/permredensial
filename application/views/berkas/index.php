@@ -16,7 +16,7 @@
                         <p>
                             <?php if (!empty($biodata)): ?>
                                 <?php foreach ($biodata as $b): ?>
-                                <form action="<?= base_url() ?>berkas/biodata_sehat" name="myForm" method="POST"
+                                <form action="<?= base_url() ?>berkas/biodata_tambah" name="myForm" method="POST"
                                     enctype="multipart/form-data">
 
 
