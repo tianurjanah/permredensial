@@ -47,37 +47,21 @@
                                 <th>Surat Balasan</th>
                                 <th width="1%">Aksi</th>
                             </tr>
-                            <!-- </thead>
+                        </thead>
                         <tbody style="cursor:pointer;" id="tbody">
-                            <?php $no = 1;
-                            foreach ($vsu_pendidikan as $vp): ?>
+                            <?php $no = 1; ?>
                             <tr>
-                                <td onclick="detail('<?= $vp->nomor_pendidikanvsu ?>')"><?= $vp->nomor_pendidikanvsu ?>
-                                </td>
-                                <td onclick="detail('<?= $vp->nomor_pendidikanvsu ?>')"><?= $vp->nama_institusi ?></td>
-                                <td onclick="detail('<?= $vp->nomor_pendidikanvsu ?>')"><?= $vp->tgl_pengiriman ?></td>
-                                <td>
-                                    <?php if ($vp->balasan != ''): ?> <a
-                                        href="<?= base_url('assets/upload/berkas_vsu_pendidikan/' . $vp->balasan) ?>"
-                                        target="_blank">
-                                        <i class="fa fa-file-pdf"></i> Lihat Berkas
-                                    </a>
-                                    <?php else: ?>
-                                    <p>File Surat Lampiran Tidak Tersedia.</p>
-                                    <?php endif; ?>
-                                </td>
 
                                 <td>
                                     <center>
-                                        <a href="<?= base_url() ?>Vsu_pendidikan/ubah_pendidikan/<?= $vp->nomor_pendidikanvsu ?>"
+                                        <a href="<?= base_url() ?>berita_acara/cetak_acara/"
                                             class="btn btn-circle btn-success btn-sm">
                                             <i class="fas fa-pen"></i>
                                         </a>
                                     </center>
                                 </td>
                             </tr>
-                            <?php endforeach; ?>
-                        </tbody> -->
+                        </tbody>
                     </table>
                 </div>
             </div>

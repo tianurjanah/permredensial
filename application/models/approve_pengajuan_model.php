@@ -46,4 +46,9 @@ class approve_pengajuan_model extends ci_model
         return $query->result();
 
     }
+    public function ubah_approve($where, $data, $table)
+    {
+        $this->db->where($where);
+        $this->db->update($table, $data);
+    }
 }

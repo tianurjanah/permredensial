@@ -25,6 +25,23 @@ class Berita_acara extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function cetak_acara()
+    {
+        // Load the TCPDF library
+        $this->load->library('pdf');
+
+        // Create a new PDF instance
+        $pdf = new TCPDF();
+
+        // Set PDF content and formatting
+        $pdf->AddPage();
+        $pdf->writeHTML($this->load->view('berita_acara/berita_acara', [], true), true, false, true, false, '');
+
+        // Output the PDF to the browser
+        ob_end_clean();
+        $pdf->Output('Berita_Acara.pdf', 'I');
+    }
+
     public function tambah_pendidikan()
     {
         $data['title'] = 'TAMBAH PENDIDIKAN';

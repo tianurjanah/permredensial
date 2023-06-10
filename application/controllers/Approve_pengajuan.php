@@ -31,7 +31,7 @@ class Approve_pengajuan extends CI_Controller
 
     public function index_jadwal()
     {
-        $data['title'] = 'Approve Pengajuan Kredensial';
+        $data['title'] = 'Jadwal Kredensialing';
         $data['user'] = $this->user_model->data()->result();
         $data['pengajuan_idx'] = $this->kompetensi_model->ambil_pengajuan_index()->result();
 
@@ -132,8 +132,6 @@ class Approve_pengajuan extends CI_Controller
 
         redirect('approve_pengajuan/index_jadwal');
     }
-
-
 
     public function hapus_pendidikan($nomor)
     {

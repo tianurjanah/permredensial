@@ -63,6 +63,34 @@ class Hasil_kredensialing extends CI_Controller
 
         $this->load->view('vsu_pendidikan/form_ubah', $data);
     }
+    public function proses_approve($id)
+    {
+        $kode = $id; // Menggunakan parameter $id yang sudah diterima
+        $status = 'Approve'; // Mengatur nilai status secara langsung
+
+        $data = array(
+            'status' => $status
+        );
+
+        $where = array(
+            'id' => $kode
+        );
+
+        $this->approve_pengajuan_model->ubah_approve($where, $data, 'pengajuan_index');
+        $this->session->set_flashdata('Pesan', '
+        <script>
+        $(document).ready(function() {
+            swal.fire({
+                title: "Berhasil diubah!",
+                icon: "success",
+                confirmButtonColor: "#4e73df",
+            });
+        });
+        </script>
+        ');
+
+        redirect('hasil_kredensialing/index');
+    }
 
     public function proses_tambah_pendidikan()
     {
@@ -199,7 +227,5 @@ class Hasil_kredensialing extends CI_Controller
         ');
         redirect('vsu_pendidikan/index');
     }
-
-
 
 }

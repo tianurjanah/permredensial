@@ -64,18 +64,22 @@
                                     <td onclick="detail('<?= $pi->id ?>')"><?= $pi->catatan ?></td>
                                     <td onclick="detail('<?= $pi->id ?>')"><?= $pi->jadwal ?></td>
                                     <td onclick="detail('<?= $pi->id ?>')"><?= $pi->pukul ?></td>
-
                                     <td>
                                         <center>
-                                            <a href="<?= base_url() ?>hasil_kredensialing/approve/<?= $pi->id ?>"
-                                                class="btn btn-circle btn-success btn-sm">
-                                                <i class="fas fa-pen"></i>
-                                            </a>
+                                            <?php if ($pi->status == 'Approve'): ?>
+                                                <span class="text-success">Approved</span>
+                                            <?php else: ?>
+                                                <a href="<?= base_url() ?>hasil_kredensialing/proses_approve/<?= $pi->id ?>"
+                                                    class="btn btn-circle btn-success btn-sm">
+                                                    <i class="fas fa-pen"></i>
+                                                </a>
+                                            <?php endif; ?>
                                         </center>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
+
                     </table>
                 </div>
             </div>
