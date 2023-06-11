@@ -1,10 +1,10 @@
 <?php
-class berita_acara_model extends ci_model
+class surat_rekomendasi_model extends ci_model
 {
     function data()
     {
         $this->db->select('*');
-        $this->db->from('berita_acara');
+        $this->db->from('rekomendasi');
 
         $query = $this->db->get();
         return $query->result();
@@ -13,8 +13,8 @@ class berita_acara_model extends ci_model
     function data_detail($id)
     {
         $this->db->select('*');
-        $this->db->from('berita_acara');
-        $this->db->where('id_berita', $id);
+        $this->db->from('rekomendasi');
+        $this->db->where('id_rekomendasi', $id);
 
         $query = $this->db->get();
         return $query->result();

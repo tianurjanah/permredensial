@@ -17,20 +17,20 @@ class Berita_acara extends CI_Controller
     }
     public function index()
     {
-        $data['title'] = 'Hasil Kredensialing';
-        $data['user'] = $this->user_model->data()->result();
+        $data['title'] = 'Berita Acara';
+        $data['berita'] = $this->berita_acara_model->data();
 
         $this->load->view('templates/header', $data);
         $this->load->view('berita_acara/index');
         $this->load->view('templates/footer');
     }
 
-    public function cetak_acara()
+    public function cetak_acara($id)
     {
         // Load the TCPDF library
         $this->load->library('pdf');
         // $id = $this->session->userdata('login_session')['nama'];
-        $data['mitra'] = $this->berita_acara_model->data();
+        $data['mitra'] = $this->berita_acara_model->data_detail($id);
         // Create a new PDF instance
         $pdf = new TCPDF();
 

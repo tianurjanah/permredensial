@@ -12,13 +12,14 @@ class Surat_rekomendasi extends CI_Controller
         $this->load->library('pagination');
         $this->load->helper('cookie');
         $this->load->model('user_model');
+        $this->load->model('surat_rekomendasi_model');
         // $this->load->model('approve_pengajuan_model');
 
     }
     public function index()
     {
-        $data['title'] = 'Approve Hasil Pengajuan Kredensial';
-        $data['user'] = $this->user_model->data()->result();
+        $data['title'] = 'Surat Rekomendasi';
+        $data['rekomendasi'] = $this->surat_rekomendasi_model->data();
 
         $this->load->view('templates/header', $data);
         $this->load->view('surat_rekomendasi/index');
