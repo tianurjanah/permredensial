@@ -189,7 +189,7 @@ if (!$this->session->has_userdata('login_session')){
             <div class="sidebar-heading">
                 Proses Kredensial
             </div>
-            <?php if($title == 'Barang'): ?>
+            <?php if($title == 'Biodata Diri'): ?>
             <li class="nav-item active">
                 <?php else: ?>
             <li class="nav-item">

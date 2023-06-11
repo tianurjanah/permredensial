@@ -21,7 +21,7 @@ class Berkas extends CI_Controller
 
 	public function index()
 	{
-		$data['title'] = 'BERKAS PENGAJUAN';
+		$data['title'] = 'Berkas Pengajuan';
 		$id = $this->session->userdata('login_session')['id_user'];
 		$data['biodata'] = $this->berkas_model->ambil_data_barang($id)->result();
 		$data['user'] = $this->user_model->data()->result();
@@ -33,7 +33,6 @@ class Berkas extends CI_Controller
 
 	public function biodata_tambah()
 	{
-
 		$config['upload_path'] = './assets/upload/berkas_biodata/';
 		$config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF||tiff|TIFF|PDF|pdf';
 
@@ -54,12 +53,12 @@ class Berkas extends CI_Controller
 		// Proses upload dan perubahan file surat lamaran
 		if (!empty($_FILES['suratlamaran']['name'])) {
 			if (!$this->upload->do_upload('suratlamaran')) {
-				$errorLamaran = $this->upload->display_errors();
+				$errorlamaran = $this->upload->display_errors();
 				redirect('berkas/index');
 			} else {
 				$datalamaran = array('suratlamaran' => $this->upload->data());
-				$nama_file_lamaran = $datalamaran['suratlamaran']['file_name'];
-				$gantilamaran = str_replace(" ", "_", $nama_file_lamaran);
+				$namaFile_lamaran = $datalamaran['suratlamaran']['file_name'];
+				$gantilamaran = str_replace(" ", "_", $namaFile_lamaran);
 				$data['surat_lamaran'] = $gantilamaran;
 			}
 		}
@@ -67,12 +66,12 @@ class Berkas extends CI_Controller
 		// Proses upload dan perubahan file CV
 		if (!empty($_FILES['currivitae']['name'])) {
 			if (!$this->upload->do_upload('currivitae')) {
-				$errorCV = $this->upload->display_errors();
+				$errorcv = $this->upload->display_errors();
 				redirect('berkas/index');
 			} else {
 				$datacv = array('currivitae' => $this->upload->data());
-				$nama_file_cv = $datacv['currivitae']['file_name'];
-				$ganticv = str_replace(" ", "_", $nama_file_cv);
+				$namaFile_cv = $datacv['currivitae']['file_name'];
+				$ganticv = str_replace(" ", "_", $namaFile_cv);
 				$data['cv'] = $ganticv;
 			}
 		}
@@ -80,25 +79,26 @@ class Berkas extends CI_Controller
 		// Proses upload dan perubahan file formulir data karyawan
 		if (!empty($_FILES['datakaryawan']['name'])) {
 			if (!$this->upload->do_upload('datakaryawan')) {
-				$errordatakaryawan = $this->upload->display_errors();
+				$errorformulir = $this->upload->display_errors();
 				redirect('berkas/index');
 			} else {
 				$datakaryawan = array('datakaryawan' => $this->upload->data());
-				$nama_file_datakaryawan = $datakaryawan['datakaryawan']['file_name'];
-				$gantidatakaryawan = str_replace(" ", "_", $nama_file_datakaryawan);
+				$namaFile_formulir = $datakaryawan['datakaryawan']['file_name'];
+				$gantidatakaryawan = str_replace(" ", "_", $namaFile_formulir);
 				$data['formulir_data'] = $gantidatakaryawan;
 			}
 		}
 
+
 		// Proses upload dan perubahan file scan KTP
 		if (!empty($_FILES['scanktp']['name'])) {
 			if (!$this->upload->do_upload('scanktp')) {
-				$errorscanktp = $this->upload->display_errors();
+				$errorktp = $this->upload->display_errors();
 				redirect('berkas/index');
 			} else {
 				$datascan = array('scanktp' => $this->upload->data());
-				$nama_file_scanktp = $datascan['scanktp']['file_name'];
-				$gantiscanktp = str_replace(" ", "_", $nama_file_scanktp);
+				$namaFile_ktp = $datascan['scanktp']['file_name'];
+				$gantiscanktp = str_replace(" ", "_", $namaFile_ktp);
 				$data['ktp'] = $gantiscanktp;
 			}
 		}
@@ -132,7 +132,7 @@ class Berkas extends CI_Controller
 	//=================== TAMBAH IJAZAH
 	public function berkas_ijazah()
 	{
-		$data['title'] = 'BERKAS PENGAJUAN';
+		$data['title'] = 'Berkas Pengajuan';
 		$id = $this->session->userdata('login_session')['id_user'];
 		$data['ijazah'] = $this->berkas_model->ambil_data_ijazah($id)->result();
 		$data['user'] = $this->user_model->data()->result();
@@ -153,7 +153,7 @@ class Berkas extends CI_Controller
 
 	public function ubah_ijazah($nomor)
 	{
-		$data['title'] = 'UBAH IJAZAH';
+		$data['title'] = 'Berkas Pengajuan';
 
 		// Mengambil data ijazah
 		$data['ijazah'] = $this->berkas_model->ambil_detail_ijazah($nomor)->result();
@@ -169,7 +169,7 @@ class Berkas extends CI_Controller
 
 	public function detail($id)
 	{
-		$data['title'] = 'Surat Izin';
+		$data['title'] = 'Berkas Pengajuan';
 
 		//menampilkan data berdasarkan id
 		$data['data'] = $this->berkas_model-- > detail_join($id, 'ijazah')->result();
@@ -364,7 +364,7 @@ class Berkas extends CI_Controller
 
 	public function approval_ijazah($id)
 	{
-		$data['title'] = 'IJAZAH';
+		$data['title'] = 'Berkas Pengajuan';
 		$data['ijazah'] = $this->berkas_model->ambil_data_surat_ijazah($id)->result();
 		$data['user'] = $this->user_model->data()->result();
 
