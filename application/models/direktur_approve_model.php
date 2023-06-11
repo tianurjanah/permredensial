@@ -50,6 +50,15 @@ class direktur_approve_model extends ci_model
         $query = $this->db->get();
         return $query->result();
     }
+    public function getPengajuan($id)
+    {
+        $this->db->select('id_pengajuan_index');
+        $this->db->from('rekomendasi');
+        $this->db->where('id_rekomendasi', $id);
+
+        $query = $this->db->get();
+        return $query;
+    }
     public function getDirektur($id)
     {
         $this->db->select('*');
@@ -61,22 +70,25 @@ class direktur_approve_model extends ci_model
     }
     public function buat_kode()
     {
-        $this->db->select('RIGHT(surat_penugasan.id_penugasan,4) as kode', FALSE);
+        $this->db->select('LEFT(surat_penugasan.id_penugasan, 3) as kode', FALSE);
         $this->db->order_by('id_penugasan', 'DESC');
         $this->db->limit(1);
-        $query = $this->db->get('surat_penugasan'); //cek dulu apakah ada sudah ada kode di tabel.
+        $query = $this->db->get('surat_penugasan'); // Check if there is an existing code in the table.
         if ($query->num_rows() <> 0) {
-            //jika kode ternyata sudah ada.
+            // If a code already exists.
             $data = $query->row();
             $kode = intval($data->kode) + 1;
         } else {
-            //jika kode belum ada
+            // If there is no code yet.
             $kode = 1;
         }
-        $kodemax = str_pad($kode, 3, "0", STR_PAD_LEFT); // angka 4 menunjukkan jumlah digit angka 0
-        $kodejadi = $kodemax . "/" . "SPKK" . "/" . date("m") . "/" . date("Y");
+        $kodemax = str_pad($kode, 3, "0", STR_PAD_LEFT); // The number 3 indicates the number of zero-padded digits.
+
+        $kodejadi = $kodemax . "/" . 'SPKK' . "/" . date("m") . "/" . date("Y");
         return $kodejadi;
     }
+
+
     public function buat_kode_rekomendasi()
     {
         $this->db->select('RIGHT(rekomendasi.id_rekomendasi,4) as kode', FALSE);

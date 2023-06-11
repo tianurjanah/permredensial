@@ -187,12 +187,14 @@ class Direktur_approve extends CI_Controller
     {
         $id = $this->direktur_approve_model->buat_kode();
         $user = $this->direktur_approve_model->getUser($id_rekomendasi);
+        $pengajuan = $this->direktur_approve_model->getPengajuan($id_rekomendasi)->result();
         $direktur = $this->direktur_approve_model->getDirektur($this->session->userdata('login_session')['id_user'])->result();
         $tahun = date("Y-m-d");
         $tahuntiga = date("Y-m-d", strtotime($tahun . "+3 years"));
 
         $data = array(
             'id_penugasan' => $id,
+            'id_pengajuan_index' => $pengajuan[0]->id_pengajuan_index,
             'id_user' => $user[0]->id_user,
             'tanggal_penugasan' => $tahun,
             'tanggal_berlaku' => $tahuntiga,
