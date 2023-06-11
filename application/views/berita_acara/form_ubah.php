@@ -28,7 +28,7 @@
                             <div class="form-group">
                                 <label>Komite</label>
                                 <input class="form-control" name="komite" type="text"
-                                    value="<? $this->session->userdata('login_session')['nama']; ?>">
+                                    value="<?= $this->session->userdata('login_session')['username']; ?>" readonly>
                             </div>
 
                             <div class="form-group">
