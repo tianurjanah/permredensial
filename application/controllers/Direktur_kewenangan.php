@@ -12,13 +12,14 @@ class Direktur_kewenangan extends CI_Controller
         $this->load->library('pagination');
         $this->load->helper('cookie');
         $this->load->model('user_model');
+        $this->load->model('direktur_kewenangan_model');
         // $this->load->model('approve_pengajuan_model');
 
     }
     public function index()
     {
-        $data['title'] = 'Rincian Kewenangan';
-        $data['user'] = $this->user_model->data()->result();
+        $data['title'] = 'Surat Rekomendasi';
+        $data['appdir'] = $this->direktur_kewenangan_model->data();
 
         $this->load->view('templates/header', $data);
         $this->load->view('direktur_kewenangan/index');
