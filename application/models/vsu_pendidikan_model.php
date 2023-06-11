@@ -79,7 +79,7 @@ class vsu_pendidikan_model extends ci_model
     public function ambil_data_surat_vpendidikan($id)
     {
         $this->db->select('*');
-        $this->db->from('ijazah');
+        $this->db->from('vsu_pendidikan');
         $this->db->where('id_user', $id);
 
         $query = $this->db->get();

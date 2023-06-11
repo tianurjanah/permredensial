@@ -16,6 +16,7 @@ class proses_kredensialing extends CI_Controller
         $this->load->model('berkas_model');
         $this->load->model('approve_pengajuan_model');
         $this->load->model('proses_pengajuan_model');
+        $this->load->model('kategori_model');
 
     }
     public function index()
@@ -45,6 +46,8 @@ class proses_kredensialing extends CI_Controller
     public function ubah($id_pengajuan_index)
     {
         $data['title'] = 'Approve Pengajuan';
+
+        $data['ktg'] = $this->kategori_model->data()->result();
 
         $data['bagian1'] = $this->proses_pengajuan_model->getKompetensiDatab1($id_pengajuan_index);
         $data['bagian2'] = $this->proses_pengajuan_model->getKompetensiDatab2($id_pengajuan_index);

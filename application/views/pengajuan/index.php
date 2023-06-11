@@ -30,13 +30,13 @@
                         <tbody style="cursor:pointer;" id="tbody">
                             <?php $no = 1;
                             foreach ($pengajuan_index as $pi): ?>
-                                <tr>
-                                    <td onclick="detail('<?= $pi->id ?>')" class="text-center"><?= $no++ ?></td>
-                                    <td onclick="detail('<?= $pi->id ?>')"><?= $pi->kategori ?></td>
-                                    <td onclick="detail('<?= $pi->id ?>')" class="text-center"><?= $pi->tanggal_pengajuan ?>
-                                    </td>
-                                    <td onclick="detail('<?= $pi->id ?>')" class="text-center"><?= $pi->status ?></td>
-                                </tr>
+                            <tr>
+                                <td onclick="detail('<?= $pi->id ?>')" class="text-center"><?= $no++ ?></td>
+                                <td onclick="detail('<?= $pi->id ?>')"><?= $pi->kategori ?></td>
+                                <td onclick="detail('<?= $pi->id ?>')" class="text-center"><?= $pi->tgl_pengajuan ?>
+                                </td>
+                                <td onclick="detail('<?= $pi->id ?>')" class="text-center"><?= $pi->status ?></td>
+                            </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
@@ -55,31 +55,31 @@
 <script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
 <script src="<?= base_url(); ?>assets/js/barang.js"></script>
 <?php if ($this->session->flashdata('Pesan')): ?>
-    <?= $this->session->flashdata('Pesan') ?>
+<?= $this->session->flashdata('Pesan') ?>
 <?php else: ?>
-    <script>
-        $(document).ready(function () {
-            let timerInterval
-            Swal.fire({
-                title: 'Memuat...',
-                timer: 1000,
-                onBeforeOpen: () => {
-                    Swal.showLoading()
-                },
-                onClose: () => {
-                    clearInterval(timerInterval)
-                }
-            }).then((result) => {
+<script>
+$(document).ready(function() {
+    let timerInterval
+    Swal.fire({
+        title: 'Memuat...',
+        timer: 1000,
+        onBeforeOpen: () => {
+            Swal.showLoading()
+        },
+        onClose: () => {
+            clearInterval(timerInterval)
+        }
+    }).then((result) => {
 
-            })
-        });
-    </script>
+    })
+});
+</script>
 <?php endif; ?>
 
 <script>
-    function detail(id) {
-        var base_url = $('#baseurl').val();
-        window.location.href = base_url + "barang/detail/" + id;
+function detail(id) {
+    var base_url = $('#baseurl').val();
+    window.location.href = base_url + "barang/detail/" + id;
 
-    }
+}
 </script>

@@ -185,7 +185,7 @@ class pelatihan_model extends ci_model
   public function ambil_data_surat_pelatihan($id)
   {
     $this->db->select('*');
-    $this->db->from('ijazah');
+    $this->db->from('pelatihan');
     $this->db->where('id_user', $id);
 
     $query = $this->db->get();
