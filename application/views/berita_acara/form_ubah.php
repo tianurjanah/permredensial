@@ -58,12 +58,6 @@
                             <input type="hidden" name="id" value="<?= $a->id ?>">
 
 
-                            <div class="form-group">
-                                <label>Tanggal</label>
-                                <input class="form-control" name="tanggal" type="date">
-                            </div>
-
-
                             <div class="text-right">
                                 <button type="submit" class="btn btn-success btn-md btn-icon-split">
                                     <span class="text text-white">Approve Kredensialing Komite</span>
