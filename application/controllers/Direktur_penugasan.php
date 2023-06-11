@@ -12,13 +12,14 @@ class Direktur_penugasan extends CI_Controller
         $this->load->library('pagination');
         $this->load->helper('cookie');
         $this->load->model('user_model');
+        $this->load->model('direktur_penugasan_model');
         // $this->load->model('approve_pengajuan_model');
 
     }
     public function index()
     {
         $data['title'] = 'Surat Penugasan';
-        $data['user'] = $this->user_model->data()->result();
+        $data['surpen'] = $this->direktur_penugasan_model->data();
 
         $this->load->view('templates/header', $data);
         $this->load->view('direktur_penugasan/index');

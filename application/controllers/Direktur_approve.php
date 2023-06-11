@@ -12,13 +12,14 @@ class Direktur_approve extends CI_Controller
         $this->load->library('pagination');
         $this->load->helper('cookie');
         $this->load->model('user_model');
+        $this->load->model('direktur_approve_model');
         // $this->load->model('approve_pengajuan_model');
 
     }
     public function index()
     {
-        $data['title'] = 'Approve Kredensialing';
-        $data['user'] = $this->user_model->data()->result();
+        $data['title'] = 'Surat Rekomendasi';
+        $data['appdir'] = $this->direktur_approve_model->data();
 
         $this->load->view('templates/header', $data);
         $this->load->view('direktur_approve/index');
@@ -180,6 +181,40 @@ class Direktur_approve extends CI_Controller
             </script>
         ');
         redirect('vsu_pendidikan/index');
+    }
+
+    public function proses_direktur_approve($id_rekomendasi)
+    {
+        $id = $this->direktur_approve_model->buat_kode();
+        $user = $this->direktur_approve_model->getUser($id_rekomendasi);
+        $direktur = $this->direktur_approve_model->getDirektur($this->session->userdata('login_session')['id_user'])->result();
+        $tahun = date("Y-m-d");
+        $tahuntiga = date("Y-m-d", strtotime($tahun . "+3 years"));
+
+        $data = array(
+            'id_penugasan' => $id,
+            'id_user' => $user[0]->id_user,
+            'tanggal_penugasan' => $tahun,
+            'tanggal_berlaku' => $tahuntiga,
+            'direktur' => $direktur[0]->nama,
+            'nip_direktur' => $direktur[0]->nip,
+            'nip' => $user[0]->nip
+        );
+
+        $this->direktur_approve_model->tambah_data($data, 'surat_penugasan');
+        $this->session->set_flashdata('Pesan', '
+		<script>
+		$(document).ready(function() {
+			swal.fire({
+				title: "Berhasil ditambahkan!",
+				icon: "success",
+				confirmButtonColor: "#4e73df",
+			});
+		});
+		</script>
+		');
+
+        redirect('direktur_penugasan/index');
     }
 
 

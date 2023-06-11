@@ -5,7 +5,8 @@
     <strong>RUMAH SAKIT PUSAT PERTAMINA</strong><br><span
         style='font-size:13px;line-height:107%;font-family:"Tahoma",sans-serif;color:black;'>&nbsp; &nbsp; &nbsp; &nbsp;
         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;RUMAH SAKIT UMUM/
-        DAERAH/ SWASTA</span></p>
+        DAERAH/ SWASTA</span>
+</p>
 <p><br></p>
 <p style="text-align: center;"><span>SURAT PENUGASAN KERJA KLINIS</span></p>
 <p style="text-align: center;">Nomor :&nbsp;</p>
@@ -16,15 +17,18 @@
     style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'>
     <span style='font-size: 16px; font-family: "Times New Roman", Times, serif; color: black;'>Untuk memberikan
         pelayanan kesehatan di fasilitas kesehatan sesuai dengan <strong>Kewenangan Kerja Klinis sebagai
-            Radiografer</strong> yang telah direkomendasikan oleh Komite Tenaga Kesehatan/ Tim Kredensial.</span></p>
+            Radiografer</strong> yang telah direkomendasikan oleh Komite Tenaga Kesehatan/ Tim Kredensial.</span>
+</p>
 <p
     style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'>
     <span style='font-size: 16px; font-family: "Times New Roman", Times, serif; color: black;'>Penugasan Kerja Klinis
         ini berakhir pada tanggal (tanggal/ bulan/ tahun) atau waktu lain dalam hal terjadi perubahan kewenangan kerja
-        klinis, sesuai dengan keputusan Direktur Utama.</span></p>
+        klinis, sesuai dengan keputusan Direktur Utama.</span>
+</p>
 <p
     style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'>
-    <br></p>
+    <br>
+</p>
 <p
     style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'>
     <span
@@ -32,17 +36,21 @@
 </p>
 <p
     style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'>
-    <br></p>
+    <br>
+</p>
 <p
     style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'>
-    <br></p>
+    <br>
+</p>
 <p
     style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'>
-    <br></p>
+    <br>
+</p>
 <p
     style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'>
     <strong><u><span style='font-size: 16px; font-family: "Times New Roman", Times, serif; color: black;'>Nama Direktur
-                Utama</span></u></strong></p>
+                Utama</span></u></strong>
+</p>
 <p
     style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'>
     <span style='font-size: 16px; font-family: "Times New Roman", Times, serif; color: black;'>NIP. 0000000000000</span>
