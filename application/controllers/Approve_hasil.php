@@ -12,23 +12,31 @@ class Approve_hasil extends CI_Controller
         $this->load->library('pagination');
         $this->load->helper('cookie');
         $this->load->model('user_model');
-        // $this->load->model('approve_pengajuan_model');
+        $this->load->model('approve_hasil_model');
 
     }
     public function index()
     {
         $data['title'] = 'Approve Hasil Pengajuan Kredensial';
         $data['user'] = $this->user_model->data()->result();
+        $data['pengajuan'] = $this->approve_hasil_model->data()->result();
 
         $this->load->view('templates/header', $data);
         $this->load->view('approve_hasil/index');
         $this->load->view('templates/footer');
     }
 
-    public function tambah_pendidikan()
+    public function approve($id)
     {
-        $data['title'] = 'TAMBAH PENDIDIKAN';
-        $this->load->view('vsu_pendidikan/form_tambah');
+        $data = array(
+            'status_rekomendasi' => 'Disetujui'
+        );
+        $where = array('id_rekomendasi' => $id);
+
+        $this->approve_hasil_model->ubah_data($where, $data, 'rekomendasi');
+
+        redirect('approve_hasil/index');
+
 
     }
     public function ubah_pendidikan($id)

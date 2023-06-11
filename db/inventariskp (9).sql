@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2023 at 06:20 AM
+-- Generation Time: Jun 11, 2023 at 07:01 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -81,6 +81,31 @@ INSERT INTO `barang` (`id_barang`, `nama_barang`, `posisi`, `kategori`, `tanggal
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `berita_acara`
+--
+
+CREATE TABLE `berita_acara` (
+  `id_berita` varchar(50) NOT NULL,
+  `id_pengajuan_index` varchar(50) NOT NULL,
+  `id_user` varchar(30) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `mitra` varchar(50) NOT NULL,
+  `komite` varchar(30) NOT NULL,
+  `tanggal` date NOT NULL,
+  `hari` varchar(30) NOT NULL,
+  `status` enum('DISETUJUI sebagaimana permintaan','DISETUJUI dengan modifikasi (lihat bawah)','DITOLAK (lihat bawah)') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `berita_acara`
+--
+
+INSERT INTO `berita_acara` (`id_berita`, `id_pengajuan_index`, `id_user`, `nama`, `mitra`, `komite`, `tanggal`, `hari`, `status`) VALUES
+('BA-0002', 'KOMP-0001', 'USR-004', 'Hizkia', 'Mitraaa', 'komite terapi naon', '2023-06-11', 'Minggu', 'DISETUJUI dengan modifikasi (lihat bawah)');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `biodata`
 --
 
@@ -98,8 +123,8 @@ CREATE TABLE `biodata` (
 --
 
 INSERT INTO `biodata` (`id_biodata`, `id_user`, `surat_lamaran`, `cv`, `formulir_data`, `ktp`) VALUES
-('BIO-0023', 'USR-004', 'IMG_20230124_140255_650.jpg', 'Foto_Hizkia_Latar_Belakang_Merah3.png', 'nakes.png', 'han20192.pdf'),
-('BRG-0022', 'USR-002', 'cloud.png', 'cloud.png', 'Journal_of_Enterprise_Information_Manage3.pdf', '3D_Camera_and_Pulse_Oximeter_for_Respiratory_Events_Detection1.pdf');
+('BIO-0023', 'USR-004', 'image001.png', 'mix-2-unscreen7.gif', 'mix-unscreen6.gif', 'mix-unscreen7.gif'),
+('BIO-0024', 'USR-008', '3411191149_Hizkia_Syaukani_DSE-B7.pdf', 'mix-unscreen16.gif', 'mix-2-unscreen15.gif', 'image1.png');
 
 -- --------------------------------------------------------
 
@@ -530,6 +555,13 @@ CREATE TABLE `pelatihan` (
   `penyelenggara` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `pelatihan`
+--
+
+INSERT INTO `pelatihan` (`id_pelatihan`, `id_user`, `nama_pelatihan`, `berlaku`, `penyelenggara`) VALUES
+('123123123', 'USR-008', 'Transform', '2023-06-15', 'ITB');
+
 -- --------------------------------------------------------
 
 --
@@ -559,9 +591,9 @@ INSERT INTO `pengajuan` (`id_pengajuan`, `id_pengajuan_index`, `id_nakes`, `id_k
 (12, 'KOMP-0003', 'USR-004', 1, 'Diminta'),
 (13, 'KOMP-0003', 'USR-004', 2, 'Diminta'),
 (14, 'KOMP-0003', 'USR-004', 3, 'Diminta'),
-(17, 'KOMP-0001', 'USR-004', 1, 'Diminta'),
-(18, 'KOMP-0001', 'USR-004', 2, 'Diminta'),
-(19, 'KOMP-0001', 'USR-004', 3, 'Diminta');
+(17, 'KOMP-0001', 'USR-004', 1, 'Tidak Disetujui'),
+(18, 'KOMP-0001', 'USR-004', 2, 'Tidak Disetujui'),
+(19, 'KOMP-0001', 'USR-004', 3, 'Tidak Disetujui');
 
 -- --------------------------------------------------------
 
@@ -572,19 +604,21 @@ INSERT INTO `pengajuan` (`id_pengajuan`, `id_pengajuan_index`, `id_nakes`, `id_k
 CREATE TABLE `pengajuan_index` (
   `id` varchar(50) NOT NULL,
   `id_user` varchar(50) CHARACTER SET utf8 NOT NULL,
-  `nama_mitra` varchar(50) NOT NULL,
+  `mitra` varchar(50) NOT NULL,
   `tgl_pengajuan` datetime NOT NULL,
   `kategori` enum('Proses Rekrutmen & Kredensial','Proses Kredensial Ulang','Proses Penambahan Kewenangan Klinis') NOT NULL,
-  `status` enum('Diminta','Disetujui') NOT NULL,
-  `catatan` text NOT NULL
+  `status` enum('Diminta','Disetujui','Ditolak','Diverifikasi','Approve') NOT NULL,
+  `catatan` text NOT NULL,
+  `jadwal` date DEFAULT NULL,
+  `pukul` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pengajuan_index`
 --
 
-INSERT INTO `pengajuan_index` (`id`, `id_user`, `nama_mitra`, `tgl_pengajuan`, `kategori`, `status`, `catatan`) VALUES
-('KOMP-0001', 'USR-004', '', '2023-06-05 20:51:42', 'Proses Kredensial Ulang', 'Diminta', '');
+INSERT INTO `pengajuan_index` (`id`, `id_user`, `mitra`, `tgl_pengajuan`, `kategori`, `status`, `catatan`, `jadwal`, `pukul`) VALUES
+('KOMP-0001', 'USR-004', 'Mitraaa', '2023-06-05 20:51:42', 'Proses Kredensial Ulang', 'Approve', 'INI Catatan Hayuuk', '2023-06-07', '15:19:00');
 
 -- --------------------------------------------------------
 
@@ -686,6 +720,30 @@ INSERT INTO `perbaikan` (`kode_perbaikan`, `kode_perawatan`, `kode_barangprb`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `rekomendasi`
+--
+
+CREATE TABLE `rekomendasi` (
+  `id_rekomendasi` varchar(30) NOT NULL,
+  `id_pengajuan_index` varchar(30) NOT NULL,
+  `mitra` varchar(30) NOT NULL,
+  `komite` varchar(30) NOT NULL,
+  `status` enum('DISETUJUI sebagaimana permintaan','DISETUJUI dengan modifikasi (lihat bawah)',' DITOLAK (lihat bawah)') NOT NULL,
+  `komentar` text NOT NULL,
+  `tanggal` date NOT NULL,
+  `status_rekomendasi` enum('Diminta','Disetujui','Ditolak') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `rekomendasi`
+--
+
+INSERT INTO `rekomendasi` (`id_rekomendasi`, `id_pengajuan_index`, `mitra`, `komite`, `status`, `komentar`, `tanggal`, `status_rekomendasi`) VALUES
+('SR-0001', 'KOMP-0001', 'Mitraaa', 'komite terapi naon', 'DISETUJUI dengan modifikasi (lihat bawah)', 'INI Catatan Hayuuk', '2023-06-11', 'Disetujui');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sehat`
 --
 
@@ -694,6 +752,13 @@ CREATE TABLE `sehat` (
   `id_user` varchar(50) CHARACTER SET utf8 NOT NULL,
   `surat_keterangan` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sehat`
+--
+
+INSERT INTO `sehat` (`id_sehat`, `id_user`, `surat_keterangan`) VALUES
+('SKS-0003', 'USR-004', '');
 
 -- --------------------------------------------------------
 
@@ -747,13 +812,14 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `nip`, `nama`, `username`, `email`, `notelp`, `level`, `password`, `tmptlahir`, `tgllahir`, `agama`, `alamat`, `str`, `sip`, `tglmbekerja`, `foto`, `status`) VALUES
-('', '', '', '', '', '', '', '', '', '0000-00-00', '', 'Cimahi', '3524124', '123123111', '2023-06-05', '', 'Aktif'),
 ('USR-001', '3411191076', 'Tia Nurjanah, S.Kom', 'tia', 'tianurjanah@gmail.com', '081234567890', 'Admin', '7adfa2c33f88094e169ea6f74d9d860f', 'Bandung', '2001-04-30', 'Islam', 'Cimahi', '56789012', '90123456', '2023-05-19', 'tia.jpeg', 'Aktif'),
 ('USR-002', '3411191002', 'Rochmat', 'rochmat', 'rochmat@gmail.com', '089654345234', 'Pegawai', '42016f6d0ff5e2a2f74fa7d9137a2897', 'Bandung', '1993-05-04', 'Islam', 'Cimahi', '22222222', '23232323', '2023-05-01', 'rochmat.jpg', 'Aktif'),
 ('USR-003', '3411111111', 'aa', 'aa', 'aa@gmail.com', '0009998888887', 'Pegawai', '3a743f59caf40284c487c72b06669c0a', 'bandung', '2023-05-09', 'islam', 'asdfghjkl', '123123123', '456456456', '2023-05-09', 'tia.jpg', 'Aktif'),
 ('USR-004', '', 'Hizkia', 'hizkia', 'hizkia@gmail.com', '08072001', 'Pegawai', '4ba91aaa0d88b0c3200b9e20eb856c22', '', '0000-00-00', '', '', '', '', '0000-00-00', 'person.png', 'Aktif'),
 ('USR-005', '12233', 'PSDMO JAYA', 'psdm', 'psdm@gmail.com', '1232424124', 'SDM', '2d174b164a0ef7ccce60b0a3f6e5e924', 'bandung', '2023-06-12', 'Islam', 'Cimahi', '1231232', '1233241', '2023-06-20', '', 'Aktif'),
-('USR-006', '45245', 'komite terapi naon', 'komite', 'komite@gmail.com', '687889', 'Komite', 'ea6068f0e761c6f07f80d58dfde5c00b', 'bandung', '2023-06-13', 'islam', 'asd', '123123211', '4142', '2023-06-07', 'person.png', 'Aktif');
+('USR-006', '45245', 'komite terapi naon', 'komite', 'komite@gmail.com', '687889', 'Komite', 'ea6068f0e761c6f07f80d58dfde5c00b', 'bandung', '2023-06-13', 'islam', 'asd', '123123211', '4142', '2023-06-07', 'person.png', 'Aktif'),
+('USR-007', '34111911491', 'Mitraaa', 'mitra', 'mitra@gmail.com', '08122111111', 'Mitra Bestari', '92706ba4fd3022cede6d1610b17a0d2d', 'Bandung', '2000-08-09', 'islam', 'Cimahi', '123123123', '123123123', '2023-06-08', 'person.png', 'Aktif'),
+('USR-008', '4564', 'sena', 'sena', 'sena@student.unjani.ac.id', '0563635463', 'Pegawai', 'a6ef95f423e2e749ac2af0d068e9abe9', 'Purwakarta', '2023-06-01', '', 'Cimahi', '645', '345', '2023-06-30', 'itravel.png', 'Aktif');
 
 -- --------------------------------------------------------
 
@@ -829,6 +895,12 @@ ALTER TABLE `barang`
   ADD KEY `kategori` (`kategori`);
 
 --
+-- Indexes for table `berita_acara`
+--
+ALTER TABLE `berita_acara`
+  ADD PRIMARY KEY (`id_berita`);
+
+--
 -- Indexes for table `biodata`
 --
 ALTER TABLE `biodata`
@@ -900,6 +972,12 @@ ALTER TABLE `perbaikan`
   ADD KEY `kode_barangprb` (`kode_barangprb`);
 
 --
+-- Indexes for table `rekomendasi`
+--
+ALTER TABLE `rekomendasi`
+  ADD PRIMARY KEY (`id_rekomendasi`);
+
+--
 -- Indexes for table `sehat`
 --
 ALTER TABLE `sehat`
@@ -917,8 +995,7 @@ ALTER TABLE `surat_izin`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`),
-  ADD UNIQUE KEY `str_2` (`str`,`sip`);
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- Indexes for table `vsu_pendidikan`
@@ -998,67 +1075,10 @@ ALTER TABLE `pelatihan`
   ADD CONSTRAINT `idx_pelatihan_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `pengajuan`
---
-ALTER TABLE `pengajuan`
-  ADD CONSTRAINT `id_user_pengajuan` FOREIGN KEY (`id_nakes`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `idx_kompetensi_pengajuan` FOREIGN KEY (`id_kompetensi`) REFERENCES `kompetensi` (`id_kb`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `idx_pengajuan_index_pengajuan` FOREIGN KEY (`id_pengajuan_index`) REFERENCES `pengajuan_index` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `pengajuan_index`
 --
 ALTER TABLE `pengajuan_index`
   ADD CONSTRAINT `idx_user_pengajuan_index` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `pengalaman`
---
-ALTER TABLE `pengalaman`
-  ADD CONSTRAINT `idx_pengalaman_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `perawatan`
---
-ALTER TABLE `perawatan`
-  ADD CONSTRAINT `perawatan_ibfk_1` FOREIGN KEY (`kode_barang`) REFERENCES `barang` (`id_barang`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `perbaikan`
---
-ALTER TABLE `perbaikan`
-  ADD CONSTRAINT `perbaikan_ibfk_2` FOREIGN KEY (`kode_perawatan`) REFERENCES `perawatan` (`kode_perawatan`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `perbaikan_ibfk_3` FOREIGN KEY (`kode_barangprb`) REFERENCES `barang` (`id_barang`);
-
---
--- Constraints for table `sehat`
---
-ALTER TABLE `sehat`
-  ADD CONSTRAINT `idx_user_sehat` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `surat_izin`
---
-ALTER TABLE `surat_izin`
-  ADD CONSTRAINT `idx_surat_ijin_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `vsu_pendidikan`
---
-ALTER TABLE `vsu_pendidikan`
-  ADD CONSTRAINT `idx_vsu_pendikan_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `vsu_pengalaman`
---
-ALTER TABLE `vsu_pengalaman`
-  ADD CONSTRAINT `idx_user_vsu_pengalaman` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `vsu_suratizin`
---
-ALTER TABLE `vsu_suratizin`
-  ADD CONSTRAINT `idx_vsu_suratijin_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
