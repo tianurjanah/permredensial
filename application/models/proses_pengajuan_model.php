@@ -42,7 +42,7 @@ class proses_pengajuan_model extends ci_model
     }
     public function ambil_kategori($id)
     {
-        $this->db->select('ketegori');
+        $this->db->select('kategori');
         $this->db->from('pengajuan_index');
         $this->db->where('id', $id);
 

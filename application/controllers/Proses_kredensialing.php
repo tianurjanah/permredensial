@@ -47,7 +47,7 @@ class proses_kredensialing extends CI_Controller
     {
         $data['title'] = 'Approve Pengajuan';
 
-        $data['ktg'] = $this->kategori_model->data()->result();
+        $data['ktg'] = $this->proses_pengajuan_model->ambil_kategori($id_pengajuan_index)->result();
 
         $data['bagian1'] = $this->proses_pengajuan_model->getKompetensiDatab1($id_pengajuan_index);
         $data['bagian2'] = $this->proses_pengajuan_model->getKompetensiDatab2($id_pengajuan_index);
