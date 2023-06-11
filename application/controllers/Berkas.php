@@ -104,8 +104,8 @@ class Berkas extends CI_Controller
 		}
 
 		$where = array('id_user' => $this->session->userdata('login_session')['id_user']);
-		$existingData = $this->berkas_model->detail_data($where, 'biodata');
-		if ($existingData) {
+		$existingData = $this->berkas_model->detail_data($where, 'biodata')->result();
+		if (!empty($existingData)) {
 			$this->berkas_model->ubah_data($where, $data, 'biodata');
 			$pesan = 'Data berhasil diubah!';
 		} else {
