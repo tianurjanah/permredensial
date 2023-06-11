@@ -13,13 +13,14 @@ class Direktur_kewenangan extends CI_Controller
         $this->load->helper('cookie');
         $this->load->model('user_model');
         $this->load->model('direktur_kewenangan_model');
+        $this->load->model('direktur_penugasan_model');
         // $this->load->model('approve_pengajuan_model');
 
     }
     public function index()
     {
         $data['title'] = 'Surat Rekomendasi';
-        $data['appdir'] = $this->direktur_kewenangan_model->data();
+        $data['surpen'] = $this->direktur_kewenangan_model->data();
 
         $this->load->view('templates/header', $data);
         $this->load->view('direktur_kewenangan/index');
@@ -183,6 +184,23 @@ class Direktur_kewenangan extends CI_Controller
         redirect('vsu_pendidikan/index');
     }
 
+    public function cetak_kewenangan($id)
+    {
+        // Load the TCPDF library
+        $this->load->library('pdf');
+        // $id = $this->session->userdata('login_session')['nama'];
+        $data['user'] = $this->direktur_kewenangan_model->getpengguna($id);
+        // Create a new PDF instance
+        $pdf = new TCPDF();
+
+        // Set PDF content and formatting
+        $pdf->AddPage();
+        $pdf->writeHTML($this->load->view('direktur_kewenangan/rincian_kewenangan', $data, true), true, false, true, false, '');
+
+        // Output the PDF to the browser
+        ob_end_clean();
+        $pdf->Output('Surat Kewenangan.pdf', 'I');
+    }
 
 
 }

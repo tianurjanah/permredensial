@@ -70,7 +70,7 @@
                                     </td>
                                     <td>
                                         <center>
-                                            <a href="<?= base_url() ?>Direktur_penugasan/cetak_penugasan/<?= $sp->id_penugasan ?>"
+                                            <a href="<?= base_url() ?>Direktur_penugasan/cetak_penugasan/<?= $sp->id_pengajuan_index ?>"
                                                 class="btn btn-circle btn-success btn-sm">
                                                 <i class="fas fa-pen"></i>
                                             </a>

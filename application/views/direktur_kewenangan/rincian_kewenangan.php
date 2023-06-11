@@ -1,9 +1,11 @@
 <table style="width: 100%; border-collapse: collapse; border: 1px solid rgb(0, 0, 0);">
     <thead>
         <tr>
-            <th style="width: 5.7692%; border: 1px solid rgb(0, 0, 0);">NO</th>
-            <th style="width: 79.4289%; border: 1px solid rgb(0, 0, 0);">RINCIAN KEWENANGAN KLINIS</th>
-            <th style="border: 1px solid rgb(0, 0, 0); width: 14.6106%;">KEWENANGAN DIBERIKAN (*)</th>
+            <th style="width: 8.9447%; text-align: center; border: 1px solid rgb(0, 0, 0);">NO</th>
+            <th style="width: 61.1069%; text-align: center; border: 1px solid rgb(0, 0, 0);">RINCIAN KEWENANGAN KLINIS
+            </th>
+            <th style="border: 1px solid rgb(0, 0, 0); width: 29.7709%; text-align: center">KEWENANGAN DIBERIKAN (*)
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -14,13 +16,9 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 5.7692%; border: 1px solid rgb(0, 0, 0);">
-                <div data-empty="true" style="text-align: center;"><br></div>
-            </td>
-            <td style="width: 79.4289%; border: 1px solid rgb(0, 0, 0);"><br></td>
-            <td style="width: 14.6106%; border: 1px solid rgb(0, 0, 0);">
-                <div data-empty="true" style="text-align: center;"><br></div>
-            </td>
+            <td style="width: 8.9447%; border: 1px solid rgb(0, 0, 0);"></td>
+            <td style="width: 61.1069%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 29.7709%; border: 1px solid rgb(0, 0, 0);"></td>
         </tr>
         <tr>
             <td style="width: 99.8834%; border: 1px solid rgb(0, 0, 0);" colspan="3">
@@ -29,9 +27,9 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 5.7692%; border: 1px solid rgb(0, 0, 0);"><br></td>
-            <td style="width: 79.4289%; border: 1px solid rgb(0, 0, 0);"><br></td>
-            <td style="width: 14.6106%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 8.9447%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 61.1069%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 29.7709%; border: 1px solid rgb(0, 0, 0);"><br></td>
         </tr>
         <tr>
             <td style="width: 99.8834%; border: 1px solid rgb(0, 0, 0);" colspan="3">
@@ -40,9 +38,9 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 5.7692%; border: 1px solid rgb(0, 0, 0);"><br></td>
-            <td style="width: 79.4289%; border: 1px solid rgb(0, 0, 0);"><br></td>
-            <td style="width: 14.6106%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 8.9447%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 61.1069%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 29.7709%; border: 1px solid rgb(0, 0, 0);"><br></td>
         </tr>
         <tr>
             <td style="width: 99.8834%; border: 1px solid rgb(0, 0, 0);" colspan="3">
@@ -51,9 +49,9 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 5.7692%; border: 1px solid rgb(0, 0, 0);"><br></td>
-            <td style="width: 79.4289%; border: 1px solid rgb(0, 0, 0);"><br></td>
-            <td style="width: 14.6106%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 8.9447%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 61.1069%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 29.7709%; border: 1px solid rgb(0, 0, 0);"><br></td>
         </tr>
         <tr>
             <td style="width: 99.8834%; border: 1px solid rgb(0, 0, 0);" colspan="3">
@@ -61,9 +59,9 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 5.7692%; border: 1px solid rgb(0, 0, 0);"><br></td>
-            <td style="width: 79.4289%; border: 1px solid rgb(0, 0, 0);"><br></td>
-            <td style="width: 14.6106%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 8.9447%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 61.1069%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 29.7709%; border: 1px solid rgb(0, 0, 0);"><br></td>
         </tr>
         <tr>
             <td style="width: 99.8834%; border: 1px solid rgb(0, 0, 0);" colspan="3">
@@ -71,9 +69,9 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 5.7692%; border: 1px solid rgb(0, 0, 0);"><br></td>
-            <td style="width: 79.4289%; border: 1px solid rgb(0, 0, 0);"><br></td>
-            <td style="width: 14.6106%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 8.9447%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 61.1069%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 29.7709%; border: 1px solid rgb(0, 0, 0);"><br></td>
         </tr>
         <tr>
             <td style="width: 99.8834%; border: 1px solid rgb(0, 0, 0);" colspan="3">
@@ -82,9 +80,9 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 5.7692%; border: 1px solid rgb(0, 0, 0);"><br></td>
-            <td style="width: 79.4289%; border: 1px solid rgb(0, 0, 0);"><br></td>
-            <td style="width: 14.6106%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 8.9447%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 61.1069%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 29.7709%; border: 1px solid rgb(0, 0, 0);"><br></td>
         </tr>
         <tr>
             <td style="width: 99.8834%; border: 1px solid rgb(0, 0, 0);" colspan="3">
@@ -93,9 +91,9 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 5.7692%; border: 1px solid rgb(0, 0, 0);"><br></td>
-            <td style="width: 79.4289%; border: 1px solid rgb(0, 0, 0);"><br></td>
-            <td style="width: 14.6106%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 8.9447%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 61.1069%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 29.7709%; border: 1px solid rgb(0, 0, 0);"><br></td>
         </tr>
         <tr>
             <td style="width: 99.8834%; border: 1px solid rgb(0, 0, 0);" colspan="3">
@@ -104,9 +102,9 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 5.7692%; border: 1px solid rgb(0, 0, 0);"><br></td>
-            <td style="width: 79.4289%; border: 1px solid rgb(0, 0, 0);"><br></td>
-            <td style="width: 14.6106%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 8.9447%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 61.1069%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 29.7709%; border: 1px solid rgb(0, 0, 0);"><br></td>
         </tr>
         <tr>
             <td style="width: 99.8834%; border: 1px solid rgb(0, 0, 0);" colspan="3">
@@ -115,9 +113,9 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 5.7692%; border: 1px solid rgb(0, 0, 0);"><br></td>
-            <td style="width: 79.4289%; border: 1px solid rgb(0, 0, 0);"><br></td>
-            <td style="width: 14.6106%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 8.9447%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 61.1069%; border: 1px solid rgb(0, 0, 0);"><br></td>
+            <td style="width: 29.7709%; border: 1px solid rgb(0, 0, 0);"><br></td>
         </tr>
     </tbody>
 </table>

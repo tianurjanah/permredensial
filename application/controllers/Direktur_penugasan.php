@@ -189,6 +189,7 @@ class Direktur_penugasan extends CI_Controller
         $this->load->library('pdf');
         // $id = $this->session->userdata('login_session')['nama'];
         $data['surpen'] = $this->direktur_penugasan_model->data_detail($id);
+        $data['user'] = $this->direktur_penugasan_model->getpengguna($id);
         // Create a new PDF instance
         $pdf = new TCPDF();
 

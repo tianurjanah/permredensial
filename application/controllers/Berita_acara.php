@@ -42,13 +42,6 @@ class Berita_acara extends CI_Controller
         ob_end_clean();
         $pdf->Output('Berita_Acara.pdf', 'I');
     }
-
-    public function tambah_pendidikan()
-    {
-        $data['title'] = 'TAMBAH PENDIDIKAN';
-        $this->load->view('vsu_pendidikan/form_tambah');
-
-    }
     public function ubah_acara($id)
     {
         $data['title'] = 'UBAH ACARA';

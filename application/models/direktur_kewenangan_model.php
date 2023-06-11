@@ -4,7 +4,7 @@ class direktur_kewenangan_model extends ci_model
     function data()
     {
         $this->db->select('*');
-        $this->db->from('rekomendasi');
+        $this->db->from('surat_penugasan');
 
         $query = $this->db->get();
         return $query->result();
@@ -13,9 +13,19 @@ class direktur_kewenangan_model extends ci_model
     function data_detail($id)
     {
         $this->db->select('*');
-        $this->db->from('rekomendasi');
-        $this->db->where('id_rekomendasi', $id);
+        $this->db->from('surat_penugasan');
+        $this->db->where('id_pengajuan_index', $id);
 
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function getpengguna($id_pengajuan_index)
+    {
+        $this->db->select('user.nama');
+        $this->db->from('user');
+        $this->db->join('surat_penugasan', 'surat_penugasan.id_user = user.id_user', 'right');
+        $this->db->where('surat_penugasan.id_pengajuan_index', $id_pengajuan_index);
         $query = $this->db->get();
         return $query->result();
     }
