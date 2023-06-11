@@ -40,6 +40,15 @@ class proses_pengajuan_model extends ci_model
         $query = $this->db->get();
         return $query;
     }
+    public function ambil_kategori($id)
+    {
+        $this->db->select('ketegori');
+        $this->db->from('pengajuan_index');
+        $this->db->where('id', $id);
+
+        $query = $this->db->get();
+        return $query;
+    }
 
     public function getKompetensiDatab1($id_pengajuan_index)
     {
