@@ -14,14 +14,14 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Barang Inventaris
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Jumlah Pengajuan
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                <?= $jmlbarang ?> Data
+                                Data
                             </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-box fa-2x text-gray-300"></i>
+                            <i class="fa fa-notes-medical fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -31,14 +31,14 @@
 
         <!-- Earnings (Monthly) Card Example -->
         <div class="col-xl-3 col-md-6 mb-4" id="supplier">
-            <div class="card border-left-info shadow h-100 py-2">
+            <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Perawatan
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Diterima
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                <?= $jmlperawatan ?> Data
+                                Data
                             </div>
                         </div>
                         <div class="col-auto">
@@ -52,14 +52,14 @@
 
         <!-- Earnings (Monthly) Card Example -->
         <div class="col-xl-3 col-md-6 mb-4" id="stok">
-            <div class="card border-left-success shadow h-100 py-2">
+            <div class="card border-left-danger shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Perbaikan
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Ditolak
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                <?= $jmlperbaikan ?> Data
+                                Data
                             </div>
                         </div>
                         <div class="col-auto">
@@ -72,14 +72,14 @@
 
         <!-- Earnings (Monthly) Card Example -->
         <div class="col-xl-3 col-md-6 mb-4" id="user">
-            <div class="card border-left-secondary shadow h-100 py-2">
+            <div class="card border-left-info shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total User
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Diminta
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                <?= $jmlUser ?> Data
+                                Data
                             </div>
                         </div>
                         <div class="col-auto">
@@ -95,7 +95,7 @@
         <div class="col-xl-12 col-lg-12">
             <div class="card shadow mb-4" id="grafik">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between bg-primary">
-                    <h6 class="m-0 font-weight-bold border-0 text-white">Perbaikan Barang Inventaris per Bulan</h6>
+                    <h6 class="m-0 font-weight-bold border-0 text-white"></h6>
 
                     <div class="col-lg-2">
                         <select name="tahun" id="tahun" class="form-control" onchange="filterTahun()">

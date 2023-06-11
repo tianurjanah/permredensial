@@ -53,6 +53,7 @@ class Login extends CI_Controller
 
 				$respon = array('respon' => 'success');
 				echo json_encode($respon);
+
 			} else {
 				$respon = array('respon' => 'warning');
 				echo json_encode($respon);
@@ -62,6 +63,7 @@ class Login extends CI_Controller
 			$respon = array('respon' => 'failed');
 			echo json_encode($respon);
 		}
+		redirect('home');
 
 	}
 
