@@ -17,6 +17,11 @@ class berita_acara_model extends ci_model
         $this->db->update($table, $data);
 
     }
+    public function tambah_data($data, $table)
+    {
+        $this->db->insert($table, $data);
+    }
+
     public function ambil_detail_acara($id)
     {
         $this->db->select('*');
@@ -26,6 +31,54 @@ class berita_acara_model extends ci_model
         $query = $this->db->get();
         return $query;
     }
+
+    public function getuser($id_pengajuan_index)
+    {
+        $this->db->select('user.id_user, user.nama');
+        $this->db->from('user');
+        $this->db->join('pengajuan_index', 'pengajuan_index.id_user = user.id_user', 'right');
+        $this->db->where('pengajuan_index.id', $id_pengajuan_index);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function buat_kode()
+    {
+        $this->db->select('RIGHT(berita_acara.id_berita,4) as kode', FALSE);
+        $this->db->order_by('id_berita', 'DESC');
+        $this->db->limit(1);
+        $query = $this->db->get('berita_acara'); //cek dulu apakah ada sudah ada kode di tabel.
+        if ($query->num_rows() <> 0) {
+            //jika kode ternyata sudah ada.
+            $data = $query->row();
+            $kode = intval($data->kode) + 1;
+        } else {
+            //jika kode belum ada
+            $kode = 1;
+        }
+        $kodemax = str_pad($kode, 4, "0", STR_PAD_LEFT); // angka 4 menunjukkan jumlah digit angka 0
+        $kodejadi = "BA-" . $kodemax;
+        return $kodejadi;
+    }
+    public function buat_kode_rekomendasi()
+    {
+        $this->db->select('RIGHT(rekomendasi.id_rekomendasi,4) as kode', FALSE);
+        $this->db->order_by('id_rekomendasi', 'DESC');
+        $this->db->limit(1);
+        $query = $this->db->get('rekomendasi'); //cek dulu apakah ada sudah ada kode di tabel.
+        if ($query->num_rows() <> 0) {
+            //jika kode ternyata sudah ada.
+            $data = $query->row();
+            $kode = intval($data->kode) + 1;
+        } else {
+            //jika kode belum ada
+            $kode = 1;
+        }
+        $kodemax = str_pad($kode, 4, "0", STR_PAD_LEFT); // angka 4 menunjukkan jumlah digit angka 0
+        $kodejadi = "SR-" . $kodemax;
+        return $kodejadi;
+    }
+
     public function getHari($date)
     {
         // Mengubah format tanggal ke dalam format "Y-m-d" jika diperlukan
