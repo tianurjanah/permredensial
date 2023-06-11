@@ -64,28 +64,18 @@
                                     <td onclick="detail('<?= $pi->id ?>')"><?= $pi->catatan ?></td>
                                     <td onclick="detail('<?= $pi->id ?>')"><?= $pi->jadwal ?></td>
                                     <td onclick="detail('<?= $pi->id ?>')"><?= $pi->pukul ?></td>
-
-                                    <td>
-                                        <center>
-                                            <a href="<?= base_url() ?>berita_acara/ubah_acara/<?= $pi->id ?>"
-                                                class="btn btn-circle btn-success btn-sm">
-                                                <i class="fas fa-pen"></i>
-                                            </a>
-                                        </center>
-                                    </td>
-                                    <!-- <td onclick="detail('<?= $pi->id ?>')"><?= $pi->pukul ?></td>
                                     <td>
                                         <center>
                                             <?php if ($pi->status == 'Approve'): ?>
                                                 <span class="text-success">Approved</span>
                                             <?php else: ?>
-                                                <a href="<?= base_url() ?>hasil_kredensialing/proses_approve/<?= $pi->id ?>"
+                                                <a href="<?= base_url() ?>berita_acara/ubah_acara/<?= $pi->id ?>"
                                                     class="btn btn-circle btn-success btn-sm">
                                                     <i class="fas fa-pen"></i>
                                                 </a>
                                             <?php endif; ?>
                                         </center>
-                                    </td> -->
+                                    </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
