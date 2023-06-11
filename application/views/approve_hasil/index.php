@@ -41,43 +41,40 @@
                     <table class="table table-hover" id="dtHorizontalExample" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th width="1%">ID</th>
-                                <th>Nama Institusi</th>
-                                <th>Tanggal Pengiriman</th>
-                                <th>Surat Balasan</th>
+                                <th width="1%">No</th>
+                                <th>Mitra Bestari</th>
+                                <th>Komite</th>
+                                <th>Tanggal Hasil Kredensial</th>
+                                <th>Status</th>
+                                <th>Status Rekomendasi</th>
                                 <th width="1%">Aksi</th>
                             </tr>
-                            <!-- </thead>
+                        </thead>
                         <tbody style="cursor:pointer;" id="tbody">
                             <?php $no = 1;
-                            foreach ($vsu_pendidikan as $vp): ?>
-                            <tr>
-                                <td onclick="detail('<?= $vp->nomor_pendidikanvsu ?>')"><?= $vp->nomor_pendidikanvsu ?>
-                                </td>
-                                <td onclick="detail('<?= $vp->nomor_pendidikanvsu ?>')"><?= $vp->nama_institusi ?></td>
-                                <td onclick="detail('<?= $vp->nomor_pendidikanvsu ?>')"><?= $vp->tgl_pengiriman ?></td>
-                                <td>
-                                    <?php if ($vp->balasan != ''): ?> <a
-                                        href="<?= base_url('assets/upload/berkas_vsu_pendidikan/' . $vp->balasan) ?>"
-                                        target="_blank">
-                                        <i class="fa fa-file-pdf"></i> Lihat Berkas
-                                    </a>
-                                    <?php else: ?>
-                                    <p>File Surat Lampiran Tidak Tersedia.</p>
-                                    <?php endif; ?>
-                                </td>
-
-                                <td>
-                                    <center>
-                                        <a href="<?= base_url() ?>Vsu_pendidikan/ubah_pendidikan/<?= $vp->nomor_pendidikanvsu ?>"
-                                            class="btn btn-circle btn-success btn-sm">
-                                            <i class="fas fa-pen"></i>
-                                        </a>
-                                    </center>
-                                </td>
-                            </tr>
+                            foreach ($pengajuan as $p): ?>
+                                <tr>
+                                    <td onclick="detail('<?= $p->id_rekomendasi ?>')"><?= $no++ ?></td>
+                                    <td onclick="detail('<?= $p->id_rekomendasi ?>')"><?= $p->mitra ?></td>
+                                    <td onclick="detail('<?= $p->id_rekomendasi ?>')"><?= $p->komite ?></td>
+                                    <td onclick="detail('<?= $p->id_rekomendasi ?>')"><?= $p->tanggal ?></td>
+                                    <td onclick="detail('<?= $p->id_rekomendasi ?>')"><?= $p->status ?></td>
+                                    <td onclick="detail('<?= $p->id_rekomendasi ?>')"><?= $p->status_rekomendasi ?></td>
+                                    <td>
+                                        <center>
+                                            <?php if ($p->status_rekomendasi == 'Disetujui'): ?>
+                                                <span class="text-success">Approved</span>
+                                            <?php else: ?>
+                                                <a href="<?= base_url() ?>approve_hasil/approve/<?= $p->id_rekomendasi ?>"
+                                                    class="btn btn-circle btn-success btn-sm">
+                                                    <i class="fas fa-pen"></i>
+                                                </a>
+                                            <?php endif; ?>
+                                        </center>
+                                    </td>
+                                </tr>
                             <?php endforeach; ?>
-                        </tbody> -->
+                        </tbody>
                     </table>
                 </div>
             </div>
