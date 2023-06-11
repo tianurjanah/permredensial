@@ -71,7 +71,7 @@ class Berita_acara extends CI_Controller
     {
 
         $id = $this->input->post('id_berita');
-        $komite = $this->session->userdata('login_session')['id_user'];
+        $komite = $this->input->post('komite');
         $mitra = $this->input->post('mitra');
         $tanggal = $this->input->post('tanggal');
         $nama = $this->input->post('nama');
@@ -82,8 +82,8 @@ class Berita_acara extends CI_Controller
 
         $data = array(
             'id_berita' => $id,
-            'mitra' => $komite,
-            'nama_institusi' => $mitra,
+            'komite' => $komite,
+            'mitra' => $mitra,
             'tanggal' => $tanggal,
             'nama' => $nama,
             'status' => $status

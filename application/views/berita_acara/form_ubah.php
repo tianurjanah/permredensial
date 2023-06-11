@@ -15,59 +15,64 @@
                     <div class="col-lg-12">
 
                         <?php foreach ($acara as $a): ?>
-                            <form id="approve-form" action="<?= base_url() ?>berita_acara/proses_ubah_acara/<?= $a->id ?>"
-                                method="post">
-                                <input type="hidden" name="id" value="<?= $a->id ?>">
+                        <form id="approve-form" action="<?= base_url() ?>berita_acara/proses_ubah_acara/<?= $a->id ?>"
+                            method="post">
+                            <input type="hidden" name="id" value="<?= $a->id ?>">
 
-                                <!-- MITRA BESTARI -->
-                                <div class="form-group">
-                                    <label>Mitra Bestari</label>
-                                    <input class="form-control" name="komite" type="text" value="<?= $a->mitra ?>" readonly>
-                                </div>
+                            <!-- MITRA BESTARI -->
+                            <div class="form-group">
+                                <label>Mitra Bestari</label>
+                                <input class="form-control" name="mitra" type="text" value="<?= $a->mitra ?>" readonly>
+                            </div>
 
-                                <div class="form-group">
-                                    <label>Komite</label>
-                                    <input class="form-control" name="komite" type="text">
-                                </div>
-                                                                
-                                <div class="form-group">
-                                    <label>Status Pengajuan</label>
-                                    <select name="status" class="form-control">
-                                        <option value="DISETUJUI sebagaimana permintaan" <?php if($a->status == "DISETUJUI sebagaimana permintaan"): ?> selected
-                                            <?php endif; ?>>
-                                            DISETUJUI sebagaimana permintaan
-                                        </option>
-                                        <option value="DISETUJUI dengan modifikasi (lihat bawah)" <?php if($a->status == "DISETUJUI dengan modifikasi (lihat bawah)"): ?> selected <?php endif; ?>>
-                                            DISETUJUI dengan modifikasi (lihat bawah)
-                                        </option>
-                                        <option value="DITOLAK (lihat bawah)" <?php if($a->status == "DITOLAK (lihat bawah)"): ?> selected <?php endif; ?>>
-                                            DITOLAK (lihat bawah)
-                                        </option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Catatan</label>
-                                    <input class="form-control" name="catatan" type="text" value="<?= $a->catatan ?>">
-                                </div>
-                                
-                                <input type="hidden" name="id" value="<?= $a->id ?>">
+                            <div class="form-group">
+                                <label>Komite</label>
+                                <input class="form-control" name="komite" type="text"
+                                    value="<? $this->session->userdata('login_session')['nama']; ?>">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Status Pengajuan</label>
+                                <select name="status" class="form-control">
+                                    <option value="DISETUJUI sebagaimana permintaan"
+                                        <?php if($a->status == "DISETUJUI sebagaimana permintaan"): ?> selected
+                                        <?php endif; ?>>
+                                        DISETUJUI sebagaimana permintaan
+                                    </option>
+                                    <option value="DISETUJUI dengan modifikasi (lihat bawah)"
+                                        <?php if($a->status == "DISETUJUI dengan modifikasi (lihat bawah)"): ?> selected
+                                        <?php endif; ?>>
+                                        DISETUJUI dengan modifikasi (lihat bawah)
+                                    </option>
+                                    <option value="DITOLAK (lihat bawah)"
+                                        <?php if($a->status == "DITOLAK (lihat bawah)"): ?> selected <?php endif; ?>>
+                                        DITOLAK (lihat bawah)
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Catatan</label>
+                                <input class="form-control" name="catatan" type="text" value="<?= $a->catatan ?>">
+                            </div>
+
+                            <input type="hidden" name="id" value="<?= $a->id ?>">
 
 
-                                <div class="form-group">
-                                    <label>Tanggal</label>
-                                    <input class="form-control" name="tanggal" type="date">
-                                </div>
+                            <div class="form-group">
+                                <label>Tanggal</label>
+                                <input class="form-control" name="tanggal" type="date">
+                            </div>
 
-                                
-                                <div class="text-right">
-                                    <button type="submit" class="btn btn-success btn-md btn-icon-split">
-                                        <span class="text text-white">Approve Kredensialing Komite</span>
-                                        <span class="icon text-white-50">
-                                            <i class="fas fa-save"></i>
-                                        </span>
-                                    </button>
-                                </div>
-                            </form>
+
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-success btn-md btn-icon-split">
+                                    <span class="text text-white">Approve Kredensialing Komite</span>
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-save"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </form>
                         <?php endforeach; ?>
 
                     </div>
@@ -88,123 +93,123 @@
 <script src="<?= base_url(); ?>assets/plugin/chosen/chosen.jquery.min.js"></script>
 
 <script>
-    $('.chosen').chosen({
-        width: '100%',
+$('.chosen').chosen({
+    width: '100%',
 
-    });
+});
 </script>
 
 <!-- Javascript pas foto -->
 <script>
-    function fileIsValid(fileName) {
+function fileIsValid(fileName) {
+    var ext = fileName.match(/\.([^\.]+)$/)[1];
+    ext = ext.toLowerCase();
+    var isValid = true;
+    switch (ext) {
+        case 'png':
+        case 'jpeg':
+        case 'jpg':
+        case 'tiff':
+        case 'gif':
+        case 'tif':
+
+            break;
+        default:
+            this.value = '';
+            isValid = false;
+    }
+    return isValid;
+}
+
+function fileIsValidpdf(fileName) {
+    var ext = fileName.match(/\.([^\.]+)$/)[1];
+    ext = ext.toLowerCase();
+    var isValid = true;
+    switch (ext) {
+        case 'png':
+        case 'jpeg':
+        case 'jpg':
+        case 'tiff':
+        case 'gif':
+        case 'tif':
+        case 'pdf':
+
+            break;
+        default:
+            this.value = '';
+            isValid = false;
+    }
+    return isValid;
+}
+
+function VerifyPasFotoNameAndSize() {
+    var file = document.getElementById('pasfoto').files[0];
+    if (file != null) {
+        var fileName = file.name;
+        if (fileIsValid(fileName) == false) {
+            validasi('Format bukan gambar!', 'warning');
+            document.getElementById('pasfoto').value = null;
+            return false;
+        }
+        var content;
+        var size = file.size;
+        if ((size != null) && ((size / (1024 * 1024)) > 3)) {
+            validasi('Ukuran maximum 1024px', 'warning');
+            document.getElementById('pasfoto').value = null;
+            return false;
+        }
+
         var ext = fileName.match(/\.([^\.]+)$/)[1];
         ext = ext.toLowerCase();
-        var isValid = true;
-        switch (ext) {
-            case 'png':
-            case 'jpeg':
-            case 'jpg':
-            case 'tiff':
-            case 'gif':
-            case 'tif':
+        $("#pasphoto").addClass("selected").html(file.name);
+        document.getElementById('outputImg').src = window.URL.createObjectURL(file);
+        return true;
 
-                break;
-            default:
-                this.value = '';
-                isValid = false;
+    } else
+        return false;
+}
+
+function VerifyLampiran(event) {
+    var file = event.target.files[0];
+    if (file != null) {
+        var fileName = file.name;
+        console.log(fileName);
+        if (fileIsValidpdf(fileName) == false) {
+            validasi('Format Salah!', 'warning');
+            // document.getElementById('').value = null;
+            return false;
         }
-        return isValid;
-    }
+        var content;
+        var size = file.size;
+        if ((size != null) && ((size / (1024 * 1024)) > 3)) {
+            validasi('Ukuran maximum 1024px', 'warning');
+            // document.getElementById('suratlamaran').value = null;
+            return false;
+        }
 
-    function fileIsValidpdf(fileName) {
         var ext = fileName.match(/\.([^\.]+)$/)[1];
         ext = ext.toLowerCase();
-        var isValid = true;
-        switch (ext) {
-            case 'png':
-            case 'jpeg':
-            case 'jpg':
-            case 'tiff':
-            case 'gif':
-            case 'tif':
-            case 'pdf':
+        var fileLabel = event.target.nextElementSibling;
+        fileLabel.classList.add("selected");
+        fileLabel.innerHTML = file.name;
+        // document.getElementById('outputImg').src = window.URL.createObjectURL(file);
+        return true;
 
-                break;
-            default:
-                this.value = '';
-                isValid = false;
-        }
-        return isValid;
-    }
+    } else
+        return false;
+}
 
-    function VerifyPasFotoNameAndSize() {
-        var file = document.getElementById('pasfoto').files[0];
-        if (file != null) {
-            var fileName = file.name;
-            if (fileIsValid(fileName) == false) {
-                validasi('Format bukan gambar!', 'warning');
-                document.getElementById('pasfoto').value = null;
-                return false;
-            }
-            var content;
-            var size = file.size;
-            if ((size != null) && ((size / (1024 * 1024)) > 3)) {
-                validasi('Ukuran maximum 1024px', 'warning');
-                document.getElementById('pasfoto').value = null;
-                return false;
-            }
+function logFileUpload(event) {
+    var file = event.target.files[0];
+    console.log("Uploaded file:", file);
 
-            var ext = fileName.match(/\.([^\.]+)$/)[1];
-            ext = ext.toLowerCase();
-            $("#pasphoto").addClass("selected").html(file.name);
-            document.getElementById('outputImg').src = window.URL.createObjectURL(file);
-            return true;
+}
 
-        } else
-            return false;
-    }
+function submitForm(formId) {
+    // Mengubah nilai status menjadi "Diterima"
+    document.getElementById(formId).status.value = "Diterima";
 
-    function VerifyLampiran(event) {
-        var file = event.target.files[0];
-        if (file != null) {
-            var fileName = file.name;
-            console.log(fileName);
-            if (fileIsValidpdf(fileName) == false) {
-                validasi('Format Salah!', 'warning');
-                // document.getElementById('').value = null;
-                return false;
-            }
-            var content;
-            var size = file.size;
-            if ((size != null) && ((size / (1024 * 1024)) > 3)) {
-                validasi('Ukuran maximum 1024px', 'warning');
-                // document.getElementById('suratlamaran').value = null;
-                return false;
-            }
-
-            var ext = fileName.match(/\.([^\.]+)$/)[1];
-            ext = ext.toLowerCase();
-            var fileLabel = event.target.nextElementSibling;
-            fileLabel.classList.add("selected");
-            fileLabel.innerHTML = file.name;
-            // document.getElementById('outputImg').src = window.URL.createObjectURL(file);
-            return true;
-
-        } else
-            return false;
-    }
-
-    function logFileUpload(event) {
-        var file = event.target.files[0];
-        console.log("Uploaded file:", file);
-
-    }
-
-    function submitForm(formId) {
-        // Mengubah nilai status menjadi "Diterima"
-        document.getElementById(formId).status.value = "Diterima";
-
-        // Mengirimkan form
-        document.getElementById(formId).submit();
-    }
+    // Mengirimkan form
+    document.getElementById(formId).submit();
+}
 </script>
