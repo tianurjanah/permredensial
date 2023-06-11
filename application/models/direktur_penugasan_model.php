@@ -4,7 +4,7 @@ class direktur_penugasan_model extends ci_model
     function data()
     {
         $this->db->select('*');
-        $this->db->from('rekomendasi');
+        $this->db->from('surat_penugasan');
 
         $query = $this->db->get();
         return $query->result();
@@ -13,8 +13,8 @@ class direktur_penugasan_model extends ci_model
     function data_detail($id)
     {
         $this->db->select('*');
-        $this->db->from('rekomendasi');
-        $this->db->where('id_rekomendasi', $id);
+        $this->db->from('surat_penugasan');
+        $this->db->where('id_penugasan', $id);
 
         $query = $this->db->get();
         return $query->result();

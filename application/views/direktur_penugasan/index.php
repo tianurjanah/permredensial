@@ -23,7 +23,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Surat Penugasan</h1>
+        <h1 class="h3 mb-0 text-gray-800">Surat Penugasan Kerja Klinis</h1>
         <!-- <a href="<?= base_url() ?>approve_pengajuan/tambah_pendidikan" class="btn btn-sm btn-primary btn-icon-split">
             <span class="text text-white">Approve Pengajuan</span>
             <span class="icon text-white-50">
@@ -41,27 +41,42 @@
                     <table class="table table-hover" id="dtHorizontalExample" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th width="1%">ID Rekomendasi</th>
-                                <th>Mitra</th>
-                                <th>Komite</th>
-                                <th>Status</th>
-                                <th>Tanggal Berita Acara</th>
-                                <th>Komentar</th>
+                                <th width="1%">ID Penugasan</th>
+                                <th>User</th>
+                                <th>Tanggal Penugasan</th>
+                                <th>Tanggal Penugasan</th>
+                                <th>Direktur</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody style="cursor:pointer;" id="tbody">
                             <?php $no = 1;
                             foreach ($surpen as $sp): ?>
-                            <tr>
-                                <td onclick="detail('<?= $sp->id_rekomendasi ?>')"><?= $sp->id_rekomendasi ?></td>
-                                <td onclick="detail('<?= $sp->id_rekomendasi ?>')"><?= $sp->mitra ?></td>
-                                <td onclick="detail('<?= $sp->id_rekomendasi ?>')"><?= $sp->komite ?></td>
-                                <td onclick="detail('<?= $sp->id_rekomendasi ?>')"><?= $sp->status ?></td>
-                                <td onclick="detail('<?= $sp->id_rekomendasi ?>')"><?= $sp->tanggal ?></td>
-                                <td onclick="detail('<?= $sp->id_rekomendasi ?>')"><?= $sp->komentar ?></td>
-                                <td></td>
-                            </tr>
+                                <tr>
+                                    <td>
+                                        <?= $sp->id_penugasan ?>
+                                    </td>
+                                    <td>
+                                        <?= $sp->id_user ?>
+                                    </td>
+                                    <td>
+                                        <?= $sp->tanggal_penugasan ?>
+                                    </td>
+                                    <td>
+                                        <?= $sp->tanggal_berlaku ?>
+                                    </td>
+                                    <td>
+                                        <?= $sp->direktur ?>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            <a href="<?= base_url() ?>Direktur_penugasan/cetak_penugasan/<?= $sp->id_penugasan ?>"
+                                                class="btn btn-circle btn-success btn-sm">
+                                                <i class="fas fa-pen"></i>
+                                            </a>
+                                        </center>
+                                    </td>
+                                </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
@@ -82,55 +97,55 @@
 <script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
 <script src="<?= base_url(); ?>assets/js/pengguna.js"></script>
 <?php if ($this->session->flashdata('Pesan')): ?>
-<?= $this->session->flashdata('Pesan') ?>
+    <?= $this->session->flashdata('Pesan') ?>
 <?php else: ?>
-<script>
-$(document).ready(function() {
-    let timerInterval
-    Swal.fire({
-        title: 'Memuat...',
-        timer: 1000,
-        onBeforeOpen: () => {
-            Swal.showLoading()
-        },
-        onClose: () => {
-            clearInterval(timerInterval)
-        }
-    }).then((result) => {
-
-    })
-});
-</script>
-<?php endif; ?>
-<script>
-function konfirmasi(nomor) {
-    var base_url = $('#baseurl').val();
-
-    swal.fire({
-        title: "Hapus Data ini?",
-        icon: "warning",
-        closeOnClickOutside: false,
-        showCancelButton: true,
-        confirmButtonText: 'Iya',
-        confirmButtonColor: '#4e73df',
-        cancelButtonText: 'Batal',
-        cancelButtonColor: '#d33',
-    }).then((result) => {
-        if (result.value) {
+    <script>
+        $(document).ready(function () {
+            let timerInterval
             Swal.fire({
-                title: "Memuat...",
+                title: 'Memuat...',
+                timer: 1000,
                 onBeforeOpen: () => {
                     Swal.showLoading()
                 },
-                timer: 1000,
-                showConfirmButton: false,
-            }).then(
-                function() {
-                    window.location.href = base_url + "Vsu_pendidikan/proses_hapus_pendidikan/" + nomor;
+                onClose: () => {
+                    clearInterval(timerInterval)
                 }
-            );
-        }
-    });
+            }).then((result) => {
 
-}
+            })
+        });
+    </script>
+<?php endif; ?>
+<script>
+    function konfirmasi(nomor) {
+        var base_url = $('#baseurl').val();
+
+        swal.fire({
+            title: "Hapus Data ini?",
+            icon: "warning",
+            closeOnClickOutside: false,
+            showCancelButton: true,
+            confirmButtonText: 'Iya',
+            confirmButtonColor: '#4e73df',
+            cancelButtonText: 'Batal',
+            cancelButtonColor: '#d33',
+        }).then((result) => {
+            if (result.value) {
+                Swal.fire({
+                    title: "Memuat...",
+                    onBeforeOpen: () => {
+                        Swal.showLoading()
+                    },
+                    timer: 1000,
+                    showConfirmButton: false,
+                }).then(
+                    function () {
+                        window.location.href = base_url + "Vsu_pendidikan/proses_hapus_pendidikan/" + nomor;
+                    }
+                );
+            }
+        });
+
+    }
 </script>

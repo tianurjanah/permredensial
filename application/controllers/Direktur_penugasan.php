@@ -183,6 +183,24 @@ class Direktur_penugasan extends CI_Controller
         redirect('vsu_pendidikan/index');
     }
 
+    public function cetak_penugasan($id)
+    {
+        // Load the TCPDF library
+        $this->load->library('pdf');
+        // $id = $this->session->userdata('login_session')['nama'];
+        $data['surpen'] = $this->direktur_penugasan_model->data_detail($id);
+        // Create a new PDF instance
+        $pdf = new TCPDF();
+
+        // Set PDF content and formatting
+        $pdf->AddPage();
+        $pdf->writeHTML($this->load->view('direktur_penugasan/surat_penugasan', $data, true), true, false, true, false, '');
+
+        // Output the PDF to the browser
+        ob_end_clean();
+        $pdf->Output('Surat Penugasan.pdf', 'I');
+    }
+
 
 
 }
