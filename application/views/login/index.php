@@ -14,7 +14,7 @@
                                 <br>
                                 <div class="judul">
                                     <center>
-                                        <img width="150px" src="<?= base_url() ?>assets/icon/box.png" alt="">
+                                        <img width="150px" src="<?= base_url() ?>assets/icon/kredensial.png" alt="">
                                     </center>
                                 </div>
                                 <br>
@@ -56,7 +56,7 @@
                                         <br>
                                         <hr>
                                     </div>
-                                    <a href="#" onclick="proses_login()" id="login"
+                                    <a href="javascript:proses_login()" id="login"
                                         class="btn btn-primary btn-user btn-block shadow">
                                         Login
                                     </a>

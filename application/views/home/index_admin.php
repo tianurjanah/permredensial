@@ -17,7 +17,7 @@
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Barang Inventaris
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                <?= $jmlbarang ?> Data
+                                Data
                             </div>
                         </div>
                         <div class="col-auto">
@@ -38,7 +38,7 @@
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Perawatan
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                <?= $jmlperawatan ?> Data
+                                Data
                             </div>
                         </div>
                         <div class="col-auto">
@@ -59,7 +59,7 @@
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Perbaikan
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                <?= $jmlperbaikan ?> Data
+                                Data
                             </div>
                         </div>
                         <div class="col-auto">
@@ -79,7 +79,7 @@
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total User
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                <?= $jmlUser ?> Data
+                                Data
                             </div>
                         </div>
                         <div class="col-auto">
@@ -95,7 +95,7 @@
         <div class="col-xl-12 col-lg-12">
             <div class="card shadow mb-4" id="grafik">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between bg-primary">
-                    <h6 class="m-0 font-weight-bold border-0 text-white">Perbaikan Barang Inventaris per Bulan</h6>
+                    <h6 class="m-0 font-weight-bold border-0 text-white"></h6>
 
                     <div class="col-lg-2">
                         <select name="tahun" id="tahun" class="form-control" onchange="filterTahun()">
