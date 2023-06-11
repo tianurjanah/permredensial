@@ -24,28 +24,14 @@
                                 </div>
 
                                 <!-- MITRA BESTARI -->
-                                <?php if (count($user) > 0): ?>
-                                    <div class="form-group"><label>Mitra Bestari</label>
-                                        <select name="mitra" class="form-control chosen">
-                                            <?php foreach ($user as $u): ?>
-
-                                                <?php if ($a->user == $u->id_user): ?>
-                                                    <option value="<?= $u->nama ?>" selected>
-                                                        <?= $u->nama ?></option>
-                                                <?php else: ?>
-                                                    <option value="<?= $u->nama ?>">
-                                                        <?= $u->nama ?></option>
-                                                <?php endif; ?>
-
-                                            <?php endforeach ?>
-                                        </select>
-                                    </div>
-                                <?php else: ?>
-                                <?php endif; ?>
+                                <div class="form-group">
+                                    <label>Mitra Bestari</label>
+                                    <input class="form-control" name="komite" type="text" value="<?= $a->mitra ?>" readonly>
+                                </div>
 
                                 <div class="form-group">
                                     <label>Komite</label>
-                                    <input class="form-control" name="komite" type="text" value="<?= $a->komite ?>">
+                                    <input class="form-control" name="komite" type="text">
                                 </div>
                                                                 
                                 <div class="form-group">
@@ -71,9 +57,11 @@
                                 </div>
                                 
                                 <input type="hidden" name="id" value="<?= $a->id ?>">
+
+
                                 <div class="form-group">
                                     <label>Tanggal</label>
-                                    <input class="form-control" name="tanggal" type="text" value="<?= $a->tanggal ?>">
+                                    <input class="form-control" name="tanggal" type="date">
                                 </div>
 
                                 
