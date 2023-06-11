@@ -18,10 +18,6 @@
                             <form id="approve-form" action="<?= base_url() ?>berita_acara/proses_ubah_acara/<?= $a->id ?>"
                                 method="post">
                                 <input type="hidden" name="id" value="<?= $a->id ?>">
-                                <div class="form-group">
-                                    <label>Catatan</label>
-                                    <input class="form-control" name="catatan" type="text" value="<?= $a->catatan ?>">
-                                </div>
 
                                 <!-- MITRA BESTARI -->
                                 <div class="form-group">
@@ -49,8 +45,6 @@
                                         </option>
                                     </select>
                                 </div>
-
-                                <input type="hidden" name="id" value="<?= $a->id ?>">
                                 <div class="form-group">
                                     <label>Catatan</label>
                                     <input class="form-control" name="catatan" type="text" value="<?= $a->catatan ?>">
