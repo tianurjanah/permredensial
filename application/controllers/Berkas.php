@@ -109,7 +109,15 @@ class Berkas extends CI_Controller
 			$this->berkas_model->ubah_data($where, $data, 'biodata');
 			$pesan = 'Data berhasil diubah!';
 		} else {
-			$this->berkas_model->tambah_data($data, 'biodata');
+			$data_biodata = array(
+				'id_biodata' => $kode,
+				'id_user' => $user,
+				'surat_lamaran' => $gantilamaran,
+				'cv' => $ganticv,
+				'formulir_data' => $gantidatakaryawan,
+				'ktp' => $gantiscanktp,
+			);
+			$this->berkas_model->tambah_data($data_biodata, 'biodata');
 			$pesan = 'Data berhasil ditambahkan!';
 		}
 
