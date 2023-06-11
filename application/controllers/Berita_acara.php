@@ -67,33 +67,56 @@ class Berita_acara extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function proses_ubah_acara()
+    public function proses_ubah_acara($id_pengajuan_index)
     {
 
-        $id = $this->input->post('id_berita');
+        $id = $this->berita_acara_model->buat_kode();
+        $id_rekomendasi = $this->berita_acara_model->buat_kode_rekomendasi();
         $komite = $this->input->post('komite');
         $mitra = $this->input->post('mitra');
-        $tanggal = $this->input->post('tanggal');
-        $nama = $this->input->post('nama');
         $status = $this->input->post('status');
-        $where = array(
-            'id_berita' => $id
-        );
+        $catatan = $this->input->post('catatan');
+
+        date_default_timezone_set('Asia/Jakarta');
+        $tanggal = date("Y-m-d");
+        $user = $this->berita_acara_model->getuser($id_pengajuan_index);
 
         $data = array(
             'id_berita' => $id,
+            'id_user' => $user[0]->id_user,
+            'id_pengajuan_index' => $id_pengajuan_index,
             'komite' => $komite,
             'mitra' => $mitra,
             'tanggal' => $tanggal,
-            'nama' => $nama,
+            'hari' => $this->berita_acara_model->gethari($tanggal),
+            'nama' => $user[0]->nama,
             'status' => $status
         );
 
-        $where = array(
-            'id_berita' => $id
+        $data_pengajuan = array(
+            'status' => 'Approve',
+            'catatan' => $catatan
         );
 
-        $this->berita_acara_model->ubah_data($where, $data, 'berita_acara');
+        $data_kompetensi = array(
+            'id_rekomendasi' => $id_rekomendasi,
+            'id_pengajuan_index' => $id_pengajuan_index,
+            'mitra' => $mitra,
+            'komite' => $komite,
+            'status' => $status,
+            'komentar' => $catatan,
+            'tanggal' => $tanggal
+        );
+
+        $where = array('id' => $id_pengajuan_index);
+
+        $this->berita_acara_model->ubah_data($where, $data_pengajuan, 'pengajuan_index');
+
+        $this->berita_acara_model->tambah_data($data, 'berita_acara');
+
+        $this->berita_acara_model->tambah_data($data_kompetensi, 'rekomendasi');
+
+
         $this->session->set_flashdata('Pesan', '
 		<script>
 		$(document).ready(function() {
@@ -105,32 +128,7 @@ class Berita_acara extends CI_Controller
 		});
 		</script>
 		');
-        redirect('berita_acara/berita_acara');
-    }
-
-    public function hapus_pendidikan($nomor)
-    {
-        $where = array('nomor_pendidikanvsu' => $nomor);
-        $balasan = $this->vsu_pendidikan_model->ambilbalasan($where);
-        if ($balasan) {
-            if ($balasan != 'cloud.png') {
-                unlink('./assets/upload/berkas_vsu_pendidikan/' . $balasan);
-            }
-        }
-
-        $this->vsu_pendidikan_model->hapus_data($where, 'vsu_pendidikan');
-        $this->session->set_flashdata('Pesan', '
-            <script>
-            $(document).ready(function() {
-                swal.fire({
-                    title: "Berhasil dihapus!",
-                    icon: "success",
-                    confirmButtonColor: "#4e73df",
-                });
-            });
-            </script>
-        ');
-        redirect('vsu_pendidikan/index');
+        redirect('berita_acara/index');
     }
 
 
