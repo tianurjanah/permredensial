@@ -51,35 +51,35 @@
                         <tbody style="cursor:pointer;" id="tbody">
                             <?php $no = 1;
                             foreach ($vsu_pengalaman as $vp): ?>
-                                <tr>
-                                    <td onclick="detail('<?= $vp->nomor_pengalamanvsu ?>')"><?= $vp->nomor_pengalamanvsu ?>
-                                    </td>
-                                    <td onclick="detail('<?= $vp->nomor_pengalamanvsu ?>')"><?= $vp->nama_perusahaan ?></td>
-                                    <td onclick="detail('<?= $vp->nomor_pengalamanvsu ?>')"><?= $vp->tgl_pengiriman ?></td>
-                                    <td>
-                                        <?php if ($vp->balasan != ''): ?> <a
-                                                href="<?= base_url('assets/upload/berkas_vsu_pengalaman/' . $vp->balasan) ?>"
-                                                target="_blank">
-                                                <i class="fa fa-file-pdf"></i> Lihat Berkas
-                                            </a>
-                                        <?php else: ?>
-                                            <p>File Surat Lampiran Tidak Tersedia.</p>
-                                        <?php endif; ?>
-                                    </td>
+                            <tr>
+                                <td onclick="detail('<?= $vp->nomor_pengalamanvsu ?>')"><?= $vp->nomor_pengalamanvsu ?>
+                                </td>
+                                <td onclick="detail('<?= $vp->nomor_pengalamanvsu ?>')"><?= $vp->nama_perusahaan ?></td>
+                                <td onclick="detail('<?= $vp->nomor_pengalamanvsu ?>')"><?= $vp->tgl_pengiriman ?></td>
+                                <td>
+                                    <?php if ($vp->balasan != ''): ?> <a
+                                        href="<?= base_url('assets/upload/berkas_vsu_pengalaman/' . $vp->balasan) ?>"
+                                        target="_blank">
+                                        <i class="fa fa-file-pdf"></i> Lihat Berkas
+                                    </a>
+                                    <?php else: ?>
+                                    <p>File Surat Balasan Tidak Tersedia.</p>
+                                    <?php endif; ?>
+                                </td>
 
-                                    <td>
-                                        <center>
-                                            <a href="<?= base_url() ?>Vsu_pengalaman/ubah_pengalaman/<?= $vp->nomor_pengalamanvsu ?>"
-                                                class="btn btn-circle btn-success btn-sm">
-                                                <i class="fas fa-pen"></i>
-                                            </a>
-                                            <a href="<?= base_url() ?>Vsu_pengalaman/hapus_pengalaman/<?= $vp->nomor_pengalamanvsu ?>"
-                                                class="btn btn-circle btn-danger btn-sm">
-                                                <i class="fas fa-trash"></i>
-                                            </a>
-                                        </center>
-                                    </td>
-                                </tr>
+                                <td>
+                                    <center>
+                                        <a href="<?= base_url() ?>Vsu_pengalaman/ubah_pengalaman/<?= $vp->nomor_pengalamanvsu ?>"
+                                            class="btn btn-circle btn-success btn-sm">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
+                                        <a href="<?= base_url() ?>Vsu_pengalaman/hapus_pengalaman/<?= $vp->nomor_pengalamanvsu ?>"
+                                            class="btn btn-circle btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </center>
+                                </td>
+                            </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
@@ -100,58 +100,55 @@
 <script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
 <script src="<?= base_url(); ?>assets/js/pengguna.js"></script>
 <?php if ($this->session->flashdata('Pesan')): ?>
-    <?= $this->session->flashdata('Pesan') ?>
+<?= $this->session->flashdata('Pesan') ?>
 <?php else: ?>
-    <script>
-        $(document).ready(function () {
-            let timerInterval
+<script>
+$(document).ready(function() {
+    let timerInterval
+    Swal.fire({
+        title: 'Memuat...',
+        timer: 1000,
+        onBeforeOpen: () => {
+            Swal.showLoading()
+        },
+        onClose: () => {
+            clearInterval(timerInterval)
+        }
+    }).then((result) => {
+
+    })
+});
+</script>
+<?php endif; ?>
+<script>
+function konfirmasi(nomor) {
+    var base_url = $('#baseurl').val();
+
+    swal.fire({
+        title: "Hapus Data ini?",
+        icon: "warning",
+        closeOnClickOutside: false,
+        showCancelButton: true,
+        confirmButtonText: 'Iya',
+        confirmButtonColor: '#4e73df',
+        cancelButtonText: 'Batal',
+        cancelButtonColor: '#d33',
+    }).then((result) => {
+        if (result.value) {
             Swal.fire({
-                title: 'Memuat...',
-                timer: 1000,
+                title: "Memuat...",
                 onBeforeOpen: () => {
                     Swal.showLoading()
                 },
-                onClose: () => {
-                    clearInterval(timerInterval)
+                timer: 1000,
+                showConfirmButton: false,
+            }).then(
+                function() {
+                    window.location.href = base_url + "Vsu_pengalaman/proses_hapus_pengalaman/" + nomor;
                 }
-            }).then((result) => {
+            );
+        }
+    });
 
-            })
-        });
-
-
-
-    </script>
-<?php endif; ?>
-<script>
-    function konfirmasi(nomor) {
-        var base_url = $('#baseurl').val();
-
-        swal.fire({
-            title: "Hapus Data ini?",
-            icon: "warning",
-            closeOnClickOutside: false,
-            showCancelButton: true,
-            confirmButtonText: 'Iya',
-            confirmButtonColor: '#4e73df',
-            cancelButtonText: 'Batal',
-            cancelButtonColor: '#d33',
-        }).then((result) => {
-            if (result.value) {
-                Swal.fire({
-                    title: "Memuat...",
-                    onBeforeOpen: () => {
-                        Swal.showLoading()
-                    },
-                    timer: 1000,
-                    showConfirmButton: false,
-                }).then(
-                    function () {
-                        window.location.href = base_url + "Vsu_pengalaman/proses_hapus_pengalaman/" + nomor;
-                    }
-                );
-            }
-        });
-
-    }
+}
 </script>

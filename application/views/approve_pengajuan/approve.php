@@ -266,7 +266,7 @@
                                                         src="<?= base_url() ?>assets/upload/berkas_sehat/<?= $s->surat_keterangan ?>"
                                                         type="application/pdf" width="100%" height="600px">
                                                     <?php else: ?>
-                                                    <p>File Data Karyawan Tidak Tersedia.</p>
+                                                    <p>File Surat Keterangan Tidak Tersedia.</p>
                                                     <?php endif; ?>
                                                 </div>
                                             </div>

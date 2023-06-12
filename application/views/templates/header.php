@@ -196,7 +196,7 @@ if (!$this->session->has_userdata('login_session')){
                 <?php endif; ?>
                 <a class="nav-link"
                     href="<?= base_url() ?>biodata/tambah/<?= $this->session->userdata('login_session')['id_user'] ?>">
-                    <i class="fas fa-fw fa-boxes"></i>
+                    <i class="fa fa-user-md" aria-hidden="true"></i>
                     <span>Biodata Diri</span>
                 </a>
             </li>
@@ -209,13 +209,13 @@ if (!$this->session->has_userdata('login_session')){
             <div class="sidebar-heading">
                 Berkas Pengajuan
             </div>
-            <?php if($title == 'Barang'): ?>
+            <?php if($title == 'Berkas Pengajuan'): ?>
             <li class="nav-item active">
                 <?php else: ?>
             <li class="nav-item">
                 <?php endif; ?>
                 <a class="nav-link" href="<?= base_url() ?>berkas">
-                    <i class="fas fa-fw fa-boxes"></i>
+                    <i class="fa fa-file" aria-hidden="true"></i>
                     <span>Berkas Pengajuan</span>
                 </a>
             </li>
@@ -226,7 +226,7 @@ if (!$this->session->has_userdata('login_session')){
             <?php if($this->session->userdata('login_session')['level'] == 'Pegawai'): ?>
 
             <div class="sidebar-heading">
-                Berkas Pengajuan
+                Pengajuan Kompetensi
             </div>
             <?php if($title == 'Pengajuan Kompetensi'): ?>
             <li class="nav-item active">
@@ -253,7 +253,7 @@ if (!$this->session->has_userdata('login_session')){
             <li class="nav-item">
                 <?php endif; ?>
                 <a class="nav-link" href="<?= base_url() ?>Approve_pengajuan/index">
-                    <i class="fas fa-fw fa-user-friends"></i>
+                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                     <span>Approve Pengajuan</span>
                 </a>
             </li>
@@ -266,14 +266,14 @@ if (!$this->session->has_userdata('login_session')){
             <div class="sidebar-heading">
                 Hasil Pengajuan Kredensial
             </div>
-            <?php if($title == 'Approve Pengajuan Hasil Kredensial'): ?>
+            <?php if($title == 'App. Hasil Kredensial'): ?>
             <li class="nav-item active">
                 <?php else: ?>
             <li class="nav-item">
                 <?php endif; ?>
                 <a class="nav-link" href="<?= base_url() ?>Approve_hasil/index">
-                    <i class="fas fa-fw fa-boxes"></i>
-                    <span>Hasil Kredensial</span>
+                    <i class="fa fa-outdent" aria-hidden="true"></i>
+                    <span>App. Hasil Kredensial</span>
                 </a>
             </li>
             <hr class="sidebar-divider d-none d-md-block">
@@ -292,7 +292,7 @@ if (!$this->session->has_userdata('login_session')){
             <li class="nav-item">
                 <?php endif; ?>
                 <a class="nav-link" href="<?= base_url() ?>Approve_pengajuan/index_jadwal">
-                    <i class="fas fa-fw fa-boxes"></i>
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
                     <span>Jadwal Kredensialing</span>
                 </a>
             </li>
@@ -311,7 +311,7 @@ if (!$this->session->has_userdata('login_session')){
             <li class="nav-item">
                 <?php endif; ?>
                 <a class="nav-link" href="<?= base_url() ?>hasil_kredensialing/index">
-                    <i class="fas fa-fw fa-boxes"></i>
+                    <i class="fa fa-outdent" aria-hidden="true"></i>
                     <span>Hasil Kredensialing</span>
                 </a>
             </li>
@@ -331,7 +331,7 @@ if (!$this->session->has_userdata('login_session')){
             <li class="nav-item">
                 <?php endif; ?>
                 <a class="nav-link" href="<?= base_url() ?>berita_acara/index">
-                    <i class="fas fa-fw fa-boxes"></i>
+                    <i class="fa fa-book" aria-hidden="true"></i>
                     <span>Berita Acara</span>
                 </a>
             </li>
@@ -350,7 +350,7 @@ if (!$this->session->has_userdata('login_session')){
             <li class="nav-item">
                 <?php endif; ?>
                 <a class="nav-link" href="<?= base_url() ?>surat_rekomendasi/index">
-                    <i class="fas fa-fw fa-boxes"></i>
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
                     <span>Surat Rekomendasi</span>
                 </a>
             </li>
@@ -364,14 +364,14 @@ if (!$this->session->has_userdata('login_session')){
             <div class="sidebar-heading">
                 Berkas Pengajuan
             </div>
-            <?php if($title == 'Proses Kredensialing'): ?>
+            <?php if($title == 'Proses App. Dokumen'): ?>
             <li class="nav-item active">
                 <?php else: ?>
             <li class="nav-item">
                 <?php endif; ?>
                 <a class="nav-link" href="<?= base_url() ?>Approve_pengajuan/index">
-                    <i class="fas fa-fw fa-boxes"></i>
-                    <span>Proses Approve Dokumen</span>
+                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                    <span>Proses App. Dokumen</span>
                 </a>
             </li>
             <hr class="sidebar-divider d-none d-md-block">
@@ -388,7 +388,7 @@ if (!$this->session->has_userdata('login_session')){
             <li class="nav-item">
                 <?php endif; ?>
                 <a class="nav-link" href="<?= base_url() ?>Proses_kredensialing/index">
-                    <i class="fas fa-fw fa-boxes"></i>
+                    <i class="fa fa-check-square" aria-hidden="true"></i>
                     <span>Proses Kredensialing</span>
                 </a>
             </li>
@@ -402,13 +402,13 @@ if (!$this->session->has_userdata('login_session')){
             <div class="sidebar-heading">
                 Berkas Pengajuan
             </div>
-            <?php if($title == 'Proses Kredensialing'): ?>
+            <?php if($title == 'Approve Kredensialing'): ?>
             <li class="nav-item active">
                 <?php else: ?>
             <li class="nav-item">
                 <?php endif; ?>
                 <a class="nav-link" href="<?= base_url() ?>Direktur_approve/index">
-                    <i class="fas fa-fw fa-boxes"></i>
+                    <i class="fa fa-outdent" aria-hidden="true"></i>
                     <span>Approve Kredensialing</span>
                 </a>
             </li>
@@ -421,13 +421,13 @@ if (!$this->session->has_userdata('login_session')){
             <div class="sidebar-heading">
                 Berkas Pengajuan
             </div>
-            <?php if($title == 'Proses Kredensialing'): ?>
+            <?php if($title == 'Surat Penugasan'): ?>
             <li class="nav-item active">
                 <?php else: ?>
             <li class="nav-item">
                 <?php endif; ?>
                 <a class="nav-link" href="<?= base_url() ?>Direktur_penugasan/index">
-                    <i class="fas fa-fw fa-boxes"></i>
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
                     <span>Surat Penugasan</span>
                 </a>
             </li>
@@ -440,13 +440,13 @@ if (!$this->session->has_userdata('login_session')){
             <div class="sidebar-heading">
                 Berkas Pengajuan
             </div>
-            <?php if($title == 'Proses Kredensialing'): ?>
+            <?php if($title == 'Rincian Kewenangan'): ?>
             <li class="nav-item active">
                 <?php else: ?>
             <li class="nav-item">
                 <?php endif; ?>
                 <a class="nav-link" href="<?= base_url() ?>Direktur_kewenangan/index">
-                    <i class="fas fa-fw fa-boxes"></i>
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
                     <span>Rincian Kewenangan</span>
                 </a>
             </li>

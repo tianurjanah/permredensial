@@ -78,7 +78,7 @@
                 </div>
                 <div class="text-right">
                     <button type="submit" class="btn btn-success btn-md btn-icon-split">
-                        <span class="text text-white">Simpan Data Pengajuan</span>
+                        <span class="text text-white">Simpan Data VSU Pendidikan</span>
                         <span class="icon text-white-50">
                             <i class="fas fa-save"></i>
                         </span>

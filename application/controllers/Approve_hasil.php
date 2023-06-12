@@ -17,7 +17,7 @@ class Approve_hasil extends CI_Controller
     }
     public function index()
     {
-        $data['title'] = 'Approve Hasil Pengajuan Kredensial';
+        $data['title'] = 'App. Hasil Kredensial';
         $data['user'] = $this->user_model->data()->result();
         $data['pengajuan'] = $this->approve_hasil_model->data()->result();
 

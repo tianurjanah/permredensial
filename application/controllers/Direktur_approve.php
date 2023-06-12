@@ -18,7 +18,7 @@ class Direktur_approve extends CI_Controller
     }
     public function index()
     {
-        $data['title'] = 'Surat Rekomendasi';
+        $data['title'] = 'Approve Kredensialing';
         $data['appdir'] = $this->direktur_approve_model->data();
 
         $this->load->view('templates/header', $data);

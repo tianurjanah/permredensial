@@ -42,61 +42,61 @@
                         <h6 class="m-0 font-weight-bold text-white">Formulir VSU Pendidikan</h6>
                     </div>
                     <?php foreach ($pendidikan as $p): ?>
-                        <div class="card-body">
-                            <div class="col-lg-12">
-                                <!-- Perusahaan -->
-                                <div class="form-group"><label>ID Pendidikan</label>
-                                    <input class="form-control" name="nomor_pendidikanvsu" id="id" type="text"
-                                        placeholder="" value="<?= $p->nomor_pendidikanvsu ?>" readonly="">
-                                </div>
+                    <div class="card-body">
+                        <div class="col-lg-12">
+                            <!-- Perusahaan -->
+                            <div class="form-group"><label>ID Pendidikan</label>
+                                <input class="form-control" name="nomor_pendidikanvsu" id="id" type="text"
+                                    placeholder="" value="<?= $p->nomor_pendidikanvsu ?>" readonly="">
+                            </div>
 
-                                <!-- Perusahaan -->
-                                <div class="form-group"><label>Nama Institusi</label>
-                                    <input class="form-control" name="nama_institusi" id="institusi" type="text"
-                                        placeholder="" value="<?= $p->nama_institusi ?>">
-                                </div>
+                            <!-- Perusahaan -->
+                            <div class="form-group"><label>Nama Institusi</label>
+                                <input class="form-control" name="nama_institusi" id="institusi" type="text"
+                                    placeholder="" value="<?= $p->nama_institusi ?>">
+                            </div>
 
-                                <div class="form-group"><label>Tanggal Pengiriman</label>
-                                    <input class="form-control" name="tgl_pengiriman" id="pengiriman" type="date"
-                                        placeholder="" value="<?= $p->tgl_pengiriman ?>">
-                                </div>
+                            <div class="form-group"><label>Tanggal Pengiriman</label>
+                                <input class="form-control" name="tgl_pengiriman" id="pengiriman" type="date"
+                                    placeholder="" value="<?= $p->tgl_pengiriman ?>">
+                            </div>
 
-                                <!-- foto -->
-                                <div class="form-group"><label>Surat Balasan</label>
-                                    <div class="custom-file">
-                                        <input class="custom-file-input" type="file" id="balasan" name="balasan"
-                                            onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
-                                        <label class="custom-file-label" for="customFile" id="filebalasan">Pilih
-                                            File</label>
-                                    </div><br><br>
-                                    <div class="pdf-container">
-                                        <?php if ($p->balasan != ''): ?>
-                                            <embed src="<?= base_url() ?>assets/upload/berkas_vsu_pendidikan/<?= $p->balasan ?>"
-                                                type="application/pdf" width="100%" height="600px">
-                                        <?php else: ?>
-                                            <p>File Surat Balasan Tidak Tersedia.</p>
-                                        <?php endif; ?>
-                                    </div>
+                            <!-- foto -->
+                            <div class="form-group"><label>Surat Balasan</label>
+                                <div class="custom-file">
+                                    <input class="custom-file-input" type="file" id="balasan" name="balasan"
+                                        onchange="VerifyLampiran(event)" accept=".png,.gif,.jpeg,.tiff,.jpg,.pdf">
+                                    <label class="custom-file-label" for="customFile" id="filebalasan">Pilih
+                                        File</label>
+                                </div><br><br>
+                                <div class="pdf-container">
+                                    <?php if ($p->balasan != ''): ?>
+                                    <embed src="<?= base_url() ?>assets/upload/berkas_vsu_pendidikan/<?= $p->balasan ?>"
+                                        type="application/pdf" width="100%" height="600px">
+                                    <?php else: ?>
+                                    <p>File Surat Balasan Tidak Tersedia.</p>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <br>
                 </div>
-            </div>
-            <div class="text-right">
-                <button type="submit" class="btn btn-success btn-md btn-icon-split">
-                    <span class="text text-white">Simpan Data VSU Pendidikan</span>
-                    <span class="icon text-white-50">
-                        <i class="fas fa-save"></i>
-                    </span>
-                </button>
+                <br>
             </div>
         </div>
-    </form>
+        <div class="text-right">
+            <button type="submit" class="btn btn-success btn-md btn-icon-split">
+                <span class="text text-white">Ubah Data VSU Pendidikan</span>
+                <span class="icon text-white-50">
+                    <i class="fas fa-save"></i>
+                </span>
+            </button>
+        </div>
+</div>
+</form>
 
 </div>
-    <!-- /.container-fluid -->
+<!-- /.container-fluid -->
 <?php endforeach; ?>
 
 <script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
@@ -106,74 +106,74 @@
 <?php if ($this->session->flashdata('Pesan')): ?>
 
 <?php else: ?>
-    <script>
-        $(document).ready(function () {
+<script>
+$(document).ready(function() {
 
-            let timerInterval
-            Swal.fire({
-                title: 'Memuat...',
-                timer: 1000,
-                onBeforeOpen: () => {
-                    Swal.showLoading()
-                },
-                onClose: () => {
-                    clearInterval(timerInterval)
-                }
-            }).then((result) => {
+    let timerInterval
+    Swal.fire({
+        title: 'Memuat...',
+        timer: 1000,
+        onBeforeOpen: () => {
+            Swal.showLoading()
+        },
+        onClose: () => {
+            clearInterval(timerInterval)
+        }
+    }).then((result) => {
 
-            })
-        });
-    </script>
+    })
+});
+</script>
 <?php endif; ?>
 <script>
-    function fileIsValidpdf(fileName) {
+function fileIsValidpdf(fileName) {
+    var ext = fileName.match(/\.([^\.]+)$/)[1];
+    ext = ext.toLowerCase();
+    var isValid = true;
+    switch (ext) {
+        case 'png':
+        case 'jpeg':
+        case 'jpg':
+        case 'tiff':
+        case 'gif':
+        case 'tif':
+        case 'pdf':
+
+            break;
+        default:
+            this.value = '';
+            isValid = false;
+    }
+    return isValid;
+}
+
+function VerifyLampiran(event) {
+    var file = event.target.files[0];
+    if (file != null) {
+        var fileName = file.name;
+        console.log(fileName);
+        if (fileIsValidpdf(fileName) == false) {
+            validasi('Format Salah!', 'warning');
+            // document.getElementById('').value = null;
+            return false;
+        }
+        var content;
+        var size = file.size;
+        if ((size != null) && ((size / (1024 * 1024)) > 3)) {
+            validasi('Ukuran maximum 1024px', 'warning');
+            // document.getElementById('suratlamaran').value = null;
+            return false;
+        }
+
         var ext = fileName.match(/\.([^\.]+)$/)[1];
         ext = ext.toLowerCase();
-        var isValid = true;
-        switch (ext) {
-            case 'png':
-            case 'jpeg':
-            case 'jpg':
-            case 'tiff':
-            case 'gif':
-            case 'tif':
-            case 'pdf':
+        var fileLabel = event.target.nextElementSibling;
+        fileLabel.classList.add("selected");
+        fileLabel.innerHTML = file.name;
+        // document.getElementById('outputImg').src = window.URL.createObjectURL(file);
+        return true;
 
-                break;
-            default:
-                this.value = '';
-                isValid = false;
-        }
-        return isValid;
-    }
-
-    function VerifyLampiran(event) {
-        var file = event.target.files[0];
-        if (file != null) {
-            var fileName = file.name;
-            console.log(fileName);
-            if (fileIsValidpdf(fileName) == false) {
-                validasi('Format Salah!', 'warning');
-                // document.getElementById('').value = null;
-                return false;
-            }
-            var content;
-            var size = file.size;
-            if ((size != null) && ((size / (1024 * 1024)) > 3)) {
-                validasi('Ukuran maximum 1024px', 'warning');
-                // document.getElementById('suratlamaran').value = null;
-                return false;
-            }
-
-            var ext = fileName.match(/\.([^\.]+)$/)[1];
-            ext = ext.toLowerCase();
-            var fileLabel = event.target.nextElementSibling;
-            fileLabel.classList.add("selected");
-            fileLabel.innerHTML = file.name;
-            // document.getElementById('outputImg').src = window.URL.createObjectURL(file);
-            return true;
-
-        } else
-            return false;
-    }
+    } else
+        return false;
+}
 </script>

@@ -42,7 +42,7 @@
                 <!-- form -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 bg-info">
-                        <h6 class="m-0 font-weight-bold text-white">Form Pengguna</h6>
+                        <h6 class="m-0 font-weight-bold text-white">Form Berkas Ijazah</h6>
                     </div>
                     <div class="card-body">
                         <div class="col-lg-12">
@@ -96,12 +96,12 @@
                     </div>
                 </div>
 
-                
+
                 <div class="text-right">
                     <button type="submit" class="btn btn-success btn-md btn-icon-split">
                         <span class="text text-white">Simpan Data Ijazah</span>
-                            <span class="icon text-white-50">
-                        <i class="fas fa-save"></i>
+                        <span class="icon text-white-50">
+                            <i class="fas fa-save"></i>
                         </span>
                     </button>
                 </div>
@@ -125,76 +125,74 @@
 <?php if ($this->session->flashdata('Pesan')): ?>
 
 <?php else: ?>
-    <script>
-        $(document).ready(function () {
+<script>
+$(document).ready(function() {
 
-            let timerInterval
-            Swal.fire({
-                title: 'Memuat...',
-                timer: 1000,
-                onBeforeOpen: () => {
-                    Swal.showLoading()
-                },
-                onClose: () => {
-                    clearInterval(timerInterval)
-                }
-            }).then((result) => {
+    let timerInterval
+    Swal.fire({
+        title: 'Memuat...',
+        timer: 1000,
+        onBeforeOpen: () => {
+            Swal.showLoading()
+        },
+        onClose: () => {
+            clearInterval(timerInterval)
+        }
+    }).then((result) => {
 
-            })
-        });
-
-
-    </script>
+    })
+});
+</script>
 <?php endif; ?>
 <script>
-    function fileIsValidpdf(fileName) {
+function fileIsValidpdf(fileName) {
+    var ext = fileName.match(/\.([^\.]+)$/)[1];
+    ext = ext.toLowerCase();
+    var isValid = true;
+    switch (ext) {
+        case 'png':
+        case 'jpeg':
+        case 'jpg':
+        case 'tiff':
+        case 'gif':
+        case 'tif':
+        case 'pdf':
+
+            break;
+        default:
+            this.value = '';
+            isValid = false;
+    }
+    return isValid;
+}
+
+function VerifyLampiran(event) {
+    var file = event.target.files[0];
+    if (file != null) {
+        var fileName = file.name;
+        console.log(fileName);
+        if (fileIsValidpdf(fileName) == false) {
+            validasi('Format Salah!', 'warning');
+            // document.getElementById('').value = null;
+            return false;
+        }
+        var content;
+        var size = file.size;
+        if ((size != null) && ((size / (1024 * 1024)) > 3)) {
+            validasi('Ukuran maximum 1024px', 'warning');
+            // document.getElementById('suratlamaran').value = null;
+            return false;
+        }
+
         var ext = fileName.match(/\.([^\.]+)$/)[1];
         ext = ext.toLowerCase();
-        var isValid = true;
-        switch (ext) {
-            case 'png':
-            case 'jpeg':
-            case 'jpg':
-            case 'tiff':
-            case 'gif':
-            case 'tif':
-            case 'pdf':
+        var fileLabel = event.target.nextElementSibling;
+        fileLabel.classList.add("selected");
+        fileLabel.innerHTML = file.name;
+        // document.getElementById('outputImg').src = window.URL.createObjectURL(file);
+        return true;
 
-                break;
-            default:
-                this.value = '';
-                isValid = false;
-        }
-        return isValid;
-    }
-
-    function VerifyLampiran(event) {
-        var file = event.target.files[0];
-        if (file != null) {
-            var fileName = file.name;
-            console.log(fileName);
-            if (fileIsValidpdf(fileName) == false) {
-                validasi('Format Salah!', 'warning');
-                // document.getElementById('').value = null;
-                return false;
-            }
-            var content;
-            var size = file.size;
-            if ((size != null) && ((size / (1024 * 1024)) > 3)) {
-                validasi('Ukuran maximum 1024px', 'warning');
-                // document.getElementById('suratlamaran').value = null;
-                return false;
-            }
-
-            var ext = fileName.match(/\.([^\.]+)$/)[1];
-            ext = ext.toLowerCase();
-            var fileLabel = event.target.nextElementSibling;
-            fileLabel.classList.add("selected");
-            fileLabel.innerHTML = file.name;
-            // document.getElementById('outputImg').src = window.URL.createObjectURL(file);
-            return true;
-
-        } else
-            return false;
-    }
+    } else
+        return false;
+}
 </script>

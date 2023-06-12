@@ -17,7 +17,7 @@ class Pengajuan extends CI_Controller
 
 	public function index()
 	{
-		$data['title'] = 'Pengajuan';
+		$data['title'] = 'Pengajuan Kompetensi';
 		// $data['user'] = $this->user_model->data()->result();
 		$id = $this->session->userdata('login_session')['id_user'];
 		$data['pengajuan_index'] = $this->kompetensi_model->ambil_detail_pengajuan_index($id)->result();

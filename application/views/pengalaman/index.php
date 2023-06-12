@@ -52,32 +52,32 @@
                         <tbody style="cursor:pointer;" id="tbody">
                             <?php $no = 1;
                             foreach ($pengalaman as $p): ?>
-                                <tr>
-                                    <td onclick="detail('<?= $p->id_pengalaman ?>')"><?= $p->id_pengalaman ?></td>
-                                    <td onclick="detail('<?= $p->id_pengalaman ?>')"><?= $p->perusahaan ?></td>
-                                    <td onclick="detail('<?= $p->id_pengalaman ?>')"><?= $p->kerja_dari ?></td>
-                                    <td onclick="detail('<?= $p->id_pengalaman ?>')"><?= $p->kerja_sampai ?></td>
-                                    <td>
-                                        <?php if ($p->referensi != ''): ?> <a
-                                                href="<?= base_url('assets/upload/berkas_pengalaman/' . $p->referensi) ?>"
-                                                target="_blank">
-                                                <i class="fa fa-file-pdf"></i> Lihat Berkas
-                                            </a>
-                                        <?php else: ?>
-                                            <p>File Surat Lampiran Tidak Tersedia.</p>
-                                        <?php endif; ?>
-                                    </td>
-                                    <td>
-                                        <a href="<?= base_url() ?>pengalaman/ubah_pengalaman/<?= $p->id_pengalaman ?>"
-                                            class="btn btn-circle btn-success btn-sm">
-                                            <i class="fas fa-pen"></i>
-                                        </a>
-                                        <a href="<?= base_url() ?>Pengalaman/hapus_pengalaman/<?= $p->id_pengalaman ?>"
-                                            class="btn btn-circle btn-danger btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td onclick="detail('<?= $p->id_pengalaman ?>')"><?= $p->id_pengalaman ?></td>
+                                <td onclick="detail('<?= $p->id_pengalaman ?>')"><?= $p->perusahaan ?></td>
+                                <td onclick="detail('<?= $p->id_pengalaman ?>')"><?= $p->kerja_dari ?></td>
+                                <td onclick="detail('<?= $p->id_pengalaman ?>')"><?= $p->kerja_sampai ?></td>
+                                <td>
+                                    <?php if ($p->referensi != ''): ?> <a
+                                        href="<?= base_url('assets/upload/berkas_pengalaman/' . $p->referensi) ?>"
+                                        target="_blank">
+                                        <i class="fa fa-file-pdf"></i> Lihat Berkas
+                                    </a>
+                                    <?php else: ?>
+                                    <p>File Surat Referensi Tidak Tersedia.</p>
+                                    <?php endif; ?>
+                                </td>
+                                <td>
+                                    <a href="<?= base_url() ?>pengalaman/ubah_pengalaman/<?= $p->id_pengalaman ?>"
+                                        class="btn btn-circle btn-success btn-sm">
+                                        <i class="fas fa-pen"></i>
+                                    </a>
+                                    <a href="<?= base_url() ?>Pengalaman/hapus_pengalaman/<?= $p->id_pengalaman ?>"
+                                        class="btn btn-circle btn-danger btn-sm">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
@@ -98,55 +98,55 @@
 <script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
 <script src="<?= base_url(); ?>assets/js/pengguna.js"></script>
 <?php if ($this->session->flashdata('Pesan')): ?>
-    <?= $this->session->flashdata('Pesan') ?>
+<?= $this->session->flashdata('Pesan') ?>
 <?php else: ?>
-    <script>
-        $(document).ready(function () {
-            let timerInterval
+<script>
+$(document).ready(function() {
+    let timerInterval
+    Swal.fire({
+        title: 'Memuat...',
+        timer: 1000,
+        onBeforeOpen: () => {
+            Swal.showLoading()
+        },
+        onClose: () => {
+            clearInterval(timerInterval)
+        }
+    }).then((result) => {
+
+    })
+});
+</script>
+<?php endif; ?>
+<script>
+function konfirmasi(nomor) {
+    var base_url = $('#baseurl').val();
+
+    swal.fire({
+        title: "Hapus Data ini?",
+        icon: "warning",
+        closeOnClickOutside: false,
+        showCancelButton: true,
+        confirmButtonText: 'Iya',
+        confirmButtonColor: '#4e73df',
+        cancelButtonText: 'Batal',
+        cancelButtonColor: '#d33',
+    }).then((result) => {
+        if (result.value) {
             Swal.fire({
-                title: 'Memuat...',
-                timer: 1000,
+                title: "Memuat...",
                 onBeforeOpen: () => {
                     Swal.showLoading()
                 },
-                onClose: () => {
-                    clearInterval(timerInterval)
+                timer: 1000,
+                showConfirmButton: false,
+            }).then(
+                function() {
+                    window.location.href = base_url + "pengalaman/proses_hapus_pengalaman/" + nomor;
                 }
-            }).then((result) => {
+            );
+        }
+    });
 
-            })
-        });
-    </script>
-<?php endif; ?>
-<script>
-    function konfirmasi(nomor) {
-        var base_url = $('#baseurl').val();
-
-        swal.fire({
-            title: "Hapus Data ini?",
-            icon: "warning",
-            closeOnClickOutside: false,
-            showCancelButton: true,
-            confirmButtonText: 'Iya',
-            confirmButtonColor: '#4e73df',
-            cancelButtonText: 'Batal',
-            cancelButtonColor: '#d33',
-        }).then((result) => {
-            if (result.value) {
-                Swal.fire({
-                    title: "Memuat...",
-                    onBeforeOpen: () => {
-                        Swal.showLoading()
-                    },
-                    timer: 1000,
-                    showConfirmButton: false,
-                }).then(
-                    function () {
-                        window.location.href = base_url + "pengalaman/proses_hapus_pengalaman/" + nomor;
-                    }
-                );
-            }
-        });
-
-    }
+}
 </script>

@@ -19,7 +19,7 @@ class Direktur_kewenangan extends CI_Controller
     }
     public function index()
     {
-        $data['title'] = 'Surat Rekomendasi';
+        $data['title'] = 'Rincian Kewenangan';
         $data['surpen'] = $this->direktur_kewenangan_model->data();
 
         $this->load->view('templates/header', $data);

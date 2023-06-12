@@ -404,8 +404,8 @@ class Berkas extends CI_Controller
 				redirect('berkas/index');
 			} else {
 				$dataketerangan = array('surat_keterangan' => $this->upload->data());
-				$nama_file_keterangan = $dataketerangan['surat_keterangan']['file_name'];
-				$gantiketerangan = str_replace(" ", "_", $nama_file_keterangan);
+				$namaFile_keterangan = $dataketerangan['surat_keterangan']['file_name'];
+				$gantiketerangan = str_replace(" ", "_", $namaFile_keterangan);
 				var_dump($gantiketerangan);
 			}
 		}
