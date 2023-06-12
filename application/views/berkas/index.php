@@ -444,7 +444,7 @@
                                         </div>
                                 </div>
                                 <button type="submit" class="btn btn-success btn-md col-lg-2,9 btn-icon-split ml-auto">
-                                    <span class="text text-white">Simpa Berkas Surat
+                                    <span class="text text-white">Simpan Berkas Surat
                                         Keterangan Sehat</span>
                                     <span class="icon text-white-50">
                                         <i class="fas fa-save"></i>
