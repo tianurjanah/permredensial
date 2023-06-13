@@ -106,11 +106,14 @@ class Approve_pengajuan extends CI_Controller
         $mitra = $this->input->post('mitra');
         $jadwal = $this->input->post('jadwal');
         $pukul = $this->input->post('pukul');
+        $status = $this->input->post('status');
+        $catatan = $this->input->post('catatan');
 
         $data = array(
             'mitra' => $mitra,
             'jadwal' => $jadwal,
-            'pukul' => $pukul
+            'pukul' => $pukul,
+            'catatan' => $catatan
         );
 
         $where = array(

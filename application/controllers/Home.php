@@ -44,6 +44,9 @@ class Home extends CI_Controller
 		if ($this->session->userdata('login_session')['level'] == 'Komite') {
 			$this->load->view('home/index_komite');
 		}
+		if ($this->session->userdata('login_session')['level'] == 'SDM') {
+			$this->load->view('home/index_komite');
+		}
 		$this->load->view('templates/footer');
 
 	}

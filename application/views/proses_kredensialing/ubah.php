@@ -66,27 +66,27 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian1 as $b1): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b1->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian1"
-                                                                                                    name="bagian1[<?= $b1->id_kb ?>]" class="bagian1-radio"
-                                                                                                    value="Tidak Disetujui" checked> Tidak Disetujui
-                                                                                                <input type="radio" id="bagian1"
-                                                                                                    name="bagian1[<?= $b1->id_kb ?>]" class="bagian1-radio"
-                                                                                                    value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian1"
-                                                                                                    name="bagian1[<?= $b1->id_kb ?>]" class="bagian1-radio"
-                                                                                                    value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b1->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian1"
+                                                                name="bagian1[<?= $b1->id_kb ?>]" class="bagian1-radio"
+                                                                value="Tidak Disetujui" checked> Tidak Disetujui
+                                                            <input type="radio" id="bagian1"
+                                                                name="bagian1[<?= $b1->id_kb ?>]" class="bagian1-radio"
+                                                                value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian1"
+                                                                name="bagian1[<?= $b1->id_kb ?>]" class="bagian1-radio"
+                                                                value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                         </table>
@@ -120,27 +120,27 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian2 as $b2): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b2->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian2"
-                                                                                                    name="bagian2[<?= $b2->id_kb ?>]" class="bagian2-radio"
-                                                                                                    value="Tidak Disetujui" checked> Tidak Disetujui
-                                                                                                <input type="radio" id="bagian2"
-                                                                                                    name="bagian2[<?= $b2->id_kb ?>]" class="bagian2-radio"
-                                                                                                    value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian2"
-                                                                                                    name="bagian2[<?= $b2->id_kb ?>]" class="bagian2-radio"
-                                                                                                    value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b2->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian2"
+                                                                name="bagian2[<?= $b2->id_kb ?>]" class="bagian2-radio"
+                                                                value="Tidak Disetujui" checked> Tidak Disetujui
+                                                            <input type="radio" id="bagian2"
+                                                                name="bagian2[<?= $b2->id_kb ?>]" class="bagian2-radio"
+                                                                value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian2"
+                                                                name="bagian2[<?= $b2->id_kb ?>]" class="bagian2-radio"
+                                                                value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                         </table>
@@ -173,28 +173,28 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian3 as $b3): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b3->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian3"
-                                                                                                    name="bagian3[<?= $b - 3 > id_kb ?>]"
-                                                                                                    class="bagian3-radio" value="Tidak Disetujui" checked>
-                                                                                                Tidak Disetujui
-                                                                                                <input type="radio" id="bagian3"
-                                                                                                    name="bagian3[<?= $b3->id_kb ?>]" class="bagian3-radio"
-                                                                                                    value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian3"
-                                                                                                    name="bagian3[<?= $b3->id_kb ?>]" class="bagian3-radio"
-                                                                                                    value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b3->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian3"
+                                                                name="bagian3[<?= $b3->id_kb ?>]" class="bagian3-radio"
+                                                                value="Tidak Disetujui" checked>
+                                                            Tidak Disetujui
+                                                            <input type="radio" id="bagian3"
+                                                                name="bagian3[<?= $b3->id_kb ?>]" class="bagian3-radio"
+                                                                value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian3"
+                                                                name="bagian3[<?= $b3->id_kb ?>]" class="bagian3-radio"
+                                                                value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                         </table>
@@ -226,27 +226,27 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian4 as $b4): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b4->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian1"
-                                                                                                    name="bagian4[<?= $b4->id_kb ?>]" class="bagian4-radio"
-                                                                                                    value="Tidak Disetujui" checked> Tidak Disetujui
-                                                                                                <input type="radio" id="bagian4"
-                                                                                                    name="bagian4[<?= $b4->id_kb ?>]" class="bagian4-radio"
-                                                                                                    value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian4"
-                                                                                                    name="bagian4[<?= $b4->id_kb ?>]" class="bagian4-radio"
-                                                                                                    value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b4->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian1"
+                                                                name="bagian4[<?= $b4->id_kb ?>]" class="bagian4-radio"
+                                                                value="Tidak Disetujui" checked> Tidak Disetujui
+                                                            <input type="radio" id="bagian4"
+                                                                name="bagian4[<?= $b4->id_kb ?>]" class="bagian4-radio"
+                                                                value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian4"
+                                                                name="bagian4[<?= $b4->id_kb ?>]" class="bagian4-radio"
+                                                                value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                         </table>
@@ -277,27 +277,27 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian5 as $b5): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b5->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian5"
-                                                                                                    name="bagian5[<?= $b5->id_kb ?>]" class="bagian5-radio"
-                                                                                                    value="Tidak Disetujui" checked> Tidak Disetujui
-                                                                                                <input type="radio" id="bagian5"
-                                                                                                    name="bagian5[<?= $b5->id_kb ?>]" class="bagian5-radio"
-                                                                                                    value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian5"
-                                                                                                    name="bagian5[<?= $b5->id_kb ?>]" class="bagian5-radio"
-                                                                                                    value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b5->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian5"
+                                                                name="bagian5[<?= $b5->id_kb ?>]" class="bagian5-radio"
+                                                                value="Tidak Disetujui" checked> Tidak Disetujui
+                                                            <input type="radio" id="bagian5"
+                                                                name="bagian5[<?= $b5->id_kb ?>]" class="bagian5-radio"
+                                                                value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian5"
+                                                                name="bagian5[<?= $b5->id_kb ?>]" class="bagian5-radio"
+                                                                value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                         </table>
@@ -328,27 +328,27 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian6 as $b6): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b6->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian6"
-                                                                                                    name="bagian6[<?= $b6->id_kb ?>]" class="bagian6-radio"
-                                                                                                    value="Tidak Disetujui" checked> Tidak Disetujui
-                                                                                                <input type="radio" id="bagian6"
-                                                                                                    name="bagian6[<?= $b6->id_kb ?>]" class="bagian6-radio"
-                                                                                                    value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian6"
-                                                                                                    name="bagian6[<?= $b6->id_kb ?>]" class="bagian6-radio"
-                                                                                                    value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b6->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian6"
+                                                                name="bagian6[<?= $b6->id_kb ?>]" class="bagian6-radio"
+                                                                value="Tidak Disetujui" checked> Tidak Disetujui
+                                                            <input type="radio" id="bagian6"
+                                                                name="bagian6[<?= $b6->id_kb ?>]" class="bagian6-radio"
+                                                                value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian6"
+                                                                name="bagian6[<?= $b6->id_kb ?>]" class="bagian6-radio"
+                                                                value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                         </table>
@@ -379,27 +379,27 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian7 as $b7): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b7->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian7"
-                                                                                                    name="bagian7[<?= $b7->id_kb ?>]" class="bagian7-radio"
-                                                                                                    value="Tidak Disetujui" checked> Tidak Disetujui
-                                                                                                <input type="radio" id="bagian7"
-                                                                                                    name="bagian7[<?= $b7->id_kb ?>]" class="bagian7-radio"
-                                                                                                    value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian7"
-                                                                                                    name="bagian7[<?= $b7->id_kb ?>]" class="bagian7-radio"
-                                                                                                    value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b7->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian7"
+                                                                name="bagian7[<?= $b7->id_kb ?>]" class="bagian7-radio"
+                                                                value="Tidak Disetujui" checked> Tidak Disetujui
+                                                            <input type="radio" id="bagian7"
+                                                                name="bagian7[<?= $b7->id_kb ?>]" class="bagian7-radio"
+                                                                value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian7"
+                                                                name="bagian7[<?= $b7->id_kb ?>]" class="bagian7-radio"
+                                                                value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                         </table>
@@ -430,27 +430,27 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian8 as $b8): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b8->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian8"
-                                                                                                    name="bagian8[<?= $b8->id_kb ?>]" class="bagian8-radio"
-                                                                                                    value="Tidak Disetujui" checked> Tidak Disetujui
-                                                                                                <input type="radio" id="bagian8"
-                                                                                                    name="bagian8[<?= $b8->id_kb ?>]" class="bagian8-radio"
-                                                                                                    value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian8"
-                                                                                                    name="bagian8[<?= $b8->id_kb ?>]" class="bagian8-radio"
-                                                                                                    value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b8->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian8"
+                                                                name="bagian8[<?= $b8->id_kb ?>]" class="bagian8-radio"
+                                                                value="Tidak Disetujui" checked> Tidak Disetujui
+                                                            <input type="radio" id="bagian8"
+                                                                name="bagian8[<?= $b8->id_kb ?>]" class="bagian8-radio"
+                                                                value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian8"
+                                                                name="bagian8[<?= $b8->id_kb ?>]" class="bagian8-radio"
+                                                                value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                         </table>
@@ -481,27 +481,27 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian9 as $b9): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b9->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian9"
-                                                                                                    name="bagian9[<?= $b9->id_kb ?>]" class="bagian9-radio"
-                                                                                                    value="Tidak Disetujui" checked> Tidak Disetujui
-                                                                                                <input type="radio" id="bagian9"
-                                                                                                    name="bagian9[<?= $b9->id_kb ?>]" class="bagian9-radio"
-                                                                                                    value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian9"
-                                                                                                    name="bagian9[<?= $b9->id_kb ?>]" class="bagian9-radio"
-                                                                                                    value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b9->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian9"
+                                                                name="bagian9[<?= $b9->id_kb ?>]" class="bagian9-radio"
+                                                                value="Tidak Disetujui" checked> Tidak Disetujui
+                                                            <input type="radio" id="bagian9"
+                                                                name="bagian9[<?= $b9->id_kb ?>]" class="bagian9-radio"
+                                                                value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian9"
+                                                                name="bagian9[<?= $b9->id_kb ?>]" class="bagian9-radio"
+                                                                value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                             <thead>
@@ -515,28 +515,28 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian9a as $b9a): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b9a->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian9a"
-                                                                                                    name="bagian9a[<?= $b9a->id_kb ?>]"
-                                                                                                    class="bagian9a-radio" value="Tidak Disetujui" checked>
-                                                                                                Tidak Disetujui
-                                                                                                <input type="radio" id="bagian9a"
-                                                                                                    name="bagian9a[<?= $b9a->id_kb ?>]"
-                                                                                                    class="bagian9a-radio" value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian9a"
-                                                                                                    name="bagian9a[<?= $b9a->id_kb ?>]"
-                                                                                                    class="bagian9a-radio" value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b9a->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian9a"
+                                                                name="bagian9a[<?= $b9a->id_kb ?>]"
+                                                                class="bagian9a-radio" value="Tidak Disetujui" checked>
+                                                            Tidak Disetujui
+                                                            <input type="radio" id="bagian9a"
+                                                                name="bagian9a[<?= $b9a->id_kb ?>]"
+                                                                class="bagian9a-radio" value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian9a"
+                                                                name="bagian9a[<?= $b9a->id_kb ?>]"
+                                                                class="bagian9a-radio" value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                             <thead>
@@ -550,28 +550,28 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian9b as $b9b): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b9b->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian9b"
-                                                                                                    name="bagian9b[<?= $b9b->id_kb ?>]"
-                                                                                                    class="bagian9b-radio" value="Tidak Disetujui" checked>
-                                                                                                Tidak Disetujui
-                                                                                                <input type="radio" id="bagian9b"
-                                                                                                    name="bagian9b[<?= $b9b->id_kb ?>]"
-                                                                                                    class="bagian9b-radio" value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian9b"
-                                                                                                    name="bagian9b[<?= $b9b->id_kb ?>]"
-                                                                                                    class="bagian9b-radio" value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b9b->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian9b"
+                                                                name="bagian9b[<?= $b9b->id_kb ?>]"
+                                                                class="bagian9b-radio" value="Tidak Disetujui" checked>
+                                                            Tidak Disetujui
+                                                            <input type="radio" id="bagian9b"
+                                                                name="bagian9b[<?= $b9b->id_kb ?>]"
+                                                                class="bagian9b-radio" value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian9b"
+                                                                name="bagian9b[<?= $b9b->id_kb ?>]"
+                                                                class="bagian9b-radio" value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                             <thead>
@@ -585,28 +585,28 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian9c as $b9c): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b9c->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian9c"
-                                                                                                    name="bagian9c[<?= $b9c->id_kb ?>]"
-                                                                                                    class="bagian9c-radio" value="Tidak Disetujui" checked>
-                                                                                                Tidak Disetujui
-                                                                                                <input type="radio" id="bagian9c"
-                                                                                                    name="bagian9c[<?= $b9c->id_kb ?>]"
-                                                                                                    class="bagian9c-radio" value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian9c"
-                                                                                                    name="bagian9c[<?= $b9c->id_kb ?>]"
-                                                                                                    class="bagian9c-radio" value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b9c->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian9c"
+                                                                name="bagian9c[<?= $b9c->id_kb ?>]"
+                                                                class="bagian9c-radio" value="Tidak Disetujui" checked>
+                                                            Tidak Disetujui
+                                                            <input type="radio" id="bagian9c"
+                                                                name="bagian9c[<?= $b9c->id_kb ?>]"
+                                                                class="bagian9c-radio" value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian9c"
+                                                                name="bagian9c[<?= $b9c->id_kb ?>]"
+                                                                class="bagian9c-radio" value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                             <thead>
@@ -620,28 +620,28 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian9d as $b9d): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b9d->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian9d"
-                                                                                                    name="bagian9d[<?= $b9d->id_kb ?>]"
-                                                                                                    class="bagian9d-radio" value="Tidak Disetujui" checked>
-                                                                                                Tidak Disetujui
-                                                                                                <input type="radio" id="bagian9d"
-                                                                                                    name="bagian9d[<?= $b9d->id_kb ?>]"
-                                                                                                    class="bagian9d-radio" value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian9d"
-                                                                                                    name="bagian9d[<?= $b9d->id_kb ?>]"
-                                                                                                    class="bagian9d-radio" value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b9d->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian9d"
+                                                                name="bagian9d[<?= $b9d->id_kb ?>]"
+                                                                class="bagian9d-radio" value="Tidak Disetujui" checked>
+                                                            Tidak Disetujui
+                                                            <input type="radio" id="bagian9d"
+                                                                name="bagian9d[<?= $b9d->id_kb ?>]"
+                                                                class="bagian9d-radio" value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian9d"
+                                                                name="bagian9d[<?= $b9d->id_kb ?>]"
+                                                                class="bagian9d-radio" value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                             <thead>
@@ -655,28 +655,28 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian9e as $b9e): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b9e->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian9e"
-                                                                                                    name="bagian9e[<?= $b9e->id_kb ?>]"
-                                                                                                    class="bagian9e-radio" value="Tidak Disetujui" checked>
-                                                                                                Tidak Disetujui
-                                                                                                <input type="radio" id="bagian9e"
-                                                                                                    name="bagian9e[<?= $b9e->id_kb ?>]"
-                                                                                                    class="bagian9e-radio" value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian9e"
-                                                                                                    name="bagian9e[<?= $b9e->id_kb ?>]"
-                                                                                                    class="bagian9e-radio" value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b9e->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian9e"
+                                                                name="bagian9e[<?= $b9e->id_kb ?>]"
+                                                                class="bagian9e-radio" value="Tidak Disetujui" checked>
+                                                            Tidak Disetujui
+                                                            <input type="radio" id="bagian9e"
+                                                                name="bagian9e[<?= $b9e->id_kb ?>]"
+                                                                class="bagian9e-radio" value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian9e"
+                                                                name="bagian9e[<?= $b9e->id_kb ?>]"
+                                                                class="bagian9e-radio" value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                             <thead>
@@ -690,28 +690,28 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian9f as $b9f): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b9f->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian9f"
-                                                                                                    name="bagian9f[<?= $b9f->id_kb ?>]"
-                                                                                                    class="bagian9f-radio" value="Tidak Disetujui" checked>
-                                                                                                Tidak Disetujui
-                                                                                                <input type="radio" id="bagian9f"
-                                                                                                    name="bagian9f[<?= $b9f->id_kb ?>]"
-                                                                                                    class="bagian9f-radio" value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian9f"
-                                                                                                    name="bagian9f[<?= $b9f->id_kb ?>]"
-                                                                                                    class="bagian9f-radio" value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b9f->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian9f"
+                                                                name="bagian9f[<?= $b9f->id_kb ?>]"
+                                                                class="bagian9f-radio" value="Tidak Disetujui" checked>
+                                                            Tidak Disetujui
+                                                            <input type="radio" id="bagian9f"
+                                                                name="bagian9f[<?= $b9f->id_kb ?>]"
+                                                                class="bagian9f-radio" value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian9f"
+                                                                name="bagian9f[<?= $b9f->id_kb ?>]"
+                                                                class="bagian9f-radio" value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                             <thead>
@@ -725,28 +725,28 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian9g as $b9g): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b9g->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian9g"
-                                                                                                    name="bagian9g[<?= $b9g->id_kb ?>]"
-                                                                                                    class="bagian9g-radio" value="Tidak Disetujui" checked>
-                                                                                                Tidak Disetujui
-                                                                                                <input type="radio" id="bagian9g"
-                                                                                                    name="bagian9g[<?= $b9g->id_kb ?>]"
-                                                                                                    class="bagian9g-radio" value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian9g"
-                                                                                                    name="bagian9g[<?= $b9g->id_kb ?>]"
-                                                                                                    class="bagian9g-radio" value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b9g->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian9g"
+                                                                name="bagian9g[<?= $b9g->id_kb ?>]"
+                                                                class="bagian9g-radio" value="Tidak Disetujui" checked>
+                                                            Tidak Disetujui
+                                                            <input type="radio" id="bagian9g"
+                                                                name="bagian9g[<?= $b9g->id_kb ?>]"
+                                                                class="bagian9g-radio" value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian9g"
+                                                                name="bagian9g[<?= $b9g->id_kb ?>]"
+                                                                class="bagian9g-radio" value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                             <thead>
@@ -760,28 +760,28 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian9h as $b9h): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b9h->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian9h"
-                                                                                                    name="bagian9h[<?= $b9h->id_kb ?>]"
-                                                                                                    class="bagian9h-radio" value="Tidak Disetujui" checked>
-                                                                                                Tidak Disetujui
-                                                                                                <input type="radio" id="bagian9h"
-                                                                                                    name="bagian9h[<?= $b9h->id_kb ?>]"
-                                                                                                    class="bagian9h-radio" value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian9h"
-                                                                                                    name="bagian9h[<?= $b9h->id_kb ?>]"
-                                                                                                    class="bagian9h-radio" value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b9h->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian9h"
+                                                                name="bagian9h[<?= $b9h->id_kb ?>]"
+                                                                class="bagian9h-radio" value="Tidak Disetujui" checked>
+                                                            Tidak Disetujui
+                                                            <input type="radio" id="bagian9h"
+                                                                name="bagian9h[<?= $b9h->id_kb ?>]"
+                                                                class="bagian9h-radio" value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian9h"
+                                                                name="bagian9h[<?= $b9h->id_kb ?>]"
+                                                                class="bagian9h-radio" value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                             <thead>
@@ -795,28 +795,28 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian9i as $b9i): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b9i->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian9i"
-                                                                                                    name="bagian9i[<?= $b9i->id_kb ?>]"
-                                                                                                    class="bagian9i-radio" value="Tidak Disetujui" checked>
-                                                                                                Tidak Disetujui
-                                                                                                <input type="radio" id="bagian9i"
-                                                                                                    name="bagian9i[<?= $b9i->id_kb ?>]"
-                                                                                                    class="bagian9i-radio" value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian9i"
-                                                                                                    name="bagian9i[<?= $b9i->id_kb ?>]"
-                                                                                                    class="bagian9i-radio" value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b9i->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian9i"
+                                                                name="bagian9i[<?= $b9i->id_kb ?>]"
+                                                                class="bagian9i-radio" value="Tidak Disetujui" checked>
+                                                            Tidak Disetujui
+                                                            <input type="radio" id="bagian9i"
+                                                                name="bagian9i[<?= $b9i->id_kb ?>]"
+                                                                class="bagian9i-radio" value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian9i"
+                                                                name="bagian9i[<?= $b9i->id_kb ?>]"
+                                                                class="bagian9i-radio" value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                             <thead>
@@ -830,28 +830,28 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian9j as $b9j): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b9j->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian9j"
-                                                                                                    name="bagian9j[<?= $b9j->id_kb ?>]"
-                                                                                                    class="bagian9j-radio" value="Tidak Disetujui" checked>
-                                                                                                Tidak Disetujui
-                                                                                                <input type="radio" id="bagian9j"
-                                                                                                    name="bagian9j[<?= $b9j->id_kb ?>]"
-                                                                                                    class="bagian9j-radio" value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian9j"
-                                                                                                    name="bagian9j[<?= $b9j->id_kb ?>]"
-                                                                                                    class="bagian9j-radio" value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b9j->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian9j"
+                                                                name="bagian9j[<?= $b9j->id_kb ?>]"
+                                                                class="bagian9j-radio" value="Tidak Disetujui" checked>
+                                                            Tidak Disetujui
+                                                            <input type="radio" id="bagian9j"
+                                                                name="bagian9j[<?= $b9j->id_kb ?>]"
+                                                                class="bagian9j-radio" value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian9j"
+                                                                name="bagian9j[<?= $b9j->id_kb ?>]"
+                                                                class="bagian9j-radio" value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                         </table>
@@ -884,28 +884,28 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian10kmr as $b10kmr): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b10kmr->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian10kmr"
-                                                                                                    name="bagian10kmr[<?= $b10kmr->id_kb ?>]"
-                                                                                                    class="bagian10kmr-radio" value="Tidak Disetujui"
-                                                                                                    checked> Tidak Disetujui
-                                                                                                <input type="radio" id="bagian10kmr"
-                                                                                                    name="bagian10kmr[<?= $b10kmr->id_kb ?>]"
-                                                                                                    class="bagian10kmr-radio" value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian10kmr"
-                                                                                                    name="bagian10kmr[<?= $b10kmr->id_kb ?>]"
-                                                                                                    class="bagian10kmr-radio" value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b10kmr->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian10kmr"
+                                                                name="bagian10kmr[<?= $b10kmr->id_kb ?>]"
+                                                                class="bagian10kmr-radio" value="Tidak Disetujui"
+                                                                checked> Tidak Disetujui
+                                                            <input type="radio" id="bagian10kmr"
+                                                                name="bagian10kmr[<?= $b10kmr->id_kb ?>]"
+                                                                class="bagian10kmr-radio" value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian10kmr"
+                                                                name="bagian10kmr[<?= $b10kmr->id_kb ?>]"
+                                                                class="bagian10kmr-radio" value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                             <thead>
@@ -919,28 +919,28 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian10smltr as $b10smltr): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b10smltr->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian10smltr"
-                                                                                                    name="bagian10smltr[<?= $b10smltr->id_kb ?>]"
-                                                                                                    class="bagian10smltr-radio" value="Tidak Disetujui"
-                                                                                                    checked> Tidak Disetujui
-                                                                                                <input type="radio" id="bagian10smltr"
-                                                                                                    name="bagian10smltr[<?= $b10smltr->id_kb ?>]"
-                                                                                                    class="bagian10smltr-radio" value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian10smltr"
-                                                                                                    name="bagian10smltr[<?= $b10smltr->id_kb ?>]"
-                                                                                                    class="bagian10smltr-radio" value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b10smltr->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian10smltr"
+                                                                name="bagian10smltr[<?= $b10smltr->id_kb ?>]"
+                                                                class="bagian10smltr-radio" value="Tidak Disetujui"
+                                                                checked> Tidak Disetujui
+                                                            <input type="radio" id="bagian10smltr"
+                                                                name="bagian10smltr[<?= $b10smltr->id_kb ?>]"
+                                                                class="bagian10smltr-radio" value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian10smltr"
+                                                                name="bagian10smltr[<?= $b10smltr->id_kb ?>]"
+                                                                class="bagian10smltr-radio" value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                             <thead>
@@ -954,28 +954,28 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian10cts as $b10cts): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b10cts->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian10cts"
-                                                                                                    name="bagian10cts[<?= $b10cts->id_kb ?>]"
-                                                                                                    class="bagian10cts-radio" value="Tidak Disetujui"
-                                                                                                    checked> Tidak Disetujui
-                                                                                                <input type="radio" id="bagian10cts"
-                                                                                                    name="bagian10cts[<?= $b10cts->id_kb ?>]"
-                                                                                                    class="bagian10cts-radio" value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian10cts"
-                                                                                                    name="bagian10cts[<?= $b10cts->id_kb ?>]"
-                                                                                                    class="bagian10cts-radio" value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b10cts->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian10cts"
+                                                                name="bagian10cts[<?= $b10cts->id_kb ?>]"
+                                                                class="bagian10cts-radio" value="Tidak Disetujui"
+                                                                checked> Tidak Disetujui
+                                                            <input type="radio" id="bagian10cts"
+                                                                name="bagian10cts[<?= $b10cts->id_kb ?>]"
+                                                                class="bagian10cts-radio" value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian10cts"
+                                                                name="bagian10cts[<?= $b10cts->id_kb ?>]"
+                                                                class="bagian10cts-radio" value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                             <thead>
@@ -989,28 +989,28 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian10re as $b10re): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b10re->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian10re"
-                                                                                                    name="bagian10re[<?= $b10re->id_kb ?>]"
-                                                                                                    class="bagian10re-radio" value="Tidak Disetujui"
-                                                                                                    checked> Tidak Disetujui
-                                                                                                <input type="radio" id="bagian10re"
-                                                                                                    name="bagian10re[<?= $b10re->id_kb ?>]"
-                                                                                                    class="bagian10re-radio" value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian10re"
-                                                                                                    name="bagian10re[<?= $b10re->id_kb ?>]"
-                                                                                                    class="bagian10re-radio" value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b10re->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian10re"
+                                                                name="bagian10re[<?= $b10re->id_kb ?>]"
+                                                                class="bagian10re-radio" value="Tidak Disetujui"
+                                                                checked> Tidak Disetujui
+                                                            <input type="radio" id="bagian10re"
+                                                                name="bagian10re[<?= $b10re->id_kb ?>]"
+                                                                class="bagian10re-radio" value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian10re"
+                                                                name="bagian10re[<?= $b10re->id_kb ?>]"
+                                                                class="bagian10re-radio" value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                             <thead>
@@ -1024,28 +1024,28 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian10mvre as $b10mvre): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b10mvre->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian10mvre"
-                                                                                                    name="bagian10mvre[<?= $b10mvre->id_kb ?>]"
-                                                                                                    class="bagian10mvre-radio" value="Tidak Disetujui"
-                                                                                                    checked> Tidak Disetujui
-                                                                                                <input type="radio" id="bagian10mvre"
-                                                                                                    name="bagian10mvre[<?= $b10mvre->id_kb ?>]"
-                                                                                                    class="bagian10mvre-radio" value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian10mvre"
-                                                                                                    name="bagian10mvre[<?= $b10mvre->id_kb ?>]"
-                                                                                                    class="bagian10mvre-radio" value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b10mvre->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian10mvre"
+                                                                name="bagian10mvre[<?= $b10mvre->id_kb ?>]"
+                                                                class="bagian10mvre-radio" value="Tidak Disetujui"
+                                                                checked> Tidak Disetujui
+                                                            <input type="radio" id="bagian10mvre"
+                                                                name="bagian10mvre[<?= $b10mvre->id_kb ?>]"
+                                                                class="bagian10mvre-radio" value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian10mvre"
+                                                                name="bagian10mvre[<?= $b10mvre->id_kb ?>]"
+                                                                class="bagian10mvre-radio" value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                             <thead>
@@ -1059,29 +1059,29 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian10brkt as $b10brkt): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b10brkt->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian10brkt"
-                                                                                                    name="bagian10brkt[<?= $b10brkt->id_kb ?>]"
-                                                                                                    class="bagian10brkt-radio" value="Tidak Disetujui"
-                                                                                                    checked>
-                                                                                                Tidak Disetujui
-                                                                                                <input type="radio" id="bagian10brkt"
-                                                                                                    name="bagian10brkt[<?= $b10brkt->id_kb ?>]"
-                                                                                                    class="bagian10brkt-radio" value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian10brkt"
-                                                                                                    name="bagian10brkt[<?= $b10brkt->id_kb ?>]"
-                                                                                                    class="bagian10brkt-radio" value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b10brkt->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian10brkt"
+                                                                name="bagian10brkt[<?= $b10brkt->id_kb ?>]"
+                                                                class="bagian10brkt-radio" value="Tidak Disetujui"
+                                                                checked>
+                                                            Tidak Disetujui
+                                                            <input type="radio" id="bagian10brkt"
+                                                                name="bagian10brkt[<?= $b10brkt->id_kb ?>]"
+                                                                class="bagian10brkt-radio" value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian10brkt"
+                                                                name="bagian10brkt[<?= $b10brkt->id_kb ?>]"
+                                                                class="bagian10brkt-radio" value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                             <thead>
@@ -1095,29 +1095,29 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian10tps2 as $b10tps2): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b10tps2->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian10tps2"
-                                                                                                    name="bagian10tps2[<?= $b10tps2->id_kb ?>]"
-                                                                                                    class="bagian10tps2-radio" value="Tidak Disetujui"
-                                                                                                    checked>
-                                                                                                Tidak Disetujui
-                                                                                                <input type="radio" id="bagian10tps2"
-                                                                                                    name="bagian10tps2[<?= $b10tps2->id_kb ?>]"
-                                                                                                    class="bagian10tps2-radio" value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian10tps2"
-                                                                                                    name="bagian10tps2[<?= $b10tps2->id_kb ?>]"
-                                                                                                    class="bagian10tps2-radio" value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b10tps2->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian10tps2"
+                                                                name="bagian10tps2[<?= $b10tps2->id_kb ?>]"
+                                                                class="bagian10tps2-radio" value="Tidak Disetujui"
+                                                                checked>
+                                                            Tidak Disetujui
+                                                            <input type="radio" id="bagian10tps2"
+                                                                name="bagian10tps2[<?= $b10tps2->id_kb ?>]"
+                                                                class="bagian10tps2-radio" value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian10tps2"
+                                                                name="bagian10tps2[<?= $b10tps2->id_kb ?>]"
+                                                                class="bagian10tps2-radio" value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                             <thead>
@@ -1131,28 +1131,28 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian10crh as $b10crh): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b10crh->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian10crh"
-                                                                                                    name="bagian10crh[<?= $b10crh->id_kb ?>]"
-                                                                                                    class="bagian10crh-radio" value="Tidak Disetujui"
-                                                                                                    checked> Tidak Disetujui
-                                                                                                <input type="radio" id="bagian10crh"
-                                                                                                    name="bagian10crh[<?= $b10crh->id_kb ?>]"
-                                                                                                    class="bagian10crh-radio" value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian10crh"
-                                                                                                    name="bagian10crh[<?= $b10crh->id_kb ?>]"
-                                                                                                    class="bagian10crh-radio" value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b10crh->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian10crh"
+                                                                name="bagian10crh[<?= $b10crh->id_kb ?>]"
+                                                                class="bagian10crh-radio" value="Tidak Disetujui"
+                                                                checked> Tidak Disetujui
+                                                            <input type="radio" id="bagian10crh"
+                                                                name="bagian10crh[<?= $b10crh->id_kb ?>]"
+                                                                class="bagian10crh-radio" value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian10crh"
+                                                                name="bagian10crh[<?= $b10crh->id_kb ?>]"
+                                                                class="bagian10crh-radio" value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                             <thead>
@@ -1166,28 +1166,28 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian10ikkk as $b10ikkk): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b10ikkk->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian10ikkk"
-                                                                                                    name="bagian10ikkk[<?= $b10ikkk->id_kb ?>]"
-                                                                                                    class="bagian10ikkk-radio" value="Tidak Disetujui"
-                                                                                                    checked> Tidak Disetujui
-                                                                                                <input type="radio" id="bagian10ikkk"
-                                                                                                    name="bagian10ikkk[<?= $b10ikkk->id_kb ?>]"
-                                                                                                    class="bagian10ikkk-radio" value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian10ikkk"
-                                                                                                    name="bagian10ikkk[<?= $b10ikkk->id_kb ?>]"
-                                                                                                    class="bagian10ikkk-radio" value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b10ikkk->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian10ikkk"
+                                                                name="bagian10ikkk[<?= $b10ikkk->id_kb ?>]"
+                                                                class="bagian10ikkk-radio" value="Tidak Disetujui"
+                                                                checked> Tidak Disetujui
+                                                            <input type="radio" id="bagian10ikkk"
+                                                                name="bagian10ikkk[<?= $b10ikkk->id_kb ?>]"
+                                                                class="bagian10ikkk-radio" value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian10ikkk"
+                                                                name="bagian10ikkk[<?= $b10ikkk->id_kb ?>]"
+                                                                class="bagian10ikkk-radio" value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                             <thead>
@@ -1201,28 +1201,28 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian10mnjl as $b10mnjl): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b10mnjl->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian10mnjl"
-                                                                                                    name="bagian10mnjl[<?= $b10mnjl->id_kb ?>]"
-                                                                                                    class="bagian10mnjl-radio" value="Tidak Disetujui"
-                                                                                                    checked> Tidak Disetujui
-                                                                                                <input type="radio" id="bagian10mnjl"
-                                                                                                    name="bagian10mnjl[<?= $b10mnjl->id_kb ?>]"
-                                                                                                    class="bagian10mnjl-radio" value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian10mnjl"
-                                                                                                    name="bagian10mnjl[<?= $b10mnjl->id_kb ?>]"
-                                                                                                    class="bagian10mnjl-radio" value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b10mnjl->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian10mnjl"
+                                                                name="bagian10mnjl[<?= $b10mnjl->id_kb ?>]"
+                                                                class="bagian10mnjl-radio" value="Tidak Disetujui"
+                                                                checked> Tidak Disetujui
+                                                            <input type="radio" id="bagian10mnjl"
+                                                                name="bagian10mnjl[<?= $b10mnjl->id_kb ?>]"
+                                                                class="bagian10mnjl-radio" value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian10mnjl"
+                                                                name="bagian10mnjl[<?= $b10mnjl->id_kb ?>]"
+                                                                class="bagian10mnjl-radio" value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                         </table>
@@ -1253,28 +1253,28 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian11 as $b11): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b11->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian11"
-                                                                                                    name="bagian11[<?= $b11->id_kb ?>]"
-                                                                                                    class="bagian11-radio" value="Tidak Disetujui" checked>
-                                                                                                Tidak Disetujui
-                                                                                                <input type="radio" id="bagian11"
-                                                                                                    name="bagian11[<?= $b11->id_kb ?>]"
-                                                                                                    class="bagian11-radio" value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian11"
-                                                                                                    name="bagian11[<?= $b11->id_kb ?>]"
-                                                                                                    class="bagian11-radio" value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b11->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian11"
+                                                                name="bagian11[<?= $b11->id_kb ?>]"
+                                                                class="bagian11-radio" value="Tidak Disetujui" checked>
+                                                            Tidak Disetujui
+                                                            <input type="radio" id="bagian11"
+                                                                name="bagian11[<?= $b11->id_kb ?>]"
+                                                                class="bagian11-radio" value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian11"
+                                                                name="bagian11[<?= $b11->id_kb ?>]"
+                                                                class="bagian11-radio" value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                         </table>
@@ -1306,28 +1306,28 @@
                                             <tbody style="cursor:pointer;" id="tbody">
                                                 <?php $no = 1;
                                                 foreach ($bagian12 as $b12): ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <?= $no++ ?>.
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <?= $b12->kompetensi ?>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <center>
-                                                                                                <input type="radio" id="bagian12"
-                                                                                                    name="bagian12[<?= $b12->id_kb ?>]"
-                                                                                                    class="bagian12-radio" value="Tidak Disetujui" checked>
-                                                                                                Tidak Disetujui
-                                                                                                <input type="radio" id="bagian12"
-                                                                                                    name="bagian12[<?= $b12->id_kb ?>]"
-                                                                                                    class="bagian12-radio" value="Mandiri"> Mandiri
-                                                                                                <input type="radio" id="bagian12"
-                                                                                                    name="bagian12[<?= $b12->id_kb ?>]"
-                                                                                                    class="bagian12-radio" value="Supervisi"> Supervisi
-                                                                                            </center>
-                                                                                        </td>
-                                                                                    </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?= $no++ ?>.
+                                                    </td>
+                                                    <td>
+                                                        <?= $b12->kompetensi ?>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input type="radio" id="bagian12"
+                                                                name="bagian12[<?= $b12->id_kb ?>]"
+                                                                class="bagian12-radio" value="Tidak Disetujui" checked>
+                                                            Tidak Disetujui
+                                                            <input type="radio" id="bagian12"
+                                                                name="bagian12[<?= $b12->id_kb ?>]"
+                                                                class="bagian12-radio" value="Mandiri"> Mandiri
+                                                            <input type="radio" id="bagian12"
+                                                                name="bagian12[<?= $b12->id_kb ?>]"
+                                                                class="bagian12-radio" value="Supervisi"> Supervisi
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                         </table>
@@ -1369,23 +1369,23 @@ $('.chosen').chosen({
 <?php if ($this->session->flashdata('Pesan')): ?>
 
 <?php else: ?>
-                                    <script>
-                                    $(document).ready(function() {
-                                        let timerInterval
-                                        Swal.fire({
-                                            title: 'Memuat...',
-                                            timer: 1000,
-                                            onBeforeOpen: () => {
-                                                Swal.showLoading()
-                                            },
-                                            onClose: () => {
-                                                clearInterval(timerInterval)
-                                            }
-                                        }).then((result) => {
+<script>
+$(document).ready(function() {
+    let timerInterval
+    Swal.fire({
+        title: 'Memuat...',
+        timer: 1000,
+        onBeforeOpen: () => {
+            Swal.showLoading()
+        },
+        onClose: () => {
+            clearInterval(timerInterval)
+        }
+    }).then((result) => {
 
-                                        })
-                                    });
-                                    </script>
+    })
+});
+</script>
 <?php endif; ?>
 
 <script>
@@ -1408,23 +1408,23 @@ function getData() {
 <script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
 <script src="<?= base_url(); ?>assets/js/pengguna.js"></script>
 <?php if ($this->session->flashdata('Pesan')): ?>
-                                    <?= $this->session->flashdata('Pesan') ?>
+<?= $this->session->flashdata('Pesan') ?>
 <?php else: ?>
-                                    <script>
-                                    $(document).ready(function() {
-                                        let timerInterval
-                                        Swal.fire({
-                                            title: 'Memuat...',
-                                            timer: 1000,
-                                            onBeforeOpen: () => {
-                                                Swal.showLoading()
-                                            },
-                                            onClose: () => {
-                                                clearInterval(timerInterval)
-                                            }
-                                        }).then((result) => {
+<script>
+$(document).ready(function() {
+    let timerInterval
+    Swal.fire({
+        title: 'Memuat...',
+        timer: 1000,
+        onBeforeOpen: () => {
+            Swal.showLoading()
+        },
+        onClose: () => {
+            clearInterval(timerInterval)
+        }
+    }).then((result) => {
 
-                                        })
-                                    });
-                                    </script>
+    })
+});
+</script>
 <?php endif; ?>

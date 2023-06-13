@@ -107,6 +107,7 @@ class Pengajuan extends CI_Controller
 		$data_index = array(
 			'id' => $kode,
 			'id_user' => $this->session->userdata('login_session')['id_user'],
+			'nama' => $this->session->userdata('login_session')['username'],
 			'tgl_pengajuan' => date("Y-m-d H:i:s"),
 			'kategori' => $kategori,
 			'status' => 'Diminta'

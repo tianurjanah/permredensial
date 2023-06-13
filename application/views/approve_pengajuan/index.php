@@ -41,7 +41,7 @@
                     <table class="table table-hover" id="dtHorizontalExample" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th width="1%">ID</th>
+                                <th width="1%">No</th>
                                 <th>Nama Pengaju</th>
                                 <th>Kategori</th>
                                 <th>Tanggal Pengajuan</th>
@@ -56,7 +56,7 @@
                             foreach ($pengajuan_idx as $pj): ?>
                             <tr>
                                 <td onclick="detail('<?= $pj->id ?>')"><?= $no++ ?>.</td>
-                                <td onclick="detail('<?= $pj->id ?>')"><?= $pj->id_user ?></td>
+                                <td onclick="detail('<?= $pj->id ?>')"><?= $pj->nama ?></td>
                                 <td onclick="detail('<?= $pj->id ?>')"><?= $pj->kategori ?></td>
                                 <td onclick="detail('<?= $pj->id ?>')"><?= $pj->tgl_pengajuan ?></td>
                                 <td onclick="detail('<?= $pj->id ?>')"><?= $pj->mitra ?></td>

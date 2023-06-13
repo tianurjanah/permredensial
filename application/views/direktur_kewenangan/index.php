@@ -52,31 +52,31 @@
                         <tbody style="cursor:pointer;" id="tbody">
                             <?php $no = 1;
                             foreach ($surpen as $sp): ?>
-                                <tr>
-                                    <td>
-                                        <?= $sp->id_penugasan ?>
-                                    </td>
-                                    <td>
-                                        <?= $sp->id_user ?>
-                                    </td>
-                                    <td>
-                                        <?= $sp->tanggal_penugasan ?>
-                                    </td>
-                                    <td>
-                                        <?= $sp->tanggal_berlaku ?>
-                                    </td>
-                                    <td>
-                                        <?= $sp->direktur ?>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <a href="<?= base_url() ?>Direktur_kewenangan/cetak_kewenangan/<?= $sp->id_pengajuan_index ?>"
-                                                class="btn btn-circle btn-success btn-sm">
-                                                <i class="fas fa-pen"></i>
-                                            </a>
-                                        </center>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>
+                                    <?= $sp->id_penugasan ?>
+                                </td>
+                                <td>
+                                    <?= $sp->nama ?>
+                                </td>
+                                <td>
+                                    <?= $sp->tanggal_penugasan ?>
+                                </td>
+                                <td>
+                                    <?= $sp->tanggal_berlaku ?>
+                                </td>
+                                <td>
+                                    <?= $sp->direktur ?>
+                                </td>
+                                <td>
+                                    <center>
+                                        <a href="<?= base_url() ?>Direktur_kewenangan/cetak_kewenangan/<?= $sp->id_pengajuan_index ?>"
+                                            class="btn btn-circle btn-success btn-sm">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
+                                    </center>
+                                </td>
+                            </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
@@ -97,55 +97,55 @@
 <script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
 <script src="<?= base_url(); ?>assets/js/pengguna.js"></script>
 <?php if ($this->session->flashdata('Pesan')): ?>
-    <?= $this->session->flashdata('Pesan') ?>
+<?= $this->session->flashdata('Pesan') ?>
 <?php else: ?>
-    <script>
-        $(document).ready(function () {
-            let timerInterval
+<script>
+$(document).ready(function() {
+    let timerInterval
+    Swal.fire({
+        title: 'Memuat...',
+        timer: 1000,
+        onBeforeOpen: () => {
+            Swal.showLoading()
+        },
+        onClose: () => {
+            clearInterval(timerInterval)
+        }
+    }).then((result) => {
+
+    })
+});
+</script>
+<?php endif; ?>
+<script>
+function konfirmasi(nomor) {
+    var base_url = $('#baseurl').val();
+
+    swal.fire({
+        title: "Hapus Data ini?",
+        icon: "warning",
+        closeOnClickOutside: false,
+        showCancelButton: true,
+        confirmButtonText: 'Iya',
+        confirmButtonColor: '#4e73df',
+        cancelButtonText: 'Batal',
+        cancelButtonColor: '#d33',
+    }).then((result) => {
+        if (result.value) {
             Swal.fire({
-                title: 'Memuat...',
-                timer: 1000,
+                title: "Memuat...",
                 onBeforeOpen: () => {
                     Swal.showLoading()
                 },
-                onClose: () => {
-                    clearInterval(timerInterval)
+                timer: 1000,
+                showConfirmButton: false,
+            }).then(
+                function() {
+                    window.location.href = base_url + "Vsu_pendidikan/proses_hapus_pendidikan/" + nomor;
                 }
-            }).then((result) => {
+            );
+        }
+    });
 
-            })
-        });
-    </script>
-<?php endif; ?>
-<script>
-    function konfirmasi(nomor) {
-        var base_url = $('#baseurl').val();
-
-        swal.fire({
-            title: "Hapus Data ini?",
-            icon: "warning",
-            closeOnClickOutside: false,
-            showCancelButton: true,
-            confirmButtonText: 'Iya',
-            confirmButtonColor: '#4e73df',
-            cancelButtonText: 'Batal',
-            cancelButtonColor: '#d33',
-        }).then((result) => {
-            if (result.value) {
-                Swal.fire({
-                    title: "Memuat...",
-                    onBeforeOpen: () => {
-                        Swal.showLoading()
-                    },
-                    timer: 1000,
-                    showConfirmButton: false,
-                }).then(
-                    function () {
-                        window.location.href = base_url + "Vsu_pendidikan/proses_hapus_pendidikan/" + nomor;
-                    }
-                );
-            }
-        });
-
-    }
+}
 </script>

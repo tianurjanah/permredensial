@@ -42,6 +42,7 @@
                         <thead>
                             <tr>
                                 <th width="1%">ID Rekomendasi</th>
+                                <th>Nama Pengaju</th>
                                 <th>Mitra</th>
                                 <th>Komite</th>
                                 <th>Status</th>
@@ -53,23 +54,24 @@
                         <tbody style="cursor:pointer;" id="tbody">
                             <?php $no = 1;
                             foreach ($appdir as $ad): ?>
-                                <tr>
-                                    <td onclick="detail('<?= $ad->id_rekomendasi ?>')"><?= $ad->id_rekomendasi ?></td>
-                                    <td onclick="detail('<?= $ad->id_rekomendasi ?>')"><?= $ad->mitra ?></td>
-                                    <td onclick="detail('<?= $ad->id_rekomendasi ?>')"><?= $ad->komite ?></td>
-                                    <td onclick="detail('<?= $ad->id_rekomendasi ?>')"><?= $ad->status ?></td>
-                                    <td onclick="detail('<?= $ad->id_rekomendasi ?>')"><?= $ad->tanggal ?></td>
-                                    <td onclick="detail('<?= $ad->id_rekomendasi ?>')"><?= $ad->komentar ?></td>
-                                    <td>
-                                        <center>
-                                            <a href="<?= base_url() ?>direktur_approve/proses_direktur_approve/<?= $ad->id_rekomendasi ?>"
-                                                class="btn btn-info btn-sm">
-                                                <i>APPROVE</i>
-                                            </a>
-                                        </center>
-                                    </td>
-                                    <td></td>
-                                </tr>
+                            <tr>
+                                <td onclick="detail('<?= $ad->id_rekomendasi ?>')"><?= $ad->id_rekomendasi ?></td>
+                                <td onclick="detail('<?= $ad->id_rekomendasi ?>')"><?= $ad->nama ?></td>
+                                <td onclick="detail('<?= $ad->id_rekomendasi ?>')"><?= $ad->mitra ?></td>
+                                <td onclick="detail('<?= $ad->id_rekomendasi ?>')"><?= $ad->komite ?></td>
+                                <td onclick="detail('<?= $ad->id_rekomendasi ?>')"><?= $ad->status ?></td>
+                                <td onclick="detail('<?= $ad->id_rekomendasi ?>')"><?= $ad->tanggal ?></td>
+                                <td onclick="detail('<?= $ad->id_rekomendasi ?>')"><?= $ad->komentar ?></td>
+                                <td>
+                                    <center>
+                                        <a href="<?= base_url() ?>direktur_approve/proses_direktur_approve/<?= $ad->id_rekomendasi ?>"
+                                            class="btn btn-info btn-sm">
+                                            <i>APPROVE</i>
+                                        </a>
+                                    </center>
+                                </td>
+                                <td></td>
+                            </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
@@ -90,55 +92,55 @@
 <script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
 <script src="<?= base_url(); ?>assets/js/pengguna.js"></script>
 <?php if ($this->session->flashdata('Pesan')): ?>
-    <?= $this->session->flashdata('Pesan') ?>
+<?= $this->session->flashdata('Pesan') ?>
 <?php else: ?>
-    <script>
-        $(document).ready(function () {
-            let timerInterval
+<script>
+$(document).ready(function() {
+    let timerInterval
+    Swal.fire({
+        title: 'Memuat...',
+        timer: 1000,
+        onBeforeOpen: () => {
+            Swal.showLoading()
+        },
+        onClose: () => {
+            clearInterval(timerInterval)
+        }
+    }).then((result) => {
+
+    })
+});
+</script>
+<?php endif; ?>
+<script>
+function konfirmasi(nomor) {
+    var base_url = $('#baseurl').val();
+
+    swal.fire({
+        title: "Hapus Data ini?",
+        icon: "warning",
+        closeOnClickOutside: false,
+        showCancelButton: true,
+        confirmButtonText: 'Iya',
+        confirmButtonColor: '#4e73df',
+        cancelButtonText: 'Batal',
+        cancelButtonColor: '#d33',
+    }).then((result) => {
+        if (result.value) {
             Swal.fire({
-                title: 'Memuat...',
-                timer: 1000,
+                title: "Memuat...",
                 onBeforeOpen: () => {
                     Swal.showLoading()
                 },
-                onClose: () => {
-                    clearInterval(timerInterval)
+                timer: 1000,
+                showConfirmButton: false,
+            }).then(
+                function() {
+                    window.location.href = base_url + "Vsu_pendidikan/proses_hapus_pendidikan/" + nomor;
                 }
-            }).then((result) => {
+            );
+        }
+    });
 
-            })
-        });
-    </script>
-<?php endif; ?>
-<script>
-    function konfirmasi(nomor) {
-        var base_url = $('#baseurl').val();
-
-        swal.fire({
-            title: "Hapus Data ini?",
-            icon: "warning",
-            closeOnClickOutside: false,
-            showCancelButton: true,
-            confirmButtonText: 'Iya',
-            confirmButtonColor: '#4e73df',
-            cancelButtonText: 'Batal',
-            cancelButtonColor: '#d33',
-        }).then((result) => {
-            if (result.value) {
-                Swal.fire({
-                    title: "Memuat...",
-                    onBeforeOpen: () => {
-                        Swal.showLoading()
-                    },
-                    timer: 1000,
-                    showConfirmButton: false,
-                }).then(
-                    function () {
-                        window.location.href = base_url + "Vsu_pendidikan/proses_hapus_pendidikan/" + nomor;
-                    }
-                );
-            }
-        });
-
-    }
+}
 </script>

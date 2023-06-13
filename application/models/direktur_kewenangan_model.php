@@ -131,4 +131,500 @@ class direktur_kewenangan_model extends ci_model
 
         return $formattedDate;
     }
+    public function getKompetensiDatab1($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', 'b1');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab2($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '2');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab3($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '3');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab4($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '4');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab5($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '5');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab6($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '6');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab7($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '7');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab8($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '9');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab9($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '9');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab9a($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '9a');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab9b($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '9b');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab9c($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '9c');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab9d($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '9d');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab9e($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '9e');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab9f($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '9f');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab9g($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '9g');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab9h($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '9h');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab9i($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '9i');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab9j($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '9j');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab10kmr($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '10kmr');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab10smltr($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '10smltr');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab10cts($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '10cts');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab10re($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '10re');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab10mvre($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '10mvre');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab10brkt($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '10brkt');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab10tps2($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '10tps2');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab10crh($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '10crh');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab10ikkk($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '10ikkk');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab10mnjl($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '10mnjl');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab11($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '11');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+    public function getKompetensiDatab12($id_pengajuan_index)
+    {
+        $this->db->select('k.bagian, k.kompetensi, p.status');
+        $this->db->from('kompetensi AS k');
+        $this->db->join('pengajuan AS p', 'p.id_kompetensi = k.id_kb', 'right');
+        $this->db->where('k.bagian', '12');
+        $this->db->where('p.id_pengajuan_index', $id_pengajuan_index);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
 }

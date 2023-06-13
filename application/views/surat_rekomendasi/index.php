@@ -42,6 +42,7 @@
                         <thead>
                             <tr>
                                 <th width="1%">ID Rekomendasi</th>
+                                <th>Nama Pengaju</th>
                                 <th>Mitra</th>
                                 <th>Komite</th>
                                 <th>Status</th>
@@ -52,14 +53,15 @@
                         <tbody style="cursor:pointer;" id="tbody">
                             <?php $no = 1;
                             foreach ($rekomendasi as $i): ?>
-                                <tr>
-                                    <td onclick="detail('<?= $i->id_rekomendasi ?>')"><?= $i->id_rekomendasi ?></td>
-                                    <td onclick="detail('<?= $i->id_rekomendasi ?>')"><?= $i->mitra ?></td>
-                                    <td onclick="detail('<?= $i->id_rekomendasi ?>')"><?= $i->komite ?></td>
-                                    <td onclick="detail('<?= $i->id_rekomendasi ?>')"><?= $i->status ?></td>
-                                    <td onclick="detail('<?= $i->id_rekomendasi ?>')"><?= $i->tanggal ?></td>
-                                    <td onclick="detail('<?= $i->id_rekomendasi ?>')"><?= $i->komentar ?></td>
-                                </tr>
+                            <tr>
+                                <td onclick="detail('<?= $i->id_rekomendasi ?>')"><?= $i->id_rekomendasi ?></td>
+                                <td onclick="detail('<?= $i->id_rekomendasi ?>')"><?= $i->nama ?></td>
+                                <td onclick="detail('<?= $i->id_rekomendasi ?>')"><?= $i->mitra ?></td>
+                                <td onclick="detail('<?= $i->id_rekomendasi ?>')"><?= $i->komite ?></td>
+                                <td onclick="detail('<?= $i->id_rekomendasi ?>')"><?= $i->status ?></td>
+                                <td onclick="detail('<?= $i->id_rekomendasi ?>')"><?= $i->tanggal ?></td>
+                                <td onclick="detail('<?= $i->id_rekomendasi ?>')"><?= $i->komentar ?></td>
+                            </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
@@ -80,55 +82,55 @@
 <script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
 <script src="<?= base_url(); ?>assets/js/pengguna.js"></script>
 <?php if ($this->session->flashdata('Pesan')): ?>
-    <?= $this->session->flashdata('Pesan') ?>
+<?= $this->session->flashdata('Pesan') ?>
 <?php else: ?>
-    <script>
-        $(document).ready(function () {
-            let timerInterval
+<script>
+$(document).ready(function() {
+    let timerInterval
+    Swal.fire({
+        title: 'Memuat...',
+        timer: 1000,
+        onBeforeOpen: () => {
+            Swal.showLoading()
+        },
+        onClose: () => {
+            clearInterval(timerInterval)
+        }
+    }).then((result) => {
+
+    })
+});
+</script>
+<?php endif; ?>
+<script>
+function konfirmasi(nomor) {
+    var base_url = $('#baseurl').val();
+
+    swal.fire({
+        title: "Hapus Data ini?",
+        icon: "warning",
+        closeOnClickOutside: false,
+        showCancelButton: true,
+        confirmButtonText: 'Iya',
+        confirmButtonColor: '#4e73df',
+        cancelButtonText: 'Batal',
+        cancelButtonColor: '#d33',
+    }).then((result) => {
+        if (result.value) {
             Swal.fire({
-                title: 'Memuat...',
-                timer: 1000,
+                title: "Memuat...",
                 onBeforeOpen: () => {
                     Swal.showLoading()
                 },
-                onClose: () => {
-                    clearInterval(timerInterval)
+                timer: 1000,
+                showConfirmButton: false,
+            }).then(
+                function() {
+                    window.location.href = base_url + "Vsu_pendidikan/proses_hapus_pendidikan/" + nomor;
                 }
-            }).then((result) => {
+            );
+        }
+    });
 
-            })
-        });
-    </script>
-<?php endif; ?>
-<script>
-    function konfirmasi(nomor) {
-        var base_url = $('#baseurl').val();
-
-        swal.fire({
-            title: "Hapus Data ini?",
-            icon: "warning",
-            closeOnClickOutside: false,
-            showCancelButton: true,
-            confirmButtonText: 'Iya',
-            confirmButtonColor: '#4e73df',
-            cancelButtonText: 'Batal',
-            cancelButtonColor: '#d33',
-        }).then((result) => {
-            if (result.value) {
-                Swal.fire({
-                    title: "Memuat...",
-                    onBeforeOpen: () => {
-                        Swal.showLoading()
-                    },
-                    timer: 1000,
-                    showConfirmButton: false,
-                }).then(
-                    function () {
-                        window.location.href = base_url + "Vsu_pendidikan/proses_hapus_pendidikan/" + nomor;
-                    }
-                );
-            }
-        });
-
-    }
+}
 </script>

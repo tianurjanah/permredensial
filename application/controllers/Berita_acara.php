@@ -94,6 +94,8 @@ class Berita_acara extends CI_Controller
         $data_kompetensi = array(
             'id_rekomendasi' => $id_rekomendasi,
             'id_pengajuan_index' => $id_pengajuan_index,
+            'id_user' => $user[0]->id_user,
+            'nama' => $user[0]->nama,
             'mitra' => $mitra,
             'komite' => $komite,
             'status' => $status,

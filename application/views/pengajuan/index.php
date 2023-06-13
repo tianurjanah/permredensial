@@ -25,6 +25,8 @@
                                 <th>Jenis Pengajuan</th>
                                 <th class="text-center">Tanggal Pengajuan</th>
                                 <th class="text-center">Status</th>
+                                <th class="text-center">Jadwal Kredensial</th>
+                                <th class="text-center">Pukul</th>
                             </tr>
                         </thead>
                         <tbody style="cursor:pointer;" id="tbody">
@@ -36,6 +38,9 @@
                                 <td onclick="detail('<?= $pi->id ?>')" class="text-center"><?= $pi->tgl_pengajuan ?>
                                 </td>
                                 <td onclick="detail('<?= $pi->id ?>')" class="text-center"><?= $pi->status ?></td>
+                                <td onclick="detail('<?= $pi->id ?>')" class="text-center"><?= $pi->jadwal ?>
+                                </td>
+                                <td onclick="detail('<?= $pi->id ?>')" class="text-center"><?= $pi->pukul ?></td>
                             </tr>
                             <?php endforeach; ?>
                         </tbody>

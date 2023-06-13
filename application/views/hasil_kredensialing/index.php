@@ -42,6 +42,7 @@
                         <thead>
                             <tr>
                                 <th width="1%">ID</th>
+                                <th>Nama Pengaju</th>
                                 <th>Mitra</th>
                                 <th>Tanggal Pengajuan</th>
                                 <th>Kategori</th>
@@ -55,28 +56,29 @@
                         <tbody style="cursor:pointer;" id="tbody">
                             <?php $no = 1;
                             foreach ($pengajuan_index as $pi): ?>
-                                <tr>
-                                    <td onclick="detail('<?= $pi->id ?>')"><?= $pi->id ?></td>
-                                    <td onclick="detail('<?= $pi->id ?>')"><?= $pi->mitra ?></td>
-                                    <td onclick="detail('<?= $pi->id ?>')"><?= $pi->tgl_pengajuan ?></td>
-                                    <td onclick="detail('<?= $pi->id ?>')"><?= $pi->kategori ?></td>
-                                    <td onclick="detail('<?= $pi->id ?>')"><?= $pi->status ?></td>
-                                    <td onclick="detail('<?= $pi->id ?>')"><?= $pi->catatan ?></td>
-                                    <td onclick="detail('<?= $pi->id ?>')"><?= $pi->jadwal ?></td>
-                                    <td onclick="detail('<?= $pi->id ?>')"><?= $pi->pukul ?></td>
-                                    <td>
-                                        <center>
-                                            <?php if ($pi->status == 'Approve'): ?>
-                                                <span class="text-success">Approved</span>
-                                            <?php else: ?>
-                                                <a href="<?= base_url() ?>berita_acara/ubah_acara/<?= $pi->id ?>"
-                                                    class="btn btn-circle btn-success btn-sm">
-                                                    <i class="fas fa-pen"></i>
-                                                </a>
-                                            <?php endif; ?>
-                                        </center>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td onclick="detail('<?= $pi->id ?>')"><?= $pi->id ?></td>
+                                <td onclick="detail('<?= $pi->id ?>')"><?= $pi->nama ?></td>
+                                <td onclick="detail('<?= $pi->id ?>')"><?= $pi->mitra ?></td>
+                                <td onclick="detail('<?= $pi->id ?>')"><?= $pi->tgl_pengajuan ?></td>
+                                <td onclick="detail('<?= $pi->id ?>')"><?= $pi->kategori ?></td>
+                                <td onclick="detail('<?= $pi->id ?>')"><?= $pi->status ?></td>
+                                <td onclick="detail('<?= $pi->id ?>')"><?= $pi->catatan ?></td>
+                                <td onclick="detail('<?= $pi->id ?>')"><?= $pi->jadwal ?></td>
+                                <td onclick="detail('<?= $pi->id ?>')"><?= $pi->pukul ?></td>
+                                <td>
+                                    <center>
+                                        <?php if ($pi->status == 'Approve'): ?>
+                                        <span class="text-success">Approved</span>
+                                        <?php else: ?>
+                                        <a href="<?= base_url() ?>berita_acara/ubah_acara/<?= $pi->id ?>"
+                                            class="btn btn-circle btn-success btn-sm">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
+                                        <?php endif; ?>
+                                    </center>
+                                </td>
+                            </tr>
                             <?php endforeach; ?>
                         </tbody>
 
@@ -98,55 +100,55 @@
 <script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
 <script src="<?= base_url(); ?>assets/js/pengguna.js"></script>
 <?php if ($this->session->flashdata('Pesan')): ?>
-    <?= $this->session->flashdata('Pesan') ?>
+<?= $this->session->flashdata('Pesan') ?>
 <?php else: ?>
-    <script>
-        $(document).ready(function () {
-            let timerInterval
+<script>
+$(document).ready(function() {
+    let timerInterval
+    Swal.fire({
+        title: 'Memuat...',
+        timer: 1000,
+        onBeforeOpen: () => {
+            Swal.showLoading()
+        },
+        onClose: () => {
+            clearInterval(timerInterval)
+        }
+    }).then((result) => {
+
+    })
+});
+</script>
+<?php endif; ?>
+<script>
+function konfirmasi(nomor) {
+    var base_url = $('#baseurl').val();
+
+    swal.fire({
+        title: "Hapus Data ini?",
+        icon: "warning",
+        closeOnClickOutside: false,
+        showCancelButton: true,
+        confirmButtonText: 'Iya',
+        confirmButtonColor: '#4e73df',
+        cancelButtonText: 'Batal',
+        cancelButtonColor: '#d33',
+    }).then((result) => {
+        if (result.value) {
             Swal.fire({
-                title: 'Memuat...',
-                timer: 1000,
+                title: "Memuat...",
                 onBeforeOpen: () => {
                     Swal.showLoading()
                 },
-                onClose: () => {
-                    clearInterval(timerInterval)
+                timer: 1000,
+                showConfirmButton: false,
+            }).then(
+                function() {
+                    window.location.href = base_url + "Vsu_pendidikan/proses_hapus_pendidikan/" + nomor;
                 }
-            }).then((result) => {
+            );
+        }
+    });
 
-            })
-        });
-    </script>
-<?php endif; ?>
-<script>
-    function konfirmasi(nomor) {
-        var base_url = $('#baseurl').val();
-
-        swal.fire({
-            title: "Hapus Data ini?",
-            icon: "warning",
-            closeOnClickOutside: false,
-            showCancelButton: true,
-            confirmButtonText: 'Iya',
-            confirmButtonColor: '#4e73df',
-            cancelButtonText: 'Batal',
-            cancelButtonColor: '#d33',
-        }).then((result) => {
-            if (result.value) {
-                Swal.fire({
-                    title: "Memuat...",
-                    onBeforeOpen: () => {
-                        Swal.showLoading()
-                    },
-                    timer: 1000,
-                    showConfirmButton: false,
-                }).then(
-                    function () {
-                        window.location.href = base_url + "Vsu_pendidikan/proses_hapus_pendidikan/" + nomor;
-                    }
-                );
-            }
-        });
-
-    }
+}
 </script>

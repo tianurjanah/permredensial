@@ -14,6 +14,7 @@ class Direktur_kewenangan extends CI_Controller
         $this->load->model('user_model');
         $this->load->model('direktur_kewenangan_model');
         $this->load->model('direktur_penugasan_model');
+        $this->load->model('proses_pengajuan_model');
         // $this->load->model('approve_pengajuan_model');
 
     }
@@ -184,12 +185,45 @@ class Direktur_kewenangan extends CI_Controller
         redirect('vsu_pendidikan/index');
     }
 
-    public function cetak_kewenangan($id)
+    public function cetak_kewenangan($id_pengajuan_index)
     {
         // Load the TCPDF library
         $this->load->library('pdf');
         // $id = $this->session->userdata('login_session')['nama'];
-        $data['user'] = $this->direktur_kewenangan_model->getpengguna($id);
+        $data['user'] = $this->direktur_kewenangan_model->getpengguna($id_pengajuan_index);
+
+        $data['bagian1'] = $this->direktur_kewenangan_model->getKompetensiDatab1($id_pengajuan_index);
+        $data['bagian2'] = $this->direktur_kewenangan_model->getKompetensiDatab2($id_pengajuan_index);
+        $data['bagian3'] = $this->direktur_kewenangan_model->getKompetensiDatab3($id_pengajuan_index);
+        $data['bagian4'] = $this->direktur_kewenangan_model->getKompetensiDatab4($id_pengajuan_index);
+        $data['bagian5'] = $this->direktur_kewenangan_model->getKompetensiDatab5($id_pengajuan_index);
+        $data['bagian6'] = $this->direktur_kewenangan_model->getKompetensiDatab6($id_pengajuan_index);
+        $data['bagian7'] = $this->direktur_kewenangan_model->getKompetensiDatab7($id_pengajuan_index);
+        $data['bagian8'] = $this->direktur_kewenangan_model->getKompetensiDatab8($id_pengajuan_index);
+        $data['bagian9'] = $this->direktur_kewenangan_model->getKompetensiDatab9($id_pengajuan_index);
+        $data['bagian9a'] = $this->direktur_kewenangan_model->getKompetensiDatab9a($id_pengajuan_index);
+        $data['bagian9b'] = $this->direktur_kewenangan_model->getKompetensiDatab9b($id_pengajuan_index);
+        $data['bagian9c'] = $this->direktur_kewenangan_model->getKompetensiDatab9c($id_pengajuan_index);
+        $data['bagian9d'] = $this->direktur_kewenangan_model->getKompetensiDatab9d($id_pengajuan_index);
+        $data['bagian9e'] = $this->direktur_kewenangan_model->getKompetensiDatab9e($id_pengajuan_index);
+        $data['bagian9f'] = $this->direktur_kewenangan_model->getKompetensiDatab9f($id_pengajuan_index);
+        $data['bagian9g'] = $this->direktur_kewenangan_model->getKompetensiDatab9g($id_pengajuan_index);
+        $data['bagian9h'] = $this->direktur_kewenangan_model->getKompetensiDatab9h($id_pengajuan_index);
+        $data['bagian9i'] = $this->direktur_kewenangan_model->getKompetensiDatab9i($id_pengajuan_index);
+        $data['bagian9j'] = $this->direktur_kewenangan_model->getKompetensiDatab9j($id_pengajuan_index);
+        $data['bagian10kmr'] = $this->direktur_kewenangan_model->getKompetensiDatab10kmr($id_pengajuan_index);
+        $data['bagian10smltr'] = $this->direktur_kewenangan_model->getKompetensiDatab10smltr($id_pengajuan_index);
+        $data['bagian10cts'] = $this->direktur_kewenangan_model->getKompetensiDatab10cts($id_pengajuan_index);
+        $data['bagian10re'] = $this->direktur_kewenangan_model->getKompetensiDatab10re($id_pengajuan_index);
+        $data['bagian10mvre'] = $this->direktur_kewenangan_model->getKompetensiDatab10mvre($id_pengajuan_index);
+        $data['bagian10brkt'] = $this->direktur_kewenangan_model->getKompetensiDatab10brkt($id_pengajuan_index);
+        $data['bagian10tps2'] = $this->direktur_kewenangan_model->getKompetensiDatab10tps2($id_pengajuan_index);
+        $data['bagian10crh'] = $this->direktur_kewenangan_model->getKompetensiDatab10crh($id_pengajuan_index);
+        $data['bagian10ikkk'] = $this->direktur_kewenangan_model->getKompetensiDatab10ikkk($id_pengajuan_index);
+        $data['bagian10mnjl'] = $this->direktur_kewenangan_model->getKompetensiDatab10mnjl($id_pengajuan_index);
+        $data['bagian11'] = $this->direktur_kewenangan_model->getKompetensiDatab11($id_pengajuan_index);
+        $data['bagian12'] = $this->direktur_kewenangan_model->getKompetensiDatab12($id_pengajuan_index);
+
         // Create a new PDF instance
         $pdf = new TCPDF();
 
