@@ -19,7 +19,7 @@ class Approve_pengajuan extends CI_Controller
     }
     public function index()
     {
-        $data['title'] = 'Proses App. Dokumen';
+        $data['title'] = 'Approve Pengajuan';
         $data['user'] = $this->user_model->data()->result();
 
         $data['pengajuan_idx'] = $this->kompetensi_model->ambil_pengajuan_index()->result();

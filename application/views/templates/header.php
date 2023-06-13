@@ -247,7 +247,7 @@ if (!$this->session->has_userdata('login_session')){
             <div class="sidebar-heading">
                 Approve Pengajuan
             </div>
-            <?php if($title == 'Approve Pengajuan Kredensial'): ?>
+            <?php if($title == 'Approve Pengajuan'): ?>
             <li class="nav-item active">
                 <?php else: ?>
             <li class="nav-item">
